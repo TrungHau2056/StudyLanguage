@@ -7,8 +7,6 @@ import { wordStatus } from './WordList';
 import ExerciseCard from './Exercise';
 import type { View } from '../App';
 
-/** Levels with grammar lessons and phrases; higher levels have vocabulary only for now. */
-const FULL_LEVELS: Level[] = ['A1', 'A2'];
 const PASS = 0.8;
 
 interface Props {
@@ -48,7 +46,6 @@ export default function Roadmap(props: Props) {
           const lvLessons = lessons.filter((l) => l.level === level);
           const lvPhrases = sets.filter((s) => s.level === level).flatMap((s) => s.phrases);
           const state = passed.has(level) ? 'done' : level === current ? 'current' : LEVELS.indexOf(level) < LEVELS.indexOf(current) ? 'done' : 'later';
-          const full = FULL_LEVELS.includes(level);
           return (
             <li key={level} className={state}>
               <div className="lv-head">
@@ -58,12 +55,8 @@ export default function Roadmap(props: Props) {
                 {state === 'later' && <Lock className="icon" />}
               </div>
               <Progress label="Từ vựng" got={studied} total={inLevel.length} />
-              {full ? (
-                <>
-                  <Progress label="Ngữ pháp" got={lvLessons.filter((l) => doneLessons.has(l.id)).length} total={lvLessons.length} />
-                  <Progress label="Mẫu câu" got={lvPhrases.filter((p) => learnedPhrases.has(p.id)).length} total={lvPhrases.length} />
-                </>
-              ) : <p className="hint">Ngữ pháp và mẫu câu cho trình độ này sẽ có sau.</p>}
+              <Progress label="Ngữ pháp" got={lvLessons.filter((l) => doneLessons.has(l.id)).length} total={lvLessons.length} />
+              <Progress label="Mẫu câu" got={lvPhrases.filter((p) => learnedPhrases.has(p.id)).length} total={lvPhrases.length} />
               {state === 'current' && (
                 <div className="row">
                   <button onClick={() => go('grammar')}>Bài ngữ pháp</button>

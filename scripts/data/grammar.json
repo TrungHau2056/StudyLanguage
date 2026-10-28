@@ -4952,5 +4952,5970 @@
     "explain": "'want' đi với 'to V'."
    }
   ]
+ },
+ {
+  "id": "present-perfect-continuous",
+  "level": "B1",
+  "title": "Hiện tại hoàn thành tiếp diễn (have been V-ing)",
+  "summary": "Thì hiện tại hoàn thành tiếp diễn diễn tả hành động bắt đầu trong quá khứ, kéo dài liên tục đến hiện tại (và có thể còn tiếp tục), nhấn mạnh quá trình hoặc thời gian kéo dài.",
+  "formulas": [
+   "Khẳng định: S + have/has + been + V-ing",
+   "Phủ định: S + have/has + not + been + V-ing",
+   "Nghi vấn: Have/Has + S + been + V-ing?",
+   "Hỏi thời gian: How long + have/has + S + been + V-ing?"
+  ],
+  "usage": [
+   "Hành động bắt đầu trong quá khứ và vẫn đang tiếp diễn, thường đi với for, since, how long.",
+   "Hành động vừa mới dừng nhưng còn để lại dấu hiệu ở hiện tại (mệt, ướt, bẩn...).",
+   "Nhấn mạnh quá trình, độ dài thời gian hơn là kết quả (khác với hiện tại hoàn thành).",
+   "Không dùng với động từ chỉ trạng thái như know, like, want, belong; dùng hiện tại hoàn thành thay thế."
+  ],
+  "mistakes": [
+   {
+    "wrong": "I am living here for five years.",
+    "right": "I have been living here for five years.",
+    "why": "Hành động kéo dài từ quá khứ đến nay với 'for' phải dùng thì hiện tại hoàn thành tiếp diễn, không dùng hiện tại tiếp diễn."
+   },
+   {
+    "wrong": "I have been knowing her since 2015.",
+    "right": "I have known her since 2015.",
+    "why": "'Know' là động từ trạng thái, không chia dạng V-ing."
+   },
+   {
+    "wrong": "She has been work here since May.",
+    "right": "She has been working here since May.",
+    "why": "Sau 'been' động từ phải thêm -ing."
+   }
+  ],
+  "examples": [
+   {
+    "en": "I have been studying English for three years.",
+    "vi": "Tôi đã học tiếng Anh được ba năm rồi."
+   },
+   {
+    "en": "It has been raining since this morning.",
+    "vi": "Trời mưa từ sáng đến giờ."
+   },
+   {
+    "en": "How long have you been waiting for the bus?",
+    "vi": "Bạn đã đợi xe buýt bao lâu rồi?"
+   },
+   {
+    "en": "She's tired because she has been working all day.",
+    "vi": "Cô ấy mệt vì đã làm việc cả ngày."
+   },
+   {
+    "en": "We haven't been sleeping well lately.",
+    "vi": "Dạo này chúng tôi ngủ không ngon."
+   },
+   {
+    "en": "Your eyes are red. Have you been crying?",
+    "vi": "Mắt bạn đỏ quá. Bạn vừa khóc à?"
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "I ___ (wait) for you for two hours!",
+    "answers": [
+     "have been waiting",
+     "'ve been waiting"
+    ],
+    "options": [],
+    "explain": "Hành động kéo dài đến hiện tại với 'for': have been + V-ing."
+   },
+   {
+    "type": "gap",
+    "prompt": "She ___ (learn) Japanese since last year.",
+    "answers": [
+     "has been learning",
+     "'s been learning"
+    ],
+    "options": [],
+    "explain": "Chủ ngữ ngôi ba số ít dùng 'has been'."
+   },
+   {
+    "type": "gap",
+    "prompt": "They ___ (not/sleep) well recently.",
+    "answers": [
+     "have not been sleeping",
+     "haven't been sleeping"
+    ],
+    "options": [],
+    "explain": "Phủ định: have not + been + V-ing."
+   },
+   {
+    "type": "gap",
+    "prompt": "How long ___ you ___ (live) in Hanoi?",
+    "answers": [
+     "have, been living"
+    ],
+    "options": [],
+    "explain": "Câu hỏi: How long + have + S + been + V-ing."
+   },
+   {
+    "type": "choice",
+    "prompt": "My hands are dirty because I ___ in the garden.",
+    "answers": [
+     "have been working"
+    ],
+    "options": [
+     "work",
+     "have been working",
+     "am working",
+     "worked"
+    ],
+    "explain": "Hành động vừa xong để lại dấu hiệu ở hiện tại."
+   },
+   {
+    "type": "choice",
+    "prompt": "I ___ him for ten years.",
+    "answers": [
+     "have known"
+    ],
+    "options": [
+     "have been knowing",
+     "have known",
+     "am knowing"
+    ],
+    "explain": "'Know' là động từ trạng thái nên dùng hiện tại hoàn thành."
+   },
+   {
+    "type": "choice",
+    "prompt": "It has been snowing ___ Monday.",
+    "answers": [
+     "since"
+    ],
+    "options": [
+     "for",
+     "since",
+     "from",
+     "ago"
+    ],
+    "explain": "'Since' đi với mốc thời gian."
+   },
+   {
+    "type": "order",
+    "prompt": "We have been talking about this problem for hours.",
+    "answers": [
+     "We have been talking about this problem for hours.",
+     "For hours we have been talking about this problem."
+    ],
+    "options": [],
+    "explain": "Trật tự: S + have been + V-ing + tân ngữ + thời gian."
+   },
+   {
+    "type": "order",
+    "prompt": "Has he been playing games all night?",
+    "answers": [
+     "Has he been playing games all night?"
+    ],
+    "options": [],
+    "explain": "Câu hỏi đảo 'has' lên trước chủ ngữ."
+   },
+   {
+    "type": "error",
+    "prompt": "He have been running for thirty minutes.",
+    "answers": [
+     "have",
+     "has"
+    ],
+    "options": [],
+    "explain": "Chủ ngữ 'he' đi với 'has'."
+   },
+   {
+    "type": "error",
+    "prompt": "I have been read this book since Sunday.",
+    "answers": [
+     "read",
+     "reading"
+    ],
+    "options": [],
+    "explain": "Sau 'been' phải dùng V-ing."
+   },
+   {
+    "type": "translate",
+    "prompt": "Tôi đã làm việc ở công ty này được năm năm.",
+    "answers": [
+     "I have been working at this company for five years.",
+     "I've been working at this company for five years.",
+     "I have been working for this company for five years.",
+     "I've been working for this company for five years.",
+     "I have worked at this company for five years.",
+     "I've worked at this company for five years.",
+     "I have worked for this company for five years.",
+     "I've worked for this company for five years."
+    ],
+    "options": [],
+    "explain": "Hành động kéo dài đến hiện tại với 'for'."
+   }
+  ]
+ },
+ {
+  "id": "past-perfect",
+  "level": "B1",
+  "title": "Quá khứ hoàn thành (had V3)",
+  "summary": "Thì quá khứ hoàn thành (had + V3) diễn tả một hành động đã xảy ra và hoàn tất trước một hành động hoặc một thời điểm khác trong quá khứ.",
+  "formulas": [
+   "Khẳng định: S + had + V3/ed (I had finished.)",
+   "Phủ định: S + had not (hadn't) + V3/ed",
+   "Nghi vấn: Had + S + V3/ed? – Yes, S had. / No, S hadn't.",
+   "Kết hợp: When/After/Before + quá khứ đơn, S + had + V3"
+  ],
+  "usage": [
+   "Dùng cho hành động xảy ra trước một hành động khác trong quá khứ: hành động trước dùng had V3, hành động sau dùng quá khứ đơn.",
+   "Dùng cho hành động hoàn tất trước một mốc thời gian trong quá khứ: by 2010, by the time...",
+   "Hay đi với các từ: already, just, never, before, after, by the time.",
+   "Dùng trong câu tường thuật khi động từ tường thuật ở quá khứ: She said she had seen it."
+  ],
+  "mistakes": [
+   {
+    "wrong": "When I arrived, the train already left.",
+    "right": "When I arrived, the train had already left.",
+    "why": "Tàu rời đi trước khi tôi đến nên phải dùng had + V3 cho hành động xảy ra trước."
+   },
+   {
+    "wrong": "She had went home before the rain.",
+    "right": "She had gone home before the rain.",
+    "why": "Sau had phải dùng quá khứ phân từ (V3) chứ không dùng V2."
+   },
+   {
+    "wrong": "I had seen him yesterday.",
+    "right": "I saw him yesterday.",
+    "why": "Nếu chỉ có một hành động trong quá khứ và không có mốc so sánh trước sau thì dùng quá khứ đơn."
+   }
+  ],
+  "examples": [
+   {
+    "en": "When we got to the cinema, the film had already started.",
+    "vi": "Khi chúng tôi đến rạp, phim đã bắt đầu rồi."
+   },
+   {
+    "en": "I had never eaten sushi before I visited Japan.",
+    "vi": "Tôi chưa từng ăn sushi trước khi đến Nhật."
+   },
+   {
+    "en": "She was tired because she had worked all night.",
+    "vi": "Cô ấy mệt vì đã làm việc cả đêm."
+   },
+   {
+    "en": "By 2015, they had moved to Ho Chi Minh City.",
+    "vi": "Đến năm 2015, họ đã chuyển vào TP. Hồ Chí Minh."
+   },
+   {
+    "en": "Had you finished the report before the meeting?",
+    "vi": "Bạn đã làm xong báo cáo trước cuộc họp chưa?"
+   },
+   {
+    "en": "He said he hadn't received my email.",
+    "vi": "Anh ấy nói anh ấy chưa nhận được email của tôi."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "When I got home, my mother ___ (already / cook) dinner.",
+    "answers": [
+     "had already cooked",
+     "'d already cooked"
+    ],
+    "options": [],
+    "explain": "Mẹ nấu xong trước khi tôi về nên dùng had + V3."
+   },
+   {
+    "type": "gap",
+    "prompt": "I couldn't pay because I ___ (lose) my wallet.",
+    "answers": [
+     "had lost",
+     "'d lost"
+    ],
+    "options": [],
+    "explain": "Mất ví xảy ra trước việc không trả được tiền."
+   },
+   {
+    "type": "gap",
+    "prompt": "They ___ (not see) the sea before that trip.",
+    "answers": [
+     "had not seen",
+     "hadn't seen"
+    ],
+    "options": [],
+    "explain": "Phủ định: had not + V3."
+   },
+   {
+    "type": "gap",
+    "prompt": "By the time the police arrived, the thief ___ (escape).",
+    "answers": [
+     "had escaped",
+     "'d escaped"
+    ],
+    "options": [],
+    "explain": "By the time + quá khứ đơn, mệnh đề chính dùng had + V3."
+   },
+   {
+    "type": "choice",
+    "prompt": "After she ___ her homework, she watched TV.",
+    "answers": [
+     "had done"
+    ],
+    "options": [
+     "has done",
+     "had done",
+     "was doing",
+     "does"
+    ],
+    "explain": "Làm bài tập xong trước rồi mới xem TV."
+   },
+   {
+    "type": "choice",
+    "prompt": "The shop ___ when we got there, so we went home.",
+    "answers": [
+     "had closed"
+    ],
+    "options": [
+     "closes",
+     "has closed",
+     "had closed"
+    ],
+    "explain": "Cửa hàng đóng trước khi chúng tôi đến."
+   },
+   {
+    "type": "choice",
+    "prompt": "___ you ever been abroad before you started this job?",
+    "answers": [
+     "Had"
+    ],
+    "options": [
+     "Have",
+     "Had",
+     "Did",
+     "Were"
+    ],
+    "explain": "Câu hỏi về trải nghiệm trước một thời điểm quá khứ dùng Had."
+   },
+   {
+    "type": "order",
+    "prompt": "The train had left before we arrived.",
+    "answers": [
+     "The train had left before we arrived.",
+     "Before we arrived, the train had left."
+    ],
+    "options": [],
+    "explain": "Hành động trước dùng had + V3, hành động sau dùng quá khứ đơn."
+   },
+   {
+    "type": "order",
+    "prompt": "She had already eaten when I called her.",
+    "answers": [
+     "She had already eaten when I called her.",
+     "When I called her, she had already eaten."
+    ],
+    "options": [],
+    "explain": "Already đứng giữa had và V3."
+   },
+   {
+    "type": "error",
+    "prompt": "I didn't recognize him because he had grew a beard.",
+    "answers": [
+     "grew",
+     "grown"
+    ],
+    "options": [],
+    "explain": "Sau had dùng V3: grown."
+   },
+   {
+    "type": "error",
+    "prompt": "When we arrived, everyone has gone home.",
+    "answers": [
+     "has",
+     "had"
+    ],
+    "options": [],
+    "explain": "Câu kể chuyện quá khứ nên dùng had, không dùng has."
+   },
+   {
+    "type": "translate",
+    "prompt": "Khi tôi thức dậy, anh ấy đã đi làm rồi.",
+    "answers": [
+     "When I woke up, he had already gone to work.",
+     "When I woke up, he'd already gone to work.",
+     "When I woke up, he had already left for work.",
+     "When I woke up, he'd already left for work."
+    ],
+    "options": [],
+    "explain": "Anh ấy đi làm trước khi tôi thức dậy nên dùng had + V3."
+   }
+  ]
+ },
+ {
+  "id": "used-to",
+  "level": "B1",
+  "title": "Used to / be used to / get used to",
+  "summary": "\"Used to + V\" diễn tả thói quen hoặc trạng thái trong quá khứ nay không còn nữa. \"Be used to + V-ing/N\" là đã quen với việc gì, còn \"get used to + V-ing/N\" là dần trở nên quen với việc gì.",
+  "formulas": [
+   "S + used to + V (nguyên mẫu): đã từng (nay không còn)",
+   "S + didn't use to + V / Did + S + use to + V?",
+   "S + be (am/is/are/was...) + used to + V-ing / N: đã quen với",
+   "S + get (gets/got/will get...) + used to + V-ing / N: dần quen với"
+  ],
+  "usage": [
+   "Dùng \"used to\" cho thói quen hoặc trạng thái trong quá khứ đã chấm dứt: I used to smoke.",
+   "Dùng \"be used to\" khi việc gì đó không còn lạ hay khó với bạn nữa.",
+   "Dùng \"get used to\" để nói về quá trình làm quen, thường đi với các thì khác nhau (will get, am getting, got).",
+   "Trong \"be/get used to\", \"to\" là giới từ nên theo sau là V-ing hoặc danh từ, không dùng động từ nguyên mẫu."
+  ],
+  "mistakes": [
+   {
+    "wrong": "I am used to get up early.",
+    "right": "I am used to getting up early.",
+    "why": "Sau \"be used to\" phải dùng V-ing vì \"to\" ở đây là giới từ."
+   },
+   {
+    "wrong": "I use to play football when I was a child.",
+    "right": "I used to play football when I was a child.",
+    "why": "Ở câu khẳng định về quá khứ phải dùng \"used to\", có \"d\"."
+   },
+   {
+    "wrong": "Did you used to live here?",
+    "right": "Did you use to live here?",
+    "why": "Sau \"did/didn't\" thì động từ trở về nguyên mẫu \"use to\"."
+   }
+  ],
+  "examples": [
+   {
+    "en": "I used to live in Hanoi, but now I live in Da Nang.",
+    "vi": "Tôi từng sống ở Hà Nội, nhưng giờ tôi sống ở Đà Nẵng."
+   },
+   {
+    "en": "She didn't use to drink coffee.",
+    "vi": "Trước đây cô ấy không uống cà phê."
+   },
+   {
+    "en": "I'm used to working late at night.",
+    "vi": "Tôi đã quen với việc làm việc khuya."
+   },
+   {
+    "en": "He isn't used to the cold weather yet.",
+    "vi": "Anh ấy vẫn chưa quen với thời tiết lạnh."
+   },
+   {
+    "en": "You'll soon get used to driving on the left.",
+    "vi": "Bạn sẽ sớm quen với việc lái xe bên trái."
+   },
+   {
+    "en": "It took me months to get used to my new job.",
+    "vi": "Tôi mất vài tháng để quen với công việc mới."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "When I was young, I ___ (play) the piano every day.",
+    "answers": [
+     "used to play",
+     "would play"
+    ],
+    "options": [],
+    "explain": "Thói quen trong quá khứ nay không còn: used to + V."
+   },
+   {
+    "type": "gap",
+    "prompt": "My father is used to ___ (wake) up at 5 a.m.",
+    "answers": [
+     "waking"
+    ],
+    "options": [],
+    "explain": "Sau \"be used to\" dùng V-ing."
+   },
+   {
+    "type": "gap",
+    "prompt": "Don't worry, you will soon get used to ___ (speak) English at work.",
+    "answers": [
+     "speaking"
+    ],
+    "options": [],
+    "explain": "Sau \"get used to\" dùng V-ing."
+   },
+   {
+    "type": "gap",
+    "prompt": "Did you ___ have long hair at school?",
+    "answers": [
+     "use to"
+    ],
+    "options": [],
+    "explain": "Sau \"did\" dùng \"use to\" không có \"d\"."
+   },
+   {
+    "type": "choice",
+    "prompt": "I've lived in Saigon for ten years, so I ___ the traffic.",
+    "answers": [
+     "am used to"
+    ],
+    "options": [
+     "used to",
+     "am used to",
+     "use to",
+     "used"
+    ],
+    "explain": "Đã quen với kẹt xe ở hiện tại: be used to + N."
+   },
+   {
+    "type": "choice",
+    "prompt": "There ___ be a cinema here, but it closed last year.",
+    "answers": [
+     "used to"
+    ],
+    "options": [
+     "used to",
+     "is used to",
+     "gets used to"
+    ],
+    "explain": "Trạng thái trong quá khứ nay không còn: used to + V."
+   },
+   {
+    "type": "choice",
+    "prompt": "At first the new shoes hurt, but I slowly ___ them.",
+    "answers": [
+     "got used to"
+    ],
+    "options": [
+     "used to",
+     "got used to",
+     "was use to",
+     "use to"
+    ],
+    "explain": "Quá trình dần quen trong quá khứ: got used to."
+   },
+   {
+    "type": "order",
+    "prompt": "We used to go fishing on Sundays.",
+    "answers": [
+     "We used to go fishing on Sundays.",
+     "On Sundays we used to go fishing.",
+     "On Sundays, we used to go fishing."
+    ],
+    "options": [],
+    "explain": "Cấu trúc: S + used to + V + ..."
+   },
+   {
+    "type": "order",
+    "prompt": "She isn't used to eating spicy food.",
+    "answers": [
+     "She isn't used to eating spicy food.",
+     "She is not used to eating spicy food.",
+     "She's not used to eating spicy food."
+    ],
+    "options": [],
+    "explain": "Phủ định: S + be not + used to + V-ing."
+   },
+   {
+    "type": "error",
+    "prompt": "I'm not used to live in a big city.",
+    "answers": [
+     "live",
+     "living"
+    ],
+    "options": [],
+    "explain": "Sau \"be used to\" phải dùng V-ing."
+   },
+   {
+    "type": "error",
+    "prompt": "He use to work in a bank before he moved abroad.",
+    "answers": [
+     "use",
+     "used"
+    ],
+    "options": [],
+    "explain": "Câu khẳng định quá khứ dùng \"used to\"."
+   },
+   {
+    "type": "translate",
+    "prompt": "Tôi đang dần quen với công việc mới.",
+    "answers": [
+     "I'm getting used to my new job.",
+     "I am getting used to my new job.",
+     "I'm getting used to the new job.",
+     "I am getting used to the new job.",
+     "I'm gradually getting used to my new job.",
+     "I am gradually getting used to my new job."
+    ],
+    "options": [],
+    "explain": "Quá trình đang làm quen: be getting used to + N."
+   }
+  ]
+ },
+ {
+  "id": "first-conditional",
+  "level": "B1",
+  "title": "Câu điều kiện loại 1 (If + hiện tại, will)",
+  "summary": "Câu điều kiện loại 1 diễn tả một điều kiện có thể xảy ra ở hiện tại hoặc tương lai, kèm theo kết quả có khả năng xảy ra.",
+  "formulas": [
+   "If + S + V (hiện tại đơn), S + will/won't + V (nguyên mẫu)",
+   "S + will/won't + V + if + S + V (hiện tại đơn) — không dùng dấu phẩy",
+   "Unless + S + V (hiện tại đơn) = If ... not",
+   "If + S + V (hiện tại đơn), S + can/may/should + V"
+  ],
+  "usage": [
+   "Nói về khả năng có thật trong tương lai: If it rains, we'll stay home.",
+   "Đưa ra lời cảnh báo, lời hứa hoặc lời đe dọa.",
+   "Mệnh đề If có thể đứng trước (có dấu phẩy) hoặc đứng sau (không cần dấu phẩy).",
+   "Có thể thay will bằng can, may, might, should tùy theo ý nghĩa."
+  ],
+  "mistakes": [
+   {
+    "wrong": "If it will rain, we will stay home.",
+    "right": "If it rains, we will stay home.",
+    "why": "Mệnh đề If dùng thì hiện tại đơn, không dùng will."
+   },
+   {
+    "wrong": "If she study hard, she will pass.",
+    "right": "If she studies hard, she will pass.",
+    "why": "Chủ ngữ ngôi thứ ba số ít thì động từ phải thêm -s/-es."
+   },
+   {
+    "wrong": "Unless you don't hurry, you will be late.",
+    "right": "Unless you hurry, you will be late.",
+    "why": "Unless đã mang nghĩa phủ định nên không dùng thêm not."
+   }
+  ],
+  "examples": [
+   {
+    "en": "If you leave now, you'll catch the bus.",
+    "vi": "Nếu bạn đi bây giờ, bạn sẽ kịp chuyến xe buýt."
+   },
+   {
+    "en": "If it rains tomorrow, we won't go to the beach.",
+    "vi": "Nếu mai trời mưa, chúng ta sẽ không đi biển."
+   },
+   {
+    "en": "I'll call you if I have time.",
+    "vi": "Tôi sẽ gọi cho bạn nếu tôi có thời gian."
+   },
+   {
+    "en": "If she doesn't hurry, she'll miss the meeting.",
+    "vi": "Nếu cô ấy không nhanh lên, cô ấy sẽ lỡ cuộc họp."
+   },
+   {
+    "en": "Unless you save money, you won't buy a house.",
+    "vi": "Nếu bạn không tiết kiệm tiền, bạn sẽ không mua được nhà."
+   },
+   {
+    "en": "If you need help, you can ask me.",
+    "vi": "Nếu bạn cần giúp, bạn có thể hỏi tôi."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "If he ___ (come) late, the teacher will be angry.",
+    "answers": [
+     "comes"
+    ],
+    "options": [],
+    "explain": "Mệnh đề If dùng hiện tại đơn, ngôi thứ ba số ít thêm -s."
+   },
+   {
+    "type": "gap",
+    "prompt": "If you study hard, you ___ (pass) the exam.",
+    "answers": [
+     "will pass",
+     "'ll pass"
+    ],
+    "options": [],
+    "explain": "Mệnh đề chính dùng will + động từ nguyên mẫu."
+   },
+   {
+    "type": "gap",
+    "prompt": "If we ___ (not hurry), we will miss the train.",
+    "answers": [
+     "don't hurry",
+     "do not hurry"
+    ],
+    "options": [],
+    "explain": "Phủ định hiện tại đơn với we là don't + V."
+   },
+   {
+    "type": "gap",
+    "prompt": "She ___ (not come) to the party if she feels tired.",
+    "answers": [
+     "won't come",
+     "will not come"
+    ],
+    "options": [],
+    "explain": "Phủ định của will là won't + V."
+   },
+   {
+    "type": "choice",
+    "prompt": "If it ___ sunny tomorrow, we'll have a picnic.",
+    "answers": [
+     "is"
+    ],
+    "options": [
+     "is",
+     "will be",
+     "was",
+     "be"
+    ],
+    "explain": "Sau If dùng hiện tại đơn."
+   },
+   {
+    "type": "choice",
+    "prompt": "___ you apologize, she won't forgive you.",
+    "answers": [
+     "Unless"
+    ],
+    "options": [
+     "If",
+     "Unless",
+     "When"
+    ],
+    "explain": "Unless nghĩa là 'nếu không'."
+   },
+   {
+    "type": "choice",
+    "prompt": "If I see Tom, I ___ him the news.",
+    "answers": [
+     "will tell"
+    ],
+    "options": [
+     "tell",
+     "will tell",
+     "told",
+     "telling"
+    ],
+    "explain": "Mệnh đề kết quả dùng will + V."
+   },
+   {
+    "type": "order",
+    "prompt": "If you eat too much, you will feel sick.",
+    "answers": [
+     "If you eat too much, you will feel sick.",
+     "You will feel sick if you eat too much."
+    ],
+    "options": [
+     "you",
+     "will",
+     "feel",
+     "sick",
+     "if",
+     "you",
+     "eat",
+     "too",
+     "much"
+    ],
+    "explain": "If + hiện tại đơn, S + will + V."
+   },
+   {
+    "type": "order",
+    "prompt": "I will help you if I finish early.",
+    "answers": [
+     "I will help you if I finish early.",
+     "If I finish early, I will help you."
+    ],
+    "options": [
+     "I",
+     "will",
+     "help",
+     "you",
+     "if",
+     "I",
+     "finish",
+     "early"
+    ],
+    "explain": "Mệnh đề If có thể đứng đầu hoặc cuối câu."
+   },
+   {
+    "type": "error",
+    "prompt": "If she will call me, I will tell her.",
+    "answers": [
+     "will call",
+     "calls"
+    ],
+    "options": [],
+    "explain": "Không dùng will trong mệnh đề If."
+   },
+   {
+    "type": "error",
+    "prompt": "If they misses the bus, they will take a taxi.",
+    "answers": [
+     "misses",
+     "miss"
+    ],
+    "options": [],
+    "explain": "Chủ ngữ they dùng động từ nguyên mẫu."
+   },
+   {
+    "type": "translate",
+    "prompt": "Nếu trời mưa, tôi sẽ ở nhà.",
+    "answers": [
+     "If it rains, I will stay at home.",
+     "If it rains, I'll stay at home.",
+     "If it rains, I will stay home.",
+     "If it rains, I'll stay home.",
+     "I will stay at home if it rains.",
+     "I'll stay at home if it rains.",
+     "I will stay home if it rains.",
+     "I'll stay home if it rains."
+    ],
+    "options": [],
+    "explain": "If + hiện tại đơn, S + will + V."
+   }
+  ]
+ },
+ {
+  "id": "second-conditional",
+  "level": "B1",
+  "title": "Câu điều kiện loại 2 (If + quá khứ, would)",
+  "summary": "Câu điều kiện loại 2 dùng để nói về tình huống không có thật hoặc khó xảy ra ở hiện tại/tương lai và kết quả tưởng tượng của nó.",
+  "formulas": [
+   "If + S + V2/V-ed (quá khứ đơn), S + would + V (nguyên mẫu)",
+   "S + would + V + if + S + V2/V-ed",
+   "If + S + were + ... (dùng 'were' cho mọi ngôi, trang trọng)",
+   "If I were you, I would + V (lời khuyên)",
+   "Có thể thay would bằng could/might: If + S + V2, S + could/might + V"
+  ],
+  "usage": [
+   "Diễn tả điều trái với thực tế hiện tại: If I had a car, I would drive to work. (thực tế: không có xe)",
+   "Diễn tả điều khó xảy ra trong tương lai: If I won the lottery, ...",
+   "Đưa ra lời khuyên với cấu trúc 'If I were you, I would...'",
+   "Mệnh đề 'if' có thể đứng trước (có dấu phẩy) hoặc sau (không cần dấu phẩy)."
+  ],
+  "mistakes": [
+   {
+    "wrong": "If I would have money, I would buy a house.",
+    "right": "If I had money, I would buy a house.",
+    "why": "Không dùng 'would' trong mệnh đề 'if'; mệnh đề 'if' dùng thì quá khứ đơn."
+   },
+   {
+    "wrong": "If I have more time, I would learn Japanese.",
+    "right": "If I had more time, I would learn Japanese.",
+    "why": "Loại 2 phải dùng quá khứ trong mệnh đề 'if', không dùng hiện tại."
+   },
+   {
+    "wrong": "If I were you, I will call her.",
+    "right": "If I were you, I would call her.",
+    "why": "Mệnh đề chính của loại 2 dùng 'would', không dùng 'will'."
+   }
+  ],
+  "examples": [
+   {
+    "en": "If I had more money, I would travel around the world.",
+    "vi": "Nếu tôi có nhiều tiền hơn, tôi sẽ đi du lịch vòng quanh thế giới."
+   },
+   {
+    "en": "If I were you, I would talk to your boss.",
+    "vi": "Nếu tôi là bạn, tôi sẽ nói chuyện với sếp của bạn."
+   },
+   {
+    "en": "She would be happier if she lived closer to her family.",
+    "vi": "Cô ấy sẽ hạnh phúc hơn nếu cô ấy sống gần gia đình hơn."
+   },
+   {
+    "en": "If it didn't rain so much, we could go hiking.",
+    "vi": "Nếu trời không mưa nhiều như vậy, chúng ta có thể đi leo núi."
+   },
+   {
+    "en": "What would you do if you lost your job?",
+    "vi": "Bạn sẽ làm gì nếu bạn mất việc?"
+   },
+   {
+    "en": "If he spoke English, he would get a better job.",
+    "vi": "Nếu anh ấy nói được tiếng Anh, anh ấy sẽ có công việc tốt hơn."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "If I ___ (know) her number, I would call her.",
+    "answers": [
+     "knew"
+    ],
+    "options": [],
+    "explain": "Mệnh đề 'if' loại 2 dùng quá khứ đơn: know → knew."
+   },
+   {
+    "type": "gap",
+    "prompt": "If we had a garden, we ___ (grow) vegetables.",
+    "answers": [
+     "would grow",
+     "'d grow"
+    ],
+    "options": [],
+    "explain": "Mệnh đề chính dùng would + động từ nguyên mẫu."
+   },
+   {
+    "type": "gap",
+    "prompt": "If I ___ (be) you, I would take that job.",
+    "answers": [
+     "were"
+    ],
+    "options": [],
+    "explain": "Cấu trúc khuyên bảo dùng 'If I were you'."
+   },
+   {
+    "type": "gap",
+    "prompt": "He would feel better if he ___ (not/work) so late.",
+    "answers": [
+     "didn't work",
+     "did not work"
+    ],
+    "options": [],
+    "explain": "Phủ định quá khứ đơn: didn't + V nguyên mẫu."
+   },
+   {
+    "type": "choice",
+    "prompt": "If she ___ a car, she would drive to work.",
+    "answers": [
+     "had"
+    ],
+    "options": [
+     "has",
+     "had",
+     "would have",
+     "will have"
+    ],
+    "explain": "Mệnh đề 'if' loại 2 dùng quá khứ đơn."
+   },
+   {
+    "type": "choice",
+    "prompt": "If I won the lottery, I ___ a big house.",
+    "answers": [
+     "would buy"
+    ],
+    "options": [
+     "will buy",
+     "bought",
+     "would buy",
+     "buy"
+    ],
+    "explain": "Mệnh đề chính dùng would + V."
+   },
+   {
+    "type": "choice",
+    "prompt": "What ___ you do if you saw a ghost?",
+    "answers": [
+     "would"
+    ],
+    "options": [
+     "will",
+     "would",
+     "did"
+    ],
+    "explain": "Câu hỏi loại 2 dùng 'would' ở mệnh đề chính."
+   },
+   {
+    "type": "order",
+    "prompt": "help / had / I / you / time / would / if / I",
+    "answers": [
+     "If I had time, I would help you.",
+     "I would help you if I had time."
+    ],
+    "options": [],
+    "explain": "Mệnh đề 'if' có thể đứng trước hoặc sau mệnh đề chính."
+   },
+   {
+    "type": "order",
+    "prompt": "knew / angry / she / the truth / would / if / be / she",
+    "answers": [
+     "She would be angry if she knew the truth.",
+     "If she knew the truth, she would be angry."
+    ],
+    "options": [],
+    "explain": "Đảo vị trí mệnh đề thì thêm dấu phẩy khi 'if' đứng đầu."
+   },
+   {
+    "type": "error",
+    "prompt": "If I would live in Hanoi, I would visit you every week.",
+    "answers": [
+     "would live",
+     "lived"
+    ],
+    "options": [],
+    "explain": "Không dùng 'would' trong mệnh đề 'if'."
+   },
+   {
+    "type": "error",
+    "prompt": "If they had more money, they will buy a new car.",
+    "answers": [
+     "will",
+     "would"
+    ],
+    "options": [],
+    "explain": "Loại 2 dùng 'would', không dùng 'will'."
+   },
+   {
+    "type": "translate",
+    "prompt": "Nếu tôi là bạn, tôi sẽ học tiếng Anh mỗi ngày.",
+    "answers": [
+     "If I were you, I would study English every day.",
+     "If I were you, I'd study English every day.",
+     "If I were you, I would learn English every day.",
+     "If I were you, I'd learn English every day."
+    ],
+    "options": [],
+    "explain": "Lời khuyên dùng 'If I were you, I would + V'."
+   }
+  ]
+ },
+ {
+  "id": "passive-basic",
+  "level": "B1",
+  "title": "Câu bị động: hiện tại và quá khứ",
+  "summary": "Câu bị động dùng khi muốn nhấn mạnh hành động hoặc người/vật chịu tác động, không phải người làm. Thì hiện tại đơn dùng am/is/are + V3, thì quá khứ đơn dùng was/were + V3.",
+  "formulas": [
+   "Hiện tại đơn: S + am/is/are + V3/V-ed (+ by O)",
+   "Quá khứ đơn: S + was/were + V3/V-ed (+ by O)",
+   "Phủ định: S + is/was + not + V3",
+   "Câu hỏi: Is/Was + S + V3?"
+  ],
+  "usage": [
+   "Dùng khi không biết, không cần nói hoặc không quan trọng ai làm hành động.",
+   "Dùng để nhấn mạnh đối tượng chịu tác động (sản phẩm, công trình, sự việc).",
+   "Chỉ thêm 'by + người làm' khi thông tin đó thật sự cần thiết.",
+   "Hay gặp trong tin tức, báo cáo, hướng dẫn và văn bản trang trọng."
+  ],
+  "mistakes": [
+   {
+    "wrong": "The house built in 1990.",
+    "right": "The house was built in 1990.",
+    "why": "Câu bị động luôn cần động từ 'be'; thiếu 'was' thì câu sai."
+   },
+   {
+    "wrong": "English is speak in many countries.",
+    "right": "English is spoken in many countries.",
+    "why": "Sau 'be' phải dùng quá khứ phân từ (V3), không dùng động từ nguyên mẫu."
+   },
+   {
+    "wrong": "The letters was sent yesterday.",
+    "right": "The letters were sent yesterday.",
+    "why": "Chủ ngữ số nhiều thì dùng 'were', không dùng 'was'."
+   }
+  ],
+  "examples": [
+   {
+    "en": "Coffee is grown in the Central Highlands.",
+    "vi": "Cà phê được trồng ở Tây Nguyên."
+   },
+   {
+    "en": "This bridge was built by a Japanese company.",
+    "vi": "Cây cầu này được một công ty Nhật Bản xây dựng."
+   },
+   {
+    "en": "The meeting rooms are cleaned every evening.",
+    "vi": "Các phòng họp được dọn dẹp vào mỗi buổi tối."
+   },
+   {
+    "en": "My bike was stolen last night.",
+    "vi": "Xe đạp của tôi bị lấy cắp tối qua."
+   },
+   {
+    "en": "Were you invited to the wedding?",
+    "vi": "Bạn có được mời dự đám cưới không?"
+   },
+   {
+    "en": "Credit cards are not accepted here.",
+    "vi": "Ở đây không chấp nhận thẻ tín dụng."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "Rice ___ (grow) in many Asian countries.",
+    "answers": [
+     "is grown"
+    ],
+    "options": [],
+    "explain": "Sự thật chung, chủ ngữ số ít: is + V3."
+   },
+   {
+    "type": "gap",
+    "prompt": "The windows ___ (break) during the storm last week.",
+    "answers": [
+     "were broken"
+    ],
+    "options": [],
+    "explain": "Quá khứ, chủ ngữ số nhiều: were + V3."
+   },
+   {
+    "type": "gap",
+    "prompt": "The emails ___ (send) to customers every Monday.",
+    "answers": [
+     "are sent"
+    ],
+    "options": [],
+    "explain": "Hành động lặp lại ở hiện tại, số nhiều: are + V3."
+   },
+   {
+    "type": "gap",
+    "prompt": "The film ___ (direct) by a young woman in 2019.",
+    "answers": [
+     "was directed"
+    ],
+    "options": [],
+    "explain": "Năm 2019 là quá khứ, số ít: was + V3."
+   },
+   {
+    "type": "choice",
+    "prompt": "The Mona Lisa ___ by Leonardo da Vinci.",
+    "answers": [
+     "was painted"
+    ],
+    "options": [
+     "painted",
+     "was painted",
+     "is painting",
+     "were painted"
+    ],
+    "explain": "Bức tranh được vẽ trong quá khứ, chủ ngữ số ít."
+   },
+   {
+    "type": "choice",
+    "prompt": "These shoes ___ in Vietnam.",
+    "answers": [
+     "are made"
+    ],
+    "options": [
+     "are made",
+     "is made",
+     "make",
+     "are making"
+    ],
+    "explain": "Chủ ngữ số nhiều, sự thật hiện tại: are made."
+   },
+   {
+    "type": "choice",
+    "prompt": "___ the package delivered yesterday?",
+    "answers": [
+     "Was"
+    ],
+    "options": [
+     "Is",
+     "Was",
+     "Did",
+     "Were"
+    ],
+    "explain": "Câu hỏi bị động quá khứ, chủ ngữ số ít dùng Was."
+   },
+   {
+    "type": "order",
+    "prompt": "The report was written by our manager.",
+    "answers": [
+     "The report was written by our manager."
+    ],
+    "options": [
+     "written",
+     "our manager",
+     "The report",
+     "by",
+     "was"
+    ],
+    "explain": "Chủ ngữ + was + V3 + by + người làm."
+   },
+   {
+    "type": "order",
+    "prompt": "Breakfast is served at seven o'clock.",
+    "answers": [
+     "Breakfast is served at seven o'clock."
+    ],
+    "options": [
+     "served",
+     "Breakfast",
+     "at seven o'clock",
+     "is"
+    ],
+    "explain": "Chủ ngữ + is + V3 + cụm thời gian."
+   },
+   {
+    "type": "error",
+    "prompt": "The museum was open to the public by the president in 2005.",
+    "answers": [
+     "open",
+     "opened"
+    ],
+    "options": [],
+    "explain": "Bị động cần V3 'opened', không dùng tính từ 'open'."
+   },
+   {
+    "type": "error",
+    "prompt": "Many trees was cut down last year.",
+    "answers": [
+     "was",
+     "were"
+    ],
+    "options": [],
+    "explain": "'Many trees' số nhiều nên dùng 'were'."
+   },
+   {
+    "type": "translate",
+    "prompt": "Chiếc điện thoại này được sản xuất ở Hàn Quốc.",
+    "answers": [
+     "This phone is made in Korea.",
+     "This phone is made in South Korea.",
+     "This phone was made in Korea.",
+     "This phone was made in South Korea.",
+     "This phone is manufactured in Korea.",
+     "This phone is manufactured in South Korea.",
+     "This phone was manufactured in Korea.",
+     "This phone was manufactured in South Korea.",
+     "This phone is produced in Korea.",
+     "This phone is produced in South Korea.",
+     "This phone was produced in Korea.",
+     "This phone was produced in South Korea."
+    ],
+    "options": [],
+    "explain": "Dùng bị động: be + made/manufactured/produced."
+   }
+  ]
+ },
+ {
+  "id": "relative-clauses",
+  "level": "B1",
+  "title": "Mệnh đề quan hệ who / which / that / where",
+  "summary": "Mệnh đề quan hệ dùng để bổ sung thông tin cho danh từ đứng trước: who cho người, which cho vật, that cho cả người và vật, where cho nơi chốn.",
+  "formulas": [
+   "Người + who/that + động từ/mệnh đề: the man who lives next door",
+   "Vật + which/that + động từ/mệnh đề: the book which I bought",
+   "Nơi chốn + where + chủ ngữ + động từ: the town where I grew up",
+   "Mệnh đề không xác định: danh từ, who/which ..., (không dùng that)"
+  ],
+  "usage": [
+   "who dùng cho người; which dùng cho vật, con vật; that thay được cho cả hai trong mệnh đề xác định.",
+   "where thay cho nơi chốn, theo sau là một mệnh đề đầy đủ (chủ ngữ + động từ).",
+   "Khi đại từ quan hệ làm tân ngữ, có thể lược bỏ: the film (that) I watched.",
+   "Mệnh đề có dấu phẩy (thông tin thêm) chỉ dùng who/which, không dùng that."
+  ],
+  "mistakes": [
+   {
+    "wrong": "The woman which works here is kind.",
+    "right": "The woman who works here is kind.",
+    "why": "Chỉ người phải dùng who hoặc that, không dùng which."
+   },
+   {
+    "wrong": "This is the house where I bought it.",
+    "right": "This is the house which I bought.",
+    "why": "Không lặp lại tân ngữ (it); và bought cần tân ngữ nên dùng which/that, không dùng where."
+   },
+   {
+    "wrong": "My mother, that is a nurse, works at night.",
+    "right": "My mother, who is a nurse, works at night.",
+    "why": "Mệnh đề có dấu phẩy không dùng that."
+   }
+  ],
+  "examples": [
+   {
+    "en": "The man who called you is my uncle.",
+    "vi": "Người đàn ông gọi cho bạn là chú tôi."
+   },
+   {
+    "en": "I lost the phone which my dad gave me.",
+    "vi": "Tôi làm mất chiếc điện thoại mà bố tặng tôi."
+   },
+   {
+    "en": "This is the café where we first met.",
+    "vi": "Đây là quán cà phê nơi chúng ta gặp nhau lần đầu."
+   },
+   {
+    "en": "She has a friend that speaks five languages.",
+    "vi": "Cô ấy có một người bạn nói được năm thứ tiếng."
+   },
+   {
+    "en": "Hanoi, which is the capital, has many lakes.",
+    "vi": "Hà Nội, thủ đô, có nhiều hồ."
+   },
+   {
+    "en": "The film we watched last night was boring.",
+    "vi": "Bộ phim chúng tôi xem tối qua thật chán."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "The girl ___ sits next to me is from Hue.",
+    "answers": [
+     "who",
+     "that"
+    ],
+    "options": [],
+    "explain": "Chỉ người làm chủ ngữ: who/that."
+   },
+   {
+    "type": "gap",
+    "prompt": "I visited the village ___ my grandparents live.",
+    "answers": [
+     "where"
+    ],
+    "options": [],
+    "explain": "Nơi chốn + mệnh đề đầy đủ dùng where."
+   },
+   {
+    "type": "gap",
+    "prompt": "My laptop, ___ is very old, still works well.",
+    "answers": [
+     "which"
+    ],
+    "options": [],
+    "explain": "Vật, có dấu phẩy nên dùng which."
+   },
+   {
+    "type": "gap",
+    "prompt": "Mr Nam, ___ teaches us English, is very funny.",
+    "answers": [
+     "who"
+    ],
+    "options": [],
+    "explain": "Người, có dấu phẩy nên dùng who."
+   },
+   {
+    "type": "choice",
+    "prompt": "Do you know a shop ___ sells cheap shoes?",
+    "answers": [
+     "that"
+    ],
+    "options": [
+     "who",
+     "where",
+     "that"
+    ],
+    "explain": "Đại từ quan hệ làm chủ ngữ của sells, thay cho vật (shop) nên dùng that (hoặc which)."
+   },
+   {
+    "type": "choice",
+    "prompt": "That's the hospital ___ I was born.",
+    "answers": [
+     "where"
+    ],
+    "options": [
+     "which",
+     "where",
+     "who"
+    ],
+    "explain": "Sau đó là mệnh đề đầy đủ chỉ nơi chốn."
+   },
+   {
+    "type": "choice",
+    "prompt": "The doctor ___ helped me was very kind.",
+    "answers": [
+     "who"
+    ],
+    "options": [
+     "which",
+     "where",
+     "who"
+    ],
+    "explain": "Doctor là người nên dùng who."
+   },
+   {
+    "type": "order",
+    "prompt": "The cake that she made was delicious.",
+    "answers": [
+     "The cake that she made was delicious."
+    ],
+    "options": [
+     "was",
+     "The cake",
+     "she made",
+     "that",
+     "delicious."
+    ],
+    "explain": "Mệnh đề quan hệ đứng ngay sau danh từ."
+   },
+   {
+    "type": "order",
+    "prompt": "This is the room where I work.",
+    "answers": [
+     "This is the room where I work."
+    ],
+    "options": [
+     "the room",
+     "This is",
+     "I work.",
+     "where"
+    ],
+    "explain": "where + chủ ngữ + động từ đứng sau danh từ nơi chốn."
+   },
+   {
+    "type": "error",
+    "prompt": "The students which passed the exam were happy.",
+    "answers": [
+     "which",
+     "who"
+    ],
+    "options": [],
+    "explain": "Students là người nên dùng who (hoặc that)."
+   },
+   {
+    "type": "error",
+    "prompt": "I like the song which you sang it yesterday.",
+    "answers": [
+     "it",
+     ""
+    ],
+    "options": [],
+    "explain": "which đã thay cho tân ngữ, bỏ it."
+   },
+   {
+    "type": "translate",
+    "prompt": "Đây là cuốn sách mà tôi đã đọc tuần trước.",
+    "answers": [
+     "This is the book which I read last week.",
+     "This is the book that I read last week.",
+     "This is the book I read last week."
+    ],
+    "options": [],
+    "explain": "Vật làm tân ngữ: which/that hoặc lược bỏ."
+   }
+  ]
+ },
+ {
+  "id": "reported-speech",
+  "level": "B1",
+  "title": "Câu gián tiếp: said / told / asked",
+  "summary": "Câu gián tiếp dùng để thuật lại lời người khác nói. Khi động từ tường thuật ở quá khứ (said, told, asked), ta thường lùi thì và đổi đại từ, trạng từ chỉ thời gian/nơi chốn.",
+  "formulas": [
+   "S + said (that) + S + V (lùi thì)",
+   "S + told + O (người nghe) + (that) + S + V (lùi thì)",
+   "S + asked (+ O) + if/whether + S + V (câu hỏi Yes/No)",
+   "S + asked (+ O) + Wh- + S + V (câu hỏi có từ để hỏi)",
+   "S + told/asked + O + (not) to + V (câu mệnh lệnh, yêu cầu)"
+  ],
+  "usage": [
+   "said: không cần tân ngữ chỉ người; nếu có thì dùng 'said to me'.",
+   "told: luôn cần tân ngữ chỉ người ngay sau (told me, told her).",
+   "asked: dùng cho câu hỏi; câu gián tiếp giữ trật tự câu khẳng định (S + V), không đảo ngữ, không dấu hỏi.",
+   "Lùi thì: hiện tại đơn → quá khứ đơn, will → would, can → could; now → then, today → that day, tomorrow → the next day."
+  ],
+  "mistakes": [
+   {
+    "wrong": "She said me that she was tired.",
+    "right": "She told me that she was tired.",
+    "why": "'said' không đi trực tiếp với tân ngữ chỉ người; dùng 'told me' hoặc 'said to me'."
+   },
+   {
+    "wrong": "He asked me where did I live.",
+    "right": "He asked me where I lived.",
+    "why": "Trong câu hỏi gián tiếp không đảo trợ động từ, giữ trật tự S + V."
+   },
+   {
+    "wrong": "She told that she would come.",
+    "right": "She said that she would come.",
+    "why": "'told' bắt buộc phải có tân ngữ chỉ người phía sau."
+   }
+  ],
+  "examples": [
+   {
+    "en": "Tom said that he was very busy that day.",
+    "vi": "Tom nói rằng hôm đó anh ấy rất bận."
+   },
+   {
+    "en": "My boss told me the meeting would start at nine.",
+    "vi": "Sếp bảo tôi rằng cuộc họp sẽ bắt đầu lúc chín giờ."
+   },
+   {
+    "en": "She asked me if I could help her.",
+    "vi": "Cô ấy hỏi tôi liệu tôi có thể giúp cô ấy không."
+   },
+   {
+    "en": "He asked where the station was.",
+    "vi": "Anh ấy hỏi nhà ga ở đâu."
+   },
+   {
+    "en": "The doctor told me to drink more water.",
+    "vi": "Bác sĩ bảo tôi uống nhiều nước hơn."
+   },
+   {
+    "en": "Lan said she had finished her homework.",
+    "vi": "Lan nói rằng cô ấy đã làm xong bài tập."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "She ___ me that she lived in Hanoi. (say/tell)",
+    "answers": [
+     "told"
+    ],
+    "options": [],
+    "explain": "Có tân ngữ 'me' ngay sau nên dùng 'told'."
+   },
+   {
+    "type": "gap",
+    "prompt": "He asked me ___ I liked coffee.",
+    "answers": [
+     "if",
+     "whether"
+    ],
+    "options": [],
+    "explain": "Câu hỏi Yes/No gián tiếp dùng 'if' hoặc 'whether'."
+   },
+   {
+    "type": "gap",
+    "prompt": "\"I am hungry,\" Mai said. → Mai said she ___ hungry.",
+    "answers": [
+     "was"
+    ],
+    "options": [],
+    "explain": "Hiện tại 'am' lùi thành quá khứ 'was'."
+   },
+   {
+    "type": "gap",
+    "prompt": "The teacher told us ___ talk in class. (không được)",
+    "answers": [
+     "not to"
+    ],
+    "options": [],
+    "explain": "Mệnh lệnh phủ định gián tiếp: told + O + not to + V."
+   },
+   {
+    "type": "choice",
+    "prompt": "\"I will call you,\" he said. → He said he ___ call me.",
+    "answers": [
+     "would"
+    ],
+    "options": [
+     "will",
+     "would",
+     "can",
+     "does"
+    ],
+    "explain": "'will' lùi thì thành 'would'."
+   },
+   {
+    "type": "choice",
+    "prompt": "She asked me what time ___.",
+    "answers": [
+     "it was"
+    ],
+    "options": [
+     "was it",
+     "it was",
+     "is it"
+    ],
+    "explain": "Câu hỏi gián tiếp giữ trật tự S + V."
+   },
+   {
+    "type": "choice",
+    "prompt": "Peter ___ that he was leaving.",
+    "answers": [
+     "said"
+    ],
+    "options": [
+     "told",
+     "said",
+     "asked"
+    ],
+    "explain": "Không có tân ngữ chỉ người và là câu kể nên dùng 'said'."
+   },
+   {
+    "type": "order",
+    "prompt": "She asked me where I worked.",
+    "answers": [
+     "She asked me where I worked."
+    ],
+    "options": [],
+    "explain": "Asked + O + Wh- + S + V."
+   },
+   {
+    "type": "order",
+    "prompt": "He told me to close the door.",
+    "answers": [
+     "He told me to close the door."
+    ],
+    "options": [],
+    "explain": "Told + O + to + V cho câu yêu cầu."
+   },
+   {
+    "type": "error",
+    "prompt": "He said me that he was sick.",
+    "answers": [
+     "said",
+     "told"
+    ],
+    "options": [],
+    "explain": "Có tân ngữ 'me' nên dùng 'told'."
+   },
+   {
+    "type": "error",
+    "prompt": "She asked me where was the bank.",
+    "answers": [
+     "was the bank",
+     "the bank was"
+    ],
+    "options": [],
+    "explain": "Câu hỏi gián tiếp không đảo ngữ: S + V."
+   },
+   {
+    "type": "translate",
+    "prompt": "Anh ấy hỏi tôi liệu tôi có mệt không.",
+    "answers": [
+     "He asked me if I was tired.",
+     "He asked me whether I was tired.",
+     "He asked if I was tired.",
+     "He asked whether I was tired."
+    ],
+    "options": [],
+    "explain": "Dùng asked + if/whether + S + V lùi thì."
+   }
+  ]
+ },
+ {
+  "id": "modals-possibility",
+  "level": "B1",
+  "title": "Might / may / could / must / can't (khả năng, suy đoán)",
+  "summary": "Dùng might/may/could để nói điều có thể đúng (không chắc chắn), must khi gần như chắc chắn đúng, và can't khi gần như chắc chắn sai.",
+  "formulas": [
+   "S + might / may / could + V (nguyên mẫu) → có thể (khoảng 30–50%)",
+   "S + must + V (nguyên mẫu) → chắc hẳn là (khoảng 90%)",
+   "S + can't + V (nguyên mẫu) → chắc chắn không thể (khoảng 90%)",
+   "S + might not / may not + V → có thể không",
+   "S + modal + be + V-ing → suy đoán về việc đang diễn ra"
+  ],
+  "usage": [
+   "might/may/could: đoán khi không chắc chắn; trong nghĩa này ba từ gần như giống nhau.",
+   "must: kết luận gần như chắc chắn dựa trên bằng chứng (He must be tired – anh ấy làm việc 12 tiếng).",
+   "can't: kết luận chắc chắn điều gì đó không đúng; KHÔNG dùng mustn't cho nghĩa này.",
+   "Phủ định của khả năng: dùng might not / may not, không dùng couldn't (couldn't gần nghĩa can't)."
+  ],
+  "mistakes": [
+   {
+    "wrong": "She mustn't be at home; the lights are off.",
+    "right": "She can't be at home; the lights are off.",
+    "why": "Muốn nói 'chắc chắn không' phải dùng can't; mustn't nghĩa là 'cấm'."
+   },
+   {
+    "wrong": "He might comes later.",
+    "right": "He might come later.",
+    "why": "Sau động từ khuyết thiếu luôn dùng động từ nguyên mẫu, không thêm -s."
+   },
+   {
+    "wrong": "Maybe he must be sick.",
+    "right": "He might be sick.",
+    "why": "Maybe đã mang nghĩa không chắc, không dùng chung với must; chọn might/may."
+   }
+  ],
+  "examples": [
+   {
+    "en": "Take an umbrella. It might rain this afternoon.",
+    "vi": "Mang theo ô đi. Chiều nay trời có thể mưa."
+   },
+   {
+    "en": "You've been travelling all day. You must be exhausted.",
+    "vi": "Bạn đi cả ngày rồi. Chắc hẳn bạn mệt lắm."
+   },
+   {
+    "en": "That can't be Tom. He's on holiday in Spain.",
+    "vi": "Đó không thể là Tom được. Anh ấy đang đi nghỉ ở Tây Ban Nha."
+   },
+   {
+    "en": "She may not know about the meeting.",
+    "vi": "Có thể cô ấy không biết về cuộc họp."
+   },
+   {
+    "en": "The keys could be in your other jacket.",
+    "vi": "Chìa khóa có thể ở trong cái áo khoác kia của bạn."
+   },
+   {
+    "en": "They must be having dinner now.",
+    "vi": "Chắc giờ họ đang ăn tối."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "He's won the lottery! He ___ be very happy.",
+    "answers": [
+     "must"
+    ],
+    "options": [],
+    "explain": "Gần như chắc chắn đúng nên dùng must."
+   },
+   {
+    "type": "gap",
+    "prompt": "She ___ be hungry. She has just eaten a huge meal.",
+    "answers": [
+     "can't",
+     "cannot"
+    ],
+    "options": [],
+    "explain": "Chắc chắn không đúng nên dùng can't."
+   },
+   {
+    "type": "gap",
+    "prompt": "I'm not sure, but I ___ not go to the party tonight. (might)",
+    "answers": [
+     "might"
+    ],
+    "options": [],
+    "explain": "Might not diễn tả khả năng không chắc chắn."
+   },
+   {
+    "type": "gap",
+    "prompt": "Nobody is answering. They must ___ sleeping. (be)",
+    "answers": [
+     "be"
+    ],
+    "options": [],
+    "explain": "Cấu trúc must + be + V-ing cho việc đang diễn ra."
+   },
+   {
+    "type": "choice",
+    "prompt": "The lights are off. They ___ be at home.",
+    "answers": [
+     "can't"
+    ],
+    "options": [
+     "must",
+     "can't",
+     "mustn't"
+    ],
+    "explain": "Bằng chứng cho thấy chắc chắn không ở nhà nên dùng can't."
+   },
+   {
+    "type": "choice",
+    "prompt": "I don't know where Anna is. She ___ be in the library.",
+    "answers": [
+     "might"
+    ],
+    "options": [
+     "must",
+     "can't",
+     "might"
+    ],
+    "explain": "Người nói không chắc nên dùng might."
+   },
+   {
+    "type": "choice",
+    "prompt": "You ___ be serious! That's impossible.",
+    "answers": [
+     "can't"
+    ],
+    "options": [
+     "can't",
+     "must",
+     "may"
+    ],
+    "explain": "Can't diễn tả sự chắc chắn điều gì đó không đúng."
+   },
+   {
+    "type": "order",
+    "prompt": "The train may be late today.",
+    "answers": [
+     "The train may be late today.",
+     "Today the train may be late."
+    ],
+    "options": [],
+    "explain": "May + V nguyên mẫu, trạng từ thời gian ở cuối hoặc đầu câu."
+   },
+   {
+    "type": "order",
+    "prompt": "This must be the right address.",
+    "answers": [
+     "This must be the right address."
+    ],
+    "options": [],
+    "explain": "Chủ ngữ + must + be + bổ ngữ."
+   },
+   {
+    "type": "error",
+    "prompt": "He could knows the answer.",
+    "answers": [
+     "knows",
+     "know"
+    ],
+    "options": [],
+    "explain": "Sau could dùng động từ nguyên mẫu."
+   },
+   {
+    "type": "error",
+    "prompt": "It mustn't be true; I saw him yesterday.",
+    "answers": [
+     "mustn't",
+     "can't"
+    ],
+    "options": [],
+    "explain": "Suy đoán chắc chắn không đúng dùng can't, không dùng mustn't."
+   },
+   {
+    "type": "translate",
+    "prompt": "Chắc hẳn cô ấy đang làm việc.",
+    "answers": [
+     "She must be working.",
+     "She must be at work."
+    ],
+    "options": [],
+    "explain": "Suy đoán gần như chắc chắn về việc đang diễn ra: must be + V-ing."
+   }
+  ]
+ },
+ {
+  "id": "gerund-infinitive-2",
+  "level": "B1",
+  "title": "Động từ + V-ing hay to V (đổi nghĩa: stop, remember, try)",
+  "summary": "Một số động từ như stop, remember, try đi được với cả V-ing và to V, nhưng nghĩa thay đổi. V-ing thường chỉ hành động đã xảy ra/đang làm; to V chỉ mục đích hoặc việc cần làm.",
+  "formulas": [
+   "stop + V-ing: ngừng hẳn việc đang làm | stop + to V: dừng lại để làm việc khác",
+   "remember + V-ing: nhớ đã làm (quá khứ) | remember + to V: nhớ phải làm (tương lai)",
+   "try + V-ing: thử làm xem có hiệu quả không | try + to V: cố gắng làm (việc khó)"
+  ],
+  "usage": [
+   "Dùng stop smoking khi bỏ thói quen; stop to smoke khi dừng việc khác lại để hút thuốc.",
+   "Dùng remember + V-ing khi kể lại ký ức; remember + to V khi nhắc nhở nhiệm vụ.",
+   "Dùng try + V-ing khi đưa ra giải pháp thử nghiệm; try + to V khi nói về nỗ lực, có thể không thành công.",
+   "Forget cũng theo quy tắc giống remember: forget to V = quên làm, forget V-ing = quên đã làm."
+  ],
+  "mistakes": [
+   {
+    "wrong": "Remember locking the door when you go out.",
+    "right": "Remember to lock the door when you go out.",
+    "why": "Đây là lời nhắc việc cần làm trong tương lai nên dùng to V."
+   },
+   {
+    "wrong": "He stopped to smoke last year for his health.",
+    "right": "He stopped smoking last year for his health.",
+    "why": "Bỏ thói quen hút thuốc là ngừng hẳn, phải dùng V-ing."
+   },
+   {
+    "wrong": "I tried opening the window but it was stuck.",
+    "right": "I tried to open the window but it was stuck.",
+    "why": "Cố gắng làm nhưng không làm được thì dùng try to V."
+   }
+  ],
+  "examples": [
+   {
+    "en": "I stopped eating sugar two months ago.",
+    "vi": "Tôi đã ngừng ăn đường từ hai tháng trước."
+   },
+   {
+    "en": "We stopped to buy some coffee on the way.",
+    "vi": "Chúng tôi dừng lại để mua cà phê trên đường đi."
+   },
+   {
+    "en": "I remember meeting her at a party in 2019.",
+    "vi": "Tôi nhớ đã gặp cô ấy ở một bữa tiệc năm 2019."
+   },
+   {
+    "en": "Please remember to send the report before Friday.",
+    "vi": "Hãy nhớ gửi báo cáo trước thứ Sáu nhé."
+   },
+   {
+    "en": "If you can't sleep, try drinking warm milk.",
+    "vi": "Nếu không ngủ được, hãy thử uống sữa ấm."
+   },
+   {
+    "en": "She tried to finish the work, but she was too tired.",
+    "vi": "Cô ấy cố hoàn thành công việc nhưng quá mệt."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "Don't forget! Remember ___ (buy) milk on your way home.",
+    "answers": [
+     "to buy"
+    ],
+    "options": [],
+    "explain": "Nhắc việc cần làm trong tương lai: remember + to V."
+   },
+   {
+    "type": "gap",
+    "prompt": "My father stopped ___ (smoke) when I was born.",
+    "answers": [
+     "smoking"
+    ],
+    "options": [],
+    "explain": "Bỏ hẳn thói quen: stop + V-ing."
+   },
+   {
+    "type": "gap",
+    "prompt": "The laptop won't start. Try ___ (restart) it.",
+    "answers": [
+     "restarting"
+    ],
+    "options": [],
+    "explain": "Thử một giải pháp: try + V-ing."
+   },
+   {
+    "type": "gap",
+    "prompt": "I remember ___ (visit) this museum when I was a child.",
+    "answers": [
+     "visiting"
+    ],
+    "options": [],
+    "explain": "Nhớ việc đã làm trong quá khứ: remember + V-ing."
+   },
+   {
+    "type": "choice",
+    "prompt": "We were tired, so we stopped ___ a rest.",
+    "answers": [
+     "to have"
+    ],
+    "options": [
+     "having",
+     "to have",
+     "have"
+    ],
+    "explain": "Dừng lại để làm việc khác: stop + to V."
+   },
+   {
+    "type": "choice",
+    "prompt": "He tried ___ the heavy box, but he couldn't.",
+    "answers": [
+     "to lift"
+    ],
+    "options": [
+     "lifting",
+     "to lift",
+     "lift"
+    ],
+    "explain": "Cố gắng nhưng không làm được: try + to V."
+   },
+   {
+    "type": "choice",
+    "prompt": "I don't remember ___ you my password. Are you sure?",
+    "answers": [
+     "telling"
+    ],
+    "options": [
+     "to tell",
+     "telling",
+     "tell"
+    ],
+    "explain": "Nói về việc đã xảy ra trong quá khứ: remember + V-ing."
+   },
+   {
+    "type": "order",
+    "prompt": "Sắp xếp thành câu: Cô ấy dừng lại để nghe điện thoại.",
+    "answers": [
+     "She stopped to answer the phone."
+    ],
+    "options": [
+     "answer",
+     "stopped",
+     "the phone",
+     "She",
+     "to"
+    ],
+    "explain": "Stop + to V: dừng lại để nghe điện thoại."
+   },
+   {
+    "type": "order",
+    "prompt": "Sắp xếp thành câu: Thử thêm một ít muối vào súp xem.",
+    "answers": [
+     "Try adding some salt to the soup."
+    ],
+    "options": [
+     "to the soup",
+     "adding",
+     "Try",
+     "some salt"
+    ],
+    "explain": "Try + V-ing: thử thêm muối xem có ngon hơn không."
+   },
+   {
+    "type": "error",
+    "prompt": "Please stop to talk, the film is starting.",
+    "answers": [
+     "to talk",
+     "talking"
+    ],
+    "options": [],
+    "explain": "Yêu cầu ngừng hẳn việc đang làm nên dùng V-ing."
+   },
+   {
+    "type": "error",
+    "prompt": "Did you remember locking the car before we left?",
+    "answers": [
+     "locking",
+     "to lock"
+    ],
+    "options": [],
+    "explain": "Hỏi có nhớ làm nhiệm vụ không thì dùng to V."
+   },
+   {
+    "type": "translate",
+    "prompt": "Tôi đã cố gắng gọi cho anh ấy nhưng anh ấy không trả lời.",
+    "answers": [
+     "I tried to call him, but he didn't answer.",
+     "I tried to call him but he didn't answer.",
+     "I tried to call him, but he did not answer.",
+     "I tried to call him but he did not answer.",
+     "I tried to phone him, but he didn't answer.",
+     "I tried to phone him but he didn't answer.",
+     "I tried to phone him, but he did not answer.",
+     "I tried to phone him but he did not answer."
+    ],
+    "options": [],
+    "explain": "Cố gắng làm việc gì: try + to V."
+   }
+  ]
+ },
+ {
+  "id": "too-enough",
+  "level": "B1",
+  "title": "Too / enough / so / such",
+  "summary": "Too và enough diễn tả mức độ (quá/đủ), còn so và such nhấn mạnh mức độ, thường đi với \"that\" để chỉ kết quả.",
+  "formulas": [
+   "too + adj/adv (+ for sb) + to V: The tea is too hot to drink.",
+   "adj/adv + enough + to V; enough + noun: old enough, enough money",
+   "so + adj/adv (+ that + clause): It was so cold that we stayed home.",
+   "such + (a/an) + adj + noun (+ that + clause): She is such a kind person."
+  ],
+  "usage": [
+   "Too = quá (mang nghĩa tiêu cực, không làm được), đứng trước tính từ/trạng từ.",
+   "Enough = đủ: đứng SAU tính từ/trạng từ nhưng TRƯỚC danh từ.",
+   "So dùng với tính từ/trạng từ (hoặc so many/much + danh từ); such dùng với cụm danh từ.",
+   "So/such ... that dùng để nói kết quả của mức độ đó."
+  ],
+  "mistakes": [
+   {
+    "wrong": "He isn't enough tall to play basketball.",
+    "right": "He isn't tall enough to play basketball.",
+    "why": "Enough đứng sau tính từ."
+   },
+   {
+    "wrong": "It was so a beautiful day.",
+    "right": "It was such a beautiful day.",
+    "why": "Trước cụm danh từ (a + adj + noun) phải dùng such."
+   },
+   {
+    "wrong": "This bag is too heavy that I can't carry it.",
+    "right": "This bag is so heavy that I can't carry it.",
+    "why": "Too đi với 'to V', không đi với 'that'."
+   }
+  ],
+  "examples": [
+   {
+    "en": "This coffee is too strong for me to drink.",
+    "vi": "Cà phê này quá đậm, tôi không uống được."
+   },
+   {
+    "en": "Are you old enough to drive a car?",
+    "vi": "Bạn đã đủ tuổi lái xe ô tô chưa?"
+   },
+   {
+    "en": "We don't have enough time to finish the project.",
+    "vi": "Chúng ta không có đủ thời gian để hoàn thành dự án."
+   },
+   {
+    "en": "The film was so boring that I fell asleep.",
+    "vi": "Bộ phim chán đến mức tôi ngủ gật."
+   },
+   {
+    "en": "It was such a nice day that we went to the beach.",
+    "vi": "Hôm đó trời đẹp đến nỗi chúng tôi đi biển."
+   },
+   {
+    "en": "There were so many people that we couldn't find a seat.",
+    "vi": "Có nhiều người đến mức chúng tôi không tìm được chỗ ngồi."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "The box is ___ heavy for me to lift.",
+    "answers": [
+     "too"
+    ],
+    "options": [],
+    "explain": "Too + tính từ + for sb + to V."
+   },
+   {
+    "type": "gap",
+    "prompt": "She didn't study hard ___ to pass the exam.",
+    "answers": [
+     "enough"
+    ],
+    "options": [],
+    "explain": "Enough đứng sau trạng từ 'hard'."
+   },
+   {
+    "type": "gap",
+    "prompt": "He spoke ___ quickly that nobody understood him.",
+    "answers": [
+     "so"
+    ],
+    "options": [],
+    "explain": "So + trạng từ + that."
+   },
+   {
+    "type": "gap",
+    "prompt": "They are ___ friendly people that everyone likes them.",
+    "answers": [
+     "such"
+    ],
+    "options": [],
+    "explain": "Such + tính từ + danh từ số nhiều."
+   },
+   {
+    "type": "choice",
+    "prompt": "I don't have ___ to buy a new phone.",
+    "answers": [
+     "enough money"
+    ],
+    "options": [
+     "enough money",
+     "money enough",
+     "too money"
+    ],
+    "explain": "Enough đứng trước danh từ."
+   },
+   {
+    "type": "choice",
+    "prompt": "It was ___ an exciting match that we shouted all night.",
+    "answers": [
+     "such"
+    ],
+    "options": [
+     "so",
+     "such",
+     "too",
+     "enough"
+    ],
+    "explain": "Trước 'an + adj + noun' dùng such."
+   },
+   {
+    "type": "choice",
+    "prompt": "The water is ___ cold to swim in.",
+    "answers": [
+     "too"
+    ],
+    "options": [
+     "so",
+     "such",
+     "too"
+    ],
+    "explain": "Cấu trúc too + adj + to V."
+   },
+   {
+    "type": "order",
+    "prompt": "Is the room big enough for ten people?",
+    "answers": [
+     "Is the room big enough for ten people?"
+    ],
+    "options": [],
+    "explain": "Enough đứng sau tính từ 'big'."
+   },
+   {
+    "type": "order",
+    "prompt": "It was such a long journey that we were exhausted.",
+    "answers": [
+     "It was such a long journey that we were exhausted."
+    ],
+    "options": [],
+    "explain": "Such + a + adj + noun + that + mệnh đề."
+   },
+   {
+    "type": "error",
+    "prompt": "The exam was such difficult that many students failed.",
+    "answers": [
+     "such",
+     "so"
+    ],
+    "options": [],
+    "explain": "Trước tính từ đứng một mình dùng so."
+   },
+   {
+    "type": "error",
+    "prompt": "My brother is enough old to vote now.",
+    "answers": [
+     "enough old",
+     "old enough"
+    ],
+    "options": [],
+    "explain": "Enough phải đứng sau tính từ."
+   },
+   {
+    "type": "translate",
+    "prompt": "Trời quá nóng nên chúng tôi không thể ra ngoài.",
+    "answers": [
+     "It was too hot for us to go out.",
+     "It was too hot to go out.",
+     "It was so hot that we couldn't go out.",
+     "It was so hot that we could not go out.",
+     "It is too hot for us to go out.",
+     "It's too hot for us to go out.",
+     "It is too hot to go out.",
+     "It's too hot to go out.",
+     "It is so hot that we can't go out.",
+     "It's so hot that we can't go out.",
+     "It is so hot that we cannot go out.",
+     "It's so hot that we cannot go out."
+    ],
+    "options": [],
+    "explain": "Dùng too...to V hoặc so...that để diễn tả kết quả (chấp nhận cả hiện tại và quá khứ)."
+   }
+  ]
+ },
+ {
+  "id": "question-tags",
+  "level": "B1",
+  "title": "Câu hỏi đuôi",
+  "summary": "Câu hỏi đuôi (tag question) là phần hỏi ngắn đặt cuối câu để xác nhận thông tin hoặc tìm sự đồng tình. Mệnh đề chính khẳng định thì đuôi phủ định, mệnh đề chính phủ định thì đuôi khẳng định.",
+  "formulas": [
+   "Mệnh đề khẳng định, + trợ động từ + n't + đại từ? (She is busy, isn't she?)",
+   "Mệnh đề phủ định, + trợ động từ + đại từ? (You don't smoke, do you?)",
+   "Động từ thường ở hiện tại/quá khứ → dùng do/does/did ở đuôi",
+   "Trường hợp đặc biệt: I am → aren't I?; Let's → shall we?; câu mệnh lệnh → will you?"
+  ],
+  "usage": [
+   "Dùng để xác nhận điều mình nghĩ là đúng (xuống giọng ở đuôi).",
+   "Dùng để hỏi thật khi không chắc chắn (lên giọng ở đuôi).",
+   "Trợ động từ ở đuôi phải cùng thì với động từ trong mệnh đề chính; chủ ngữ ở đuôi luôn là đại từ.",
+   "Câu có từ mang nghĩa phủ định (never, hardly, no one, nothing) thì đuôi khẳng định."
+  ],
+  "mistakes": [
+   {
+    "wrong": "You like coffee, isn't it?",
+    "right": "You like coffee, don't you?",
+    "why": "Không dùng \"isn't it\" cho mọi câu như tiếng Việt \"phải không\"; phải chọn trợ động từ và đại từ phù hợp."
+   },
+   {
+    "wrong": "Tom went home, didn't Tom?",
+    "right": "Tom went home, didn't he?",
+    "why": "Chủ ngữ ở phần đuôi phải là đại từ, không lặp lại danh từ."
+   },
+   {
+    "wrong": "She never eats meat, doesn't she?",
+    "right": "She never eats meat, does she?",
+    "why": "\"Never\" đã mang nghĩa phủ định nên đuôi phải ở dạng khẳng định."
+   }
+  ],
+  "examples": [
+   {
+    "en": "It's really cold today, isn't it?",
+    "vi": "Hôm nay trời lạnh thật, phải không?"
+   },
+   {
+    "en": "You haven't finished the report yet, have you?",
+    "vi": "Bạn chưa làm xong báo cáo, đúng không?"
+   },
+   {
+    "en": "Your brother works in a bank, doesn't he?",
+    "vi": "Anh trai bạn làm ở ngân hàng, phải không?"
+   },
+   {
+    "en": "We met at the conference last year, didn't we?",
+    "vi": "Chúng ta đã gặp nhau ở hội nghị năm ngoái, phải không?"
+   },
+   {
+    "en": "I'm late again, aren't I?",
+    "vi": "Tôi lại đến muộn rồi, phải không?"
+   },
+   {
+    "en": "Let's take a short break, shall we?",
+    "vi": "Chúng ta nghỉ một chút nhé?"
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "She can speak French, ___ she?",
+    "answers": [
+     "can't"
+    ],
+    "options": [],
+    "explain": "Mệnh đề khẳng định dùng \"can\" nên đuôi là \"can't\"."
+   },
+   {
+    "type": "gap",
+    "prompt": "They didn't call you, ___ they?",
+    "answers": [
+     "did"
+    ],
+    "options": [],
+    "explain": "Mệnh đề phủ định ở quá khứ nên đuôi là \"did\"."
+   },
+   {
+    "type": "gap",
+    "prompt": "Your parents live in Hanoi, ___ they?",
+    "answers": [
+     "don't"
+    ],
+    "options": [],
+    "explain": "Động từ thường ở hiện tại, chủ ngữ số nhiều nên dùng \"don't\"."
+   },
+   {
+    "type": "gap",
+    "prompt": "You've been to Japan, ___ you?",
+    "answers": [
+     "haven't"
+    ],
+    "options": [],
+    "explain": "\"You've\" là \"you have\" nên đuôi là \"haven't\"."
+   },
+   {
+    "type": "choice",
+    "prompt": "I'm on the list, ___?",
+    "answers": [
+     "aren't I"
+    ],
+    "options": [
+     "amn't I",
+     "aren't I",
+     "isn't it",
+     "am I"
+    ],
+    "explain": "Với \"I am\" khẳng định, đuôi đặc biệt là \"aren't I\"."
+   },
+   {
+    "type": "choice",
+    "prompt": "Nobody came to the party, ___?",
+    "answers": [
+     "did they"
+    ],
+    "options": [
+     "didn't they",
+     "did they",
+     "didn't he",
+     "did it"
+    ],
+    "explain": "\"Nobody\" mang nghĩa phủ định và đuôi dùng đại từ \"they\"."
+   },
+   {
+    "type": "choice",
+    "prompt": "Close the window, ___?",
+    "answers": [
+     "will you"
+    ],
+    "options": [
+     "do you",
+     "will you",
+     "shall we",
+     "are you"
+    ],
+    "explain": "Câu mệnh lệnh thường dùng đuôi \"will you\"."
+   },
+   {
+    "type": "order",
+    "prompt": "He won't be late, will he?",
+    "answers": [
+     "He won't be late, will he?"
+    ],
+    "options": [
+     "will",
+     "he?",
+     "late,",
+     "won't",
+     "be",
+     "He"
+    ],
+    "explain": "\"Won't\" ở mệnh đề chính nên đuôi là \"will he\"."
+   },
+   {
+    "type": "order",
+    "prompt": "Let's go out for dinner, shall we?",
+    "answers": [
+     "Let's go out for dinner, shall we?"
+    ],
+    "options": [
+     "shall",
+     "dinner,",
+     "go",
+     "we?",
+     "for",
+     "out",
+     "Let's"
+    ],
+    "explain": "Câu bắt đầu bằng \"Let's\" dùng đuôi \"shall we\"."
+   },
+   {
+    "type": "error",
+    "prompt": "Anna was at home yesterday, weren't she?",
+    "answers": [
+     "weren't",
+     "wasn't"
+    ],
+    "options": [],
+    "explain": "Chủ ngữ \"she\" số ít nên dùng \"wasn't\"."
+   },
+   {
+    "type": "error",
+    "prompt": "He hardly ever studies, doesn't he?",
+    "answers": [
+     "doesn't",
+     "does"
+    ],
+    "options": [],
+    "explain": "\"Hardly ever\" mang nghĩa phủ định nên đuôi phải khẳng định."
+   },
+   {
+    "type": "translate",
+    "prompt": "Bạn đã gặp cô ấy rồi, phải không?",
+    "answers": [
+     "You've met her, haven't you?",
+     "You have met her, haven't you?",
+     "You met her, didn't you?"
+    ],
+    "options": [],
+    "explain": "Đuôi phủ định phải cùng trợ động từ với mệnh đề chính."
+   }
+  ]
+ },
+ {
+  "id": "third-conditional",
+  "level": "B2",
+  "title": "Câu điều kiện loại 3 và câu điều kiện hỗn hợp",
+  "summary": "Câu điều kiện loại 3 dùng để nói về một điều không có thật trong quá khứ và kết quả tưởng tượng của nó trong quá khứ. Câu điều kiện hỗn hợp nối hai mốc thời gian khác nhau: điều kiện ở quá khứ thì kết quả ở hiện tại, hoặc ngược lại.",
+  "formulas": [
+   "Loại 3: If + S + had + V3, S + would/could/might + have + V3",
+   "Hỗn hợp (quá khứ → hiện tại): If + S + had + V3, S + would + V (nguyên mẫu)",
+   "Hỗn hợp (hiện tại → quá khứ): If + S + V2/were, S + would + have + V3",
+   "Đảo ngữ loại 3: Had + S + V3, S + would have + V3"
+  ],
+  "usage": [
+   "Loại 3: tiếc nuối hoặc trách móc về chuyện đã xảy ra, ví dụ: If I had known, I would have come.",
+   "Hỗn hợp 1: một việc trong quá khứ mà khác đi thì hiện tại cũng khác, ví dụ: If I had studied medicine, I would be a doctor now.",
+   "Hỗn hợp 2: một đặc điểm ở hiện tại (luôn đúng) mà khác đi thì chuyện quá khứ cũng đã khác, ví dụ: If I weren't so shy, I would have spoken to her.",
+   "Khi viết trang trọng, có thể bỏ 'If' và đảo 'Had' lên đầu câu."
+  ],
+  "mistakes": [
+   {
+    "wrong": "If I would have known, I would have helped.",
+    "right": "If I had known, I would have helped.",
+    "why": "Mệnh đề 'if' không dùng 'would'; phải dùng 'had + V3'."
+   },
+   {
+    "wrong": "If she had left earlier, she would caught the train.",
+    "right": "If she had left earlier, she would have caught the train.",
+    "why": "Mệnh đề kết quả loại 3 phải có đủ 'would have + V3'."
+   },
+   {
+    "wrong": "If I had taken that job, I would have lived in Paris now.",
+    "right": "If I had taken that job, I would live in Paris now.",
+    "why": "Có 'now' là kết quả ở hiện tại, nên dùng 'would + V' (câu hỗn hợp)."
+   }
+  ],
+  "examples": [
+   {
+    "en": "If we had booked earlier, we would have got cheaper tickets.",
+    "vi": "Nếu chúng tôi đặt sớm hơn thì đã mua được vé rẻ hơn."
+   },
+   {
+    "en": "She might have passed the exam if she had revised more.",
+    "vi": "Cô ấy có lẽ đã đỗ kỳ thi nếu ôn tập nhiều hơn."
+   },
+   {
+    "en": "If I hadn't missed the flight, I would be in Tokyo now.",
+    "vi": "Nếu tôi không lỡ chuyến bay thì giờ này tôi đã ở Tokyo."
+   },
+   {
+    "en": "If he were more careful, he wouldn't have crashed the car.",
+    "vi": "Nếu anh ấy cẩn thận hơn thì đã không đâm xe."
+   },
+   {
+    "en": "Had I known about the meeting, I would have attended.",
+    "vi": "Nếu tôi biết về cuộc họp thì tôi đã tham dự rồi."
+   },
+   {
+    "en": "If they had invested in that company, they would be rich today.",
+    "vi": "Nếu họ đầu tư vào công ty đó thì giờ họ đã giàu."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "If you had told me, I ___ (help) you.",
+    "answers": [
+     "would have helped",
+     "'d have helped",
+     "would've helped"
+    ],
+    "options": [],
+    "explain": "Kết quả quá khứ loại 3: would have + V3."
+   },
+   {
+    "type": "gap",
+    "prompt": "If she ___ (not/eat) so much, she wouldn't have felt sick.",
+    "answers": [
+     "hadn't eaten",
+     "had not eaten"
+    ],
+    "options": [],
+    "explain": "Mệnh đề if loại 3 dùng had (not) + V3."
+   },
+   {
+    "type": "gap",
+    "prompt": "If I had saved money, I ___ (be) able to buy a house now.",
+    "answers": [
+     "would be",
+     "'d be"
+    ],
+    "options": [],
+    "explain": "Có 'now' nên kết quả ở hiện tại: would + V."
+   },
+   {
+    "type": "gap",
+    "prompt": "___ I known the truth, I would have acted differently.",
+    "answers": [
+     "Had"
+    ],
+    "options": [],
+    "explain": "Đảo ngữ loại 3: Had + S + V3."
+   },
+   {
+    "type": "choice",
+    "prompt": "If he spoke French, he ___ the job in Paris last year.",
+    "options": [
+     "would get",
+     "would have got",
+     "had got",
+     "will get"
+    ],
+    "answers": [
+     "would have got"
+    ],
+    "explain": "Đặc điểm hiện tại dẫn tới kết quả quá khứ: would have + V3."
+   },
+   {
+    "type": "choice",
+    "prompt": "If we ___ the map, we wouldn't have got lost.",
+    "options": [
+     "had checked",
+     "would check",
+     "checked",
+     "have checked"
+    ],
+    "answers": [
+     "had checked"
+    ],
+    "explain": "Mệnh đề if loại 3 dùng quá khứ hoàn thành."
+   },
+   {
+    "type": "choice",
+    "prompt": "If I hadn't stayed up late, I ___ so tired now.",
+    "options": [
+     "wouldn't have been",
+     "won't be",
+     "wouldn't be",
+     "hadn't been"
+    ],
+    "answers": [
+     "wouldn't be"
+    ],
+    "explain": "Kết quả ở hiện tại (now) nên dùng would + V."
+   },
+   {
+    "type": "order",
+    "prompt": "If it had rained, we would have cancelled the picnic.",
+    "answers": [
+     "If it had rained, we would have cancelled the picnic.",
+     "We would have cancelled the picnic if it had rained."
+    ],
+    "options": [],
+    "explain": "Mệnh đề if có thể đứng trước hoặc sau."
+   },
+   {
+    "type": "order",
+    "prompt": "If she had married him, she would live in Canada now.",
+    "answers": [
+     "If she had married him, she would live in Canada now.",
+     "She would live in Canada now if she had married him."
+    ],
+    "options": [],
+    "explain": "Câu hỗn hợp: quá khứ dẫn tới hiện tại."
+   },
+   {
+    "type": "error",
+    "prompt": "If they had left on time, they would have arrive before dinner.",
+    "answers": [
+     "arrive",
+     "arrived"
+    ],
+    "options": [],
+    "explain": "Sau would have phải dùng V3."
+   },
+   {
+    "type": "error",
+    "prompt": "If I would have seen you, I would have said hello.",
+    "answers": [
+     "would have seen",
+     "had seen"
+    ],
+    "options": [],
+    "explain": "Mệnh đề if dùng had + V3, không dùng would."
+   },
+   {
+    "type": "translate",
+    "prompt": "Nếu tôi học chăm hơn thì tôi đã đỗ kỳ thi.",
+    "answers": [
+     "If I had studied harder, I would have passed the exam.",
+     "If I'd studied harder, I'd have passed the exam.",
+     "Had I studied harder, I would have passed the exam."
+    ],
+    "options": [],
+    "explain": "Chuyện trái với quá khứ: dùng câu điều kiện loại 3."
+   }
+  ]
+ },
+ {
+  "id": "wish",
+  "level": "B2",
+  "title": "Wish / if only",
+  "summary": "\"Wish / If only\" dùng để diễn tả mong ước trái với thực tế ở hiện tại, nuối tiếc về quá khứ, hoặc phàn nàn về hành vi của người khác. \"If only\" mang sắc thái mạnh và cảm xúc hơn \"wish\".",
+  "formulas": [
+   "Hiện tại: S + wish / If only + S + V2/V-ed (were cho mọi ngôi)",
+   "Quá khứ: S + wish / If only + S + had + V3",
+   "Phàn nàn/mong thay đổi: S + wish + S + would + V (nguyên mẫu)",
+   "Khả năng: S + wish + S + could + V"
+  ],
+  "usage": [
+   "Dùng thì quá khứ đơn để nói điều ước trái với hiện tại: I wish I knew = tiếc là tôi không biết.",
+   "Dùng quá khứ hoàn thành để nuối tiếc chuyện đã xảy ra: I wish I had studied.",
+   "Dùng would để phàn nàn về hành động người khác, không dùng với chính mình (không nói I wish I would).",
+   "If only thường đứng đầu câu, nhấn mạnh cảm xúc tiếc nuối mạnh hơn."
+  ],
+  "mistakes": [
+   {
+    "wrong": "I wish I have more time.",
+    "right": "I wish I had more time.",
+    "why": "Ước trái hiện tại phải lùi thì về quá khứ đơn."
+   },
+   {
+    "wrong": "I wish I didn't eat so much last night.",
+    "right": "I wish I hadn't eaten so much last night.",
+    "why": "Nuối tiếc về quá khứ phải dùng quá khứ hoàn thành."
+   },
+   {
+    "wrong": "I wish I would be taller.",
+    "right": "I wish I were taller.",
+    "why": "Không dùng would với chủ ngữ là chính mình; dùng were cho trạng thái."
+   }
+  ],
+  "examples": [
+   {
+    "en": "I wish I lived closer to the office.",
+    "vi": "Ước gì tôi sống gần văn phòng hơn."
+   },
+   {
+    "en": "If only I had listened to my parents.",
+    "vi": "Giá mà tôi đã nghe lời bố mẹ."
+   },
+   {
+    "en": "She wishes she could speak French fluently.",
+    "vi": "Cô ấy ước mình có thể nói tiếng Pháp trôi chảy."
+   },
+   {
+    "en": "I wish you would stop interrupting me.",
+    "vi": "Tôi mong bạn đừng ngắt lời tôi nữa."
+   },
+   {
+    "en": "We wish we hadn't sold our old house.",
+    "vi": "Chúng tôi ước đã không bán căn nhà cũ."
+   },
+   {
+    "en": "If only it were the weekend already!",
+    "vi": "Giá mà đã là cuối tuần rồi!"
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "I wish I ___ (know) the answer right now.",
+    "answers": [
+     "knew"
+    ],
+    "options": [],
+    "explain": "Ước trái hiện tại dùng quá khứ đơn."
+   },
+   {
+    "type": "gap",
+    "prompt": "If only we ___ (leave) earlier yesterday; we missed the train.",
+    "answers": [
+     "had left",
+     "'d left"
+    ],
+    "options": [],
+    "explain": "Nuối tiếc quá khứ dùng had + V3."
+   },
+   {
+    "type": "gap",
+    "prompt": "I wish my neighbours ___ (stop) playing loud music at night.",
+    "answers": [
+     "would stop"
+    ],
+    "options": [],
+    "explain": "Phàn nàn về hành vi người khác dùng would + V."
+   },
+   {
+    "type": "gap",
+    "prompt": "He wishes he ___ (be) rich enough to buy that car.",
+    "answers": [
+     "were",
+     "was"
+    ],
+    "options": [],
+    "explain": "Trạng thái hiện tại dùng were (hoặc was trong văn nói)."
+   },
+   {
+    "type": "choice",
+    "prompt": "I wish I ___ that email to my boss last week.",
+    "answers": [
+     "hadn't sent"
+    ],
+    "options": [
+     "didn't send",
+     "hadn't sent",
+     "wouldn't send",
+     "don't send"
+    ],
+    "explain": "Last week là quá khứ nên dùng quá khứ hoàn thành."
+   },
+   {
+    "type": "choice",
+    "prompt": "If only I ___ swim; then I could join you at the beach.",
+    "answers": [
+     "could"
+    ],
+    "options": [
+     "can",
+     "could",
+     "would",
+     "will"
+    ],
+    "explain": "Ước về khả năng ở hiện tại dùng could."
+   },
+   {
+    "type": "choice",
+    "prompt": "She wishes her son ___ more attention in class, but he never does.",
+    "answers": [
+     "would pay"
+    ],
+    "options": [
+     "pays",
+     "would pay",
+     "has paid",
+     "will pay"
+    ],
+    "explain": "Mong người khác thay đổi hành vi dùng would."
+   },
+   {
+    "type": "order",
+    "prompt": "I wish I had studied harder for the exam.",
+    "answers": [
+     "I wish I had studied harder for the exam."
+    ],
+    "options": [
+     "studied",
+     "I wish",
+     "for the exam",
+     "had",
+     "harder",
+     "I"
+    ],
+    "explain": "Cấu trúc wish + S + had + V3."
+   },
+   {
+    "type": "order",
+    "prompt": "If only she were here with us now.",
+    "answers": [
+     "If only she were here with us now.",
+     "If only she were with us here now."
+    ],
+    "options": [
+     "were",
+     "here",
+     "If only",
+     "now",
+     "she",
+     "with us"
+    ],
+    "explain": "If only + S + were cho điều ước hiện tại."
+   },
+   {
+    "type": "error",
+    "prompt": "I wish I can visit Japan next year.",
+    "answers": [
+     "can",
+     "could"
+    ],
+    "options": [],
+    "explain": "Sau wish phải lùi thì: can thành could."
+   },
+   {
+    "type": "error",
+    "prompt": "If only I didn't forget her birthday yesterday.",
+    "answers": [
+     "didn't forget",
+     "hadn't forgotten"
+    ],
+    "options": [],
+    "explain": "Yesterday là quá khứ nên dùng hadn't forgotten."
+   },
+   {
+    "type": "translate",
+    "prompt": "Giá mà tôi đã không nói điều đó với cô ấy.",
+    "answers": [
+     "If only I hadn't said that to her.",
+     "If only I had not said that to her.",
+     "I wish I hadn't said that to her.",
+     "I wish I had not said that to her."
+    ],
+    "options": [],
+    "explain": "Nuối tiếc quá khứ dùng If only + had not + V3."
+   }
+  ]
+ },
+ {
+  "id": "passive-advanced",
+  "level": "B2",
+  "title": "Bị động nâng cao (các thì, modal, have something done)",
+  "summary": "Câu bị động nâng cao dùng \"be\" chia theo thì hoặc theo sau động từ khuyết thiếu, cộng với V3. Cấu trúc \"have/get something done\" diễn tả việc nhờ hoặc thuê người khác làm gì đó cho mình.",
+  "formulas": [
+   "Tiếp diễn: S + am/is/are/was/were + being + V3",
+   "Hoàn thành: S + have/has/had + been + V3",
+   "Modal: S + can/must/should/will... + be + V3 | modal + have been + V3 (quá khứ)",
+   "Nhờ làm: S + have/get + O + V3 (+ by someone)"
+  ],
+  "usage": [
+   "Dùng bị động khi hành động hoặc kết quả quan trọng hơn người thực hiện, hoặc khi không rõ ai làm.",
+   "Thì tiếp diễn bị động cần cả \"being\"; thì hoàn thành bị động cần \"been\".",
+   "Modal + have been + V3 dùng để suy đoán hoặc tiếc nuối về quá khứ: should have been done.",
+   "Have something done: thuê dịch vụ (cắt tóc, sửa xe), và còn dùng cho chuyện xui xẻo xảy đến với mình (had my phone stolen)."
+  ],
+  "mistakes": [
+   {
+    "wrong": "The road is repairing now.",
+    "right": "The road is being repaired now.",
+    "why": "Bị động tiếp diễn phải có \"being\" + V3; nếu không có thì câu lại mang nghĩa con đường tự sửa."
+   },
+   {
+    "wrong": "I cut my hair yesterday.",
+    "right": "I had my hair cut yesterday.",
+    "why": "Nếu người khác cắt tóc cho bạn thì phải dùng have + O + V3."
+   },
+   {
+    "wrong": "The report must finished today.",
+    "right": "The report must be finished today.",
+    "why": "Sau modal phải có \"be\" rồi mới đến V3."
+   }
+  ],
+  "examples": [
+   {
+    "en": "The new bridge is being built by a Japanese company.",
+    "vi": "Cây cầu mới đang được một công ty Nhật xây dựng."
+   },
+   {
+    "en": "All the tickets have already been sold.",
+    "vi": "Tất cả vé đã được bán hết rồi."
+   },
+   {
+    "en": "This form must be signed before Friday.",
+    "vi": "Mẫu đơn này phải được ký trước thứ Sáu."
+   },
+   {
+    "en": "The problem should have been reported earlier.",
+    "vi": "Lẽ ra vấn đề đó phải được báo cáo sớm hơn."
+   },
+   {
+    "en": "We're having our kitchen painted next week.",
+    "vi": "Tuần sau chúng tôi sẽ thuê người sơn lại bếp."
+   },
+   {
+    "en": "She got her laptop repaired at a shop downtown.",
+    "vi": "Cô ấy đã mang laptop đi sửa ở một cửa hàng trong trung tâm."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "The meeting room is ___ cleaned right now, so please wait.",
+    "answers": [
+     "being"
+    ],
+    "options": [],
+    "explain": "Bị động tiếp diễn: is being + V3."
+   },
+   {
+    "type": "gap",
+    "prompt": "The documents have ___ sent to the client already.",
+    "answers": [
+     "been"
+    ],
+    "options": [],
+    "explain": "Bị động hoàn thành: have been + V3."
+   },
+   {
+    "type": "gap",
+    "prompt": "I need to have my car ___ (service) before the trip.",
+    "answers": [
+     "serviced"
+    ],
+    "options": [],
+    "explain": "Have + O + V3."
+   },
+   {
+    "type": "gap",
+    "prompt": "These rules can't ___ ignored by anyone.",
+    "answers": [
+     "be"
+    ],
+    "options": [],
+    "explain": "Sau modal dùng be + V3."
+   },
+   {
+    "type": "choice",
+    "prompt": "The suspect ___ by the police when we arrived.",
+    "answers": [
+     "was being questioned"
+    ],
+    "options": [
+     "was questioning",
+     "was being questioned",
+     "has been questioned",
+     "is questioned"
+    ],
+    "explain": "Hành động bị động đang diễn ra trong quá khứ thì dùng was being + V3."
+   },
+   {
+    "type": "choice",
+    "prompt": "He had his wallet ___ on the bus.",
+    "answers": [
+     "stolen"
+    ],
+    "options": [
+     "steal",
+     "stole",
+     "stolen",
+     "stealing"
+    ],
+    "explain": "Have + O + V3 cũng dùng để nói chuyện xui xẻo xảy đến với mình."
+   },
+   {
+    "type": "choice",
+    "prompt": "The email might ___ to the wrong address yesterday.",
+    "answers": [
+     "have been sent"
+    ],
+    "options": [
+     "be sent",
+     "have sent",
+     "have been sent",
+     "been sent"
+    ],
+    "explain": "Suy đoán về quá khứ dùng modal + have been + V3."
+   },
+   {
+    "type": "order",
+    "prompt": "The project will have been completed by next month.",
+    "answers": [
+     "The project will have been completed by next month.",
+     "By next month, the project will have been completed.",
+     "By next month the project will have been completed."
+    ],
+    "options": [],
+    "explain": "Tương lai hoàn thành bị động: will have been + V3."
+   },
+   {
+    "type": "order",
+    "prompt": "We are getting our house cleaned tomorrow.",
+    "answers": [
+     "We are getting our house cleaned tomorrow.",
+     "We're getting our house cleaned tomorrow.",
+     "Tomorrow we are getting our house cleaned.",
+     "Tomorrow, we're getting our house cleaned.",
+     "Tomorrow, we are getting our house cleaned.",
+     "Tomorrow we're getting our house cleaned."
+    ],
+    "options": [],
+    "explain": "Get + O + V3 nghĩa là nhờ hoặc thuê người khác làm."
+   },
+   {
+    "type": "error",
+    "prompt": "The new software has been install on every computer.",
+    "answers": [
+     "install",
+     "installed"
+    ],
+    "options": [],
+    "explain": "Sau been phải dùng V3."
+   },
+   {
+    "type": "error",
+    "prompt": "She had her eyes test at the clinic last week.",
+    "answers": [
+     "test",
+     "tested"
+    ],
+    "options": [],
+    "explain": "Have + O + V3, nên phải là tested."
+   },
+   {
+    "type": "translate",
+    "prompt": "Tôi vừa mới đi cắt tóc.",
+    "answers": [
+     "I have just had my hair cut.",
+     "I've just had my hair cut.",
+     "I've just got my hair cut.",
+     "I have just got my hair cut.",
+     "I just had my hair cut.",
+     "I just got my hair cut."
+    ],
+    "options": [],
+    "explain": "Thì hiện tại hoàn thành kết hợp với cấu trúc have + O + V3."
+   }
+  ]
+ },
+ {
+  "id": "past-modals",
+  "level": "B2",
+  "title": "Modal quá khứ: should have / must have / could have",
+  "summary": "Modal quá khứ (modal + have + V3) dùng để nói về sự việc đã qua: tiếc nuối/chỉ trích (should have), suy đoán chắc chắn (must have), khả năng đã có nhưng không xảy ra hoặc suy đoán có thể (could have).",
+  "formulas": [
+   "S + should (not) have + V3: lẽ ra nên (không nên) làm",
+   "S + must have + V3: chắc hẳn đã làm (suy đoán chắc chắn)",
+   "S + could have + V3: lẽ ra đã có thể / có lẽ đã",
+   "S + couldn't have + V3: không thể nào đã làm"
+  ],
+  "usage": [
+   "Should have: diễn tả hối tiếc hoặc chỉ trích việc đã (không) làm trong quá khứ.",
+   "Must have: suy luận gần như chắc chắn dựa trên bằng chứng; phủ định dùng can't/couldn't have, không dùng mustn't have.",
+   "Could have: khả năng đã có nhưng không xảy ra, hoặc suy đoán không chắc chắn về quá khứ.",
+   "Văn nói thường rút gọn: should've, must've, could've."
+  ],
+  "mistakes": [
+   {
+    "wrong": "You should told me earlier.",
+    "right": "You should have told me earlier.",
+    "why": "Sau should phải có have + V3 khi nói về quá khứ."
+   },
+   {
+    "wrong": "He mustn't have seen us.",
+    "right": "He can't have seen us.",
+    "why": "Phủ định của suy đoán chắc chắn dùng can't/couldn't have."
+   },
+   {
+    "wrong": "She must have went home.",
+    "right": "She must have gone home.",
+    "why": "Sau have dùng quá khứ phân từ (V3), không dùng V2."
+   }
+  ],
+  "examples": [
+   {
+    "en": "I should have saved more money last year.",
+    "vi": "Lẽ ra năm ngoái tôi nên tiết kiệm nhiều tiền hơn."
+   },
+   {
+    "en": "The streets are wet; it must have rained overnight.",
+    "vi": "Đường ướt; chắc hẳn đêm qua trời đã mưa."
+   },
+   {
+    "en": "You could have been injured in that accident.",
+    "vi": "Bạn đã có thể bị thương trong vụ tai nạn đó."
+   },
+   {
+    "en": "She shouldn't have spoken to her boss like that.",
+    "vi": "Lẽ ra cô ấy không nên nói chuyện với sếp như vậy."
+   },
+   {
+    "en": "He can't have finished the report already.",
+    "vi": "Không thể nào anh ấy đã viết xong báo cáo rồi."
+   },
+   {
+    "en": "They could have taken the wrong train.",
+    "vi": "Có lẽ họ đã đi nhầm tàu."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "I failed the test. I should have ___ harder.",
+    "answers": [
+     "studied",
+     "worked"
+    ],
+    "options": [],
+    "explain": "Should have + V3: studied/worked."
+   },
+   {
+    "type": "gap",
+    "prompt": "The lights are off. They must ___ gone out.",
+    "answers": [
+     "have"
+    ],
+    "options": [],
+    "explain": "Must have + V3 để suy đoán chắc chắn."
+   },
+   {
+    "type": "gap",
+    "prompt": "Why didn't you call? I could have ___ you a lift.",
+    "answers": [
+     "given"
+    ],
+    "options": [],
+    "explain": "Could have + V3: given."
+   },
+   {
+    "type": "gap",
+    "prompt": "You ___ have eaten so much; now you feel sick.",
+    "answers": [
+     "shouldn't",
+     "should not"
+    ],
+    "options": [],
+    "explain": "Chỉ trích việc đã làm: shouldn't have."
+   },
+   {
+    "type": "choice",
+    "prompt": "Her eyes are red. She ___ been crying.",
+    "answers": [
+     "must have"
+    ],
+    "options": [
+     "must have",
+     "should have",
+     "could"
+    ],
+    "explain": "Suy đoán chắc chắn dựa trên bằng chứng."
+   },
+   {
+    "type": "choice",
+    "prompt": "He was in Paris all week, so he ___ stolen the car here.",
+    "answers": [
+     "can't have"
+    ],
+    "options": [
+     "mustn't have",
+     "can't have",
+     "shouldn't have",
+     "could have"
+    ],
+    "explain": "Không thể nào: can't have."
+   },
+   {
+    "type": "choice",
+    "prompt": "That was dangerous! You ___ fallen off the roof.",
+    "answers": [
+     "could have"
+    ],
+    "options": [
+     "must have",
+     "should have",
+     "could have"
+    ],
+    "explain": "Khả năng đã có nhưng không xảy ra."
+   },
+   {
+    "type": "order",
+    "prompt": "We should have booked the tickets earlier.",
+    "answers": [
+     "We should have booked the tickets earlier.",
+     "We should've booked the tickets earlier."
+    ],
+    "options": [],
+    "explain": "S + should have + V3 + tân ngữ."
+   },
+   {
+    "type": "order",
+    "prompt": "She must have forgotten about the meeting.",
+    "answers": [
+     "She must have forgotten about the meeting.",
+     "She must've forgotten about the meeting."
+    ],
+    "options": [],
+    "explain": "S + must have + V3."
+   },
+   {
+    "type": "error",
+    "prompt": "You should have went to the doctor sooner.",
+    "answers": [
+     "went",
+     "gone"
+    ],
+    "options": [],
+    "explain": "Sau have dùng V3 gone."
+   },
+   {
+    "type": "error",
+    "prompt": "He must have leave his keys at the office.",
+    "answers": [
+     "leave",
+     "left"
+    ],
+    "options": [],
+    "explain": "Sau have dùng V3 left."
+   },
+   {
+    "type": "translate",
+    "prompt": "Lẽ ra tôi nên nghe lời khuyên của bạn.",
+    "answers": [
+     "I should have listened to your advice.",
+     "I should've listened to your advice.",
+     "I should have taken your advice.",
+     "I should've taken your advice."
+    ],
+    "options": [],
+    "explain": "Hối tiếc quá khứ: should have + V3."
+   }
+  ]
+ },
+ {
+  "id": "future-forms",
+  "level": "B2",
+  "title": "Tương lai tiếp diễn và tương lai hoàn thành",
+  "summary": "Tương lai tiếp diễn (will be + V-ing) diễn tả hành động đang diễn ra tại một thời điểm trong tương lai; tương lai hoàn thành (will have + V3) diễn tả hành động sẽ hoàn tất trước một thời điểm trong tương lai.",
+  "formulas": [
+   "Tương lai tiếp diễn: S + will be + V-ing (This time tomorrow, I will be flying.)",
+   "Phủ định/nghi vấn: S + won't be + V-ing / Will + S + be + V-ing?",
+   "Tương lai hoàn thành: S + will have + V3/ed (By 2030, she will have graduated.)",
+   "Phủ định/nghi vấn: S + won't have + V3 / Will + S + have + V3?",
+   "Dấu hiệu: at this time tomorrow, at 8 p.m. next Monday (TLTD); by + mốc thời gian, by the time + hiện tại đơn (TLHT)"
+  ],
+  "usage": [
+   "Dùng tương lai tiếp diễn cho hành động đang diễn ra tại một thời điểm cụ thể trong tương lai.",
+   "Dùng tương lai tiếp diễn để hỏi lịch trình một cách lịch sự: Will you be using the car tonight?",
+   "Dùng tương lai hoàn thành cho hành động hoàn tất trước một mốc tương lai, thường đi với 'by' hoặc 'by the time'.",
+   "Sau 'by the time/when' dùng hiện tại đơn, không dùng 'will'."
+  ],
+  "mistakes": [
+   {
+    "wrong": "By the time you will arrive, we will have eaten.",
+    "right": "By the time you arrive, we will have eaten.",
+    "why": "Mệnh đề thời gian sau 'by the time' dùng hiện tại đơn, không dùng 'will'."
+   },
+   {
+    "wrong": "By next June, I will finish the course.",
+    "right": "By next June, I will have finished the course.",
+    "why": "'By + mốc tương lai' nhấn mạnh sự hoàn tất nên cần tương lai hoàn thành."
+   },
+   {
+    "wrong": "At 9 p.m. tonight, I will watch the match.",
+    "right": "At 9 p.m. tonight, I will be watching the match.",
+    "why": "Hành động đang diễn ra tại một thời điểm cụ thể cần tương lai tiếp diễn."
+   }
+  ],
+  "examples": [
+   {
+    "en": "This time next week, I'll be lying on a beach in Phu Quoc.",
+    "vi": "Giờ này tuần sau, tôi sẽ đang nằm trên bãi biển ở Phú Quốc."
+   },
+   {
+    "en": "Don't call at eight; we'll be having dinner.",
+    "vi": "Đừng gọi lúc tám giờ; lúc đó chúng tôi sẽ đang ăn tối."
+   },
+   {
+    "en": "Will you be using the printer this afternoon?",
+    "vi": "Chiều nay bạn có dùng máy in không?"
+   },
+   {
+    "en": "By the end of the year, we will have launched three new products.",
+    "vi": "Đến cuối năm, chúng tôi sẽ đã ra mắt ba sản phẩm mới."
+   },
+   {
+    "en": "By the time you get home, I'll have cleaned the kitchen.",
+    "vi": "Trước khi bạn về đến nhà, tôi sẽ dọn xong bếp."
+   },
+   {
+    "en": "She won't have finished the report by Friday.",
+    "vi": "Cô ấy sẽ chưa hoàn thành báo cáo trước thứ Sáu."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "At 10 a.m. tomorrow, I ___ (take) my driving test.",
+    "answers": [
+     "will be taking",
+     "'ll be taking"
+    ],
+    "options": [],
+    "explain": "Hành động đang diễn ra tại một thời điểm cụ thể trong tương lai."
+   },
+   {
+    "type": "gap",
+    "prompt": "By 2030, they ___ (build) the new airport.",
+    "answers": [
+     "will have built",
+     "'ll have built"
+    ],
+    "options": [],
+    "explain": "'By + mốc tương lai' dùng tương lai hoàn thành."
+   },
+   {
+    "type": "gap",
+    "prompt": "By the time the film starts, we ___ (buy) the popcorn.",
+    "answers": [
+     "will have bought",
+     "'ll have bought"
+    ],
+    "options": [],
+    "explain": "Hành động hoàn tất trước một thời điểm trong tương lai."
+   },
+   {
+    "type": "gap",
+    "prompt": "Don't visit at noon; the kids ___ (sleep) then.",
+    "answers": [
+     "will be sleeping",
+     "'ll be sleeping"
+    ],
+    "options": [],
+    "explain": "Hành động sẽ đang diễn ra vào buổi trưa (thời điểm trong tương lai)."
+   },
+   {
+    "type": "choice",
+    "prompt": "By next month, I ___ here for ten years.",
+    "answers": [
+     "will have worked"
+    ],
+    "options": [
+     "will work",
+     "will be working",
+     "will have worked",
+     "am working"
+    ],
+    "explain": "'By next month' đi cùng một khoảng thời gian (for ten years) nên cần tương lai hoàn thành."
+   },
+   {
+    "type": "choice",
+    "prompt": "This time tomorrow, we ___ over the Pacific.",
+    "answers": [
+     "will be flying"
+    ],
+    "options": [
+     "will fly",
+     "will be flying",
+     "will have flown"
+    ],
+    "explain": "'This time tomorrow' là dấu hiệu của tương lai tiếp diễn."
+   },
+   {
+    "type": "choice",
+    "prompt": "By the time she ___, the meeting will have ended.",
+    "answers": [
+     "arrives"
+    ],
+    "options": [
+     "will arrive",
+     "arrives",
+     "will have arrived",
+     "arriving"
+    ],
+    "explain": "Sau 'by the time' dùng hiện tại đơn."
+   },
+   {
+    "type": "order",
+    "prompt": "I will have finished the project by Friday.",
+    "answers": [
+     "I will have finished the project by Friday.",
+     "By Friday, I will have finished the project.",
+     "By Friday I will have finished the project."
+    ],
+    "options": [],
+    "explain": "Cấu trúc: S + will have + V3 + by + thời gian."
+   },
+   {
+    "type": "order",
+    "prompt": "Will you be working late tonight?",
+    "answers": [
+     "Will you be working late tonight?"
+    ],
+    "options": [],
+    "explain": "Câu nghi vấn: Will + S + be + V-ing?"
+   },
+   {
+    "type": "error",
+    "prompt": "By the time you will wake up, I will have left.",
+    "answers": [
+     "will wake",
+     "wake"
+    ],
+    "options": [],
+    "explain": "Sau 'by the time' dùng hiện tại đơn."
+   },
+   {
+    "type": "error",
+    "prompt": "By December, she will have pass all her exams.",
+    "answers": [
+     "pass",
+     "passed"
+    ],
+    "options": [],
+    "explain": "Sau 'will have' phải dùng quá khứ phân từ."
+   },
+   {
+    "type": "translate",
+    "prompt": "Giờ này ngày mai, tôi sẽ đang họp với khách hàng.",
+    "answers": [
+     "This time tomorrow, I will be meeting with a client.",
+     "This time tomorrow, I'll be meeting with a client.",
+     "This time tomorrow, I'll be meeting a client.",
+     "This time tomorrow, I'll be meeting with clients.",
+     "At this time tomorrow, I'll be having a meeting with a client."
+    ],
+    "options": [],
+    "explain": "'Giờ này ngày mai' dùng tương lai tiếp diễn."
+   }
+  ]
+ },
+ {
+  "id": "relative-advanced",
+  "level": "B2",
+  "title": "Mệnh đề quan hệ không xác định và rút gọn",
+  "summary": "Mệnh đề quan hệ không xác định bổ sung thông tin phụ cho danh từ đã rõ nghĩa, luôn có dấu phẩy và không dùng \"that\". Mệnh đề quan hệ rút gọn bỏ đại từ quan hệ, dùng V-ing (chủ động) hoặc V3/V-ed (bị động) để câu gọn hơn.",
+  "formulas": [
+   "Danh từ, who/which/whose/where + mệnh đề, ... (không xác định)",
+   "N + who/which + V (chủ động) → N + V-ing",
+   "N + who/which + be + V3 (bị động) → N + V3/V-ed",
+   "the first/last/only + N + to V (rút gọn bằng to-infinitive)",
+   "..., which + V (which thay cho cả mệnh đề trước)"
+  ],
+  "usage": [
+   "Dùng mệnh đề không xác định khi danh từ đã xác định rõ (tên riêng, my mother...); bỏ mệnh đề đi câu vẫn đủ nghĩa.",
+   "Không dùng 'that' và không lược bỏ đại từ quan hệ trong mệnh đề không xác định.",
+   "Rút gọn bằng V-ing khi nghĩa chủ động, bằng V3 khi nghĩa bị động.",
+   "Dùng 'to V' sau the first, the last, the only, so sánh nhất."
+  ],
+  "mistakes": [
+   {
+    "wrong": "My father, that is a doctor, works in Hanoi.",
+    "right": "My father, who is a doctor, works in Hanoi.",
+    "why": "Mệnh đề không xác định không được dùng 'that'."
+   },
+   {
+    "wrong": "The house building in 1900 is a museum now.",
+    "right": "The house built in 1900 is a museum now.",
+    "why": "Ngôi nhà được xây (bị động) nên rút gọn bằng V3, không phải V-ing."
+   },
+   {
+    "wrong": "Hanoi which is the capital has many lakes.",
+    "right": "Hanoi, which is the capital, has many lakes.",
+    "why": "Mệnh đề không xác định phải đặt giữa hai dấu phẩy."
+   }
+  ],
+  "examples": [
+   {
+    "en": "My sister, who lives in Da Nang, is a nurse.",
+    "vi": "Chị tôi, người sống ở Đà Nẵng, là y tá."
+   },
+   {
+    "en": "He passed the exam, which surprised everyone.",
+    "vi": "Anh ấy đã đỗ kỳ thi, điều này khiến mọi người ngạc nhiên."
+   },
+   {
+    "en": "The woman standing by the door is my boss.",
+    "vi": "Người phụ nữ đứng cạnh cửa là sếp tôi."
+   },
+   {
+    "en": "Most of the products sold here are imported.",
+    "vi": "Hầu hết sản phẩm bán ở đây là hàng nhập khẩu."
+   },
+   {
+    "en": "She was the first woman to win the award.",
+    "vi": "Cô ấy là người phụ nữ đầu tiên giành giải thưởng đó."
+   },
+   {
+    "en": "Hue, where I grew up, is famous for its food.",
+    "vi": "Huế, nơi tôi lớn lên, nổi tiếng với ẩm thực."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "Mr. Nam, ___ son studies abroad, is our neighbour.",
+    "answers": [
+     "whose"
+    ],
+    "options": [],
+    "explain": "'Whose' chỉ sở hữu: con trai của ông Nam."
+   },
+   {
+    "type": "gap",
+    "prompt": "The letter ___ (write) in French was hard to read.",
+    "answers": [
+     "written"
+    ],
+    "options": [],
+    "explain": "Lá thư được viết – bị động nên dùng V3."
+   },
+   {
+    "type": "gap",
+    "prompt": "Students ___ (want) to join the club should register today.",
+    "answers": [
+     "wanting"
+    ],
+    "options": [],
+    "explain": "Nghĩa chủ động nên rút gọn bằng V-ing."
+   },
+   {
+    "type": "gap",
+    "prompt": "He was the last person ___ (leave) the office.",
+    "answers": [
+     "to leave"
+    ],
+    "options": [],
+    "explain": "Sau 'the last' dùng to V."
+   },
+   {
+    "type": "choice",
+    "prompt": "Paris, ___ I visited last year, is beautiful.",
+    "answers": [
+     "which"
+    ],
+    "options": [
+     "that",
+     "which",
+     "who",
+     "where"
+    ],
+    "explain": "Paris là tân ngữ của 'visited', mệnh đề không xác định dùng 'which'."
+   },
+   {
+    "type": "choice",
+    "prompt": "She lost her keys, ___ made her late.",
+    "answers": [
+     "which"
+    ],
+    "options": [
+     "that",
+     "what",
+     "which",
+     "it"
+    ],
+    "explain": "'Which' thay cho cả mệnh đề trước."
+   },
+   {
+    "type": "choice",
+    "prompt": "The bridge ___ across the river is very old.",
+    "answers": [
+     "built"
+    ],
+    "options": [
+     "building",
+     "built",
+     "to build",
+     "builds"
+    ],
+    "explain": "Cây cầu được xây – bị động, dùng V3."
+   },
+   {
+    "type": "order",
+    "prompt": "still goes jogging / who is eighty, / My grandmother,",
+    "answers": [
+     "My grandmother, who is eighty, still goes jogging."
+    ],
+    "options": [],
+    "explain": "Mệnh đề không xác định đứng ngay sau danh từ, giữa hai dấu phẩy."
+   },
+   {
+    "type": "order",
+    "prompt": "is my teacher / talking to Lan / The man",
+    "answers": [
+     "The man talking to Lan is my teacher."
+    ],
+    "options": [],
+    "explain": "Cụm V-ing rút gọn đứng ngay sau danh từ."
+   },
+   {
+    "type": "error",
+    "prompt": "Ho Chi Minh City, that is very crowded, never sleeps.",
+    "answers": [
+     "that",
+     "which"
+    ],
+    "options": [],
+    "explain": "Không dùng 'that' trong mệnh đề không xác định."
+   },
+   {
+    "type": "error",
+    "prompt": "The children playing in the park was very noisy.",
+    "answers": [
+     "was",
+     "were"
+    ],
+    "options": [],
+    "explain": "Chủ ngữ 'The children' số nhiều nên dùng 'were'."
+   },
+   {
+    "type": "translate",
+    "prompt": "Anh trai tôi, người làm việc cho Google, rất bận.",
+    "answers": [
+     "My brother, who works for Google, is very busy.",
+     "My older brother, who works for Google, is very busy.",
+     "My elder brother, who works for Google, is very busy."
+    ],
+    "options": [],
+    "explain": "Dùng 'who' với dấu phẩy cho thông tin bổ sung về người."
+   }
+  ]
+ },
+ {
+  "id": "reported-advanced",
+  "level": "B2",
+  "title": "Câu gián tiếp nâng cao (động từ tường thuật: suggest, advise, deny…)",
+  "summary": "Thay vì chỉ dùng \"said/told\", câu gián tiếp nâng cao dùng các động từ tường thuật như suggest, advise, deny, admit, refuse, promise để diễn đạt chính xác ý định của người nói. Mỗi động từ đi kèm một cấu trúc riêng (V-ing, to V, that-clause, tân ngữ + to V).",
+  "formulas": [
+   "S + suggest / deny / admit / recommend + V-ing (hoặc suggest that + S + (should) V)",
+   "S + advise / warn / remind / persuade / encourage + O + (not) to V",
+   "S + refuse / promise / agree / offer / threaten + (not) to V",
+   "S + accuse O of / apologise for / insist on + V-ing",
+   "S + deny / admit / promise + that + mệnh đề"
+  ],
+  "usage": [
+   "Dùng để tóm tắt ý nghĩa, mục đích câu nói (đề nghị, khuyên, từ chối, phủ nhận) thay vì lặp lại nguyên văn.",
+   "Suggest KHÔNG dùng với 'to V' và không dùng 'suggest somebody to do'; dùng V-ing hoặc that-clause.",
+   "Advise, warn, remind cần tân ngữ chỉ người trước 'to V'.",
+   "Deny, admit có thể dùng 'having + V3' để nhấn mạnh hành động đã xảy ra trước."
+  ],
+  "mistakes": [
+   {
+    "wrong": "She suggested me to take a taxi.",
+    "right": "She suggested that I (should) take a taxi. / She suggested taking a taxi.",
+    "why": "Suggest không đi với cấu trúc 'O + to V'."
+   },
+   {
+    "wrong": "He denied to steal the money.",
+    "right": "He denied stealing the money.",
+    "why": "Deny đi với V-ing, không đi với to V."
+   },
+   {
+    "wrong": "The doctor advised to me rest.",
+    "right": "The doctor advised me to rest.",
+    "why": "Advise + tân ngữ (không có 'to') + to V."
+   }
+  ],
+  "examples": [
+   {
+    "en": "She suggested going to the cinema after dinner.",
+    "vi": "Cô ấy gợi ý đi xem phim sau bữa tối."
+   },
+   {
+    "en": "My lawyer advised me not to sign the contract.",
+    "vi": "Luật sư khuyên tôi không nên ký hợp đồng."
+   },
+   {
+    "en": "The manager denied making any mistakes.",
+    "vi": "Người quản lý phủ nhận đã mắc bất kỳ lỗi nào."
+   },
+   {
+    "en": "He admitted having lied to his parents.",
+    "vi": "Anh ấy thừa nhận đã nói dối bố mẹ."
+   },
+   {
+    "en": "They refused to pay the extra fee.",
+    "vi": "Họ từ chối trả khoản phí phụ thu."
+   },
+   {
+    "en": "She accused her colleague of stealing her ideas.",
+    "vi": "Cô ấy buộc tội đồng nghiệp ăn cắp ý tưởng của mình."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "He denied ___ (break) the window.",
+    "answers": [
+     "breaking",
+     "having broken"
+    ],
+    "options": [],
+    "explain": "Deny + V-ing."
+   },
+   {
+    "type": "gap",
+    "prompt": "The teacher reminded us ___ (bring) our dictionaries.",
+    "answers": [
+     "to bring"
+    ],
+    "options": [],
+    "explain": "Remind + O + to V."
+   },
+   {
+    "type": "gap",
+    "prompt": "She apologised for ___ (be) late.",
+    "answers": [
+     "being",
+     "having been"
+    ],
+    "options": [],
+    "explain": "Apologise for + V-ing."
+   },
+   {
+    "type": "gap",
+    "prompt": "My friend promised ___ (help) me move house.",
+    "answers": [
+     "to help"
+    ],
+    "options": [],
+    "explain": "Promise + to V."
+   },
+   {
+    "type": "choice",
+    "prompt": "Tom suggested ___ a break.",
+    "answers": [
+     "taking"
+    ],
+    "options": [
+     "to take",
+     "taking",
+     "take us",
+     "us to take"
+    ],
+    "explain": "Suggest + V-ing."
+   },
+   {
+    "type": "choice",
+    "prompt": "The police warned people ___ near the river.",
+    "answers": [
+     "not to go"
+    ],
+    "options": [
+     "not going",
+     "to not going",
+     "not to go",
+     "don't go"
+    ],
+    "explain": "Warn + O + not to V."
+   },
+   {
+    "type": "choice",
+    "prompt": "They accused him ___ the documents.",
+    "answers": [
+     "of hiding"
+    ],
+    "options": [
+     "for hiding",
+     "to hide",
+     "of hiding",
+     "hiding"
+    ],
+    "explain": "Accuse + O + of + V-ing."
+   },
+   {
+    "type": "order",
+    "prompt": "The doctor advised him to give up smoking.",
+    "answers": [
+     "The doctor advised him to give up smoking."
+    ],
+    "options": [
+     "advised",
+     "him",
+     "to give up",
+     "The doctor",
+     "smoking."
+    ],
+    "explain": "Advise + O + to V."
+   },
+   {
+    "type": "order",
+    "prompt": "She admitted taking the money.",
+    "answers": [
+     "She admitted taking the money."
+    ],
+    "options": [
+     "taking",
+     "She",
+     "the money.",
+     "admitted"
+    ],
+    "explain": "Admit + V-ing."
+   },
+   {
+    "type": "error",
+    "prompt": "He refused helping us with the project.",
+    "answers": [
+     "helping",
+     "to help"
+    ],
+    "options": [],
+    "explain": "Refuse + to V."
+   },
+   {
+    "type": "error",
+    "prompt": "She insisted in paying for the meal.",
+    "answers": [
+     "in",
+     "on"
+    ],
+    "options": [],
+    "explain": "Insist on + V-ing."
+   },
+   {
+    "type": "translate",
+    "prompt": "Anh ấy gợi ý rằng chúng tôi nên đặt bàn trước.",
+    "answers": [
+     "He suggested that we book a table in advance.",
+     "He suggested booking a table in advance.",
+     "He suggested that we should book a table in advance.",
+     "He suggested we book a table in advance.",
+     "He suggested we should book a table in advance."
+    ],
+    "options": [],
+    "explain": "Suggest + that-clause hoặc V-ing."
+   }
+  ]
+ },
+ {
+  "id": "linkers",
+  "level": "B2",
+  "title": "Từ nối: although, despite, however, whereas, unless",
+  "summary": "Các từ nối although, despite, however, whereas dùng để diễn tả sự tương phản, còn unless diễn tả điều kiện phủ định (= if not). Mỗi từ có cấu trúc ngữ pháp riêng, cần dùng đúng mệnh đề hoặc danh từ đi sau.",
+  "formulas": [
+   "Although + S + V, S + V (= Though / Even though)",
+   "Despite / In spite of + N / V-ing / the fact that + S + V",
+   "S + V. However, S + V. (hoặc S + V; however, S + V)",
+   "S + V, whereas + S + V (so sánh hai điều trái ngược)",
+   "Unless + S + V (hiện tại), S + will/can + V (= If ... not)"
+  ],
+  "usage": [
+   "Although đi với mệnh đề đầy đủ; despite đi với danh từ hoặc V-ing, không đi trực tiếp với mệnh đề.",
+   "However là trạng từ nối hai câu, thường đứng đầu câu và có dấu phẩy theo sau.",
+   "Whereas dùng để so sánh hai sự việc, hai người khác nhau một cách khách quan.",
+   "Unless đã mang nghĩa phủ định, nên mệnh đề sau unless thường ở dạng khẳng định."
+  ],
+  "mistakes": [
+   {
+    "wrong": "Despite it was raining, we went out.",
+    "right": "Despite the rain, we went out. / Although it was raining, we went out.",
+    "why": "Despite không đi trực tiếp với mệnh đề S + V; phải dùng danh từ, V-ing hoặc 'the fact that'."
+   },
+   {
+    "wrong": "Although he is rich, but he is unhappy.",
+    "right": "Although he is rich, he is unhappy.",
+    "why": "Tiếng Việt nói 'Mặc dù... nhưng...', còn tiếng Anh không dùng although và but cùng lúc."
+   },
+   {
+    "wrong": "Unless you don't hurry, you'll miss the bus.",
+    "right": "Unless you hurry, you'll miss the bus.",
+    "why": "Unless đã có nghĩa 'nếu không', thêm 'don't' sẽ thành phủ định kép."
+   }
+  ],
+  "examples": [
+   {
+    "en": "Although the hotel was expensive, the service was disappointing.",
+    "vi": "Mặc dù khách sạn đắt tiền, dịch vụ lại đáng thất vọng."
+   },
+   {
+    "en": "Despite having little experience, she got the job.",
+    "vi": "Mặc dù có ít kinh nghiệm, cô ấy vẫn có được công việc."
+   },
+   {
+    "en": "The plan sounds good. However, it will be difficult to fund.",
+    "vi": "Kế hoạch nghe có vẻ hay. Tuy nhiên, sẽ khó để có kinh phí."
+   },
+   {
+    "en": "My brother loves crowded cities, whereas I prefer the countryside.",
+    "vi": "Anh tôi thích thành phố đông đúc, trong khi tôi thích vùng quê hơn."
+   },
+   {
+    "en": "Unless we reduce costs, the company will lose money this year.",
+    "vi": "Nếu chúng ta không cắt giảm chi phí, công ty sẽ lỗ năm nay."
+   },
+   {
+    "en": "In spite of the fact that he apologised, she was still angry.",
+    "vi": "Mặc dù anh ấy đã xin lỗi, cô ấy vẫn còn giận."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "___ the heavy traffic, we arrived on time.",
+    "answers": [
+     "Despite",
+     "In spite of"
+    ],
+    "options": [],
+    "explain": "Sau chỗ trống là cụm danh từ nên dùng Despite/In spite of."
+   },
+   {
+    "type": "gap",
+    "prompt": "You won't pass the exam ___ you study harder.",
+    "answers": [
+     "unless"
+    ],
+    "options": [],
+    "explain": "Unless = if not: nếu bạn không học chăm hơn."
+   },
+   {
+    "type": "gap",
+    "prompt": "Tom is very outgoing, ___ his sister is quite shy.",
+    "answers": [
+     "whereas",
+     "while"
+    ],
+    "options": [],
+    "explain": "Whereas so sánh hai người có tính cách trái ngược."
+   },
+   {
+    "type": "gap",
+    "prompt": "The job pays well. ___, the hours are very long.",
+    "answers": [
+     "However",
+     "Nevertheless"
+    ],
+    "options": [],
+    "explain": "However đứng đầu câu, có dấu phẩy, nối hai câu tương phản."
+   },
+   {
+    "type": "choice",
+    "prompt": "___ she felt tired, she continued working until midnight.",
+    "answers": [
+     "Although"
+    ],
+    "options": [
+     "Although",
+     "Despite",
+     "However",
+     "Unless"
+    ],
+    "explain": "Theo sau là mệnh đề đầy đủ nên dùng Although."
+   },
+   {
+    "type": "choice",
+    "prompt": "He kept running ___ the pain in his knee.",
+    "answers": [
+     "despite"
+    ],
+    "options": [
+     "although",
+     "despite",
+     "whereas",
+     "unless"
+    ],
+    "explain": "'The pain' là danh từ nên dùng despite."
+   },
+   {
+    "type": "choice",
+    "prompt": "I'll be there at eight ___ my flight is delayed.",
+    "answers": [
+     "unless"
+    ],
+    "options": [
+     "unless",
+     "although",
+     "whereas"
+    ],
+    "explain": "Unless diễn tả điều kiện: trừ khi chuyến bay bị hoãn."
+   },
+   {
+    "type": "order",
+    "prompt": "Although it was late, they continued the meeting.",
+    "answers": [
+     "Although it was late, they continued the meeting.",
+     "They continued the meeting although it was late."
+    ],
+    "options": [],
+    "explain": "Mệnh đề although có thể đứng đầu hoặc cuối câu."
+   },
+   {
+    "type": "order",
+    "prompt": "Despite feeling nervous, she gave an excellent speech.",
+    "answers": [
+     "Despite feeling nervous, she gave an excellent speech.",
+     "She gave an excellent speech despite feeling nervous."
+    ],
+    "options": [],
+    "explain": "Despite + V-ing, có thể đứng đầu hoặc cuối câu."
+   },
+   {
+    "type": "error",
+    "prompt": "Despite he was ill, he went to work.",
+    "answers": [
+     "Despite",
+     "Although"
+    ],
+    "options": [],
+    "explain": "Trước mệnh đề S + V phải dùng Although, không dùng Despite."
+   },
+   {
+    "type": "error",
+    "prompt": "Unless you don't book early, there won't be any seats left.",
+    "answers": [
+     "don't book",
+     "book"
+    ],
+    "options": [],
+    "explain": "Unless đã mang nghĩa phủ định nên không dùng thêm don't: Unless you book early."
+   },
+   {
+    "type": "translate",
+    "prompt": "Mặc dù trời mưa, chúng tôi vẫn đi dã ngoại.",
+    "answers": [
+     "Although it was raining, we still went on a picnic.",
+     "Despite the rain, we still went on a picnic.",
+     "Even though it rained, we still went on a picnic.",
+     "Although it rained, we still went on a picnic.",
+     "In spite of the rain, we still went on a picnic."
+    ],
+    "options": [],
+    "explain": "Dùng although + mệnh đề hoặc despite + danh từ, không thêm but."
+   }
+  ]
+ },
+ {
+  "id": "causatives",
+  "level": "B2",
+  "title": "Câu sai khiến: have/get/make/let",
+  "summary": "Câu sai khiến dùng have/get/make/let để diễn tả việc khiến, nhờ, bắt hoặc cho phép ai làm gì, hoặc nhờ người khác làm việc gì cho mình (thể bị động).",
+  "formulas": [
+   "have + someone + V (nguyên mẫu): nhờ ai làm gì",
+   "get + someone + to V: thuyết phục/nhờ ai làm gì",
+   "make + someone + V (nguyên mẫu): bắt ai làm gì",
+   "let + someone + V (nguyên mẫu): cho phép ai làm gì",
+   "have/get + something + V3/ed: nhờ/thuê người làm gì (bị động)"
+  ],
+  "usage": [
+   "Dùng have/get something done khi một dịch vụ được người khác làm cho mình (cắt tóc, sửa xe...).",
+   "Make mang nghĩa ép buộc; let mang nghĩa cho phép; get thường hàm ý phải thuyết phục.",
+   "Ở thể bị động, make chuyển thành be made to V: He was made to wait.",
+   "Let không dùng ở bị động; thay bằng be allowed to V."
+  ],
+  "mistakes": [
+   {
+    "wrong": "My boss made me to work late.",
+    "right": "My boss made me work late.",
+    "why": "Sau make + tân ngữ dùng động từ nguyên mẫu không 'to'."
+   },
+   {
+    "wrong": "I cut my hair yesterday.",
+    "right": "I had my hair cut yesterday.",
+    "why": "Nếu thợ cắt cho mình, phải dùng have something done."
+   },
+   {
+    "wrong": "She got her brother fix the computer.",
+    "right": "She got her brother to fix the computer.",
+    "why": "Get + người + to V, khác với have/make/let."
+   }
+  ],
+  "examples": [
+   {
+    "en": "I'm having my car serviced this weekend.",
+    "vi": "Cuối tuần này tôi sẽ mang xe đi bảo dưỡng."
+   },
+   {
+    "en": "Our teacher made us rewrite the essay.",
+    "vi": "Thầy giáo bắt chúng tôi viết lại bài luận."
+   },
+   {
+    "en": "My parents never let me stay out after midnight.",
+    "vi": "Bố mẹ không bao giờ cho tôi ở ngoài sau nửa đêm."
+   },
+   {
+    "en": "I finally got him to apologise.",
+    "vi": "Cuối cùng tôi cũng khiến được anh ấy xin lỗi."
+   },
+   {
+    "en": "She had the documents translated into English.",
+    "vi": "Cô ấy đã nhờ dịch tài liệu sang tiếng Anh."
+   },
+   {
+    "en": "We were made to wait for two hours.",
+    "vi": "Chúng tôi bị bắt phải chờ hai tiếng."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "The manager made everyone ___ (stay) until the meeting ended.",
+    "answers": [
+     "stay"
+    ],
+    "options": [],
+    "explain": "Make + người + V nguyên mẫu không 'to'."
+   },
+   {
+    "type": "gap",
+    "prompt": "I need to get my passport ___ (renew) before the trip.",
+    "answers": [
+     "renewed"
+    ],
+    "options": [],
+    "explain": "Get + vật + V3 mang nghĩa bị động."
+   },
+   {
+    "type": "gap",
+    "prompt": "Can you get your sister ___ (help) us move on Saturday?",
+    "answers": [
+     "to help"
+    ],
+    "options": [],
+    "explain": "Get + người + to V."
+   },
+   {
+    "type": "gap",
+    "prompt": "The children were made ___ (clean) their rooms.",
+    "answers": [
+     "to clean"
+    ],
+    "options": [],
+    "explain": "Bị động của make dùng be made to V."
+   },
+   {
+    "type": "choice",
+    "prompt": "My dad finally let me ___ his car.",
+    "answers": [
+     "borrow"
+    ],
+    "options": [
+     "borrow",
+     "to borrow",
+     "borrowed",
+     "borrowing"
+    ],
+    "explain": "Let + người + V nguyên mẫu."
+   },
+   {
+    "type": "choice",
+    "prompt": "We had the roof ___ after the storm.",
+    "answers": [
+     "repaired"
+    ],
+    "options": [
+     "repair",
+     "to repair",
+     "repaired",
+     "repairing"
+    ],
+    "explain": "Have + vật + V3: thuê người sửa."
+   },
+   {
+    "type": "choice",
+    "prompt": "Students ___ to use phones during the exam.",
+    "answers": [
+     "aren't allowed"
+    ],
+    "options": [
+     "aren't let",
+     "aren't allowed",
+     "don't let",
+     "aren't made"
+    ],
+    "explain": "Let không dùng bị động, thay bằng be allowed to."
+   },
+   {
+    "type": "order",
+    "prompt": "She had her nails done at the salon.",
+    "answers": [
+     "She had her nails done at the salon.",
+     "At the salon, she had her nails done."
+    ],
+    "options": [],
+    "explain": "Have + tân ngữ + V3 + trạng ngữ."
+   },
+   {
+    "type": "order",
+    "prompt": "Nobody can make me change my mind.",
+    "answers": [
+     "Nobody can make me change my mind."
+    ],
+    "options": [],
+    "explain": "Make + tân ngữ + V nguyên mẫu."
+   },
+   {
+    "type": "error",
+    "prompt": "The film made me to cry at the end.",
+    "answers": [
+     "to cry",
+     "cry"
+    ],
+    "options": [],
+    "explain": "Sau make + tân ngữ không dùng 'to'."
+   },
+   {
+    "type": "error",
+    "prompt": "I had my jacket clean at the dry cleaner's.",
+    "answers": [
+     "clean",
+     "cleaned"
+    ],
+    "options": [],
+    "explain": "Have + vật + V3 nên dùng cleaned."
+   },
+   {
+    "type": "translate",
+    "prompt": "Tôi vừa đi cắt tóc hôm qua.",
+    "answers": [
+     "I had my hair cut yesterday.",
+     "I got my hair cut yesterday.",
+     "I had a haircut yesterday.",
+     "I got a haircut yesterday."
+    ],
+    "options": [],
+    "explain": "Dùng have/get something done cho dịch vụ."
+   }
+  ]
+ },
+ {
+  "id": "articles-advanced",
+  "level": "B2",
+  "title": "Mạo từ nâng cao: dùng và không dùng the",
+  "summary": "Bài này ôn cách dùng \"the\" ở trình độ nâng cao. Ta dùng \"the\" khi người nghe biết rõ đang nói về cái gì, và bỏ \"the\" khi nói chung chung về danh từ số nhiều hoặc danh từ không đếm được.",
+  "formulas": [
+   "Nói chung: Ø + danh từ số nhiều/không đếm được (Ø = không dùng mạo từ): Cats are independent.",
+   "Nói cụ thể: the + danh từ đã xác định: The cats next door are noisy.",
+   "Chỉ cả một nhóm: the + tính từ: the rich, the elderly, the unemployed",
+   "Tên riêng: Ø + tên hầu hết quốc gia, hồ, núi đơn lẻ; the + sông, biển, dãy núi, quốc gia số nhiều: the Mekong, the Alps, the USA",
+   "Nơi chốn dùng đúng chức năng: go to school/hospital/prison (không dùng the) và go to the school (đến đó vì việc khác)"
+  ],
+  "usage": [
+   "Dùng 'the' khi danh từ được xác định bằng mệnh đề/cụm từ đi sau (the history of Vietnam), hoặc khi đã nhắc tới trước đó.",
+   "Không dùng 'the' với danh từ trừu tượng mang nghĩa chung: Life is short, Money can't buy happiness.",
+   "Dùng 'the' với nhạc cụ, so sánh nhất, và những thứ duy nhất: play the piano, the best, the sun.",
+   "Không dùng 'the' với bữa ăn, môn thể thao, môn học, ngôn ngữ: have lunch, play football, study history."
+  ],
+  "mistakes": [
+   {
+    "wrong": "The life is full of surprises.",
+    "right": "Life is full of surprises.",
+    "why": "'Life' ở đây mang nghĩa chung, trừu tượng nên không dùng 'the'."
+   },
+   {
+    "wrong": "My father is in the hospital because he's a doctor... no, he's sick: He went to the hospital as a patient.",
+    "right": "He went to hospital as a patient. (Anh-Anh)",
+    "why": "Trong tiếng Anh-Anh, khi đến nơi đó đúng chức năng (để chữa bệnh) thì không dùng 'the'."
+   },
+   {
+    "wrong": "The rich people should help the poors.",
+    "right": "The rich should help the poor.",
+    "why": "'The + tính từ' chỉ một nhóm người, tính từ không thêm -s."
+   }
+  ],
+  "examples": [
+   {
+    "en": "Education is the key to a better future.",
+    "vi": "Giáo dục là chìa khóa cho một tương lai tốt đẹp hơn."
+   },
+   {
+    "en": "The education I received in Hanoi was excellent.",
+    "vi": "Nền giáo dục tôi nhận được ở Hà Nội rất xuất sắc."
+   },
+   {
+    "en": "The government should do more to support the elderly.",
+    "vi": "Chính phủ nên làm nhiều hơn để hỗ trợ người cao tuổi."
+   },
+   {
+    "en": "We sailed down the Mekong and later visited Lake Toba.",
+    "vi": "Chúng tôi đi thuyền xuôi sông Mê Kông và sau đó thăm hồ Toba."
+   },
+   {
+    "en": "She plays the violin but has never played tennis.",
+    "vi": "Cô ấy chơi vĩ cầm nhưng chưa bao giờ chơi quần vợt."
+   },
+   {
+    "en": "His brother was sent to prison for fraud.",
+    "vi": "Anh trai anh ấy bị đi tù vì tội lừa đảo."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "___ Netherlands is famous for its flat landscape.",
+    "answers": [
+     "The"
+    ],
+    "options": [],
+    "explain": "Tên quốc gia ở dạng số nhiều phải dùng 'the'."
+   },
+   {
+    "type": "gap",
+    "prompt": "She is studying ___ history of modern art.",
+    "answers": [
+     "the"
+    ],
+    "options": [],
+    "explain": "Cụm 'of modern art' xác định danh từ nên dùng 'the'."
+   },
+   {
+    "type": "gap",
+    "prompt": "We should protect ___ environment for future generations.",
+    "answers": [
+     "the"
+    ],
+    "options": [],
+    "explain": "'The environment' là môi trường chung, chỉ có một, nên dùng 'the'."
+   },
+   {
+    "type": "gap",
+    "prompt": "Many young people climb ___ Himalayas every year.",
+    "answers": [
+     "the"
+    ],
+    "options": [],
+    "explain": "Tên dãy núi dùng 'the'."
+   },
+   {
+    "type": "choice",
+    "prompt": "___ is one of the biggest problems in big cities.",
+    "answers": [
+     "Pollution"
+    ],
+    "options": [
+     "Pollution",
+     "The pollution",
+     "A pollution"
+    ],
+    "explain": "Danh từ không đếm được mang nghĩa chung thì không dùng mạo từ."
+   },
+   {
+    "type": "choice",
+    "prompt": "After the accident, he was taken to ___ by ambulance.",
+    "answers": [
+     "hospital"
+    ],
+    "options": [
+     "hospital",
+     "a hospitals",
+     "the hospitals"
+    ],
+    "explain": "Đến bệnh viện đúng chức năng (chữa trị) thì không dùng 'the' (Anh-Anh)."
+   },
+   {
+    "type": "choice",
+    "prompt": "The new law aims to help ___ find jobs.",
+    "answers": [
+     "the unemployed"
+    ],
+    "options": [
+     "the unemployed",
+     "unemployed",
+     "the unemployeds"
+    ],
+    "explain": "'The + tính từ' chỉ cả một nhóm người và không thêm -s."
+   },
+   {
+    "type": "order",
+    "prompt": "suffer / economic crises / the poor / most / during / often",
+    "answers": [
+     "The poor often suffer most during economic crises.",
+     "During economic crises, the poor often suffer most."
+    ],
+    "options": [],
+    "explain": "'The poor' chỉ nhóm người nghèo, đóng vai trò chủ ngữ."
+   },
+   {
+    "type": "order",
+    "prompt": "important / money / is / love / than / more",
+    "answers": [
+     "Love is more important than money."
+    ],
+    "options": [],
+    "explain": "Danh từ trừu tượng mang nghĩa chung không dùng 'the'."
+   },
+   {
+    "type": "error",
+    "prompt": "My son goes to the school by bus every morning.",
+    "answers": [
+     "the",
+     "Ø (bỏ 'the')"
+    ],
+    "options": [],
+    "explain": "Đi học (đúng chức năng của trường) thì nói 'go to school', không dùng 'the'."
+   },
+   {
+    "type": "error",
+    "prompt": "We had a lovely holiday near Mount Fuji in the Japan.",
+    "answers": [
+     "the",
+     "Ø (bỏ 'the')"
+    ],
+    "options": [],
+    "explain": "Tên quốc gia số ít như Japan không dùng 'the'."
+   },
+   {
+    "type": "translate",
+    "prompt": "Người giàu nên đóng thuế nhiều hơn.",
+    "answers": [
+     "The rich should pay more tax.",
+     "The rich should pay more taxes.",
+     "Rich people should pay more tax.",
+     "Rich people should pay more taxes.",
+     "The wealthy should pay more tax.",
+     "The wealthy should pay more taxes."
+    ],
+    "options": [],
+    "explain": "Dùng 'the rich' hoặc 'rich people' để chỉ nhóm người giàu."
+   }
+  ]
+ },
+ {
+  "id": "inversion",
+  "level": "C1",
+  "title": "Đảo ngữ (Never have I…, Not only…, Hardly… when)",
+  "summary": "Đảo ngữ là đưa trạng từ phủ định hoặc hạn chế (Never, Not only, Hardly, Seldom…) lên đầu câu rồi đảo trợ động từ lên trước chủ ngữ, để nhấn mạnh. Cấu trúc này thường gặp trong văn viết trang trọng và bài phát biểu.",
+  "formulas": [
+   "Never/Rarely/Seldom + trợ động từ + S + V: Never have I seen...",
+   "Not only + trợ động từ + S + V, but S + (also) V",
+   "Hardly/Scarcely + had + S + V3 + when + S + V2",
+   "No sooner + had + S + V3 + than + S + V2",
+   "Only when/after... + trợ động từ + S + V (đảo ở mệnh đề chính)"
+  ],
+  "usage": [
+   "Dùng để nhấn mạnh, tạo giọng văn trang trọng, kịch tính.",
+   "Hardly/Scarcely đi với 'when', No sooner đi với 'than', diễn tả hai việc xảy ra gần như liền nhau.",
+   "Nếu câu gốc không có trợ động từ thì thêm do/does/did: Not only did she...",
+   "Với 'Only when/Not until', chỉ đảo ở mệnh đề chính, không đảo ở mệnh đề phụ."
+  ],
+  "mistakes": [
+   {
+    "wrong": "Never I have seen such a mess.",
+    "right": "Never have I seen such a mess.",
+    "why": "Sau trạng từ phủ định đầu câu phải đưa trợ động từ lên trước chủ ngữ."
+   },
+   {
+    "wrong": "Not only she speaks French, but also German.",
+    "right": "Not only does she speak French, but also German.",
+    "why": "Câu thì hiện tại đơn phải mượn trợ động từ does và động từ về nguyên mẫu."
+   },
+   {
+    "wrong": "Hardly had I arrived than it rained.",
+    "right": "Hardly had I arrived when it rained.",
+    "why": "Hardly đi với when; than chỉ đi với No sooner."
+   }
+  ],
+  "examples": [
+   {
+    "en": "Never have I felt so welcome in a foreign country.",
+    "vi": "Chưa bao giờ tôi cảm thấy được chào đón như vậy ở nước ngoài."
+   },
+   {
+    "en": "Not only did he miss the deadline, but he also lost the files.",
+    "vi": "Anh ấy không chỉ trễ hạn mà còn làm mất tài liệu."
+   },
+   {
+    "en": "Hardly had we sat down when the fire alarm went off.",
+    "vi": "Chúng tôi vừa ngồi xuống thì chuông báo cháy reo."
+   },
+   {
+    "en": "No sooner had the CEO resigned than the shares collapsed.",
+    "vi": "Giám đốc vừa từ chức thì cổ phiếu sụp đổ."
+   },
+   {
+    "en": "Seldom do we get such a clear view of the mountains.",
+    "vi": "Hiếm khi chúng tôi được ngắm núi rõ đến thế."
+   },
+   {
+    "en": "Only after the meeting did I realise my mistake.",
+    "vi": "Mãi sau cuộc họp tôi mới nhận ra lỗi của mình."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "Never ___ I tasted such delicious pho.",
+    "answers": [
+     "have",
+     "had"
+    ],
+    "options": [],
+    "explain": "Thì hiện tại hoàn thành, đảo 'have' lên trước I."
+   },
+   {
+    "type": "gap",
+    "prompt": "Not only ___ she win the race, but she also broke the record.",
+    "answers": [
+     "did"
+    ],
+    "options": [],
+    "explain": "Quá khứ đơn cần mượn 'did' khi đảo ngữ."
+   },
+   {
+    "type": "gap",
+    "prompt": "Hardly had the plane landed ___ the passengers stood up.",
+    "answers": [
+     "when"
+    ],
+    "options": [],
+    "explain": "Hardly … when là cặp cố định."
+   },
+   {
+    "type": "gap",
+    "prompt": "No sooner had I left the house ___ it started to pour.",
+    "answers": [
+     "than"
+    ],
+    "options": [],
+    "explain": "No sooner … than là cặp cố định."
+   },
+   {
+    "type": "choice",
+    "prompt": "Seldom ___ such dedication in young employees.",
+    "answers": [
+     "do we see"
+    ],
+    "options": [
+     "we see",
+     "do we see",
+     "we do see",
+     "see we"
+    ],
+    "explain": "Seldom đầu câu nên đảo trợ động từ do."
+   },
+   {
+    "type": "choice",
+    "prompt": "Scarcely ___ the speech when the lights went out.",
+    "answers": [
+     "had he begun"
+    ],
+    "options": [
+     "he had begun",
+     "had he begun",
+     "did he begin",
+     "has he begun"
+    ],
+    "explain": "Scarcely … when dùng quá khứ hoàn thành đảo ngữ."
+   },
+   {
+    "type": "choice",
+    "prompt": "Only when the results came out ___ how serious the problem was.",
+    "answers": [
+     "did they realise"
+    ],
+    "options": [
+     "they realised",
+     "did they realise",
+     "they did realise",
+     "realised they"
+    ],
+    "explain": "Với Only when, đảo ngữ ở mệnh đề chính."
+   },
+   {
+    "type": "order",
+    "prompt": "Never have I been so embarrassed in my life.",
+    "answers": [
+     "Never have I been so embarrassed in my life.",
+     "Never in my life have I been so embarrassed."
+    ],
+    "options": [],
+    "explain": "Never + have + I + V3."
+   },
+   {
+    "type": "order",
+    "prompt": "Not only is he talented, but he is also humble.",
+    "answers": [
+     "Not only is he talented, but he is also humble."
+    ],
+    "options": [],
+    "explain": "Với động từ to be, đảo 'is' lên trước chủ ngữ."
+   },
+   {
+    "type": "error",
+    "prompt": "Hardly had she finished her coffee than the taxi arrived.",
+    "answers": [
+     "than",
+     "when"
+    ],
+    "options": [],
+    "explain": "Hardly đi với when chứ không phải than."
+   },
+   {
+    "type": "error",
+    "prompt": "Rarely he goes out on weekdays.",
+    "answers": [
+     "he goes",
+     "does he go"
+    ],
+    "options": [],
+    "explain": "Rarely đầu câu cần đảo trợ động từ: does he go."
+   },
+   {
+    "type": "translate",
+    "prompt": "Chưa bao giờ tôi thấy một cảnh đẹp như vậy.",
+    "answers": [
+     "Never have I seen such a beautiful view.",
+     "Never have I seen such a beautiful sight.",
+     "Never have I seen such beautiful scenery.",
+     "Never have I seen such a beautiful scene.",
+     "Never before have I seen such a beautiful view."
+    ],
+    "options": [],
+    "explain": "Dùng Never + have + I + seen để nhấn mạnh."
+   }
+  ]
+ },
+ {
+  "id": "cleft-sentences",
+  "level": "C1",
+  "title": "Câu chẻ (It is… that, What I need is…)",
+  "summary": "Câu chẻ (cleft sentences) tách một câu thành hai phần để nhấn mạnh một thành phần cụ thể. Hai dạng phổ biến: \"It is/was … that/who …\" và \"What … is/was …\".",
+  "formulas": [
+   "It + is/was + phần nhấn mạnh + that/who + mệnh đề còn lại",
+   "What + S + V + is/was + phần nhấn mạnh (danh từ / to V / V nguyên mẫu)",
+   "All (that) + S + V + is/was + phần nhấn mạnh",
+   "The thing/person/place/reason + (that) + S + V + is/was + …"
+  ],
+  "usage": [
+   "Dùng It-cleft để nhấn mạnh chủ ngữ, tân ngữ, trạng ngữ (thời gian, nơi chốn, lý do), thường để sửa thông tin sai: It was Tom, not Anna, who called.",
+   "Dùng What-cleft để đưa thông tin mới, quan trọng xuống cuối câu: What I need is more time.",
+   "Với What-cleft chứa 'do', phần sau thường là V nguyên mẫu (có/không 'to'): What she did was (to) resign.",
+   "Thì của 'be' thường theo thì của câu gốc; dùng 'who' cho người, 'that' cho mọi trường hợp."
+  ],
+  "mistakes": [
+   {
+    "wrong": "It was in 2019 when I moved to Hanoi.",
+    "right": "It was in 2019 that I moved to Hanoi.",
+    "why": "Trong câu chẻ It, dùng 'that' sau cụm trạng ngữ, không dùng 'when/where'."
+   },
+   {
+    "wrong": "What I need are a long holiday.",
+    "right": "What I need is a long holiday.",
+    "why": "Mệnh đề 'What…' được xem là số ít nên đi với 'is'."
+   },
+   {
+    "wrong": "What he did was he quit his job.",
+    "right": "What he did was quit his job.",
+    "why": "Sau 'What… did was' dùng động từ nguyên mẫu, không lặp lại chủ ngữ."
+   }
+  ],
+  "examples": [
+   {
+    "en": "It was my manager who approved the budget, not the CEO.",
+    "vi": "Chính quản lý của tôi đã duyệt ngân sách, chứ không phải giám đốc điều hành."
+   },
+   {
+    "en": "It is only when you lose your health that you appreciate it.",
+    "vi": "Chỉ khi mất sức khỏe, người ta mới trân trọng nó."
+   },
+   {
+    "en": "What I need right now is a clear plan.",
+    "vi": "Điều tôi cần lúc này là một kế hoạch rõ ràng."
+   },
+   {
+    "en": "What surprised me most was how calm she remained.",
+    "vi": "Điều làm tôi ngạc nhiên nhất là cô ấy vẫn giữ bình tĩnh."
+   },
+   {
+    "en": "All I want is a bit of peace and quiet.",
+    "vi": "Tất cả những gì tôi muốn là chút yên tĩnh."
+   },
+   {
+    "en": "The reason I left was the lack of career prospects.",
+    "vi": "Lý do tôi nghỉ việc là thiếu cơ hội thăng tiến."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "It was Linda ___ found the error in the report.",
+    "answers": [
+     "who",
+     "that"
+    ],
+    "options": [],
+    "explain": "Khi nhấn mạnh người làm chủ ngữ, ta dùng 'who' hoặc 'that'."
+   },
+   {
+    "type": "gap",
+    "prompt": "What I really need ___ a good night's sleep.",
+    "answers": [
+     "is"
+    ],
+    "options": [],
+    "explain": "Mệnh đề 'What…' được coi là số ít. Câu ở thì hiện tại nên dùng 'is'."
+   },
+   {
+    "type": "gap",
+    "prompt": "What she did ___ call the police immediately.",
+    "answers": [
+     "was"
+    ],
+    "options": [],
+    "explain": "Câu gốc ở thì quá khứ nên dùng 'was'."
+   },
+   {
+    "type": "gap",
+    "prompt": "It was in Paris ___ they first met.",
+    "answers": [
+     "that"
+    ],
+    "options": [],
+    "explain": "Câu chẻ với It nhấn mạnh nơi chốn (có giới từ 'in') vẫn dùng 'that'."
+   },
+   {
+    "type": "choice",
+    "prompt": "It was because of the rain ___ the match was cancelled.",
+    "options": [
+     "that",
+     "why",
+     "which",
+     "because"
+    ],
+    "answers": [
+     "that"
+    ],
+    "explain": "Cấu trúc It is/was … that dùng 'that' cho mọi thành phần được nhấn mạnh."
+   },
+   {
+    "type": "choice",
+    "prompt": "What he wants to do ___ travel around Asia.",
+    "options": [
+     "is",
+     "are",
+     "it is",
+     "does"
+    ],
+    "answers": [
+     "is"
+    ],
+    "explain": "Mệnh đề What đi với động từ 'be' ở dạng số ít."
+   },
+   {
+    "type": "choice",
+    "prompt": "___ I want is some honest feedback.",
+    "options": [
+     "All",
+     "That",
+     "It",
+     "Which"
+    ],
+    "answers": [
+     "All"
+    ],
+    "explain": "'All (that) I want is…' là một dạng câu chẻ, nghĩa là 'tất cả những gì'."
+   },
+   {
+    "type": "order",
+    "prompt": "What annoys me is his constant lateness.",
+    "answers": [
+     "What annoys me is his constant lateness."
+    ],
+    "options": [
+     "is",
+     "annoys",
+     "his",
+     "What",
+     "constant",
+     "me",
+     "lateness."
+    ],
+    "explain": "What + động từ + is + cụm danh từ được nhấn mạnh."
+   },
+   {
+    "type": "order",
+    "prompt": "It was the price that put me off.",
+    "answers": [
+     "It was the price that put me off."
+    ],
+    "options": [
+     "the price",
+     "put",
+     "It",
+     "that",
+     "was",
+     "me off."
+    ],
+    "explain": "It + was + phần được nhấn mạnh + that + mệnh đề."
+   },
+   {
+    "type": "error",
+    "prompt": "It was on Monday when the contract was finally signed.",
+    "answers": [
+     "when",
+     "that"
+    ],
+    "options": [],
+    "explain": "Câu chẻ với It dùng 'that', không dùng 'when' (nhất là khi có giới từ 'on')."
+   },
+   {
+    "type": "error",
+    "prompt": "What we need are a better plan.",
+    "answers": [
+     "are",
+     "is"
+    ],
+    "options": [],
+    "explain": "Mệnh đề What làm chủ ngữ và bổ ngữ 'a better plan' ở số ít, nên phải dùng 'is'."
+   },
+   {
+    "type": "translate",
+    "prompt": "Chính anh ấy là người đã giúp tôi.",
+    "answers": [
+     "It was him who helped me.",
+     "It was he who helped me.",
+     "It was him that helped me.",
+     "It was he that helped me."
+    ],
+    "options": [],
+    "explain": "Dùng It was + người + who/that để nhấn mạnh chủ ngữ."
+   }
+  ]
+ },
+ {
+  "id": "subjunctive",
+  "level": "C1",
+  "title": "Thể giả định (suggest that he go, It's time…)",
+  "summary": "Thể giả định dùng động từ nguyên mẫu (không chia) sau các động từ/tính từ chỉ đề nghị, yêu cầu; còn \"It's time / I'd rather / wish\" dùng quá khứ để nói điều chưa xảy ra hoặc trái thực tế.",
+  "formulas": [
+   "S + suggest/recommend/insist/demand/require + (that) + S + V nguyên mẫu (không thêm -s)",
+   "It is essential/vital/important + (that) + S + V nguyên mẫu",
+   "Phủ định: S + suggest (that) + S + not + V nguyên mẫu",
+   "It's (high/about) time + S + V quá khứ đơn",
+   "S + would rather + S khác + V quá khứ đơn"
+  ],
+  "usage": [
+   "Dùng sau động từ/tính từ thể hiện sự đề nghị, yêu cầu, tính cấp thiết; chủ ngữ ngôi ba vẫn không thêm -s, 'be' giữ nguyên.",
+   "Văn phong trang trọng (Anh-Mỹ); tiếng Anh-Anh có thể dùng 'should + V' thay thế.",
+   "'It's time + quá khứ' diễn tả việc lẽ ra phải làm rồi, mang ý phê phán nhẹ; 'It's time to V' trung tính hơn.",
+   "'I'd rather you + quá khứ' để nói mong muốn người khác làm gì ở hiện tại/tương lai."
+  ],
+  "mistakes": [
+   {
+    "wrong": "She suggested that he goes home.",
+    "right": "She suggested that he go home.",
+    "why": "Sau 'suggest that' dùng động từ nguyên mẫu, không chia theo ngôi."
+   },
+   {
+    "wrong": "It's time we leave.",
+    "right": "It's time we left.",
+    "why": "Sau 'It's time + chủ ngữ' phải dùng quá khứ đơn."
+   },
+   {
+    "wrong": "They insisted that he doesn't come.",
+    "right": "They insisted that he not come.",
+    "why": "Phủ định thể giả định là 'not + V', không dùng trợ động từ do/does."
+   }
+  ],
+  "examples": [
+   {
+    "en": "The doctor recommended that she take a few days off.",
+    "vi": "Bác sĩ khuyên cô ấy nên nghỉ vài ngày."
+   },
+   {
+    "en": "It is vital that every employee be informed immediately.",
+    "vi": "Điều cực kỳ quan trọng là mọi nhân viên phải được thông báo ngay."
+   },
+   {
+    "en": "The board demanded that the CEO resign.",
+    "vi": "Hội đồng quản trị yêu cầu giám đốc điều hành từ chức."
+   },
+   {
+    "en": "It's high time the government tackled housing prices.",
+    "vi": "Đã đến lúc chính phủ phải giải quyết giá nhà."
+   },
+   {
+    "en": "I'd rather you didn't mention this to anyone.",
+    "vi": "Tôi muốn bạn đừng nhắc chuyện này với ai."
+   },
+   {
+    "en": "We suggest that he not sign the contract yet.",
+    "vi": "Chúng tôi đề nghị anh ấy chưa ký hợp đồng."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "The manager insisted that Tom ___ (attend) the meeting.",
+    "answers": [
+     "attend",
+     "should attend"
+    ],
+    "options": [],
+    "explain": "Sau 'insist that' dùng động từ nguyên mẫu (hoặc 'should + V' theo kiểu Anh-Anh)."
+   },
+   {
+    "type": "gap",
+    "prompt": "It's essential that the report ___ (be) finished by Friday.",
+    "answers": [
+     "be",
+     "should be"
+    ],
+    "options": [],
+    "explain": "Thể giả định giữ nguyên 'be' (hoặc 'should be')."
+   },
+   {
+    "type": "gap",
+    "prompt": "It's about time you ___ (start) saving money.",
+    "answers": [
+     "started"
+    ],
+    "options": [],
+    "explain": "'It's time + S' đi với quá khứ đơn."
+   },
+   {
+    "type": "gap",
+    "prompt": "I'd rather you ___ (not/smoke) in here.",
+    "answers": [
+     "didn't smoke",
+     "did not smoke"
+    ],
+    "options": [],
+    "explain": "'Would rather + S' dùng quá khứ đơn."
+   },
+   {
+    "type": "choice",
+    "prompt": "She proposed that the deadline ___ extended.",
+    "answers": [
+     "be"
+    ],
+    "options": [
+     "is",
+     "be",
+     "was",
+     "being"
+    ],
+    "explain": "Sau 'propose that' dùng 'be' nguyên mẫu."
+   },
+   {
+    "type": "choice",
+    "prompt": "The lawyer advised that he ___ anything to the press.",
+    "answers": [
+     "not say"
+    ],
+    "options": [
+     "doesn't say",
+     "not say",
+     "not to say",
+     "didn't say"
+    ],
+    "explain": "Phủ định thể giả định là 'not + V'."
+   },
+   {
+    "type": "choice",
+    "prompt": "It's time the children ___ to bed.",
+    "answers": [
+     "went"
+    ],
+    "options": [
+     "go",
+     "went",
+     "goes",
+     "going"
+    ],
+    "explain": "'It's time + S' dùng quá khứ đơn."
+   },
+   {
+    "type": "order",
+    "prompt": "They recommended that she apply for the position.",
+    "answers": [
+     "They recommended that she apply for the position."
+    ],
+    "options": [],
+    "explain": "S + recommend (that) + S + V nguyên mẫu."
+   },
+   {
+    "type": "order",
+    "prompt": "It's high time we changed our strategy.",
+    "answers": [
+     "It's high time we changed our strategy."
+    ],
+    "options": [],
+    "explain": "It's high time + S + quá khứ đơn."
+   },
+   {
+    "type": "error",
+    "prompt": "The committee requires that each candidate submits two references.",
+    "answers": [
+     "submits",
+     "submit"
+    ],
+    "options": [],
+    "explain": "Sau 'require that' dùng nguyên mẫu 'submit'."
+   },
+   {
+    "type": "error",
+    "prompt": "It's time you stop blaming others for your mistakes.",
+    "answers": [
+     "stop",
+     "stopped"
+    ],
+    "options": [],
+    "explain": "'It's time + S' cần quá khứ đơn."
+   },
+   {
+    "type": "translate",
+    "prompt": "Tôi đề nghị anh ấy gặp bác sĩ.",
+    "answers": [
+     "I suggest that he see a doctor.",
+     "I suggest he see a doctor.",
+     "I suggest that he should see a doctor.",
+     "I suggest he should see a doctor.",
+     "I suggest that he go to see a doctor.",
+     "I suggest he go to see a doctor."
+    ],
+    "options": [],
+    "explain": "Suggest (that) + S + (should) + V nguyên mẫu."
+   }
+  ]
+ },
+ {
+  "id": "participle-clauses",
+  "level": "C1",
+  "title": "Mệnh đề phân từ (Having finished…, Seen from…)",
+  "summary": "Mệnh đề phân từ giúp rút gọn mệnh đề phụ bằng V-ing, Having + V3 hoặc V3, làm câu văn trang trọng và súc tích hơn. Chủ ngữ ngầm hiểu của mệnh đề phân từ phải trùng với chủ ngữ của mệnh đề chính.",
+  "formulas": [
+   "V-ing ..., S + V (hai hành động đồng thời/nguyên nhân chủ động)",
+   "Having + V3 ..., S + V (hành động xảy ra trước, chủ động)",
+   "V3 ..., S + V (nghĩa bị động)",
+   "Having been + V3 ..., S + V (bị động, xảy ra trước)",
+   "Not + V-ing / Not having + V3 ... (phủ định)"
+  ],
+  "usage": [
+   "Dùng Having + V3 để nhấn mạnh hành động đã hoàn tất trước hành động chính.",
+   "Dùng V3 (Seen from..., Built in...) khi chủ ngữ chịu tác động của hành động.",
+   "Dùng V-ing để diễn tả nguyên nhân hoặc hành động xảy ra cùng lúc.",
+   "Phổ biến trong văn viết học thuật, báo chí, văn bản trang trọng."
+  ],
+  "mistakes": [
+   {
+    "wrong": "Walking into the room, the lights went off.",
+    "right": "Walking into the room, I noticed the lights go off.",
+    "why": "Lỗi chủ ngữ lơ lửng: chủ ngữ mệnh đề chính phải là người thực hiện hành động 'walking'."
+   },
+   {
+    "wrong": "Having finish the report, she went home.",
+    "right": "Having finished the report, she went home.",
+    "why": "Sau 'Having' phải dùng phân từ quá khứ (V3)."
+   },
+   {
+    "wrong": "Seeing from the hill, the town looks tiny.",
+    "right": "Seen from the hill, the town looks tiny.",
+    "why": "Thị trấn được nhìn thấy nên phải dùng dạng bị động V3."
+   }
+  ],
+  "examples": [
+   {
+    "en": "Having finished her thesis, she took a long holiday.",
+    "vi": "Sau khi hoàn thành luận văn, cô ấy đi nghỉ dài ngày."
+   },
+   {
+    "en": "Seen from above, the city resembles a circuit board.",
+    "vi": "Nhìn từ trên cao, thành phố trông giống một bảng mạch."
+   },
+   {
+    "en": "Not knowing the answer, he remained silent.",
+    "vi": "Không biết câu trả lời, anh ấy im lặng."
+   },
+   {
+    "en": "Built in 1890, the bridge is still in use today.",
+    "vi": "Được xây năm 1890, cây cầu vẫn được sử dụng đến nay."
+   },
+   {
+    "en": "Having been warned twice, he was finally dismissed.",
+    "vi": "Đã bị cảnh cáo hai lần, cuối cùng anh ấy bị sa thải."
+   },
+   {
+    "en": "Feeling exhausted, we decided to call it a day.",
+    "vi": "Cảm thấy kiệt sức, chúng tôi quyết định nghỉ."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "Having ___ (read) the contract carefully, she signed it.",
+    "answers": [
+     "read"
+    ],
+    "options": [],
+    "explain": "Having + V3; 'read' có V3 là 'read'."
+   },
+   {
+    "type": "gap",
+    "prompt": "___ (see) from space, the Earth looks fragile.",
+    "answers": [
+     "Seen"
+    ],
+    "options": [],
+    "explain": "Trái Đất được nhìn nên dùng V3 bị động."
+   },
+   {
+    "type": "gap",
+    "prompt": "Not ___ (want) to offend anyone, he chose his words carefully.",
+    "answers": [
+     "wanting"
+    ],
+    "options": [],
+    "explain": "Phủ định chủ động đồng thời: Not + V-ing."
+   },
+   {
+    "type": "gap",
+    "prompt": "Having been ___ (invite) by the CEO, he couldn't refuse.",
+    "answers": [
+     "invited"
+    ],
+    "options": [],
+    "explain": "Bị động xảy ra trước: Having been + V3."
+   },
+   {
+    "type": "choice",
+    "prompt": "___ in plain language, the report was easy to understand.",
+    "answers": [
+     "Written"
+    ],
+    "options": [
+     "Writing",
+     "Written",
+     "Having written"
+    ],
+    "explain": "Báo cáo được viết nên dùng V3."
+   },
+   {
+    "type": "choice",
+    "prompt": "___ his keys, he couldn't get into the flat.",
+    "answers": [
+     "Having lost"
+    ],
+    "options": [
+     "Lost",
+     "Having lost",
+     "Having been lost"
+    ],
+    "explain": "Hành động chủ động xảy ra trước: Having + V3."
+   },
+   {
+    "type": "choice",
+    "prompt": "___ the risks, the board approved the merger anyway.",
+    "answers": [
+     "Having considered"
+    ],
+    "options": [
+     "Considered",
+     "Having considered",
+     "Having been considered"
+    ],
+    "explain": "Hội đồng chủ động cân nhắc trước khi phê duyệt."
+   },
+   {
+    "type": "order",
+    "prompt": "Sắp xếp các cụm từ thành câu hoàn chỉnh.",
+    "answers": [
+     "Having completed the training, the staff felt more confident."
+    ],
+    "options": [
+     "the staff",
+     "Having completed",
+     "felt more confident.",
+     "the training,"
+    ],
+    "explain": "Mệnh đề phân từ Having + V3 đứng đầu câu, chỉ hành động xảy ra trước."
+   },
+   {
+    "type": "order",
+    "prompt": "Sắp xếp các cụm từ thành câu hoàn chỉnh.",
+    "answers": [
+     "Seen from a distance, the castle looks enchanting."
+    ],
+    "options": [
+     "the castle",
+     "Seen from",
+     "looks enchanting.",
+     "a distance,"
+    ],
+    "explain": "V3 bị động bổ nghĩa cho 'the castle'."
+   },
+   {
+    "type": "error",
+    "prompt": "Having spend all his savings, he had to borrow money.",
+    "answers": [
+     "spend",
+     "spent"
+    ],
+    "options": [],
+    "explain": "Sau Having phải là V3 'spent'."
+   },
+   {
+    "type": "error",
+    "prompt": "Locating in the city centre, the hotel attracts many tourists.",
+    "answers": [
+     "Locating",
+     "Located"
+    ],
+    "options": [],
+    "explain": "Khách sạn được đặt ở vị trí đó nên dùng bị động 'Located'."
+   },
+   {
+    "type": "translate",
+    "prompt": "Sau khi ăn tối xong, chúng tôi đi dạo.",
+    "answers": [
+     "Having finished dinner, we went for a walk.",
+     "Having had dinner, we went for a walk.",
+     "Having eaten dinner, we went for a walk.",
+     "Having finished dinner, we took a walk.",
+     "Having had dinner, we took a walk.",
+     "Having eaten dinner, we took a walk."
+    ],
+    "options": [],
+    "explain": "Dùng Having + V3 cho hành động xảy ra trước."
+   }
+  ]
+ },
+ {
+  "id": "advanced-modals",
+  "level": "C1",
+  "title": "Modal nâng cao: needn't have, would rather, might as well",
+  "summary": "Bài này học ba cấu trúc modal nâng cao. \"Needn't have + V3\" nói về việc đã làm nhưng hóa ra không cần. \"Would rather\" diễn tả điều mình thích hơn hoặc muốn người khác làm. \"Might as well\" gợi ý làm một việc vì chẳng có lựa chọn nào tốt hơn.",
+  "formulas": [
+   "S + needn't have + V3 (đã làm nhưng không cần thiết)",
+   "S + would rather (not) + V nguyên mẫu (+ than + V)",
+   "S + would rather + S2 + V quá khứ (muốn người khác làm gì)",
+   "S + might/may as well + V nguyên mẫu (đành/thôi thì cứ...)"
+  ],
+  "usage": [
+   "Needn't have done: việc ĐÃ xảy ra nhưng thừa. Còn didn't need to do thường ngụ ý việc đó không được làm.",
+   "Would rather + V: nói về sở thích của chính mình. Muốn người khác làm gì thì dùng would rather + mệnh đề ở thì quá khứ.",
+   "Might as well: nói giọng chán chường hoặc thực dụng kiểu 'thôi thì cứ làm', vì không còn cách nào tốt hơn.",
+   "Dạng rút gọn: I'd rather, you'd rather. Phủ định của would rather là would rather not + V."
+  ],
+  "mistakes": [
+   {
+    "wrong": "I'd rather to stay home.",
+    "right": "I'd rather stay home.",
+    "why": "Sau would rather dùng động từ nguyên mẫu, không có 'to'."
+   },
+   {
+    "wrong": "I'd rather you don't tell anyone.",
+    "right": "I'd rather you didn't tell anyone.",
+    "why": "Khi muốn người khác làm gì, mệnh đề sau would rather chia ở thì quá khứ."
+   },
+   {
+    "wrong": "You needn't have bring an umbrella.",
+    "right": "You needn't have brought an umbrella.",
+    "why": "Sau needn't have phải dùng quá khứ phân từ (V3)."
+   }
+  ],
+  "examples": [
+   {
+    "en": "You needn't have cooked dinner; we'd already eaten.",
+    "vi": "Lẽ ra bạn không cần nấu bữa tối đâu, chúng tôi ăn rồi."
+   },
+   {
+    "en": "I'd rather walk than take a crowded bus.",
+    "vi": "Tôi thà đi bộ còn hơn đi xe buýt đông người."
+   },
+   {
+    "en": "I'd rather you didn't smoke in here.",
+    "vi": "Tôi mong bạn đừng hút thuốc ở đây."
+   },
+   {
+    "en": "The last train has gone, so we might as well get a taxi.",
+    "vi": "Chuyến tàu cuối đi rồi, thôi thì mình đi taxi vậy."
+   },
+   {
+    "en": "She needn't have worried; the interview went brilliantly.",
+    "vi": "Lẽ ra cô ấy không cần lo, buổi phỏng vấn diễn ra rất tốt."
+   },
+   {
+    "en": "Nobody's using this ticket, so you may as well have it.",
+    "vi": "Chẳng ai dùng vé này, bạn cứ lấy đi."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "You needn't have ___ (pay) for me; it was free.",
+    "answers": [
+     "paid"
+    ],
+    "options": [],
+    "explain": "Sau needn't have dùng V3."
+   },
+   {
+    "type": "gap",
+    "prompt": "I'd rather ___ (not/discuss) this right now.",
+    "answers": [
+     "not discuss"
+    ],
+    "options": [],
+    "explain": "Phủ định của would rather là would rather not + V."
+   },
+   {
+    "type": "gap",
+    "prompt": "I'd rather you ___ (come) a bit earlier tomorrow.",
+    "answers": [
+     "came"
+    ],
+    "options": [],
+    "explain": "Would rather + chủ ngữ khác thì động từ chia quá khứ."
+   },
+   {
+    "type": "gap",
+    "prompt": "The shop's closed, so we might as ___ go home.",
+    "answers": [
+     "well"
+    ],
+    "options": [],
+    "explain": "Cụm cố định là might as well."
+   },
+   {
+    "type": "choice",
+    "prompt": "We ___ hurried; the meeting was postponed.",
+    "answers": [
+     "needn't have"
+    ],
+    "options": [
+     "needn't have",
+     "mustn't have",
+     "might as well",
+     "would rather"
+    ],
+    "explain": "Đã vội nhưng hóa ra không cần thiết."
+   },
+   {
+    "type": "choice",
+    "prompt": "There's nothing on TV, so we ___ go to bed.",
+    "answers": [
+     "might as well"
+    ],
+    "options": [
+     "might as well",
+     "needn't have",
+     "would rather to",
+     "had rather"
+    ],
+    "explain": "Không có lựa chọn tốt hơn thì dùng might as well."
+   },
+   {
+    "type": "choice",
+    "prompt": "I'd rather ___ at home than go to that party.",
+    "answers": [
+     "stay"
+    ],
+    "options": [
+     "stay",
+     "to stay",
+     "staying",
+     "stayed"
+    ],
+    "explain": "Would rather + V nguyên mẫu khi nói về chính mình."
+   },
+   {
+    "type": "order",
+    "prompt": "I'd rather you didn't mention it to her.",
+    "answers": [
+     "I'd rather you didn't mention it to her."
+    ],
+    "options": [],
+    "explain": "Thứ tự là would rather + chủ ngữ + V quá khứ."
+   },
+   {
+    "type": "order",
+    "prompt": "We might as well leave now.",
+    "answers": [
+     "We might as well leave now.",
+     "Now we might as well leave."
+    ],
+    "options": [],
+    "explain": "Might as well đứng trước động từ nguyên mẫu."
+   },
+   {
+    "type": "error",
+    "prompt": "You needn't have took a taxi; I could have driven you.",
+    "answers": [
+     "took",
+     "taken"
+    ],
+    "options": [],
+    "explain": "Sau needn't have dùng V3 là taken."
+   },
+   {
+    "type": "error",
+    "prompt": "I'd rather you stay here tonight.",
+    "answers": [
+     "stay",
+     "stayed"
+    ],
+    "options": [],
+    "explain": "Có chủ ngữ khác sau would rather thì chia quá khứ."
+   },
+   {
+    "type": "translate",
+    "prompt": "Lẽ ra bạn không cần mua hoa đâu.",
+    "answers": [
+     "You needn't have bought flowers.",
+     "You need not have bought flowers.",
+     "You needn't have bought any flowers.",
+     "You needn't have bought the flowers."
+    ],
+    "options": [],
+    "explain": "Việc đã làm nhưng không cần thì dùng needn't have + V3."
+   }
+  ]
+ },
+ {
+  "id": "emphasis-hedging",
+  "level": "C1",
+  "title": "Nhấn mạnh và nói giảm (do/does, tends to, it seems that)",
+  "summary": "Bài này dạy cách nhấn mạnh ý bằng trợ động từ do/does/did, và cách nói giảm, nói tránh (hedging) bằng tend to, it seems that, appear to. Nhờ vậy câu nói nghe tự nhiên, lịch sự và học thuật hơn.",
+  "formulas": [
+   "Nhấn mạnh: S + do/does/did + V nguyên mẫu (I do like it.)",
+   "Nói giảm: S + tend(s) to + V nguyên mẫu",
+   "Nói giảm: It seems/appears that + mệnh đề",
+   "Nói giảm: S + seem(s)/appear(s) to + V / to have + V3",
+   "Nói giảm: S + may/might/could + V; arguably, to some extent"
+  ],
+  "usage": [
+   "Dùng do/does/did trước động từ chính để nhấn mạnh, phản bác hoặc khẳng định lại điều người khác nghi ngờ.",
+   "Dùng tend to để nói về xu hướng chung, tránh khẳng định tuyệt đối.",
+   "Dùng it seems that / seem to để đưa ra nhận định thận trọng, không chắc chắn hoàn toàn.",
+   "Văn viết học thuật và giao tiếp công sở rất hay dùng nói giảm để lịch sự và khách quan."
+  ],
+  "mistakes": [
+   {
+    "wrong": "She does likes coffee.",
+    "right": "She does like coffee.",
+    "why": "Sau do/does/did động từ chính phải ở dạng nguyên mẫu."
+   },
+   {
+    "wrong": "People tend to forgetting names.",
+    "right": "People tend to forget names.",
+    "why": "Sau tend to là động từ nguyên mẫu, không dùng V-ing."
+   },
+   {
+    "wrong": "It seems that he to be tired.",
+    "right": "It seems that he is tired.",
+    "why": "Sau it seems that là một mệnh đề đầy đủ; dùng 'seem to be' khi chủ ngữ đứng đầu: He seems to be tired."
+   }
+  ],
+  "examples": [
+   {
+    "en": "I do appreciate your help, even if I rarely say so.",
+    "vi": "Tôi thực sự trân trọng sự giúp đỡ của bạn, dù ít khi nói ra."
+   },
+   {
+    "en": "He did warn us about the risks, but we ignored him.",
+    "vi": "Anh ấy đúng là đã cảnh báo chúng tôi về rủi ro, nhưng chúng tôi phớt lờ."
+   },
+   {
+    "en": "Younger employees tend to change jobs more frequently.",
+    "vi": "Nhân viên trẻ thường có xu hướng đổi việc nhiều hơn."
+   },
+   {
+    "en": "It seems that the policy has had little impact so far.",
+    "vi": "Có vẻ như chính sách này cho đến nay chưa tác động nhiều."
+   },
+   {
+    "en": "The results appear to support our original hypothesis.",
+    "vi": "Kết quả dường như ủng hộ giả thuyết ban đầu của chúng tôi."
+   },
+   {
+    "en": "She seems to have misunderstood the instructions.",
+    "vi": "Có vẻ như cô ấy đã hiểu nhầm hướng dẫn."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "You may not believe it, but she ___ finish the report on time yesterday.",
+    "answers": [
+     "did"
+    ],
+    "options": [],
+    "explain": "Nhấn mạnh hành động quá khứ dùng did + V nguyên mẫu."
+   },
+   {
+    "type": "gap",
+    "prompt": "Prices ___ to rise during the holiday season.",
+    "answers": [
+     "tend"
+    ],
+    "options": [],
+    "explain": "Chủ ngữ số nhiều dùng tend to để nói xu hướng chung."
+   },
+   {
+    "type": "gap",
+    "prompt": "It ___ that nobody read the email carefully.",
+    "answers": [
+     "seems",
+     "appears",
+     "seemed",
+     "appeared"
+    ],
+    "options": [],
+    "explain": "It seems/appears that + mệnh đề dùng để nói giảm."
+   },
+   {
+    "type": "gap",
+    "prompt": "He ___ understand the risks; he just chose to ignore them.",
+    "answers": [
+     "did"
+    ],
+    "options": [],
+    "explain": "Vế sau ở quá khứ (chose) nên dùng did + V nguyên mẫu để nhấn mạnh."
+   },
+   {
+    "type": "choice",
+    "prompt": "The new manager seems ___ more experienced than the last one.",
+    "answers": [
+     "to be"
+    ],
+    "options": [
+     "be",
+     "to be",
+     "being",
+     "is"
+    ],
+    "explain": "Seem + to + V nguyên mẫu."
+   },
+   {
+    "type": "choice",
+    "prompt": "The suspect appears ___ the building before midnight.",
+    "answers": [
+     "to have left"
+    ],
+    "options": [
+     "to leave",
+     "leaving",
+     "to have left",
+     "left"
+    ],
+    "explain": "Hành động đã xảy ra trước dùng appear to have + V3."
+   },
+   {
+    "type": "choice",
+    "prompt": "My brother ___ want to help; he's just very busy.",
+    "answers": [
+     "does"
+    ],
+    "options": [
+     "do",
+     "does",
+     "is",
+     "doing"
+    ],
+    "explain": "Chủ ngữ ngôi ba số ít dùng does + V nguyên mẫu để nhấn mạnh."
+   },
+   {
+    "type": "order",
+    "prompt": "Students tend to perform better in the morning.",
+    "answers": [
+     "Students tend to perform better in the morning.",
+     "In the morning, students tend to perform better."
+    ],
+    "options": [],
+    "explain": "Cấu trúc S + tend to + V + bổ ngữ."
+   },
+   {
+    "type": "order",
+    "prompt": "It seems that the meeting has been postponed.",
+    "answers": [
+     "It seems that the meeting has been postponed."
+    ],
+    "options": [],
+    "explain": "It seems that + mệnh đề hoàn chỉnh."
+   },
+   {
+    "type": "error",
+    "prompt": "I do agrees with most of your points.",
+    "answers": [
+     "agrees",
+     "agree"
+    ],
+    "options": [],
+    "explain": "Sau do động từ phải ở dạng nguyên mẫu."
+   },
+   {
+    "type": "error",
+    "prompt": "Older drivers tend to driving more cautiously.",
+    "answers": [
+     "driving",
+     "drive"
+    ],
+    "options": [],
+    "explain": "Tend to + V nguyên mẫu, không dùng V-ing."
+   },
+   {
+    "type": "translate",
+    "prompt": "Có vẻ như anh ấy đã quên cuộc hẹn.",
+    "answers": [
+     "It seems that he has forgotten the appointment.",
+     "He seems to have forgotten the appointment.",
+     "It seems he's forgotten the appointment.",
+     "It seems that he's forgotten the appointment.",
+     "It seems he has forgotten the appointment.",
+     "It seems that he forgot the appointment.",
+     "It seems he forgot the appointment."
+    ],
+    "options": [],
+    "explain": "Dùng it seems that hoặc seem to have + V3 cho việc đã xảy ra."
+   }
+  ]
+ },
+ {
+  "id": "nominalisation",
+  "level": "C1",
+  "title": "Danh từ hoá trong văn viết trang trọng",
+  "summary": "Danh từ hoá là biến động từ/tính từ thành danh từ (analyse → analysis) để câu văn trang trọng, khách quan và cô đọng hơn. Đây là đặc điểm nổi bật của văn học thuật, báo cáo và văn bản hành chính.",
+  "formulas": [
+   "Động từ → danh từ: decide → decision, fail → failure, develop → development",
+   "Tính từ → danh từ: important → importance, available → availability",
+   "Mệnh đề → cụm danh từ: Prices rose sharply → a sharp rise in prices",
+   "the + N + of + O: They implemented the policy → the implementation of the policy",
+   "Trạng từ → tính từ khi danh từ hoá: significantly increased → a significant increase"
+  ],
+  "usage": [
+   "Dùng trong bài luận, báo cáo, văn bản học thuật để giảm tính cá nhân, nhấn mạnh sự việc thay vì người thực hiện.",
+   "Gộp nhiều ý vào một cụm danh từ làm chủ ngữ, giúp câu chặt chẽ: The rapid growth of cities has caused...",
+   "Khi danh từ hoá, trạng từ chuyển thành tính từ và tân ngữ thường đi sau 'of' hoặc giới từ phù hợp (in, on, to).",
+   "Không lạm dụng: quá nhiều danh từ hoá khiến câu nặng nề, khó hiểu."
+  ],
+  "mistakes": [
+   {
+    "wrong": "There was a significantly increase in sales.",
+    "right": "There was a significant increase in sales.",
+    "why": "Danh từ được bổ nghĩa bởi tính từ, không phải trạng từ."
+   },
+   {
+    "wrong": "The government's decide to raise taxes was criticised.",
+    "right": "The government's decision to raise taxes was criticised.",
+    "why": "Sau sở hữu cách cần danh từ, không dùng động từ nguyên mẫu."
+   },
+   {
+    "wrong": "There has been a rise of unemployment.",
+    "right": "There has been a rise in unemployment.",
+    "why": "rise/increase/decrease + in + lĩnh vực thay đổi; 'of' dùng cho mức độ (a rise of 5%)."
+   }
+  ],
+  "examples": [
+   {
+    "en": "The introduction of new regulations led to a decline in emissions.",
+    "vi": "Việc ban hành các quy định mới đã dẫn đến sự sụt giảm khí thải."
+   },
+   {
+    "en": "Failure to comply with these rules may result in dismissal.",
+    "vi": "Việc không tuân thủ các quy định này có thể dẫn đến sa thải."
+   },
+   {
+    "en": "The availability of cheap credit fuelled rapid economic expansion.",
+    "vi": "Sự sẵn có của tín dụng giá rẻ đã thúc đẩy sự mở rộng kinh tế nhanh chóng."
+   },
+   {
+    "en": "Her refusal to cooperate caused a delay in the investigation.",
+    "vi": "Việc cô ấy từ chối hợp tác đã gây chậm trễ cho cuộc điều tra."
+   },
+   {
+    "en": "A careful analysis of the data revealed several inconsistencies.",
+    "vi": "Việc phân tích dữ liệu cẩn thận đã cho thấy một số điểm mâu thuẫn."
+   },
+   {
+    "en": "The growing importance of renewable energy is widely recognised.",
+    "vi": "Tầm quan trọng ngày càng tăng của năng lượng tái tạo được công nhận rộng rãi."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "The ___ of the new system took longer than expected. (implement)",
+    "answers": [
+     "implementation"
+    ],
+    "options": [],
+    "explain": "implement → implementation (danh từ làm chủ ngữ)."
+   },
+   {
+    "type": "gap",
+    "prompt": "There was a sharp ___ in house prices last year. (fall)",
+    "answers": [
+     "fall",
+     "drop",
+     "decline"
+    ],
+    "options": [],
+    "explain": "Cần danh từ chỉ sự giảm sau 'a sharp'."
+   },
+   {
+    "type": "gap",
+    "prompt": "The committee's ___ to postpone the vote surprised everyone. (decide)",
+    "answers": [
+     "decision"
+    ],
+    "options": [],
+    "explain": "decide → decision, đứng sau sở hữu cách."
+   },
+   {
+    "type": "gap",
+    "prompt": "The ___ of clean water remains a serious concern in rural areas. (available)",
+    "answers": [
+     "availability"
+    ],
+    "options": [],
+    "explain": "available → availability (danh từ)."
+   },
+   {
+    "type": "choice",
+    "prompt": "The report highlights a ___ improvement in literacy rates.",
+    "answers": [
+     "significant"
+    ],
+    "options": [
+     "significant",
+     "significantly",
+     "signify",
+     "significance"
+    ],
+    "explain": "Tính từ bổ nghĩa cho danh từ improvement."
+   },
+   {
+    "type": "choice",
+    "prompt": "The government announced a reduction ___ public spending.",
+    "answers": [
+     "in"
+    ],
+    "options": [
+     "of",
+     "in",
+     "for",
+     "at"
+    ],
+    "explain": "reduction in + lĩnh vực bị giảm."
+   },
+   {
+    "type": "choice",
+    "prompt": "Which sentence is the most formal?",
+    "answers": [
+     "The rejection of the proposal caused disappointment."
+    ],
+    "options": [
+     "They rejected the proposal, so people were disappointed.",
+     "The rejection of the proposal caused disappointment.",
+     "People got upset because they said no to the proposal."
+    ],
+    "explain": "Câu dùng danh từ hoá mang tính trang trọng nhất."
+   },
+   {
+    "type": "order",
+    "prompt": "The expansion of the airport has caused considerable public concern.",
+    "answers": [
+     "The expansion of the airport has caused considerable public concern."
+    ],
+    "options": [
+     "caused",
+     "The expansion",
+     "considerable",
+     "of the airport",
+     "public concern.",
+     "has"
+    ],
+    "explain": "Cụm danh từ làm chủ ngữ + has caused + tân ngữ."
+   },
+   {
+    "type": "order",
+    "prompt": "Lack of investment led to a decline in productivity.",
+    "answers": [
+     "Lack of investment led to a decline in productivity."
+    ],
+    "options": [
+     "led to",
+     "in productivity.",
+     "Lack of investment",
+     "a decline"
+    ],
+    "explain": "Chủ ngữ danh từ hoá + led to + cụm danh từ."
+   },
+   {
+    "type": "error",
+    "prompt": "The rapidly development of technology has changed education.",
+    "answers": [
+     "rapidly",
+     "rapid"
+    ],
+    "options": [],
+    "explain": "Trước danh từ development phải dùng tính từ rapid."
+   },
+   {
+    "type": "error",
+    "prompt": "His fail to submit the report delayed the project.",
+    "answers": [
+     "fail",
+     "failure"
+    ],
+    "options": [],
+    "explain": "Sau tính từ sở hữu cần danh từ failure."
+   },
+   {
+    "type": "translate",
+    "prompt": "Việc phá rừng đã dẫn đến sự mất đa dạng sinh học.",
+    "answers": [
+     "Deforestation has led to a loss of biodiversity.",
+     "Deforestation has led to the loss of biodiversity.",
+     "Deforestation led to a loss of biodiversity.",
+     "Deforestation led to the loss of biodiversity.",
+     "Deforestation has resulted in a loss of biodiversity.",
+     "Deforestation has resulted in the loss of biodiversity.",
+     "Deforestation resulted in a loss of biodiversity.",
+     "Deforestation resulted in the loss of biodiversity."
+    ],
+    "options": [],
+    "explain": "Dùng danh từ deforestation và loss để câu trang trọng."
+   }
+  ]
+ },
+ {
+  "id": "ellipsis-substitution",
+  "level": "C1",
+  "title": "Tỉnh lược và thay thế (so, not, do so, one)",
+  "summary": "Tỉnh lược (ellipsis) và thay thế (substitution) giúp tránh lặp lại từ ngữ bằng cách dùng so, not, do so, one/ones hoặc lược bỏ phần đã rõ nghĩa. Đây là dấu hiệu của tiếng Anh tự nhiên, mạch lạc ở trình độ cao.",
+  "formulas": [
+   "think/hope/expect/suppose/be afraid + so / not (thay cho mệnh đề)",
+   "do so = thay cho động từ + tân ngữ đã nhắc (trang trọng)",
+   "a/the/this + (adj) + one/ones = thay cho danh từ đếm được",
+   "Tỉnh lược sau trợ động từ: I can't, but she can. / He will if he has to.",
+   "to thay cho cụm động từ nguyên mẫu: I'd like to, but I can't."
+  ],
+  "usage": [
+   "Dùng so/not sau think, hope, expect, suppose, guess, be afraid để trả lời mà không lặp lại cả mệnh đề.",
+   "'I don't think so' tự nhiên hơn 'I think not'; nhưng với hope và be afraid phải dùng 'I hope not', 'I'm afraid not'.",
+   "Do so dùng trong văn phong trang trọng, thay cho hành động có chủ ý đã nêu trước đó.",
+   "One/ones chỉ thay cho danh từ đếm được; danh từ không đếm được thì lược bỏ hoặc dùng some."
+  ],
+  "mistakes": [
+   {
+    "wrong": "I don't hope so.",
+    "right": "I hope not.",
+    "why": "Với hope, phủ định đặt ở 'not', không dùng 'don't hope so'."
+   },
+   {
+    "wrong": "I prefer white wine to red one.",
+    "right": "I prefer white wine to red.",
+    "why": "Wine không đếm được nên không dùng 'one' thay thế."
+   },
+   {
+    "wrong": "She asked me to call, and I did it so.",
+    "right": "She asked me to call, and I did so.",
+    "why": "Cụm thay thế đúng là 'do so', không thêm 'it'."
+   }
+  ],
+  "examples": [
+   {
+    "en": "Will the merger go ahead? I expect so.",
+    "vi": "Vụ sáp nhập có được tiến hành không? Tôi nghĩ là có."
+   },
+   {
+    "en": "Is the flight delayed? I'm afraid not.",
+    "vi": "Chuyến bay có bị hoãn không? Tiếc là không."
+   },
+   {
+    "en": "Applicants wishing to withdraw should do so in writing.",
+    "vi": "Ứng viên muốn rút đơn nên làm việc đó bằng văn bản."
+   },
+   {
+    "en": "This laptop is slow, so I'm buying a lighter, faster one.",
+    "vi": "Cái laptop này chậm, nên tôi sẽ mua một cái nhẹ và nhanh hơn."
+   },
+   {
+    "en": "I'd love to join you, but I really can't.",
+    "vi": "Tôi rất muốn đi cùng các bạn, nhưng thật sự không thể."
+   },
+   {
+    "en": "He said he would finish the report, and he has.",
+    "vi": "Anh ấy nói sẽ hoàn thành báo cáo, và anh ấy đã làm xong."
+   }
+  ],
+  "exercises": [
+   {
+    "type": "gap",
+    "prompt": "Will it rain tomorrow? I hope ___. We're having a picnic.",
+    "answers": [
+     "not"
+    ],
+    "options": [],
+    "explain": "Hy vọng điều phủ định dùng 'I hope not'."
+   },
+   {
+    "type": "gap",
+    "prompt": "Is she coming to the meeting? I believe ___.",
+    "answers": [
+     "so"
+    ],
+    "options": [],
+    "explain": "'So' thay cho mệnh đề khẳng định sau believe."
+   },
+   {
+    "type": "gap",
+    "prompt": "Those shoes are worn out; you need some new ___.",
+    "answers": [
+     "ones"
+    ],
+    "options": [],
+    "explain": "'Ones' thay cho danh từ đếm được số nhiều 'shoes'."
+   },
+   {
+    "type": "gap",
+    "prompt": "Staff may leave early, but those who ___ so must inform HR.",
+    "answers": [
+     "do"
+    ],
+    "options": [],
+    "explain": "'Do so' thay cho hành động 'leave early'."
+   },
+   {
+    "type": "choice",
+    "prompt": "Has he passed the exam? I'm afraid ___.",
+    "answers": [
+     "not"
+    ],
+    "options": [
+     "not",
+     "no",
+     "don't",
+     "so not"
+    ],
+    "explain": "Câu trả lời phủ định lịch sự: 'I'm afraid not'."
+   },
+   {
+    "type": "choice",
+    "prompt": "I'd rather have black coffee than ___.",
+    "answers": [
+     "white"
+    ],
+    "options": [
+     "white one",
+     "white",
+     "white ones",
+     "a white one"
+    ],
+    "explain": "Coffee (đồ uống chung) không đếm được nên lược bỏ danh từ."
+   },
+   {
+    "type": "choice",
+    "prompt": "You don't have to come, but I'd like you ___.",
+    "answers": [
+     "to"
+    ],
+    "options": [
+     "to",
+     "to do",
+     "so",
+     "it"
+    ],
+    "explain": "'To' thay cho cụm động từ nguyên mẫu 'to come'."
+   },
+   {
+    "type": "order",
+    "prompt": "I don't think so, but I may be wrong.",
+    "answers": [
+     "I don't think so, but I may be wrong.",
+     "I may be wrong, but I don't think so."
+    ],
+    "options": [],
+    "explain": "'I don't think so' là cách phủ định tự nhiên với think."
+   },
+   {
+    "type": "order",
+    "prompt": "The old bridge was replaced by a much stronger one.",
+    "answers": [
+     "The old bridge was replaced by a much stronger one."
+    ],
+    "options": [],
+    "explain": "'One' thay cho 'bridge', đứng sau tính từ."
+   },
+   {
+    "type": "error",
+    "prompt": "Is the shop open on Sunday? I don't suppose not.",
+    "answers": [
+     "not",
+     "so"
+    ],
+    "options": [],
+    "explain": "Đã phủ định ở 'don't suppose' thì dùng 'so'."
+   },
+   {
+    "type": "error",
+    "prompt": "He promised to apologise, and he eventually did it so.",
+    "answers": [
+     "it so",
+     "so"
+    ],
+    "options": [],
+    "explain": "Cụm đúng là 'did so', không có 'it'."
+   },
+   {
+    "type": "translate",
+    "prompt": "Anh ấy có đến không? Tôi nghĩ là không.",
+    "answers": [
+     "Is he coming? I don't think so.",
+     "Will he come? I don't think so.",
+     "Is he coming? I think not.",
+     "Will he come? I think not.",
+     "Is he going to come? I don't think so."
+    ],
+    "options": [],
+    "explain": "Dùng 'I don't think so' để tránh lặp mệnh đề."
+   }
+  ]
  }
 ]

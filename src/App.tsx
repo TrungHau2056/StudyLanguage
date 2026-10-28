@@ -141,12 +141,14 @@ export default function App({ account }: { account?: Account }) {
   const passed = new Set(settings.levelsPassed ?? []);
   const level: Level = LEVELS.find((l) => !passed.has(l) && LEVELS.indexOf(l) >= LEVELS.indexOf(settings.startLevel)) ?? 'C1';
   const upTo = (l: Level) => LEVELS.indexOf(l) <= LEVELS.indexOf(level);
+  // Today's lesson/phrases come from the learner's level band (start level → current); lower levels stay browsable.
+  const inBand = (l: Level) => upTo(l) && LEVELS.indexOf(l) >= LEVELS.indexOf(settings.startLevel);
   const itemKeys = new Set(items.map((c) => c.key));
   const doneLessons = new Set(lessons.filter((l) => itemKeys.has(grammarKey(l.id, 0))).map((l) => l.id));
-  const nextLesson = lessons.find((l) => upTo(l.level) && !doneLessons.has(l.id));
+  const nextLesson = lessons.find((l) => inBand(l.level) && !doneLessons.has(l.id));
   const learnedPhrases = new Set(sets.flatMap((s) => s.phrases).filter((p) => itemKeys.has(phraseKey(p.id))).map((p) => p.id));
   const fresh = current(daily);
-  const phraseQueue = fresh.phrases ? [] : sets.filter((s) => upTo(s.level))
+  const phraseQueue = fresh.phrases ? [] : sets.filter((s) => inBand(s.level))
     .flatMap((s) => s.phrases.filter((p) => !learnedPhrases.has(p.id)).map((phrase) => ({ set: s, phrase })))
     .slice(0, PHRASE_GOAL);
   const itemsDue = items.filter((c) => c.due <= now && (exercises.has(c.key) || phraseByKey.has(c.key)))

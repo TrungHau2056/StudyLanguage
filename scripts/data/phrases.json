@@ -768,5 +768,775 @@
     "note": "'Not really' giúp câu trả lời nhẹ nhàng, tự nhiên hơn 'No'."
    }
   ]
+ },
+ {
+  "id": "opinions",
+  "level": "B1",
+  "title": "Nêu ý kiến, đồng ý và phản đối",
+  "phrases": [
+   {
+    "id": "opinions-0",
+    "en": "What do you think about this idea?",
+    "vi": "Bạn nghĩ sao về ý tưởng này?",
+    "note": "Câu hỏi mở để hỏi ý kiến người khác."
+   },
+   {
+    "id": "opinions-1",
+    "en": "In my opinion, we should try a different approach.",
+    "vi": "Theo tôi, chúng ta nên thử một cách khác.",
+    "note": "Dùng 'In my opinion' khi muốn nêu ý kiến một cách rõ ràng."
+   },
+   {
+    "id": "opinions-2",
+    "en": "I totally agree with you on that.",
+    "vi": "Tôi hoàn toàn đồng ý với bạn về điều đó.",
+    "note": "'Totally' giúp nhấn mạnh sự đồng ý."
+   },
+   {
+    "id": "opinions-3",
+    "en": "That's a good point, but I'm not so sure.",
+    "vi": "Ý đó hay đấy, nhưng tôi không chắc lắm.",
+    "note": "Cách phản đối lịch sự: khen trước, rồi nêu nghi ngờ."
+   },
+   {
+    "id": "opinions-4",
+    "en": "I see what you mean, but I disagree.",
+    "vi": "Tôi hiểu ý bạn, nhưng tôi không đồng ý.",
+    "note": "Thể hiện sự tôn trọng trước khi phản đối."
+   },
+   {
+    "id": "opinions-5",
+    "en": "Do you really think that's the best solution?",
+    "vi": "Bạn thật sự nghĩ đó là giải pháp tốt nhất à?",
+    "note": "Dùng để nhẹ nhàng đặt câu hỏi nghi vấn."
+   },
+   {
+    "id": "opinions-6",
+    "en": "I'm afraid I can't agree with that.",
+    "vi": "Tôi e là tôi không thể đồng ý với điều đó.",
+    "note": "'I'm afraid' làm lời phản đối mềm mỏng, lịch sự hơn."
+   },
+   {
+    "id": "opinions-7",
+    "en": "You're absolutely right. I hadn't thought of that.",
+    "vi": "Bạn hoàn toàn đúng. Tôi đã không nghĩ đến điều đó.",
+    "note": "Dùng khi bị thuyết phục bởi ý kiến người khác."
+   }
+  ]
+ },
+ {
+  "id": "complaints",
+  "level": "B1",
+  "title": "Phàn nàn và giải quyết vấn đề (cửa hàng, dịch vụ)",
+  "phrases": [
+   {
+    "id": "complaints-0",
+    "en": "Excuse me, I'd like to make a complaint about this product.",
+    "vi": "Xin lỗi, tôi muốn khiếu nại về sản phẩm này.",
+    "note": "Mở đầu lịch sự trước khi phàn nàn."
+   },
+   {
+    "id": "complaints-1",
+    "en": "I bought this yesterday, but it doesn't work properly.",
+    "vi": "Tôi mua cái này hôm qua nhưng nó không hoạt động bình thường.",
+    "note": "Nêu rõ thời gian mua và vấn đề cụ thể."
+   },
+   {
+    "id": "complaints-2",
+    "en": "I'm sorry to hear that. Do you have the receipt?",
+    "vi": "Rất tiếc về điều đó. Anh/chị có hóa đơn không?",
+    "note": "Câu nhân viên thường hỏi; nên giữ hóa đơn."
+   },
+   {
+    "id": "complaints-3",
+    "en": "Could I get a refund or exchange it for a new one?",
+    "vi": "Tôi có thể được hoàn tiền hoặc đổi cái mới không?",
+    "note": "Refund = hoàn tiền; exchange = đổi hàng."
+   },
+   {
+    "id": "complaints-4",
+    "en": "I've been waiting for over thirty minutes. This isn't acceptable.",
+    "vi": "Tôi đã đợi hơn ba mươi phút rồi. Như thế là không chấp nhận được.",
+    "note": "Dùng giọng bình tĩnh, tránh to tiếng."
+   },
+   {
+    "id": "complaints-5",
+    "en": "Could I speak to the manager, please?",
+    "vi": "Cho tôi nói chuyện với quản lý được không?",
+    "note": "Dùng khi nhân viên không giải quyết được."
+   },
+   {
+    "id": "complaints-6",
+    "en": "We apologize for the inconvenience. Let me sort it out for you.",
+    "vi": "Chúng tôi xin lỗi vì sự bất tiện. Để tôi giải quyết cho anh/chị.",
+    "note": "Sort it out = giải quyết, xử lý."
+   },
+   {
+    "id": "complaints-7",
+    "en": "Thanks for your help. I appreciate you fixing this so quickly.",
+    "vi": "Cảm ơn sự giúp đỡ. Tôi rất cảm kích vì đã xử lý nhanh như vậy.",
+    "note": "Kết thúc tích cực sau khi được giải quyết."
+   }
+  ]
+ },
+ {
+  "id": "plans-arrangements",
+  "level": "B1",
+  "title": "Bàn kế hoạch, sắp xếp lịch, thay đổi hẹn",
+  "phrases": [
+   {
+    "id": "plans-arrangements-0",
+    "en": "Are you free sometime next week to go over the plan?",
+    "vi": "Tuần sau bạn có rảnh lúc nào để bàn lại kế hoạch không?",
+    "note": "\"Go over\" = xem xét, bàn lại chi tiết."
+   },
+   {
+    "id": "plans-arrangements-1",
+    "en": "What time works best for you?",
+    "vi": "Mấy giờ thì tiện nhất cho bạn?",
+    "note": "Cách hỏi lịch lịch sự, tự nhiên hơn \"When are you free?\"."
+   },
+   {
+    "id": "plans-arrangements-2",
+    "en": "Thursday afternoon suits me, if that's okay with you.",
+    "vi": "Chiều thứ Năm thì mình tiện, nếu bạn thấy ổn.",
+    "note": "\"Suits me\" = hợp với tôi; thêm vế sau để lịch sự."
+   },
+   {
+    "id": "plans-arrangements-3",
+    "en": "I'm afraid something's come up. Can we reschedule?",
+    "vi": "Mình e là có việc đột xuất. Mình dời lịch được không?",
+    "note": "\"Something's come up\" dùng khi có việc bất ngờ, không cần giải thích chi tiết."
+   },
+   {
+    "id": "plans-arrangements-4",
+    "en": "Would it be possible to push the meeting back an hour?",
+    "vi": "Có thể lùi cuộc họp lại một tiếng được không?",
+    "note": "\"Push back\" = lùi lại; \"bring forward\" = dời sớm hơn."
+   },
+   {
+    "id": "plans-arrangements-5",
+    "en": "No problem at all. How about Friday morning instead?",
+    "vi": "Không sao đâu. Thay vào đó sáng thứ Sáu thì sao?",
+    "note": "\"How about...?\" dùng để đề xuất phương án khác."
+   },
+   {
+    "id": "plans-arrangements-6",
+    "en": "Let me check my calendar and get back to you.",
+    "vi": "Để mình xem lịch rồi báo lại bạn nhé.",
+    "note": "\"Get back to you\" = trả lời sau, rất hay dùng trong công việc."
+   },
+   {
+    "id": "plans-arrangements-7",
+    "en": "Great, so we're all set for Friday at ten.",
+    "vi": "Tuyệt, vậy chốt sáng thứ Sáu lúc mười giờ nhé.",
+    "note": "\"All set\" = đã sắp xếp xong; dùng để xác nhận lại lịch hẹn."
+   }
+  ]
+ },
+ {
+  "id": "experiences",
+  "level": "B1",
+  "title": "Kể chuyện và trải nghiệm đã qua",
+  "phrases": [
+   {
+    "id": "experiences-0",
+    "en": "You'll never guess what happened to me last weekend.",
+    "vi": "Bạn sẽ không đoán được chuyện gì xảy ra với mình cuối tuần trước đâu.",
+    "note": "Câu mở đầu để gây tò mò trước khi kể chuyện."
+   },
+   {
+    "id": "experiences-1",
+    "en": "So, how was your trip? Did anything interesting happen?",
+    "vi": "Chuyến đi của bạn thế nào? Có chuyện gì thú vị không?",
+    "note": "Dùng để mời người khác kể lại trải nghiệm."
+   },
+   {
+    "id": "experiences-2",
+    "en": "It all started when I missed my bus to work.",
+    "vi": "Mọi chuyện bắt đầu khi mình bị lỡ xe buýt đi làm.",
+    "note": "Dùng 'It all started when...' để mở đầu câu chuyện."
+   },
+   {
+    "id": "experiences-3",
+    "en": "While I was waiting, someone suddenly tapped me on the shoulder.",
+    "vi": "Trong lúc mình đang đợi thì bỗng có người vỗ vai mình.",
+    "note": "Quá khứ tiếp diễn (was waiting) cho hành động đang diễn ra, quá khứ đơn cho hành động xen vào."
+   },
+   {
+    "id": "experiences-4",
+    "en": "Really? What happened next?",
+    "vi": "Thật á? Rồi sao nữa?",
+    "note": "Câu phản hồi giúp người kể tiếp tục câu chuyện."
+   },
+   {
+    "id": "experiences-5",
+    "en": "I had never seen anything like that before.",
+    "vi": "Trước đó mình chưa từng thấy cảnh nào như vậy.",
+    "note": "Quá khứ hoàn thành (had seen) để nói việc xảy ra trước một thời điểm trong quá khứ."
+   },
+   {
+    "id": "experiences-6",
+    "en": "In the end, it turned out to be my old classmate.",
+    "vi": "Cuối cùng thì hóa ra đó là bạn học cũ của mình.",
+    "note": "'It turned out...' = hóa ra, dùng khi kể kết thúc bất ngờ."
+   },
+   {
+    "id": "experiences-7",
+    "en": "That sounds amazing! Have you ever been to Japan before?",
+    "vi": "Nghe tuyệt quá! Trước đây bạn đã từng đến Nhật chưa?",
+    "note": "Dùng 'Have you ever...?' để hỏi về trải nghiệm từng có."
+   }
+  ]
+ },
+ {
+  "id": "advice",
+  "level": "B1",
+  "title": "Xin và cho lời khuyên",
+  "phrases": [
+   {
+    "id": "advice-0",
+    "en": "Can I ask your advice about something?",
+    "vi": "Mình hỏi ý kiến bạn về một chuyện được không?",
+    "note": "Câu mở đầu lịch sự trước khi xin lời khuyên."
+   },
+   {
+    "id": "advice-1",
+    "en": "What do you think I should do?",
+    "vi": "Bạn nghĩ mình nên làm gì?",
+    "note": "Dùng 'should' khi hỏi về việc nên làm."
+   },
+   {
+    "id": "advice-2",
+    "en": "If I were you, I'd talk to your manager first.",
+    "vi": "Nếu mình là bạn, mình sẽ nói chuyện với quản lý trước.",
+    "note": "Dùng 'If I were you' (không phải 'was') để khuyên nhẹ nhàng."
+   },
+   {
+    "id": "advice-3",
+    "en": "Have you thought about taking a short break?",
+    "vi": "Bạn đã nghĩ đến việc nghỉ ngơi một chút chưa?",
+    "note": "Cách gợi ý khéo léo, không áp đặt."
+   },
+   {
+    "id": "advice-4",
+    "en": "Maybe you should try a different approach.",
+    "vi": "Có lẽ bạn nên thử cách khác.",
+    "note": "'Maybe' làm lời khuyên mềm mại hơn."
+   },
+   {
+    "id": "advice-5",
+    "en": "That's good advice. Thanks, I'll give it a try.",
+    "vi": "Lời khuyên hay đấy. Cảm ơn, mình sẽ thử xem.",
+    "note": "'Advice' là danh từ không đếm được, không nói 'an advice'."
+   },
+   {
+    "id": "advice-6",
+    "en": "I'm not sure that would work for me.",
+    "vi": "Mình không chắc cách đó hợp với mình.",
+    "note": "Từ chối lời khuyên một cách lịch sự."
+   },
+   {
+    "id": "advice-7",
+    "en": "Why don't you sleep on it before deciding?",
+    "vi": "Sao bạn không suy nghĩ thêm một đêm rồi hãy quyết định?",
+    "note": "'Sleep on it' nghĩa là để mai suy nghĩ kỹ rồi quyết."
+   }
+  ]
+ },
+ {
+  "id": "job-interview",
+  "level": "B2",
+  "title": "Phỏng vấn xin việc",
+  "phrases": [
+   {
+    "id": "job-interview-0",
+    "en": "Could you tell me a bit about yourself?",
+    "vi": "Bạn có thể giới thiệu đôi chút về bản thân không?",
+    "note": "Câu mở đầu rất phổ biến; nên trả lời ngắn gọn 1-2 phút, tập trung vào kinh nghiệm liên quan."
+   },
+   {
+    "id": "job-interview-1",
+    "en": "I've got about five years of experience in digital marketing.",
+    "vi": "Tôi có khoảng năm năm kinh nghiệm trong lĩnh vực marketing số.",
+    "note": "Dùng thì hiện tại hoàn thành để nói về kinh nghiệm tích lũy đến nay."
+   },
+   {
+    "id": "job-interview-2",
+    "en": "What would you say is your greatest weakness?",
+    "vi": "Bạn nghĩ điểm yếu lớn nhất của mình là gì?",
+    "note": "Nên nêu điểm yếu thật nhưng kèm cách bạn đang khắc phục."
+   },
+   {
+    "id": "job-interview-3",
+    "en": "I tend to be a perfectionist, but I'm learning to prioritise better.",
+    "vi": "Tôi hay cầu toàn, nhưng tôi đang học cách sắp xếp ưu tiên tốt hơn.",
+    "note": "'Tend to' giúp câu nói mềm mại, tránh tự nhận xét quá tuyệt đối."
+   },
+   {
+    "id": "job-interview-4",
+    "en": "Why are you interested in working for our company?",
+    "vi": "Tại sao bạn muốn làm việc cho công ty chúng tôi?",
+    "note": "Hãy tìm hiểu trước về công ty để trả lời cụ thể."
+   },
+   {
+    "id": "job-interview-5",
+    "en": "I really admire your commitment to innovation and sustainability.",
+    "vi": "Tôi rất ngưỡng mộ sự cam kết của quý công ty với đổi mới và phát triển bền vững.",
+    "note": "Khen cụ thể giá trị của công ty sẽ thuyết phục hơn khen chung chung."
+   },
+   {
+    "id": "job-interview-6",
+    "en": "Could you walk me through a typical day in this role?",
+    "vi": "Anh/chị có thể mô tả một ngày làm việc điển hình ở vị trí này không?",
+    "note": "Câu hỏi hay để hỏi ngược nhà tuyển dụng ở cuối buổi phỏng vấn."
+   },
+   {
+    "id": "job-interview-7",
+    "en": "What are the next steps in the hiring process?",
+    "vi": "Các bước tiếp theo trong quy trình tuyển dụng là gì?",
+    "note": "Hỏi khi kết thúc để thể hiện sự quan tâm và chuyên nghiệp."
+   }
+  ]
+ },
+ {
+  "id": "meetings",
+  "level": "B2",
+  "title": "Họp hành: đưa đề xuất, ngắt lời lịch sự, tóm tắt",
+  "phrases": [
+   {
+    "id": "meetings-0",
+    "en": "Sorry to interrupt, but could I just add something here?",
+    "vi": "Xin lỗi đã ngắt lời, nhưng tôi có thể bổ sung một chút không?",
+    "note": "Cách ngắt lời lịch sự, nên giơ tay nhẹ hoặc đợi người nói ngừng một nhịp."
+   },
+   {
+    "id": "meetings-1",
+    "en": "Go ahead, I was just about to finish anyway.",
+    "vi": "Anh cứ nói đi, dù sao tôi cũng sắp nói xong rồi.",
+    "note": "Đáp lại khi bị ngắt lời một cách thoải mái."
+   },
+   {
+    "id": "meetings-2",
+    "en": "What if we tried a different approach to this?",
+    "vi": "Nếu chúng ta thử một cách tiếp cận khác thì sao?",
+    "note": "'What if...' giúp đề xuất nhẹ nhàng, không áp đặt."
+   },
+   {
+    "id": "meetings-3",
+    "en": "I'd like to propose that we push the deadline back a week.",
+    "vi": "Tôi muốn đề xuất lùi thời hạn lại một tuần.",
+    "note": "'Push back' = lùi lại; 'propose that' mang tính trang trọng."
+   },
+   {
+    "id": "meetings-4",
+    "en": "That's a fair point, but have we considered the costs?",
+    "vi": "Ý đó hợp lý, nhưng chúng ta đã tính đến chi phí chưa?",
+    "note": "Công nhận trước rồi mới phản biện để giữ không khí tích cực."
+   },
+   {
+    "id": "meetings-5",
+    "en": "If I could just finish my point, then I'll hand over.",
+    "vi": "Cho tôi nói nốt ý này, rồi tôi sẽ nhường lời.",
+    "note": "Dùng khi bị ngắt lời mà muốn giữ lượt nói một cách lịch sự."
+   },
+   {
+    "id": "meetings-6",
+    "en": "So, to sum up, we've agreed on three main action points.",
+    "vi": "Vậy, tóm lại, chúng ta đã thống nhất ba việc chính cần làm.",
+    "note": "'To sum up' / 'To recap' dùng để tóm tắt cuối cuộc họp."
+   },
+   {
+    "id": "meetings-7",
+    "en": "Just to make sure we're on the same page, who's handling what?",
+    "vi": "Để chắc mọi người hiểu giống nhau, ai sẽ phụ trách việc gì?",
+    "note": "'On the same page' = cùng hiểu một vấn đề, rất phổ biến nơi công sở."
+   }
+  ]
+ },
+ {
+  "id": "negotiating",
+  "level": "B2",
+  "title": "Thương lượng, mặc cả, thoả hiệp",
+  "phrases": [
+   {
+    "id": "negotiating-0",
+    "en": "Is there any flexibility on the price?",
+    "vi": "Giá này có thể linh động chút nào không?",
+    "note": "Cách hỏi giảm giá lịch sự, hợp với môi trường công việc."
+   },
+   {
+    "id": "negotiating-1",
+    "en": "That's a bit more than I was hoping to spend.",
+    "vi": "Mức đó hơi cao hơn số tiền tôi định chi.",
+    "note": "Từ chối khéo, không làm mất lòng người bán."
+   },
+   {
+    "id": "negotiating-2",
+    "en": "What if we met halfway?",
+    "vi": "Hay mình mỗi bên nhường một nửa nhé?",
+    "note": "'Meet halfway' = thỏa hiệp ở mức giữa."
+   },
+   {
+    "id": "negotiating-3",
+    "en": "I could go as low as 500, but that's my final offer.",
+    "vi": "Tôi có thể giảm xuống 500, nhưng đó là giá chót.",
+    "note": "'Final offer' cho thấy bạn không nhượng bộ thêm."
+   },
+   {
+    "id": "negotiating-4",
+    "en": "If you order in bulk, we can offer a discount.",
+    "vi": "Nếu anh đặt số lượng lớn, chúng tôi có thể giảm giá.",
+    "note": "Dùng câu điều kiện để đưa ra nhượng bộ có điều kiện."
+   },
+   {
+    "id": "negotiating-5",
+    "en": "Would you be willing to throw in free delivery?",
+    "vi": "Anh có sẵn lòng tặng kèm giao hàng miễn phí không?",
+    "note": "'Throw in' = cho thêm, tặng kèm."
+   },
+   {
+    "id": "negotiating-6",
+    "en": "I'm afraid that's not something we can agree to.",
+    "vi": "Tôi e là chúng tôi không thể đồng ý điều đó.",
+    "note": "'I'm afraid' làm lời từ chối mềm mỏng hơn."
+   },
+   {
+    "id": "negotiating-7",
+    "en": "Alright, you've got yourself a deal.",
+    "vi": "Được rồi, chốt vậy nhé.",
+    "note": "Câu thân mật để chấp nhận thỏa thuận."
+   }
+  ]
+ },
+ {
+  "id": "presentations",
+  "level": "B2",
+  "title": "Thuyết trình: mở đầu, chuyển ý, kết luận",
+  "phrases": [
+   {
+    "id": "presentations-0",
+    "en": "Good morning, everyone. Thanks for coming. Today I'd like to talk about...",
+    "vi": "Chào buổi sáng mọi người. Cảm ơn đã đến. Hôm nay tôi muốn nói về...",
+    "note": "Câu mở đầu chuẩn, lịch sự; thay 'morning' theo thời điểm."
+   },
+   {
+    "id": "presentations-1",
+    "en": "I've divided my presentation into three main parts.",
+    "vi": "Tôi chia bài thuyết trình thành ba phần chính.",
+    "note": "Giúp khán giả nắm cấu trúc ngay từ đầu."
+   },
+   {
+    "id": "presentations-2",
+    "en": "Please feel free to interrupt if you have any questions.",
+    "vi": "Mọi người cứ tự nhiên ngắt lời nếu có câu hỏi nhé.",
+    "note": "Hoặc nói 'I'll take questions at the end' nếu muốn để cuối."
+   },
+   {
+    "id": "presentations-3",
+    "en": "That brings me to my next point.",
+    "vi": "Điều đó dẫn tôi đến ý tiếp theo.",
+    "note": "Cách chuyển ý mượt, tự nhiên hơn 'Next...'."
+   },
+   {
+    "id": "presentations-4",
+    "en": "Now let's move on to the results.",
+    "vi": "Bây giờ chúng ta chuyển sang phần kết quả.",
+    "note": "'Move on to' + danh từ; dùng khi đổi phần rõ ràng."
+   },
+   {
+    "id": "presentations-5",
+    "en": "Could you go back to the previous slide, please?",
+    "vi": "Anh/chị có thể quay lại slide trước được không?",
+    "note": "Câu khán giả hay hỏi; đáp: 'Sure, here it is.'"
+   },
+   {
+    "id": "presentations-6",
+    "en": "To sum up, the key takeaway is that we need to act now.",
+    "vi": "Tóm lại, điểm mấu chốt là chúng ta cần hành động ngay.",
+    "note": "'Key takeaway' = thông điệp chính khán giả nên nhớ."
+   },
+   {
+    "id": "presentations-7",
+    "en": "That's a great question. Let me get back to you on that.",
+    "vi": "Câu hỏi hay đấy. Để tôi tìm hiểu rồi trả lời bạn sau nhé.",
+    "note": "Dùng khi chưa có câu trả lời, giữ sự chuyên nghiệp."
+   }
+  ]
+ },
+ {
+  "id": "emails-formal",
+  "level": "B2",
+  "title": "Email trang trọng: yêu cầu, xin lỗi, theo dõi",
+  "phrases": [
+   {
+    "id": "emails-formal-0",
+    "en": "I am writing to enquire about the status of my application.",
+    "vi": "Tôi viết thư này để hỏi về tình trạng hồ sơ của tôi.",
+    "note": "Câu mở đầu trang trọng, dùng 'enquire' thay cho 'ask'."
+   },
+   {
+    "id": "emails-formal-1",
+    "en": "Would it be possible to send me the updated invoice by Friday?",
+    "vi": "Liệu anh/chị có thể gửi tôi hóa đơn cập nhật trước thứ Sáu không?",
+    "note": "'Would it be possible...' lịch sự hơn 'Can you...'."
+   },
+   {
+    "id": "emails-formal-2",
+    "en": "I would be grateful if you could confirm the meeting time.",
+    "vi": "Tôi rất cảm kích nếu anh/chị có thể xác nhận thời gian họp.",
+    "note": "Cách yêu cầu rất trang trọng, hay dùng trong email công việc."
+   },
+   {
+    "id": "emails-formal-3",
+    "en": "Please accept my apologies for the delay in responding.",
+    "vi": "Xin anh/chị thứ lỗi vì tôi đã phản hồi chậm.",
+    "note": "Trang trọng hơn 'Sorry for the late reply'."
+   },
+   {
+    "id": "emails-formal-4",
+    "en": "I sincerely apologise for any inconvenience this may have caused.",
+    "vi": "Tôi thành thật xin lỗi vì mọi bất tiện có thể đã gây ra.",
+    "note": "Câu xin lỗi chuẩn khi có sự cố với khách hàng."
+   },
+   {
+    "id": "emails-formal-5",
+    "en": "I am just following up on my previous email regarding the contract.",
+    "vi": "Tôi xin nhắc lại email trước về vấn đề hợp đồng.",
+    "note": "'Just' làm lời nhắc nhẹ nhàng, không gây áp lực."
+   },
+   {
+    "id": "emails-formal-6",
+    "en": "Could you let me know if there are any updates on this matter?",
+    "vi": "Anh/chị có thể cho tôi biết có cập nhật gì về việc này không?",
+    "note": "Dùng khi theo dõi tiến độ một cách lịch sự."
+   },
+   {
+    "id": "emails-formal-7",
+    "en": "Thank you for your patience. I look forward to hearing from you.",
+    "vi": "Cảm ơn sự kiên nhẫn của anh/chị. Tôi mong sớm nhận được phản hồi.",
+    "note": "'Look forward to + V-ing', không dùng 'to hear'."
+   }
+  ]
+ },
+ {
+  "id": "diplomacy",
+  "level": "C1",
+  "title": "Nói khéo, từ chối và phê bình tế nhị",
+  "phrases": [
+   {
+    "id": "diplomacy-0",
+    "en": "I really appreciate the offer, but I'm afraid I'll have to pass.",
+    "vi": "Tôi rất cảm kích lời đề nghị, nhưng e là tôi phải từ chối.",
+    "note": "\"Have to pass\" là cách từ chối nhẹ nhàng, lịch sự."
+   },
+   {
+    "id": "diplomacy-1",
+    "en": "Would you be open to a bit of feedback on this?",
+    "vi": "Bạn có sẵn lòng nghe chút góp ý về việc này không?",
+    "note": "Xin phép trước khi phê bình giúp người nghe bớt phòng thủ."
+   },
+   {
+    "id": "diplomacy-2",
+    "en": "Sure, I'm all ears. Don't hold back.",
+    "vi": "Được chứ, tôi đang nghe đây. Cứ nói thẳng nhé.",
+    "note": "Dùng để đáp lại khi ai đó muốn góp ý."
+   },
+   {
+    "id": "diplomacy-3",
+    "en": "Overall it's strong, though the conclusion could be a little tighter.",
+    "vi": "Nhìn chung là tốt, dù phần kết luận có thể gọn hơn một chút.",
+    "note": "Khen trước, chê sau; \"a little\" làm nhẹ lời phê bình."
+   },
+   {
+    "id": "diplomacy-4",
+    "en": "I'm not sure that's quite the direction we want to take.",
+    "vi": "Tôi không chắc đó là hướng đi chúng ta muốn.",
+    "note": "\"I'm not sure\" thay cho \"I disagree\" để nghe mềm mỏng hơn."
+   },
+   {
+    "id": "diplomacy-5",
+    "en": "Have you considered approaching it from a different angle?",
+    "vi": "Bạn đã thử nhìn vấn đề từ một góc độ khác chưa?",
+    "note": "Gợi ý bằng câu hỏi thay vì ra lệnh hay chỉ trích."
+   },
+   {
+    "id": "diplomacy-6",
+    "en": "I'd love to help, but my plate's pretty full right now.",
+    "vi": "Tôi rất muốn giúp, nhưng dạo này tôi bận ngập đầu.",
+    "note": "\"My plate's full\" là thành ngữ chỉ quá nhiều việc."
+   },
+   {
+    "id": "diplomacy-7",
+    "en": "Fair point—I hadn't looked at it that way. Thanks for being honest.",
+    "vi": "Bạn nói có lý, tôi chưa nghĩ theo hướng đó. Cảm ơn đã thẳng thắn.",
+    "note": "Cách tiếp nhận góp ý một cách chuyên nghiệp."
+   }
+  ]
+ },
+ {
+  "id": "debate",
+  "level": "C1",
+  "title": "Tranh luận: lập luận, phản bác, nhượng bộ",
+  "phrases": [
+   {
+    "id": "debate-0",
+    "en": "I take your point, but I'm not entirely convinced.",
+    "vi": "Tôi hiểu ý anh, nhưng tôi chưa hoàn toàn bị thuyết phục.",
+    "note": "Nhượng bộ lịch sự trước khi phản bác."
+   },
+   {
+    "id": "debate-1",
+    "en": "With respect, I think that argument overlooks a crucial factor.",
+    "vi": "Xin phép nói thẳng, tôi nghĩ lập luận đó bỏ sót một yếu tố then chốt.",
+    "note": "\"With respect\" giúp phản bác mà không gây mất lòng."
+   },
+   {
+    "id": "debate-2",
+    "en": "Granted, the costs are high, but the long-term benefits outweigh them.",
+    "vi": "Đúng là chi phí cao, nhưng lợi ích lâu dài lớn hơn nhiều.",
+    "note": "\"Granted\" = thừa nhận một điểm rồi chuyển sang lập luận chính."
+   },
+   {
+    "id": "debate-3",
+    "en": "What evidence do you have to back that up?",
+    "vi": "Anh có bằng chứng gì để chứng minh điều đó không?",
+    "note": "Dùng khi muốn đối phương đưa ra dẫn chứng."
+   },
+   {
+    "id": "debate-4",
+    "en": "Isn't that a bit of a sweeping generalisation?",
+    "vi": "Như vậy chẳng phải là vơ đũa cả nắm sao?",
+    "note": "Câu hỏi tu từ để chỉ ra lập luận quá chung chung."
+   },
+   {
+    "id": "debate-5",
+    "en": "Fair enough, I'll concede that point.",
+    "vi": "Cũng hợp lý, tôi chấp nhận điểm đó.",
+    "note": "Thừa nhận thua một luận điểm một cách lịch thiệp."
+   },
+   {
+    "id": "debate-6",
+    "en": "That may be true, but it doesn't necessarily follow that...",
+    "vi": "Điều đó có thể đúng, nhưng không có nghĩa là...",
+    "note": "Chỉ ra lỗi suy luận trong lập luận đối phương."
+   },
+   {
+    "id": "debate-7",
+    "en": "Let me play devil's advocate for a moment.",
+    "vi": "Để tôi thử đứng ở phía phản biện một chút.",
+    "note": "Dùng khi cố tình đưa ra quan điểm ngược để thảo luận sâu hơn."
+   }
+  ]
+ },
+ {
+  "id": "networking",
+  "level": "C1",
+  "title": "Giao lưu công việc và small talk chuyên nghiệp",
+  "phrases": [
+   {
+    "id": "networking-0",
+    "en": "So what brings you to this event?",
+    "vi": "Vậy điều gì đưa anh/chị đến sự kiện này?",
+    "note": "Câu mở đầu tự nhiên, tránh hỏi thẳng 'Bạn làm nghề gì?'."
+   },
+   {
+    "id": "networking-1",
+    "en": "I'm in product strategy, mostly working on market expansion in Southeast Asia.",
+    "vi": "Tôi làm chiến lược sản phẩm, chủ yếu phụ trách mở rộng thị trường Đông Nam Á.",
+    "note": "Dùng 'I'm in + lĩnh vực' nghe tự nhiên hơn 'My job is...'."
+   },
+   {
+    "id": "networking-2",
+    "en": "That sounds fascinating. How did you end up in that field?",
+    "vi": "Nghe thú vị quá. Sao anh/chị lại theo lĩnh vực đó?",
+    "note": "'End up' thể hiện sự tò mò về hành trình sự nghiệp."
+   },
+   {
+    "id": "networking-3",
+    "en": "Honestly, it was a bit of a happy accident.",
+    "vi": "Thật ra thì đó là một sự tình cờ may mắn.",
+    "note": "Cách trả lời khiêm tốn, tạo không khí thân thiện."
+   },
+   {
+    "id": "networking-4",
+    "en": "What's been keeping you busy lately?",
+    "vi": "Dạo này anh/chị bận rộn với việc gì?",
+    "note": "Phù hợp khi gặp lại người quen trong công việc."
+   },
+   {
+    "id": "networking-5",
+    "en": "I'd love to pick your brain about that sometime.",
+    "vi": "Lúc nào đó tôi rất muốn hỏi ý kiến anh/chị về chuyện đó.",
+    "note": "'Pick someone's brain' = xin lời khuyên, chuyên môn."
+   },
+   {
+    "id": "networking-6",
+    "en": "Would you mind if we connected on LinkedIn?",
+    "vi": "Anh/chị có phiền nếu mình kết nối trên LinkedIn không?",
+    "note": "Cách xin liên lạc lịch sự cuối cuộc trò chuyện."
+   },
+   {
+    "id": "networking-7",
+    "en": "It's been great chatting. I'll let you get back to mingling.",
+    "vi": "Rất vui được trò chuyện. Tôi không làm phiền anh/chị giao lưu nữa nhé.",
+    "note": "Cách kết thúc khéo léo, không gây cảm giác bỏ đi đột ngột."
+   }
+  ]
+ },
+ {
+  "id": "idioms-everyday",
+  "level": "C1",
+  "title": "Thành ngữ thông dụng trong giao tiếp hằng ngày",
+  "phrases": [
+   {
+    "id": "idioms-everyday-0",
+    "en": "I'm going to play it by ear and see how things go.",
+    "vi": "Tôi sẽ tùy cơ ứng biến, xem tình hình thế nào đã.",
+    "note": "Dùng khi chưa có kế hoạch cụ thể, thân mật."
+   },
+   {
+    "id": "idioms-everyday-1",
+    "en": "Can we touch base later this week about the project?",
+    "vi": "Cuối tuần này mình trao đổi nhanh về dự án được không?",
+    "note": "Phổ biến trong công sở, nghĩa là liên lạc ngắn để cập nhật."
+   },
+   {
+    "id": "idioms-everyday-2",
+    "en": "Honestly, it's not my cup of tea, but I'll give it a go.",
+    "vi": "Thật lòng thì tôi không hứng thú lắm, nhưng tôi sẽ thử.",
+    "note": "Cách từ chối khéo, lịch sự kiểu Anh."
+   },
+   {
+    "id": "idioms-everyday-3",
+    "en": "Don't beat around the bush — what's really bothering you?",
+    "vi": "Đừng vòng vo nữa, thật ra chuyện gì làm bạn khó chịu?",
+    "note": "Hơi thẳng thắn, chỉ nên dùng với người thân quen."
+   },
+   {
+    "id": "idioms-everyday-4",
+    "en": "Let's call it a day; we've made good progress.",
+    "vi": "Hôm nay nghỉ ở đây thôi, mình làm được nhiều rồi.",
+    "note": "Dùng để kết thúc buổi làm việc."
+   },
+   {
+    "id": "idioms-everyday-5",
+    "en": "Are you pulling my leg, or did that actually happen?",
+    "vi": "Bạn đang đùa tôi à, hay chuyện đó có thật?",
+    "note": "Thể hiện ngạc nhiên, giọng vui vẻ."
+   },
+   {
+    "id": "idioms-everyday-6",
+    "en": "I think you've hit the nail on the head there.",
+    "vi": "Tôi nghĩ bạn nói trúng vấn đề rồi đấy.",
+    "note": "Dùng để đồng tình mạnh mẽ với nhận xét của ai đó."
+   },
+   {
+    "id": "idioms-everyday-7",
+    "en": "Let's not cross that bridge until we come to it.",
+    "vi": "Chuyện đó để khi nào tới hẵng tính.",
+    "note": "Khuyên đừng lo xa; tương tự 'nước đến chân mới nhảy' nhưng mang nghĩa tích cực."
+   }
+  ]
  }
 ]
