@@ -18,8 +18,11 @@ function pickMode(card: StudyCard): Mode {
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
-const GRADES: [Grade, string, string][] = [
-  [Rating.Again, 'Quên', 'again'], [Rating.Hard, 'Khó', 'hard'], [Rating.Good, 'Nhớ', 'good'], [Rating.Easy, 'Dễ', 'easy'],
+const GRADES: [Grade, string, string, string][] = [
+  [Rating.Again, 'Quên', 'again', 'không nhớ ra'],
+  [Rating.Hard, 'Khó', 'hard', 'nghĩ lâu mới ra'],
+  [Rating.Good, 'Nhớ', 'good', 'nhớ ra bình thường'],
+  [Rating.Easy, 'Dễ', 'easy', 'nhớ ngay lập tức'],
 ];
 
 interface Props { due: StudyCard[]; byId: Map<number, Word>; cards: StudyCard[]; words: Word[] }
@@ -104,17 +107,20 @@ export default function Review({ due, byId, cards, words }: Props) {
       {revealed ? (
         <>
           {(mode === 'listen' || mode === 'type') && <WordHead word={word} extra={extra} />}
-          <WordInfo word={word} />
+          <p className="hint ask">
+            {objective && !correct ? 'Không sao, từ này sẽ được hỏi lại sau ít phút.' : 'Bạn nhớ từ này dễ hay khó? Thời gian dưới nút là khi nào hỏi lại.'}
+          </p>
           <div className="row grades">
             {GRADES
               // An objectively wrong answer is always "Quên"; a right one can't be.
               .filter(([g]) => !objective || (correct ? g !== Rating.Again : g === Rating.Again))
-              .map(([g, label, cls]) => (
+              .map(([g, label, cls, help]) => (
                 <button key={g} className={cls} onClick={() => review(card, g)}>
-                  {label}<small>{intervals[g]}</small>
+                  {label}<small>{help}</small><small>↻ {intervals[g]}</small>
                 </button>
               ))}
           </div>
+          <WordInfo word={word} />
         </>
       ) : (
         mode === 'recognize' && <button className="primary" onClick={() => setRevealed(true)}>Lật thẻ</button>

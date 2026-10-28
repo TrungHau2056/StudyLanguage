@@ -2,9 +2,9 @@ import { useState, type ReactNode } from 'react';
 import type { Reading, Word } from '../db';
 import { speak, wordPattern } from '../ui';
 
-interface Props { readings: Reading[]; byId: Map<number, Word>; studied: Set<number> }
+interface Props { readings: Reading[]; byId: Map<number, Word>; studied: Set<number>; onRead: (id: number) => void }
 
-export default function ReadingView({ readings, byId, studied }: Props) {
+export default function ReadingView({ readings, byId, studied, onRead }: Props) {
   const [open, setOpen] = useState<Reading>();
   const [showVi, setShowVi] = useState(false);
   const [tip, setTip] = useState<Word>();
@@ -34,6 +34,9 @@ export default function ReadingView({ readings, byId, studied }: Props) {
         )}
         {showVi && <p className="passage def">{open.vi}</p>}
         <p className="hint">Cách đọc: đọc 1 lần để hiểu ý chính, nghe 1 lần, rồi đọc to theo. Chạm vào từ được tô để xem nghĩa.</p>
+        <button className="primary" onClick={() => { onRead(open.id); setOpen(undefined); setTip(undefined); speechSynthesis.cancel(); }}>
+          ✓ Đã đọc xong bài này
+        </button>
       </section>
     );
   }

@@ -1,10 +1,11 @@
 import { exportData, importData, type Settings } from '../db';
+import type { Account } from '../AuthGate';
 import { TOPICS } from '../ui';
 import type { View } from '../App';
 
-interface Props { settings: Settings; setSettings: (s: Settings) => void; go: (v: View) => void }
+interface Props { settings: Settings; setSettings: (s: Settings) => void; go: (v: View) => void; account?: Account }
 
-export default function SettingsView({ settings, setSettings, go }: Props) {
+export default function SettingsView({ settings, setSettings, go, account }: Props) {
   const download = async () => {
     const a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([await exportData()], { type: 'application/json' }));
@@ -18,6 +19,12 @@ export default function SettingsView({ settings, setSettings, go }: Props) {
   };
   return (
     <section className="settings">
+      {account && (
+        <div className="callout account">
+          <div><b>{account.name}</b><div className="hint">{account.email} · tiến độ tự đồng bộ lên tài khoản</div></div>
+          <button onClick={account.signOut}>Đăng xuất</button>
+        </div>
+      )}
       <label>
         Số từ mới mỗi ngày:{' '}
         <input type="number" min={0} max={100} value={settings.newPerDay}
@@ -50,7 +57,9 @@ export default function SettingsView({ settings, setSettings, go }: Props) {
       </div>
 
       <h3>Sao lưu</h3>
-      <p className="hint">Dữ liệu chỉ lưu trong trình duyệt này. Xuất file để chuyển sang máy khác.</p>
+      <p className="hint">
+        {account ? 'Dữ liệu đã tự lưu theo tài khoản. Bạn vẫn có thể xuất file để giữ một bản dự phòng.' : 'Dữ liệu chỉ lưu trong trình duyệt này. Xuất file để chuyển sang máy khác.'}
+      </p>
       <div className="row">
         <button onClick={download}>Xuất dữ liệu</button>
         <label className="button">Nhập dữ liệu<input type="file" accept=".json" hidden onChange={(e) => upload(e.target.files?.[0])} /></label>

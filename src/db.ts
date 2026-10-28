@@ -1,5 +1,6 @@
 import Dexie, { type EntityTable } from 'dexie';
 import { createEmptyCard, fsrs, type Card, type Grade } from 'ts-fsrs';
+import { pullCollection, pullProfile, pushDoc, pushMany, pushProfile } from './firebase';
 
 export interface Word {
   id: number; // NGSL frequency rank
@@ -30,7 +31,7 @@ export interface StudyCard extends Card {
 }
 
 export interface ReviewLog {
-  id?: number;
+  id?: number | string; // number: local-only autoincrement; string: synced (UUID)
   wordId: number;
   rating: Grade;
   reviewedAt: Date;
@@ -50,40 +51,101 @@ export interface Settings {
   knownUpTo: number;
   /** Last placement-test estimate of known words, if taken. */
   testEstimate?: number;
+  /** Welcome screen finished. */
+  onboarded?: boolean;
 }
 
 const DEFAULT_SETTINGS: Settings = { newPerDay: 10, topic: 'all', knownUpTo: 0 };
 
-export const loadSettings = (): Settings => ({
-  ...DEFAULT_SETTINGS,
-  ...JSON.parse(localStorage.getItem('settings') ?? '{}'),
-});
-
-export const db = new Dexie('vocab') as Dexie & {
+type VocabDb = Dexie & {
   cards: EntityTable<StudyCard, 'wordId'>;
   logs: EntityTable<ReviewLog, 'id'>;
   extras: EntityTable<Extra, 'word'>;
 };
 
-db.version(1).stores({
-  cards: 'wordId, due, addedAt',
-  logs: '++id, wordId, reviewedAt',
-  extras: 'word',
+function openDb(name: string, logKey: string): VocabDb {
+  const d = new Dexie(name) as VocabDb;
+  d.version(1).stores({ cards: 'wordId, due, addedAt', logs: `${logKey}, wordId, reviewedAt`, extras: 'word' });
+  return d;
+}
+
+/** Local mirror of the signed-in user's data (or of anonymous local data when cloud is off). */
+export let db = openDb('vocab', '++id');
+/** Signed-in user id; undefined = local-only mode. */
+let uid: string | undefined;
+
+const settingsKey = () => (uid ? `settings-${uid}` : 'settings');
+export const dailyKey = () => (uid ? `daily-${uid}` : 'daily');
+
+export const loadSettings = (): Settings => ({
+  ...DEFAULT_SETTINGS,
+  ...JSON.parse(localStorage.getItem(settingsKey()) ?? '{}'),
 });
+
+export function saveSettings(s: Settings) {
+  localStorage.setItem(settingsKey(), JSON.stringify(s));
+  if (uid) pushProfile(uid, { settings: s }).catch(console.error);
+}
+
+/**
+ * Switch to a signed-in user: open their own local DB, then replace it with the cloud copy.
+ * First sign-in on a device that already has anonymous progress uploads that progress instead.
+ */
+export async function selectUser(id: string) {
+  uid = id;
+  db = openDb(`vocab-${id}`, 'id');
+  const [cards, logs, profile] = await Promise.all([
+    pullCollection<StudyCard>(id, 'cards'),
+    pullCollection<ReviewLog>(id, 'logs'),
+    pullProfile<{ settings?: Settings }>(id),
+  ]);
+  if (cards.length || profile?.settings) {
+    await db.transaction('rw', db.cards, db.logs, async () => {
+      await db.cards.clear();
+      await db.logs.clear();
+      await db.cards.bulkPut(cards);
+      await db.logs.bulkPut(logs);
+    });
+    if (profile?.settings) localStorage.setItem(settingsKey(), JSON.stringify(profile.settings));
+    return;
+  }
+  const legacy = openDb('vocab', '++id');
+  const oldCards = await legacy.cards.toArray();
+  if (!oldCards.length) return;
+  const oldLogs = (await legacy.logs.toArray()).map((l) => ({ ...l, id: crypto.randomUUID() }));
+  await db.cards.bulkPut(oldCards);
+  await db.logs.bulkPut(oldLogs);
+  const oldSettings = localStorage.getItem('settings');
+  if (oldSettings) saveSettings(JSON.parse(oldSettings));
+  await pushMany(id, 'cards', oldCards.map((c) => ({ id: String(c.wordId), data: c })));
+  await pushMany(id, 'logs', oldLogs.map((l) => ({ id: l.id, data: l })));
+  legacy.close();
+}
 
 const scheduler = fsrs({ enable_fuzz: true });
 
+// Cloud writes are fire-and-forget: Firestore's offline cache retries them when back online.
+const pushCard = (c: StudyCard) => uid && pushDoc(uid, ['cards', String(c.wordId)], c).catch(console.error);
+
 export async function addCard(wordId: number) {
-  await db.cards.put({ ...createEmptyCard(new Date()), wordId, addedAt: new Date() });
+  const card = { ...createEmptyCard(new Date()), wordId, addedAt: new Date() };
+  await db.cards.put(card);
+  pushCard(card);
 }
 
 export async function review(card: StudyCard, rating: Grade) {
   const now = new Date();
   const { card: next } = scheduler.next(card, now, rating);
+  const updated = { ...next, wordId: card.wordId, addedAt: card.addedAt };
+  // String ids so logs written on different devices never collide.
+  const id = uid ? crypto.randomUUID() : undefined;
+  const log: ReviewLog = { id, wordId: card.wordId, rating, reviewedAt: now };
   await db.transaction('rw', db.cards, db.logs, async () => {
-    await db.cards.put({ ...next, wordId: card.wordId, addedAt: card.addedAt });
-    await db.logs.add({ wordId: card.wordId, rating, reviewedAt: now });
+    await db.cards.put(updated);
+    await db.logs.add(log);
   });
+  pushCard(updated);
+  if (uid && id) pushDoc(uid, ['logs', id], log).catch(console.error);
 }
 
 /** Probability (0–1) the word is recalled right now. */
@@ -145,7 +207,7 @@ export async function exportData() {
     version: 1,
     cards: await db.cards.toArray(),
     logs: await db.logs.toArray(),
-    settings: localStorage.getItem('settings'),
+    settings: localStorage.getItem(settingsKey()),
   });
 }
 
@@ -159,12 +221,17 @@ export async function importData(json: string) {
     addedAt: new Date(c.addedAt),
     last_review: c.last_review ? new Date(c.last_review) : undefined,
   }));
-  const logs = data.logs.map((l) => ({ ...l, reviewedAt: new Date(l.reviewedAt) }));
+  // Synced logs need string ids that can't collide across devices.
+  const logs = data.logs.map((l) => ({ ...l, id: uid ? crypto.randomUUID() : l.id, reviewedAt: new Date(l.reviewedAt) }));
   await db.transaction('rw', db.cards, db.logs, async () => {
     await db.cards.clear();
     await db.logs.clear();
     await db.cards.bulkPut(cards);
     await db.logs.bulkPut(logs);
   });
-  if (data.settings) localStorage.setItem('settings', data.settings);
+  if (data.settings) saveSettings(JSON.parse(data.settings));
+  if (uid) {
+    await pushMany(uid, 'cards', cards.map((c) => ({ id: String(c.wordId), data: c })));
+    await pushMany(uid, 'logs', logs.map((l) => ({ id: String(l.id), data: l })));
+  }
 }

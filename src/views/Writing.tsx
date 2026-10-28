@@ -3,7 +3,7 @@ import type { StudyCard, Word } from '../db';
 import { WordHead, speak, useExtra, wordPattern } from '../ui';
 
 /** Output practice: write your own sentence with a recently studied word, then compare with a model sentence. */
-export default function Writing({ cards, byId }: { cards: StudyCard[]; byId: Map<number, Word> }) {
+export default function Writing({ cards, byId, onWritten }: { cards: StudyCard[]; byId: Map<number, Word>; onWritten: () => void }) {
   // Most recently studied words first: they benefit most from being used right away.
   const pool = useMemo(
     () => [...cards].sort((a, b) => +(b.last_review ?? b.addedAt) - +(a.last_review ?? a.addedAt)).slice(0, 30)
@@ -36,7 +36,11 @@ export default function Writing({ cards, byId }: { cards: StudyCard[]; byId: Map
       {!checked ? (
         <div className="row">
           <button onClick={next}>Bỏ qua</button>
-          <button className="primary" disabled={!text.trim()} onClick={() => { setChecked(true); setDone((n) => n + 1); }}>Xong</button>
+          <button className="primary" disabled={!text.trim()} onClick={() => {
+            setChecked(true);
+            setDone((n) => n + 1);
+            if (wordPattern(word.word).test(text)) onWritten(); // only sentences that really use the word count toward the goal
+          }}>Xong</button>
         </div>
       ) : (
         <>
