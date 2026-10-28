@@ -107,6 +107,8 @@ export async function selectUser(id: string) {
       await db.logs.bulkPut(logs);
     });
     if (profile?.settings) localStorage.setItem(settingsKey(), JSON.stringify(profile.settings));
+    // Pre-account data on this browser was either migrated already or belongs to this person; never leak it to other accounts.
+    await Dexie.delete('vocab');
     return;
   }
   const legacy = openDb('vocab', '++id');
