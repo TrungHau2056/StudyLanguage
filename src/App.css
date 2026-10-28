@@ -263,3 +263,4 @@ mark.known { background: none; border-bottom: 1.5px dotted var(--ok); }
   .no-nav { padding-bottom: 100px; }
 }
 .install { padding-left: 20px; display: grid; gap: 6px; color: var(--ink-2); }
+.grade-comment { display: flex; gap: 8px; align-items: flex-start; color: var(--ink-2); margin: 12px 0 0; } .grade-comment .icon { color: var(--red); margin-top: 3px; }

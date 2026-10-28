@@ -1,0 +1,9 @@
+name = "vocab-grader"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[vars]
+FIREBASE_PROJECT_ID = "studylanguage-2befc"
+ALLOWED_ORIGINS = "https://trunghau2056.github.io,http://localhost:5199,http://localhost:5200"
+
+# Secret (never committed): npx wrangler secret put GEMINI_API_KEY

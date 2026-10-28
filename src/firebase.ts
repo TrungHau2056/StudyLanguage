@@ -48,6 +48,11 @@ export async function signOutUser() {
   if (auth) await signOut(auth);
 }
 
+/** Firebase ID token of the signed-in user, to authenticate calls to our own backend (the sentence grader). */
+export async function idToken(): Promise<string | undefined> {
+  return auth?.currentUser?.getIdToken();
+}
+
 /** Firestore returns Timestamps where we stored Dates; convert them back recursively (one level is enough here). */
 function revive<T>(data: Record<string, unknown>): T {
   const out: Record<string, unknown> = {};
