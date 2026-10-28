@@ -5,7 +5,7 @@
 .topbar {
   position: sticky; top: 0; z-index: 5;
   display: flex; align-items: center; gap: 16px;
-  margin: 0 -20px; padding: 12px 20px;
+  margin: 0 -20px; padding: calc(12px + env(safe-area-inset-top)) 20px 12px;
   background: var(--paper); border-bottom: 1px solid var(--rule);
 }
 .with-rail .topbar { margin-right: -64px; padding-right: 64px; }
@@ -235,10 +235,10 @@ mark.known { background: none; border-bottom: 1.5px dotted var(--ok); }
 @media (max-width: 640px) {
   .app { padding: 0 16px 150px; }
   .app.with-rail { padding-right: 56px; }
-  .topbar { margin: 0 -16px; padding: 10px 16px; }
+  .topbar { margin: 0 -16px; padding: calc(10px + env(safe-area-inset-top)) 16px 10px; }
   .with-rail .topbar { margin-right: -56px; padding-right: 56px; }
   .tabs { display: none; }
-  .rail { top: 64px; }
+  .rail { top: calc(64px + env(safe-area-inset-top)); }
   .rail button { width: 34px; height: 92px; font-size: 11px; }
   .rail button.here { width: 44px; }
   .bottomnav {
@@ -262,3 +262,4 @@ mark.known { background: none; border-bottom: 1.5px dotted var(--ok); }
   .no-nav .actions { bottom: 0; padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
   .no-nav { padding-bottom: 100px; }
 }
+.install { padding-left: 20px; display: grid; gap: 6px; color: var(--ink-2); }

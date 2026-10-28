@@ -1,5 +1,7 @@
-import { initializeApp } from 'firebase/app';
-import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup, signOut, type User } from 'firebase/auth';
+import { FirebaseError, initializeApp } from 'firebase/app';
+import {
+  GoogleAuthProvider, getAuth, getRedirectResult, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut, type User,
+} from 'firebase/auth';
 import {
   Timestamp, collection, deleteDoc, doc, getDoc, getDocs, initializeFirestore, persistentLocalCache, setDoc, writeBatch,
 } from 'firebase/firestore';
@@ -20,11 +22,26 @@ const auth = app && getAuth(app);
 const firestore = app && initializeFirestore(app, { localCache: persistentLocalCache() });
 
 export function watchUser(cb: (user: User | null) => void) {
-  return auth ? onAuthStateChanged(auth, cb) : () => {};
+  if (!auth) return () => {};
+  getRedirectResult(auth).catch(console.error); // completes a redirect sign-in started below
+  return onAuthStateChanged(auth, cb);
 }
 
+/**
+ * Popup sign-in; when the app runs installed on the home screen (iOS) popups can be blocked,
+ * so fall back to a full-page redirect.
+ */
 export async function signInWithGoogle() {
-  if (auth) await signInWithPopup(auth, new GoogleAuthProvider());
+  if (!auth) return;
+  const provider = new GoogleAuthProvider();
+  try {
+    await signInWithPopup(auth, provider);
+  } catch (e) {
+    const code = e instanceof FirebaseError ? e.code : '';
+    if (code === 'auth/popup-blocked' || code === 'auth/operation-not-supported-in-this-environment' || code === 'auth/web-storage-unsupported') {
+      await signInWithRedirect(auth, provider);
+    } else if (code !== 'auth/popup-closed-by-user' && code !== 'auth/cancelled-popup-request') throw e;
+  }
 }
 
 export async function signOutUser() {

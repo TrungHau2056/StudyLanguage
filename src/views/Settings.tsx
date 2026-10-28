@@ -70,6 +70,17 @@ export default function SettingsView({ settings, setSettings, go, account }: Pro
         {settings.knownUpTo > 0 && <button onClick={() => setSettings({ ...settings, knownUpTo: 0 })}>Học lại từ đầu danh sách</button>}
       </div>
 
+      <h2>Cài lên điện thoại</h2>
+      {window.matchMedia('(display-mode: standalone)').matches ? (
+        <p className="hint">Bạn đang dùng bản đã cài lên màn hình chính. Mất mạng vẫn học được; tiến độ tự đồng bộ khi có mạng lại.</p>
+      ) : (
+        <ol className="install">
+          <li><b>iPhone:</b> mở trang này bằng <b>Safari</b> → bấm nút <b>Chia sẻ</b> (ô vuông có mũi tên lên) → <b>Thêm vào MH chính</b> → <b>Thêm</b>.</li>
+          <li><b>Android:</b> mở bằng <b>Chrome</b> → menu ⋮ → <b>Cài đặt ứng dụng</b> (hoặc Thêm vào màn hình chính).</li>
+          <li>Mở app bằng biểu tượng <b>Vocab</b> trên màn hình chính: toàn màn hình, học được cả khi mất mạng.</li>
+        </ol>
+      )}
+
       <h2>Sao lưu</h2>
       <p className="hint">
         {account ? 'Dữ liệu đã tự lưu theo tài khoản. Bạn vẫn có thể xuất file để giữ một bản dự phòng.' : 'Dữ liệu chỉ lưu trong trình duyệt này. Xuất file để chuyển sang máy khác.'}
