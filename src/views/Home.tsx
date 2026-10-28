@@ -1,20 +1,49 @@
 import { useLiveQuery } from 'dexie-react-hooks';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, BookA, ChevronRight, MessageSquareText } from 'lucide-react';
 import { LEVELS, db, retrievability, type Known, type Settings, type StudyCard, type Word } from '../db';
 import { wordStatus } from './WordList';
-import type { Step, View } from '../App';
+import { TRACK_LABEL, type Step, type Track, type View } from '../App';
 
 interface Props {
   words: Word[];
   cards: StudyCard[];
   known: Known[];
   steps: Step[];
-  next?: Step;
   settings: Settings;
   go: (v: View) => void;
 }
 
-export default function Home({ words, cards, known, steps, next, settings, go }: Props) {
+const TRACK_NOTE: Record<Track, string> = {
+  vocab: 'Học từ mới và ôn từ đã học.',
+  grammar: 'Học cấu trúc câu, mẫu câu giao tiếp, luyện nghe và nói.',
+};
+
+/** One track of today's plan, with its own progress and "continue" button. */
+function TrackBlock({ track, steps, go }: { track: Track; steps: Step[]; go: (v: View) => void }) {
+  const next = steps.find((s) => !s.done);
+  const doneCount = steps.filter((s) => s.done).length;
+  const Icon = track === 'vocab' ? BookA : MessageSquareText;
+  return (
+    <section className={`track ${track}`}>
+      <h2><Icon className="icon" /> {TRACK_LABEL[track]} <small>{doneCount}/{steps.length}</small></h2>
+      <p className="hint">{TRACK_NOTE[track]}</p>
+      {next
+        ? <button className="primary big" onClick={() => go(next.view)}>{doneCount === 0 ? 'Bắt đầu' : 'Tiếp tục'}: {next.label.toLowerCase()} <ArrowRight className="icon" /></button>
+        : <p className="ok">Xong phần {TRACK_LABEL[track].toLowerCase()} hôm nay.</p>}
+      <ol className="plan">
+        {steps.map((s, i) => (
+          <li key={s.view} className={s.done ? 'done' : s === next ? 'current' : ''} onClick={() => go(s.view)}>
+            <span className="num">{i + 1}</span>
+            <div><b>{s.label}</b><span className="meta">{s.detail}</span></div>
+            <ChevronRight className="icon chev" />
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
+export default function Home({ words, cards, known, steps, settings, go }: Props) {
   const streak = useLiveQuery(async () => {
     const days = new Set((await db.logs.toArray()).map((l) => l.reviewedAt.toDateString()));
     let n = 0;
@@ -41,25 +70,10 @@ export default function Home({ words, cards, known, steps, next, settings, go }:
 
   return (
     <section className="today">
-      <h1>{next ? (doneCount === 0 ? 'Bài hôm nay' : `Còn ${steps.length - doneCount} phần nữa`) : 'Xong bài hôm nay'}</h1>
-      <p className="sub">{date.charAt(0).toUpperCase() + date.slice(1)} · {doneCount}/{steps.length} phần</p>
-      {next ? (
-        <button className="primary big" onClick={() => go(next.view)}>
-          {doneCount === 0 ? 'Bắt đầu học' : 'Tiếp tục học'}: {next.label.toLowerCase()} <ArrowRight className="icon" />
-        </button>
-      ) : (
-        <p>Mai quay lại để ôn nhé. Muốn học thêm thì mở phần Đọc hoặc Từ vựng.</p>
-      )}
-
-      <ol className="plan">
-        {steps.map((s, i) => (
-          <li key={s.view} className={s.done ? 'done' : s === next ? 'current' : ''} onClick={() => go(s.view)}>
-            <span className="num">{i + 1}</span>
-            <div><b>{s.label}</b><span className="meta">{s.detail}</span></div>
-            <ChevronRight className="icon chev" />
-          </li>
-        ))}
-      </ol>
+      <h1>{doneCount === steps.length ? 'Xong bài hôm nay' : 'Bài hôm nay'}</h1>
+      <p className="sub">{date.charAt(0).toUpperCase() + date.slice(1)} · 2 phần học riêng, làm phần nào trước cũng được</p>
+      <TrackBlock track="vocab" steps={steps.filter((s) => s.track === 'vocab')} go={go} />
+      <TrackBlock track="grammar" steps={steps.filter((s) => s.track === 'grammar')} go={go} />
 
       <dl className="ledger">
         <div><dt>ngày liên tục</dt><dd>{streak ?? 0}</dd></div>

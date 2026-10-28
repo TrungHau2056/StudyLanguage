@@ -16,7 +16,7 @@ export default function Phrases({ sets, learned, queue, onLearned }: Props) {
   if (!items.length) return (
     <section className="empty">
       <h2>Đủ mẫu câu cho hôm nay</h2>
-      <p>Câu đã học sẽ được ôn lại trong Ôn tập. Bạn vẫn có thể xem lại các tình huống.</p>
+      <p>Câu đã học sẽ được ôn lại trong mục “Ôn ngữ pháp”. Bạn vẫn có thể xem lại các tình huống.</p>
       {browse}
     </section>
   );
@@ -34,7 +34,7 @@ function Study({ items, onLearned, browse }: { items: Item[]; onLearned: (ids: s
       <section className="entry">
         <Meter value={i} total={n}>Câu {i + 1}/{n}</Meter>
         <Tip id="phrases">
-          Học <b>cả câu như một khối</b>: nghe rồi nói theo nhiều lần. Câu đã học sẽ được ôn lại trong Ôn tập.
+          Học <b>cả câu như một khối</b>: nghe rồi nói theo nhiều lần. Câu đã học sẽ được ôn lại trong mục “Ôn ngữ pháp”.
         </Tip>
         <p className="hint">{set.title}</p>
         <h2>{phrase.vi}</h2>
@@ -62,7 +62,7 @@ function Study({ items, onLearned, browse }: { items: Item[]; onLearned: (ids: s
   return (
     <section className="empty">
       <h2>Bạn nhớ được {right}/{n} câu</h2>
-      <p>{right === n ? 'Tuyệt vời!' : 'Các câu này sẽ quay lại trong Ôn tập để bạn nhớ chắc hơn.'}</p>
+      <p>{right === n ? 'Tuyệt vời!' : 'Các câu này sẽ quay lại trong mục “Ôn ngữ pháp” để bạn nhớ chắc hơn.'}</p>
       <div className="actions">
         <button className="primary" onClick={() => onLearned(items.map((x) => x.phrase.id))}>
           Hoàn thành <Check className="icon" />

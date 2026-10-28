@@ -79,6 +79,11 @@ footer { margin-top: 48px; font-size: 12px; color: var(--ink-3); }
 .rail button.done { color: var(--ink-3); text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness: 2px; }
 .rail button.here, .rail button.here:hover:not(:disabled) { width: 52px; background: var(--red); color: var(--red-ink); text-decoration: none; }
 .rail .icon { writing-mode: horizontal-tb; width: 14px; height: 14px; }
+.rail-title { writing-mode: vertical-rl; font: 700 11px var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); padding: 6px 0; align-self: center; }
+.track { margin-top: 28px; padding-top: 20px; border-top: 2px solid var(--ink); }
+.track h2 { display: flex; align-items: center; gap: 8px; font-size: 22px; margin: 0 0 2px; }
+.track h2 small { margin-left: auto; font: 500 13px var(--sans); color: var(--ink-3); }
+.track .plan { margin-top: 16px; }
 
 .next {
   display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;

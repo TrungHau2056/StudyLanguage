@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react';
-import { ArrowLeft, Check, Headphones, Languages, Pause, Volume2 } from 'lucide-react';
+import { ArrowLeft, Check, Languages, Pause, Volume2 } from 'lucide-react';
 import type { Reading, Word } from '../db';
 import { SpeakButton, Tip, posAbbr, speak, wordPattern } from '../ui';
 
@@ -8,11 +8,9 @@ interface Props {
   /** Beginners see the A1 passages first. */
   beginner: boolean;
   onRead: (id: number) => void;
-  /** Opens listening dictation, the other way to finish the "Đọc & nghe" step. */
-  onListen: () => void;
 }
 
-export default function ReadingView({ readings, byId, studied, known, beginner, onRead, onListen }: Props) {
+export default function ReadingView({ readings, byId, studied, known, beginner, onRead }: Props) {
   const [open, setOpen] = useState<Reading>();
   const [showVi, setShowVi] = useState(false);
   const [tip, setTip] = useState<Word>();
@@ -57,12 +55,11 @@ export default function ReadingView({ readings, byId, studied, known, beginner, 
     : [['A2–B1', 'Trung bình (A2–B1)'], ['A1', 'Dễ (A1)']];
   return (
     <section>
-      <h2>Đọc & nghe</h2>
+      <h2>Bài đọc</h2>
       <Tip id="read">
         Đọc giúp bạn gặp lại từ đã học trong câu thật. Mỗi ngày đọc 1 bài: chọn bài có nhiều từ bạn đã học
-        (số % bên phải), đọc, nghe, rồi bấm “Đã đọc xong”. Hoặc luyện nghe: nghe 5 câu rồi gõ lại.
+        (số % bên phải), đọc, nghe, rồi bấm “Đã đọc xong”.
       </Tip>
-      <button className="big" onClick={onListen}><Headphones className="icon" /> Nghe chép chính tả (5 câu)</button>
       {groups.map(([level, label]) => (
         <div key={level}>
           <h3 className="group">{label}</h3>

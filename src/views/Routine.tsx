@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 import type { Level, Settings } from '../db';
-import type { Step, View } from '../App';
+import { TRACK_LABEL, type Step, type Track, type View } from '../App';
 
-/** Today's routine as the book's thumb index: the current step's tab extends, finished ones are struck through. */
-export function Rail({ steps, view, go }: { steps: Step[]; view: View; go: (v: View) => void }) {
+/** One track's routine as the book's thumb index: the current step's tab extends, finished ones are struck through. */
+export function Rail({ steps, track, view, go }: { steps: Step[]; track: Track; view: View; go: (v: View) => void }) {
   return (
-    <nav className="rail" aria-label="Các bước hôm nay">
+    <nav className={`rail ${track}`} aria-label={`Các bước ${TRACK_LABEL[track]} hôm nay`}>
+      <span className="rail-title">{track === 'vocab' ? 'Từ vựng' : 'Ngữ pháp'}</span>
       {steps.map((s) => (
         <button key={s.view} className={`${s.done ? 'done' : ''} ${s.view === view ? 'here' : ''}`}
           aria-current={s.view === view ? 'step' : undefined} onClick={() => go(s.view)}>
@@ -17,16 +18,24 @@ export function Rail({ steps, view, go }: { steps: Step[]; view: View; go: (v: V
   );
 }
 
-/** Appears once the current step is finished and points to the next unfinished one. */
-export function NextPrompt({ steps, view, next, go }: { steps: Step[]; view: View; next?: Step; go: (v: View) => void }) {
+/** Appears once the current step is finished: next step of the same track, or the other track when this one is done. */
+export function NextPrompt({ steps, track, view, go }: { steps: Step[]; track: Track; view: View; go: (v: View) => void }) {
   const here = steps.find((s) => s.view === view);
   if (!here?.done) return null;
+  const next = steps.find((s) => s.track === track && !s.done);
+  const other: Track = track === 'vocab' ? 'grammar' : 'vocab';
+  const otherNext = steps.find((s) => s.track === other && !s.done);
   return (
     <div className="next" role="status">
       {next ? (
         <>
           <span>Xong phần {here.label.toLowerCase()}.</span>
           <button className="primary" onClick={() => go(next.view)}>{next.label} <ArrowRight className="icon" /></button>
+        </>
+      ) : otherNext ? (
+        <>
+          <span>Xong {TRACK_LABEL[track].toLowerCase()} hôm nay.</span>
+          <button className="primary" onClick={() => go(otherNext.view)}>Sang {TRACK_LABEL[other].toLowerCase()} <ArrowRight className="icon" /></button>
         </>
       ) : (
         <>
@@ -39,10 +48,8 @@ export function NextPrompt({ steps, view, next, go }: { steps: Step[]; view: Vie
 }
 
 const INTRO: [string, string][] = [
-  ['Ôn tập', 'Hỏi lại các từ đã học đúng lúc bạn sắp quên. Đây là bước quan trọng nhất.'],
-  ['Học từ mới', 'Mỗi lần 5 từ: xem nghĩa, nghe, đọc câu ví dụ, rồi kiểm tra ngay.'],
-  ['Viết', 'Tự đặt 3 câu với từ vừa học, vì dùng được từ thì mới nhớ lâu.'],
-  ['Đọc', 'Đọc và nghe một đoạn văn ngắn chứa các từ đó.'],
+  ['Từ vựng', 'Ôn từ cũ đúng lúc sắp quên → học từ mới (mỗi lần 5 từ) → tự đặt câu → đọc bài ngắn.'],
+  ['Ngữ pháp & giao tiếp', 'Ôn câu cũ → học 1 bài ngữ pháp có bài tập → 5 mẫu câu giao tiếp, nghe và nói theo → nghe chép chính tả.'],
 ];
 
 const PACES: [number, string, string][] = [[5, 'Nhẹ nhàng', '~10 phút'], [10, 'Vừa phải', '~20 phút'], [20, 'Tăng tốc', '~35 phút']];
@@ -61,7 +68,7 @@ export function Welcome({ settings, setSettings, go }: { settings: Settings; set
   return (
     <section className="welcome">
       <h1>Mỗi ngày một trang từ điển.</h1>
-      <p>Bấm <b>Tiếp tục học</b> và làm lần lượt 4 phần. Web tự chọn từ cần học và cần ôn cho bạn.</p>
+      <p>Mỗi ngày có <b>2 phần học riêng biệt</b>, mỗi phần có nút <b>Tiếp tục</b> riêng. Web tự chọn nội dung cần học và cần ôn cho bạn.</p>
       <ol className="intro">
         {INTRO.map(([title, text], i) => (
           <li key={title}><span className="num">{i + 1}</span><div><b>{title}</b><p>{text}</p></div></li>

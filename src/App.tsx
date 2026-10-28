@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { BookA, House, Map as MapIcon, RotateCcw, Settings as SettingsIcon, type LucideIcon } from 'lucide-react';
+import { BookA, House, Map as MapIcon, Settings as SettingsIcon, type LucideIcon } from 'lucide-react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { LEVELS, addItems, dailyKey, db, isSkipped, loadSettings, saveSettings, startOfToday, type Level, type Reading, type Word } from './db';
 import { grammarKey, phraseKey, type Exercise, type GrammarLesson, type Phrase, type PhraseSet } from './content';
@@ -22,7 +22,7 @@ import Sounds from './views/Sounds';
 import { TipsContext, shuffle } from './ui';
 import './App.css';
 
-export type View = 'home' | 'learn' | 'review' | 'grammar' | 'phrases' | 'write' | 'read' | 'listen'
+export type View = 'home' | 'learn' | 'review' | 'review-grammar' | 'grammar' | 'phrases' | 'write' | 'read' | 'listen'
   | 'words' | 'settings' | 'test' | 'welcome' | 'sounds' | 'roadmap';
 
 /** Per-day progress for the activities that don't live in the database. */
@@ -43,7 +43,9 @@ const SPOT_COUNT = 3;
 const PHRASE_GOAL = 5;
 const DICTATION_COUNT = 5;
 
-export interface Step { view: View; label: string; detail: string; done: boolean }
+export type Track = 'vocab' | 'grammar';
+export const TRACK_LABEL: Record<Track, string> = { vocab: 'Từ vựng', grammar: 'Ngữ pháp & giao tiếp' };
+export interface Step { track: Track; view: View; label: string; detail: string; done: boolean }
 
 export default function App({ account }: { account?: Account }) {
   const [words, setWords] = useState<Word[]>();
@@ -149,28 +151,27 @@ export default function App({ account }: { account?: Account }) {
     .slice(0, PHRASE_GOAL);
   const itemsDue = items.filter((c) => c.due <= now && (exercises.has(c.key) || phraseByKey.has(c.key)))
     .sort((a, b) => +a.due - +b.due);
-  const dueCount = due.length + itemsDue.length;
 
-  // The daily routine, in order. "Tiếp tục" always goes to the first unfinished step.
-  // New words, lessons and phrases become due at once, so step 1 reopens to practise them right away.
+  // Two separate daily tracks, never mixed: vocabulary (words) and grammar & speaking (structures, phrases).
+  // "Tiếp tục" goes to the first unfinished step of a track. Newly learned items become due at once,
+  // so each track's review step reopens to practise them right away.
   const steps: Step[] = [
-    { view: 'review', label: 'Ôn tập', detail: dueCount ? `${dueCount} mục đến hạn` : 'Không còn gì đến hạn', done: dueCount === 0 },
-    { view: 'learn', label: 'Từ mới', detail: nextNew.length ? `Còn ${nextNew.length} từ` : 'Đủ chỉ tiêu hôm nay', done: nextNew.length === 0 },
-    { view: 'grammar', label: 'Ngữ pháp', detail: fresh.grammar ? 'Đã học 1 bài' : nextLesson ? nextLesson.title : 'Đã học hết bài', done: !!fresh.grammar || !nextLesson },
-    { view: 'phrases', label: 'Mẫu câu', detail: phraseQueue.length ? `${phraseQueue.length} câu` : 'Đủ cho hôm nay', done: phraseQueue.length === 0 },
-    { view: 'write', label: 'Viết', detail: `${Math.min(fresh.written, WRITE_GOAL)}/${WRITE_GOAL} câu đúng`, done: fresh.written >= WRITE_GOAL },
-    { view: 'read', label: 'Đọc & nghe', detail: fresh.read.length || fresh.listened ? 'Đã xong' : '1 bài đọc hoặc 5 câu nghe chép', done: fresh.read.length > 0 || !!fresh.listened },
+    { track: 'vocab', view: 'review', label: 'Ôn từ', detail: due.length ? `${due.length} từ đến hạn` : 'Không còn từ đến hạn', done: due.length === 0 },
+    { track: 'vocab', view: 'learn', label: 'Từ mới', detail: nextNew.length ? `Còn ${nextNew.length} từ` : 'Đủ chỉ tiêu hôm nay', done: nextNew.length === 0 },
+    { track: 'vocab', view: 'write', label: 'Viết câu', detail: `${Math.min(fresh.written, WRITE_GOAL)}/${WRITE_GOAL} câu đúng`, done: fresh.written >= WRITE_GOAL },
+    { track: 'vocab', view: 'read', label: 'Đọc', detail: fresh.read.length ? 'Đã đọc' : '1 bài đọc ngắn', done: fresh.read.length > 0 },
+    { track: 'grammar', view: 'review-grammar', label: 'Ôn ngữ pháp', detail: itemsDue.length ? `${itemsDue.length} câu đến hạn` : 'Không còn câu đến hạn', done: itemsDue.length === 0 },
+    { track: 'grammar', view: 'grammar', label: 'Bài ngữ pháp', detail: fresh.grammar ? 'Đã học 1 bài' : nextLesson ? nextLesson.title : 'Đã học hết bài', done: !!fresh.grammar || !nextLesson },
+    { track: 'grammar', view: 'phrases', label: 'Mẫu câu', detail: phraseQueue.length ? `${phraseQueue.length} câu giao tiếp` : 'Đủ cho hôm nay', done: phraseQueue.length === 0 },
+    { track: 'grammar', view: 'listen', label: 'Nghe chép', detail: fresh.listened ? 'Đã nghe' : '5 câu', done: !!fresh.listened },
   ];
-  const nextStep = steps.find((s) => !s.done);
-  // Dictation counts as the "Đọc & nghe" step, so it shows the rail too.
-  const railView: View = view === 'listen' ? 'read' : view;
-  const inRoutine = steps.some((s) => s.view === railView);
+  const track = steps.find((s) => s.view === view)?.track;
+  const inRoutine = track !== undefined;
 
   const tabs: { view: View; label: string; icon: LucideIcon; badge?: number; mobile?: boolean }[] = [
     { view: 'home', label: 'Hôm nay', icon: House, mobile: true },
     { view: 'roadmap', label: 'Lộ trình', icon: MapIcon, mobile: true },
-    { view: 'review', label: 'Ôn tập', icon: RotateCcw, badge: dueCount },
-    { view: 'words', label: 'Từ vựng', icon: BookA, mobile: true },
+    { view: 'words', label: 'Sổ từ', icon: BookA, mobile: true },
     { view: 'settings', label: 'Cài đặt', icon: SettingsIcon, mobile: true },
   ];
   if (view === 'welcome') return (
@@ -194,18 +195,19 @@ export default function App({ account }: { account?: Account }) {
           </button>
         )}
       </header>
-      {inRoutine && <Rail steps={steps} view={railView} go={setView} />}
+      {track && <Rail steps={steps.filter((s) => s.track === track)} track={track} view={view} go={setView} />}
       <TipsContext.Provider value={{ seen: settings.tipsSeen ?? [], dismiss: (id) => setSettings((s) => ({ ...s, tipsSeen: [...(s.tipsSeen ?? []), id] })) }}>
       <main>
-        {inRoutine && <NextPrompt steps={steps} view={railView} next={nextStep} go={setView} />}
-        {view === 'home' && <Home words={words} cards={cards} known={known} steps={steps} next={nextStep} settings={settings} go={setView} />}
+        {track && <NextPrompt steps={steps} track={track} view={view} go={setView} />}
+        {view === 'home' && <Home words={words} cards={cards} known={known} steps={steps} settings={settings} go={setView} />}
         {view === 'roadmap' && <Roadmap words={words} cards={cards} known={known} settings={settings} setSettings={setSettings}
           lessons={lessons} doneLessons={doneLessons} sets={sets} learnedPhrases={learnedPhrases} current={level} go={setView} />}
         {view === 'learn' && <Learn queue={nextNew} words={words} settings={settings} go={setView} />}
-        {view === 'review' && (due.length === 0 && itemsDue.length > 0
+        {view === 'review' && <Review due={due} byId={byId} cards={cards} words={words} spot={spot}
+          onSpotDone={() => setDaily((d) => ({ ...current(d), spotDone: true }))} />}
+        {view === 'review-grammar' && (itemsDue.length
           ? <ItemReview due={itemsDue} exercises={exercises} phrases={phraseByKey} />
-          : <Review due={due} byId={byId} cards={cards} words={words} spot={spot}
-            onSpotDone={() => setDaily((d) => ({ ...current(d), spotDone: true }))} />)}
+          : <section className="empty"><h2>Không còn câu ngữ pháp, mẫu câu cần ôn</h2><p>Học bài ngữ pháp hoặc mẫu câu mới, chúng sẽ quay lại đây để ôn.</p></section>)}
         {view === 'grammar' && <Grammar lessons={lessons.filter((l) => upTo(l.level))} done={doneLessons} next={fresh.grammar ? undefined : nextLesson}
           onFinish={async (lesson) => {
             await addItems(lesson.exercises.map((_, i) => grammarKey(lesson.id, i)), 'grammar');
@@ -218,9 +220,8 @@ export default function App({ account }: { account?: Account }) {
           }} />}
         {view === 'write' && <Writing cards={cards} byId={byId} onWritten={() => setDaily((d) => ({ ...current(d), written: current(d).written + 1 }))} />}
         {view === 'read' && <ReadingView readings={readings} byId={byId} studied={studied} known={knownIds} beginner={settings.startLevel === 'A1'}
-          onListen={() => setView('listen')}
           onRead={(id) => setDaily((d) => ({ ...current(d), read: [...new Set([...current(d).read, id])] }))} />}
-        {view === 'listen' && <Dictation sentences={dictation} onDone={() => { setDaily((d) => ({ ...current(d), listened: true })); setView('read'); }} />}
+        {view === 'listen' && <Dictation sentences={dictation} onDone={() => setDaily((d) => ({ ...current(d), listened: true }))} />}
         {view === 'words' && <WordList words={words} cards={cards} known={known} settings={settings} />}
         {view === 'settings' && <SettingsView settings={settings} setSettings={setSettings} go={setView} account={account} />}
         {view === 'test' && <Placement words={words} settings={settings} setSettings={setSettings} go={setView} />}

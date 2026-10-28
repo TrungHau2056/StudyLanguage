@@ -84,7 +84,7 @@ function Lesson({ lesson, onAll, onFinish }: { lesson: GrammarLesson; onAll: () 
         <h2>{lesson.title}</h2>
         <p className="hw">Đúng {correct}/{n}</p>
         <p>{correct >= 9
-          ? 'Tốt lắm! Bạn đã nắm được bài này. Các câu sẽ được ôn lại trong mục Ôn tập.'
+          ? 'Tốt lắm! Bạn đã nắm được bài này. Các câu sẽ được ôn lại trong mục “Ôn ngữ pháp”.'
           : 'Bạn nên đọc lại phần “Lỗi hay gặp” rồi làm lại bài tập để nhớ chắc hơn.'}</p>
         <div className="actions">
           <button onClick={restart}>Làm lại bài tập</button>
@@ -99,7 +99,7 @@ function Lesson({ lesson, onAll, onFinish }: { lesson: GrammarLesson; onAll: () 
       <button className="quiet back" onClick={onAll}>Tất cả bài ngữ pháp</button>
       <Tip id="grammar">
         Đọc phần giải thích, nghe các ví dụ và đọc to theo, rồi làm {n} câu bài tập.
-        Câu làm xong sẽ được ôn lại trong mục Ôn tập.
+        Câu làm xong sẽ được ôn lại trong mục “Ôn ngữ pháp”.
       </Tip>
       <h2>{lesson.title}</h2>
       <p>{lesson.summary}</p>
