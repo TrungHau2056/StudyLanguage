@@ -264,3 +264,12 @@ mark.known { background: none; border-bottom: 1.5px dotted var(--ok); }
 }
 .install { padding-left: 20px; display: grid; gap: 6px; color: var(--ink-2); }
 .grade-comment { display: flex; gap: 8px; align-items: flex-start; color: var(--ink-2); margin: 12px 0 0; } .grade-comment .icon { color: var(--red); margin-top: 3px; }
+.list-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.list-head button { display: inline-flex; align-items: center; gap: 6px; }
+.add-form { display: grid; gap: 10px; margin-top: 12px; }
+.add-form input { font-size: 18px; }
+.add-form textarea { margin-top: 0; font-size: 16px; }
+.add-form button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.found { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.edit-meaning { display: block; margin-top: 14px; }
+.edit-meaning input { width: 100%; font-size: 18px; font-weight: 600; }

@@ -58,13 +58,60 @@ function cors(origin: string | null, env: Env): Record<string, string> {
   };
 }
 
+const LOOKUP_SCHEMA = {
+  type: 'OBJECT',
+  properties: {
+    found: { type: 'BOOLEAN', description: 'false if this is not a real English word/phrase (typo or nonsense)' },
+    suggestion: { type: 'STRING', description: 'if found=false: the most likely intended word, else empty' },
+    word: { type: 'STRING', description: 'dictionary form (lemma), lowercase unless a proper noun' },
+    pos: { type: 'STRING', enum: ['noun', 'verb', 'adjective', 'adverb', 'preposition', 'pronoun', 'conjunction', 'determiner', 'interjection', 'phrase'] },
+    phonetic: { type: 'STRING', description: 'IPA (US), in slashes' },
+    meaning: { type: 'STRING', description: 'short natural Vietnamese meaning of this sense (max ~8 words)' },
+    otherMeanings: { type: 'ARRAY', items: { type: 'STRING' }, description: '0-2 other common Vietnamese meanings' },
+    definition: { type: 'STRING', description: 'simple English learner definition' },
+    example: { type: 'STRING', description: 'natural simple English example sentence using this sense' },
+    exampleVi: { type: 'STRING' },
+    collocations: { type: 'ARRAY', items: { type: 'STRING' } },
+    family: { type: 'ARRAY', items: { type: 'STRING' }, description: 'word family members like "decision (n)"' },
+    cefr: { type: 'STRING', enum: ['A1', 'A2', 'B1', 'B2', 'C1'] },
+  },
+  required: ['found', 'suggestion', 'word', 'pos', 'phonetic', 'meaning', 'otherMeanings', 'definition', 'example', 'exampleVi', 'collocations', 'family', 'cefr'],
+};
+
+const LOOKUP_PROMPT = (word: string, context: string) =>
+  `Tra từ tiếng Anh cho người Việt đang học: "${word}".${context ? `\nHọc viên gặp từ này trong câu: """${context}""" — chọn ĐÚNG nghĩa trong câu này.` : '\nChọn nghĩa phổ biến nhất.'}
+Trả về dạng từ điển (lemma), từ loại, phiên âm IPA, nghĩa tiếng Việt ngắn gọn tự nhiên, định nghĩa tiếng Anh đơn giản,
+1 câu ví dụ đơn giản dùng đúng nghĩa đó (kèm bản dịch), 2-3 cụm từ hay đi kèm, họ từ, và trình độ CEFR của nghĩa này.
+Nếu không phải từ tiếng Anh có thật (gõ sai), đặt found=false và gợi ý từ đúng.`;
+
+async function gemini(env: Env, prompt: string, schema: object): Promise<string | null> {
+  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
+    method: 'POST',
+    headers: { 'x-goog-api-key': env.GEMINI_API_KEY, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: { responseMimeType: 'application/json', responseSchema: schema, temperature: 0.2, thinkingConfig: { thinkingBudget: 0 } },
+    }),
+  });
+  if (!res.ok) return null;
+  const data: { candidates?: { content?: { parts?: { text?: string }[] } }[] } = await res.json();
+  return data.candidates?.[0]?.content?.parts?.[0]?.text ?? null;
+}
+
+const str = (body: object, key: string, max: number, optional = false): string | null => {
+  const v: unknown = Object.entries(body).find(([k]) => k === key)?.[1];
+  if (v === undefined && optional) return '';
+  return typeof v === 'string' && v.length <= max && (optional || v.trim()) ? v.trim() : null;
+};
+
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const headers = cors(req.headers.get('Origin'), env);
     const json = (body: unknown, status = 200) =>
       new Response(JSON.stringify(body), { status, headers: { ...headers, 'Content-Type': 'application/json' } });
     if (req.method === 'OPTIONS') return new Response(null, { headers });
-    if (req.method !== 'POST' || new URL(req.url).pathname !== '/grade') return json({ error: 'not found' }, 404);
+    const path = new URL(req.url).pathname;
+    if (req.method !== 'POST' || (path !== '/grade' && path !== '/lookup')) return json({ error: 'not found' }, 404);
 
     // Firebase ID token check: signed by Google, issued for our project.
     const token = req.headers.get('Authorization')?.replace(/^Bearer /, '');
@@ -79,23 +126,22 @@ export default {
     }
 
     const body: unknown = await req.json().catch(() => null);
-    if (!body || typeof body !== 'object' || !('sentence' in body) || !('word' in body) || !('meaning' in body)) return json({ error: 'bad request' }, 400);
-    const { sentence, word, meaning } = body;
-    if (typeof sentence !== 'string' || typeof word !== 'string' || typeof meaning !== 'string'
-      || !sentence.trim() || sentence.length > MAX_LEN || word.length > 40 || meaning.length > 200) return json({ error: 'bad request' }, 400);
+    if (!body || typeof body !== 'object') return json({ error: 'bad request' }, 400);
 
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
-      method: 'POST',
-      headers: { 'x-goog-api-key': env.GEMINI_API_KEY, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: PROMPT(sentence.trim(), word, meaning) }] }],
-        generationConfig: { responseMimeType: 'application/json', responseSchema: SCHEMA, temperature: 0.2, thinkingConfig: { thinkingBudget: 0 } },
-      }),
-    });
-    if (!res.ok) return json({ error: 'model error', status: res.status }, 502);
-    const data: { candidates?: { content?: { parts?: { text?: string }[] } }[] } = await res.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!text) return json({ error: 'empty response' }, 502);
+    let text: string | null;
+    if (path === '/lookup') {
+      const word = str(body, 'word', 60);
+      const context = str(body, 'context', MAX_LEN, true);
+      if (word === null || context === null) return json({ error: 'bad request' }, 400);
+      text = await gemini(env, LOOKUP_PROMPT(word, context), LOOKUP_SCHEMA);
+    } else {
+      const sentence = str(body, 'sentence', MAX_LEN);
+      const word = str(body, 'word', 60);
+      const meaning = str(body, 'meaning', 200);
+      if (sentence === null || word === null || meaning === null) return json({ error: 'bad request' }, 400);
+      text = await gemini(env, PROMPT(sentence, word, meaning), SCHEMA);
+    }
+    if (!text) return json({ error: 'model error' }, 502);
     return new Response(text, { headers: { ...headers, 'Content-Type': 'application/json' } });
   },
 };

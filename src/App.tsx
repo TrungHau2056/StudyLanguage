@@ -14,6 +14,7 @@ import Dictation from './views/Dictation';
 import Writing from './views/Writing';
 import ReadingView from './views/Reading';
 import WordList from './views/WordList';
+import AddWord from './views/AddWord';
 import SettingsView from './views/Settings';
 import Placement from './views/Placement';
 import Roadmap from './views/Roadmap';
@@ -23,7 +24,7 @@ import { TipsContext, shuffle } from './ui';
 import './App.css';
 
 export type View = 'home' | 'learn' | 'review' | 'review-grammar' | 'grammar' | 'phrases' | 'write' | 'read' | 'listen'
-  | 'words' | 'settings' | 'test' | 'welcome' | 'sounds' | 'roadmap';
+  | 'words' | 'add-word' | 'settings' | 'test' | 'welcome' | 'sounds' | 'roadmap';
 
 /** Per-day progress for the activities that don't live in the database. */
 export interface Daily { date: string; written: number; read: number[]; spotDone?: boolean; grammar?: boolean; phrases?: boolean; listened?: boolean }
@@ -48,7 +49,8 @@ export const TRACK_LABEL: Record<Track, string> = { vocab: 'Từ vựng', gramma
 export interface Step { track: Track; view: View; label: string; detail: string; done: boolean }
 
 export default function App({ account }: { account?: Account }) {
-  const [words, setWords] = useState<Word[]>();
+  /** The NGSL list (fixed, shipped with the app). */
+  const [baseWords, setBaseWords] = useState<Word[]>();
   const [readings, setReadings] = useState<Reading[]>([]);
   const [lessons, setLessons] = useState<GrammarLesson[]>([]);
   const [sets, setSets] = useState<PhraseSet[]>([]);
@@ -58,7 +60,7 @@ export default function App({ account }: { account?: Account }) {
 
   useEffect(() => {
     const load = <T,>(file: string, set: (v: T) => void) => fetch(`${import.meta.env.BASE_URL}${file}`).then((r) => r.json()).then(set);
-    load('words.json', setWords);
+    load('words.json', setBaseWords);
     load('readings.json', setReadings);
     load('grammar.json', setLessons);
     load('phrases.json', setSets);
@@ -80,6 +82,9 @@ export default function App({ account }: { account?: Account }) {
     return () => clearInterval(t);
   }, []);
 
+  const custom = useLiveQuery(() => db.custom.toArray(), []);
+  // All words: NGSL + the learner's own. Level/placement logic uses only the NGSL list.
+  const words = useMemo(() => (baseWords && custom ? [...baseWords, ...custom] : undefined), [baseWords, custom]);
   const byId = useMemo(() => new Map(words?.map((w) => [w.id, w])), [words]);
   const cards = useLiveQuery(() => db.cards.toArray(), []);
   const known = useLiveQuery(() => db.known.toArray(), []);
@@ -108,13 +113,13 @@ export default function App({ account }: { account?: Account }) {
   // Order of new words. Level order: CEFR level, then words learnable on their own before grammar/abstract
   // ones (those are better met in reading), then frequency. Frequency order: NGSL rank only.
   const ordered = useMemo(() => {
-    if (!words) return [];
-    if (settings.order === 'frequency') return words;
-    return [...words].sort((a, b) =>
+    if (!baseWords) return [];
+    if (settings.order === 'frequency') return baseWords;
+    return [...baseWords].sort((a, b) =>
       LEVELS.indexOf(a.cefr) - LEVELS.indexOf(b.cefr) || Number(b.concrete) - Number(a.concrete) || a.id - b.id);
-  }, [words, settings.order]);
+  }, [baseWords, settings.order]);
 
-  if (!words || !cards || !known || !items) return <p className="center">Đang tải…</p>;
+  if (!words || !baseWords || !cards || !known || !items) return <p className="center">Đang tải…</p>;
 
   const now = new Date();
   const due = cards.filter((c) => c.due <= now).sort((a, b) => +a.due - +b.due);
@@ -132,7 +137,7 @@ export default function App({ account }: { account?: Account }) {
   const monthAgo = Date.now() - 30 * 86400000;
   const spot = current(daily).spotDone ? [] : [
     ...known.filter((k) => (k.checkedAt ?? k.at).getTime() < monthAgo).map((k) => byId.get(k.wordId)),
-    ...words.filter((w) => isSkipped(w, settings) && !studied.has(w.id) && !knownIds.has(w.id)),
+    ...baseWords.filter((w) => isSkipped(w, settings) && !studied.has(w.id) && !knownIds.has(w.id)),
   ].filter((w): w is Word => !!w)
     .sort((a, b) => dayHash(a.id) - dayHash(b.id))
     .slice(0, SPOT_COUNT);
@@ -204,8 +209,8 @@ export default function App({ account }: { account?: Account }) {
       <TipsContext.Provider value={{ seen: settings.tipsSeen ?? [], dismiss: (id) => setSettings((s) => ({ ...s, tipsSeen: [...(s.tipsSeen ?? []), id] })) }}>
       <main>
         {track && <NextPrompt steps={steps} track={track} view={view} go={setView} />}
-        {view === 'home' && <Home words={words} cards={cards} known={known} steps={steps} settings={settings} go={setView} />}
-        {view === 'roadmap' && <Roadmap words={words} cards={cards} known={known} settings={settings} setSettings={setSettings}
+        {view === 'home' && <Home words={baseWords} cards={cards} known={known} steps={steps} settings={settings} go={setView} />}
+        {view === 'roadmap' && <Roadmap words={baseWords} cards={cards} known={known} settings={settings} setSettings={setSettings}
           lessons={lessons} doneLessons={doneLessons} sets={sets} learnedPhrases={learnedPhrases} current={level} go={setView} />}
         {view === 'learn' && <Learn queue={nextNew} words={words} settings={settings} go={setView} />}
         {view === 'review' && <Review due={due} byId={byId} cards={cards} words={words} spot={spot}
@@ -227,9 +232,10 @@ export default function App({ account }: { account?: Account }) {
         {view === 'read' && <ReadingView readings={readings} byId={byId} studied={studied} known={knownIds} beginner={settings.startLevel === 'A1'}
           onRead={(id) => setDaily((d) => ({ ...current(d), read: [...new Set([...current(d).read, id])] }))} />}
         {view === 'listen' && <Dictation sentences={dictation} onDone={() => setDaily((d) => ({ ...current(d), listened: true }))} />}
-        {view === 'words' && <WordList words={words} cards={cards} known={known} settings={settings} />}
+        {view === 'words' && <WordList words={words} cards={cards} known={known} settings={settings} go={setView} />}
+        {view === 'add-word' && <AddWord words={words} cards={cards} known={known} go={setView} />}
         {view === 'settings' && <SettingsView settings={settings} setSettings={setSettings} go={setView} account={account} />}
-        {view === 'test' && <Placement words={words} settings={settings} setSettings={setSettings} go={setView} />}
+        {view === 'test' && <Placement words={baseWords} settings={settings} setSettings={setSettings} go={setView} />}
         {view === 'sounds' && <Sounds go={setView} />}
       </main>
       </TipsContext.Provider>

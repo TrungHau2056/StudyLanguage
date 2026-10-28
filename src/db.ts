@@ -21,6 +21,10 @@ export interface Word {
   cefr: Level;
   /** Learnable in isolation (objects, actions…); false for grammar/abstract words best learned in context. */
   concrete: boolean;
+  /** Added by the learner (looked up by AI); id is the creation timestamp, so it never collides with NGSL ranks. */
+  custom?: boolean;
+  /** Sentence where the learner met the word, if they gave one. */
+  context?: string;
 }
 
 export interface Reading {
@@ -105,6 +109,7 @@ type VocabDb = Dexie & {
   extras: EntityTable<Extra, 'word'>;
   known: EntityTable<Known, 'wordId'>;
   items: EntityTable<ItemCard, 'key'>;
+  custom: EntityTable<Word, 'id'>;
 };
 
 function openDb(name: string, logKey: string): VocabDb {
@@ -112,6 +117,7 @@ function openDb(name: string, logKey: string): VocabDb {
   d.version(1).stores({ cards: 'wordId, due, addedAt', logs: `${logKey}, wordId, reviewedAt`, extras: 'word' });
   d.version(2).stores({ known: 'wordId' });
   d.version(3).stores({ items: 'key, due, kind' });
+  d.version(4).stores({ custom: 'id, word' });
   return d;
 }
 
@@ -140,20 +146,22 @@ export function saveSettings(s: Settings) {
 export async function selectUser(id: string) {
   uid = id;
   db = openDb(`vocab-${id}`, 'id');
-  const [cards, logs, known, items, profile] = await Promise.all([
+  const [cards, logs, known, items, custom, profile] = await Promise.all([
     pullCollection<StudyCard>(id, 'cards'),
     pullCollection<ReviewLog>(id, 'logs'),
     pullCollection<Known>(id, 'known'),
     pullCollection<ItemCard>(id, 'items'),
+    pullCollection<Word>(id, 'custom'),
     pullProfile<{ settings?: Settings }>(id),
   ]);
-  if (cards.length || known.length || items.length || profile?.settings) {
-    await db.transaction('rw', [db.cards, db.logs, db.known, db.items], async () => {
-      await Promise.all([db.cards.clear(), db.logs.clear(), db.known.clear(), db.items.clear()]);
+  if (cards.length || known.length || items.length || custom.length || profile?.settings) {
+    await db.transaction('rw', [db.cards, db.logs, db.known, db.items, db.custom], async () => {
+      await Promise.all([db.cards.clear(), db.logs.clear(), db.known.clear(), db.items.clear(), db.custom.clear()]);
       await db.cards.bulkPut(cards);
       await db.logs.bulkPut(logs);
       await db.known.bulkPut(known);
       await db.items.bulkPut(items);
+      await db.custom.bulkPut(custom);
     });
     if (profile?.settings) localStorage.setItem(settingsKey(), JSON.stringify(profile.settings));
     // Pre-account data on this browser was either migrated already or belongs to this person; never leak it to other accounts.
@@ -188,6 +196,20 @@ export async function addCard(wordId: number, relearn = false) {
 }
 
 const pushKnown = (k: Known) => uid && pushDoc(uid, ['known', String(k.wordId)], k).catch(console.error);
+
+/** Save a word the learner added themselves and start learning it right away (not counted in the daily new-word quota). */
+export async function addCustomWord(word: Word) {
+  await db.custom.put(word);
+  if (uid) pushDoc(uid, ['custom', String(word.id)], word).catch(console.error);
+  await addCard(word.id, true);
+}
+
+export async function deleteCustomWord(id: number) {
+  await db.transaction('rw', db.custom, db.cards, db.known, async () => {
+    await Promise.all([db.custom.delete(id), db.cards.delete(id), db.known.delete(id)]);
+  });
+  if (uid) for (const c of ['custom', 'cards', 'known']) removeDoc(uid, [c, String(id)]).catch(console.error);
+}
 
 /** Move words to "đã biết": they leave the learning queue and reviews for good. */
 export async function markKnown(wordIds: number[], source: Known['source']) {
