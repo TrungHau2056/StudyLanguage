@@ -1,108 +1,217 @@
-.app { max-width: 760px; margin: 0 auto; padding: 16px; }
-nav { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 20px; }
-nav b { margin-right: auto; font-size: 1.2em; }
-nav .active, .primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-footer { margin-top: 32px; font-size: 12px; color: var(--muted); }
-h2, h3 { margin: 8px 0; }
-.center { text-align: center; padding: 40px 0; }
-.card.center { padding: 24px; }
-.hint { color: var(--muted); font-size: 14px; }
-.row { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
-.callout { background: var(--card); border: 1px dashed var(--accent); border-radius: 12px; padding: 12px 14px; margin: 12px 0; }
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
-.stat { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; font-size: 14px; color: var(--muted); }
-.stat .n { font-size: 28px; font-weight: 700; color: var(--fg); }
+/* ---------- Shell ---------- */
+.app { max-width: 720px; margin: 0 auto; padding: 0 20px 120px; min-height: 100dvh; }
+.app.with-rail { padding-right: 64px; }
 
-.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
-.head .word, .test-word { font-size: 40px; font-weight: 700; }
-.test-word { margin: 24px 0; }
-.head .meta { color: var(--muted); }
-.icon { border: none; font-size: 22px; vertical-align: super; background: none; }
-.meaning { font-size: 20px; font-weight: 600; }
-.def { color: var(--muted); }
-.example { font-style: italic; cursor: pointer; border-left: 3px solid var(--accent); padding-left: 10px; }
-.example .def { font-style: normal; }
-.chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.chip { border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; font-size: 14px; cursor: pointer; }
-.card input, textarea { width: 100%; font-size: 20px; }
-textarea { font: inherit; font-size: 18px; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--fg); padding: 8px 12px; resize: vertical; }
-.full { width: 100%; margin-top: 8px; }
-.ok { color: #16a34a; font-weight: 600; margin: 0; }
-.bad { color: #dc2626; font-weight: 600; margin: 0; }
-.checklist { list-style: none; padding: 0; margin: 0; }
+.topbar {
+  position: sticky; top: 0; z-index: 5;
+  display: flex; align-items: center; gap: 16px;
+  margin: 0 -20px; padding: 12px 20px;
+  background: var(--paper); border-bottom: 1px solid var(--rule);
+}
+.with-rail .topbar { margin-right: -64px; padding-right: 64px; }
+.wordmark { font: 700 20px var(--serif); letter-spacing: 0.01em; margin-right: auto; cursor: pointer; }
+.wordmark i { font-style: normal; color: var(--red); }
+.avatar { padding: 0; width: 32px; height: 32px; border-radius: 50%; overflow: hidden; border: 1px solid var(--rule); flex: none; }
+.avatar img { width: 100%; height: 100%; display: block; }
 
-.options { display: grid; gap: 8px; }
-.options button { text-align: left; min-height: 48px; }
-.options .right { border: 2px solid #16a34a; }
-.options .wrong { border: 2px solid #dc2626; }
-.options button:disabled { color: var(--fg); }
-.big-listen { font-size: 22px; padding: 18px; }
-.grades button { flex: 1; display: flex; flex-direction: column; align-items: center; font-weight: 600; }
-.grades small { font-weight: 400; color: var(--muted); }
-.again { border-color: #dc2626; } .hard { border-color: #d97706; } .good { border-color: #16a34a; } .easy { border-color: #2563eb; }
+/* Desktop navigation in the top bar; phones get the bottom bar. */
+.tabs { display: flex; gap: 4px; }
+.tabs button { border: none; padding: 8px 12px; font-weight: 500; color: var(--ink-2); border-radius: 8px; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.tabs button.active { color: var(--ink); background: var(--paper-2); font-weight: 600; }
+.badge { font: 600 11px/18px var(--sans); min-width: 18px; padding: 0 5px; border-radius: 9px; background: var(--red); color: var(--red-ink); text-align: center; font-variant-numeric: tabular-nums; }
 
-.progress { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
-.progress div { height: 100%; background: var(--accent); }
+.bottomnav { display: none; }
 
-.passage { font-size: 18px; line-height: 1.8; }
-mark { background: color-mix(in srgb, #f59e0b 35%, transparent); color: inherit; border-radius: 4px; padding: 0 2px; cursor: pointer; }
-mark.known { background: color-mix(in srgb, #16a34a 30%, transparent); }
-.list { display: grid; gap: 8px; }
-.list-item { display: flex; justify-content: space-between; gap: 12px; text-align: left; }
-.list-item small { color: var(--muted); white-space: nowrap; }
+main { padding-top: 20px; }
+footer { margin-top: 48px; font-size: 12px; color: var(--ink-3); }
 
-.settings label { display: block; margin-top: 12px; }
-.settings input[type='number'] { width: 80px; }
-.search { flex: 1; min-width: 180px; }
-button.small { padding: 4px 10px; font-size: 13px; }
+/* ---------- Thumb index: today's routine cut into the book's edge ---------- */
+/* Hugs the content column's right edge (the book's fore edge), or the screen edge on phones. */
+.rail { position: fixed; right: max(0px, calc(50vw - 360px)); top: 76px; z-index: 6; display: flex; flex-direction: column; gap: 4px; }
+.rail button {
+  width: 40px; height: 104px; padding: 0;
+  border: none; border-radius: 10px 0 0 10px;
+  background: var(--paper-2); color: var(--ink-3);
+  writing-mode: vertical-rl; font: 600 12px var(--sans); letter-spacing: 0.04em;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  transition: width 0.25s var(--ease-out), background-color 0.2s var(--ease-out);
+}
+.rail button:hover:not(:disabled) { background: var(--rule); }
+.rail button.done { color: var(--ink-3); text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness: 2px; }
+.rail button.here { width: 52px; background: var(--red); color: var(--red-ink); text-decoration: none; }
+.rail .icon { writing-mode: horizontal-tb; width: 14px; height: 14px; }
 
-/* Daily routine */
-.stepbar { margin-bottom: 12px; }
-.steps { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
-.step { display: flex; align-items: center; gap: 6px; white-space: nowrap; flex: none; font-size: 14px; padding: 6px 10px; }
-.step .dot { width: 20px; height: 20px; border-radius: 50%; display: inline-grid; place-items: center; font-size: 12px; background: var(--border); }
-.step.done .dot { background: #16a34a; color: #fff; }
-.step.here { border-color: var(--accent); font-weight: 600; }
-.callout.next { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
-.hero { margin-bottom: 16px; }
-.big { font-size: 18px; padding: 14px; }
-.center-text { text-align: center; font-size: 18px; }
-.plan { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-.plan li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; cursor: pointer; }
-.plan li.current { border-color: var(--accent); }
-.plan li.done { opacity: 0.6; }
+.next {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 12px 0 14px; margin-bottom: 8px; border-bottom: 1px dotted var(--rule);
+  font-weight: 500;
+}
+
+/* ---------- Buttons ---------- */
+.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+button.primary:hover:not(:disabled) { background: color-mix(in srgb, var(--ink) 85%, var(--red)); }
+.quiet { border-color: transparent; color: var(--ink-2); font-weight: 500; padding-left: 0; padding-right: 0; }
+.quiet:hover:not(:disabled) { background: none !important; color: var(--red); }
+.big { width: 100%; padding: 16px; font-size: 17px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
+.row > button, .row > .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.icon-btn { display: inline-grid; place-items: center; width: 36px; height: 36px; padding: 0; border-radius: 50%; }
+button.small { padding: 4px 10px; font-size: 13px; border-width: 1px; }
+
+/* Actions pinned at the bottom on phones, in flow on desktop. */
+.actions { display: flex; gap: 10px; margin-top: 24px; }
+.actions > * { flex: 1; min-height: 50px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+
+/* ---------- Dictionary entry ---------- */
+.entry { display: flex; flex-direction: column; }
+.meter { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font: 500 13px var(--sans); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.meter .bar { flex: 1; height: 3px; background: var(--rule); }
+.meter .bar i { display: block; height: 100%; background: var(--red); transition: width 0.4s var(--ease-out); }
+
+.hw-line { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.hw { font: 700 44px/1.05 var(--serif); letter-spacing: -0.02em; overflow-wrap: anywhere; }
+.ipa { margin-top: 6px; color: var(--ink-2); font-size: 15px; }
+.pos { font: italic 15px var(--serif); color: var(--red); margin-left: 6px; }
+.sense { margin-top: 18px; font: 600 19px/1.4 var(--sans); }
+.num { font: 700 14px var(--serif); color: var(--red); margin-right: 8px; }
+.def { color: var(--ink-2); font-size: 14px; margin-top: 4px; }
+.def.en { font-family: var(--serif); font-size: 15px; }
+.alt { color: var(--ink-3); font-size: 14px; margin-top: 6px; }
+.ex { margin-top: 18px; padding-top: 14px; border-top: 1px dotted var(--rule); font: italic 18px/1.5 var(--serif); }
+.ex button { font: inherit; font-style: italic; border: none; padding: 0; text-align: left; background: none; }
+.ex button:hover { background: none; color: var(--red); }
+.ex-vi { font: 400 14px/1.5 var(--sans); font-style: normal; color: var(--ink-2); margin-top: 4px; }
+.lbl { display: block; font: 600 11px var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); margin-bottom: 4px; }
+.colls, .family { margin-top: 16px; font-size: 15px; color: var(--ink-2); }
+.colls button { font: italic 16px var(--serif); color: var(--ink); border: none; padding: 0; background: none; }
+.colls button:hover { color: var(--red); background: none; }
+.colls .sep, .family .sep { color: var(--ink-3); margin: 0 8px; }
+
+/* ---------- Review ---------- */
+.prompt { color: var(--ink-2); margin-top: 16px; }
+.options { display: grid; gap: 8px; margin-top: 20px; }
+.options button { text-align: left; font-weight: 500; border-width: 1px; border-color: var(--rule); min-height: 52px; }
+.options .right { border: 2px solid var(--ok); color: var(--ok); }
+.options .wrong { border: 2px solid var(--bad); color: var(--bad); text-decoration: line-through; }
+.options button:disabled { opacity: 1; }
+.answer { margin-top: 20px; }
+.answer input { width: 100%; font-size: 20px; padding: 12px 14px; }
+.verdict { font-weight: 600; margin: 14px 0 0; display: flex; align-items: center; gap: 8px; }
+.ok { color: var(--ok); }
+.bad { color: var(--bad); }
+.listen { margin-top: 20px; width: 100%; padding: 22px; font-size: 18px; display: flex; align-items: center; justify-content: center; gap: 10px; border-style: dashed; }
+.grades { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
+.grades button { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 6px; border-width: 1px; border-color: var(--rule); }
+.grades b { font-size: 15px; }
+.grades small { font-size: 12px; font-weight: 400; color: var(--ink-3); }
+.grades .again b { color: var(--bad); }
+.grades .good b { color: var(--ok); }
+.grades .easy b { color: var(--ink); }
+.grades .hard b { color: var(--amber); }
+.grade-hint { color: var(--ink-2); font-size: 14px; margin: 20px 0 0; }
+
+/* ---------- Home ---------- */
+.today h1 { font-size: 30px; margin: 4px 0 4px; }
+.today .sub { color: var(--ink-2); margin: 0 0 20px; }
+.plan { list-style: none; padding: 0; margin: 24px 0 0; border-top: 1px solid var(--rule); }
+.plan li { display: flex; align-items: center; gap: 14px; padding: 14px 4px; border-bottom: 1px solid var(--rule); cursor: pointer; }
+.plan li:hover { background: color-mix(in srgb, var(--paper-2) 60%, transparent); }
+.plan .num { width: 22px; font-size: 18px; margin: 0; text-align: center; }
 .plan li div { flex: 1; }
-.icon-lg { font-size: 22px; }
-.chev { color: var(--muted); font-size: 22px; }
-.welcome .intro { list-style: none; padding: 0; display: grid; gap: 10px; }
-.welcome .intro li { display: flex; gap: 12px; align-items: flex-start; }
-.welcome .intro span { font-size: 24px; }
-.choice button { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; }
-.choice small { font-size: 12px; opacity: 0.85; }
-.grades small + small { font-size: 12px; }
-.ask { margin: 0; }
+.plan li b { font-weight: 600; }
+.plan li .meta { display: block; font-size: 13px; color: var(--ink-3); }
+.plan li.done b { text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness: 2px; color: var(--ink-3); }
+.plan li.current b { color: var(--red); }
+.plan .chev { color: var(--ink-3); }
+.ledger { display: flex; gap: 28px; flex-wrap: wrap; margin: 28px 0 0; padding: 0; }
+.ledger div { display: flex; flex-direction: column; }
+.ledger dt { font-size: 13px; color: var(--ink-3); order: 2; }
+.ledger dd { margin: 0; font: 700 26px var(--serif); font-variant-numeric: tabular-nums; }
+.gloss .w { font: 600 18px var(--serif); }
+.aside { margin-top: 28px; padding: 14px 0; border-top: 1px dotted var(--rule); color: var(--ink-2); }
 
-/* Account */
-.login { max-width: 420px; margin: 15vh auto 0; text-align: center; align-items: center; }
-.avatar { padding: 0; width: 34px; height: 34px; border-radius: 50%; overflow: hidden; flex: none; order: 99; }
-.avatar img { width: 100%; height: 100%; }
-.account { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+/* ---------- Welcome / login ---------- */
+.welcome h1 { font-size: 32px; margin: 32px 0 8px; }
+.intro { list-style: none; padding: 0; margin: 20px 0; border-top: 1px solid var(--rule); }
+.intro li { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.intro .num { font-size: 18px; width: 18px; }
+.intro p { margin: 2px 0 0; color: var(--ink-2); font-size: 14px; }
+.choice { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.choice button { display: flex; flex-direction: column; align-items: center; gap: 2px; border-width: 1px; border-color: var(--rule); }
+.choice button.on { border: 2px solid var(--red); color: var(--red); }
+.choice small { font-size: 12px; font-weight: 400; color: var(--ink-3); }
+.login { max-width: 380px; margin: 18vh auto 0; text-align: center; }
+.login h1 { font-size: 44px; margin: 0 0 8px; }
+.login p { color: var(--ink-2); margin: 0 0 28px; }
+.login .big { background: var(--ink); color: var(--paper); }
 
-/* Phones: sticky horizontally-scrolling tabs, bigger tap targets, 2-column grids. */
+/* ---------- Writing / reading ---------- */
+textarea { width: 100%; font-size: 18px; line-height: 1.5; padding: 12px 14px; resize: vertical; margin-top: 16px; }
+.checklist { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 4px; }
+.checklist li { display: flex; align-items: center; gap: 8px; font-weight: 500; }
+.passage { font: 19px/1.75 var(--serif); margin: 20px 0; max-width: 65ch; }
+.passage.vi { font: 15px/1.7 var(--sans); color: var(--ink-2); }
+mark { background: color-mix(in srgb, var(--red) 14%, transparent); color: inherit; border-bottom: 1.5px solid var(--red); cursor: pointer; padding: 0 1px; }
+mark.known { background: none; border-bottom: 1.5px dotted var(--ok); }
+.gloss { position: sticky; bottom: 76px; padding: 12px 14px; background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: 0 6px 20px rgb(0 0 0 / 0.12); }
+.list { border-top: 1px solid var(--rule); }
+.list-item { width: 100%; display: flex; justify-content: space-between; gap: 12px; text-align: left; border: none; border-bottom: 1px solid var(--rule); border-radius: 0; padding: 14px 4px; font-weight: 500; }
+.list-item span { font-family: var(--serif); font-size: 17px; }
+.list-item small { color: var(--ink-3); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.back { display: inline-flex; align-items: center; gap: 6px; }
+
+/* ---------- Placement ---------- */
+.progress { height: 3px; background: var(--rule); margin: 8px 0 0; }
+.progress div { height: 100%; background: var(--red); transition: width 0.3s var(--ease-out); }
+.test-word { font: 700 48px var(--serif); text-align: center; margin: 56px 0; letter-spacing: -0.02em; }
+.yesno { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.yesno button { min-height: 56px; }
+
+/* ---------- Words / settings ---------- */
+.filters { display: flex; gap: 10px; flex-wrap: wrap; }
+.search { flex: 1; min-width: 180px; }
+.words td:first-child { color: var(--ink-3); width: 44px; font-size: 13px; }
+.words .w { font: 600 17px var(--serif); }
+.settings h2 { font-size: 20px; margin: 32px 0 8px; }
+.settings label { display: block; margin-top: 12px; font-weight: 500; }
+.settings select { width: 100%; margin-top: 6px; }
+.settings input[type='number'] { width: 90px; margin-left: 8px; }
+.hint { color: var(--ink-3); font-size: 14px; }
+.account { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.account div { min-width: 0; }
+.account .hint { overflow-wrap: anywhere; }
+.center { text-align: center; padding: 48px 0; }
+.empty h2 { font-size: 24px; margin-bottom: 8px; }
+.empty p { color: var(--ink-2); }
+
+/* ---------- Phones ---------- */
 @media (max-width: 640px) {
-  .app { padding: 12px; }
-  nav { flex-wrap: nowrap; overflow-x: auto; margin: -12px -12px 16px; padding: 10px 12px; position: sticky; top: 0; z-index: 1; background: var(--bg); border-bottom: 1px solid var(--border); scrollbar-width: none; }
-  nav b { display: none; }
-  nav button { white-space: nowrap; flex: none; padding: 8px 12px; }
-  .card { padding: 16px; border-radius: 12px; }
-  .head .word, .test-word { font-size: 32px; word-break: break-word; }
-  .meaning { font-size: 18px; }
-  .passage { font-size: 17px; }
-  .card input, textarea { font-size: 18px; } /* ≥16px stops iOS zooming on focus */
-  .stats { grid-template-columns: repeat(2, 1fr); }
-  .stat .n { font-size: 24px; }
-  .row > button, .row > .button { flex: 1; min-height: 44px; }
-  .grades { display: grid; grid-template-columns: repeat(2, 1fr); }
-  .settings select { width: 100%; margin-top: 4px; }
-  td, th { padding: 6px 4px; }
+  .app { padding: 0 16px 150px; }
+  .app.with-rail { padding-right: 56px; }
+  .topbar { margin: 0 -16px; padding: 10px 16px; }
+  .with-rail .topbar { margin-right: -56px; padding-right: 56px; }
+  .tabs { display: none; }
+  .rail { top: 64px; }
+  .rail button { width: 34px; height: 92px; font-size: 11px; }
+  .rail button.here { width: 44px; }
+  .bottomnav {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 7;
+    background: var(--paper); border-top: 1px solid var(--rule);
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+  }
+  .bottomnav button { border: none; padding: 6px 0; display: flex; flex-direction: column; align-items: center; gap: 2px; font: 500 11px var(--sans); color: var(--ink-3); position: relative; }
+  .bottomnav button.active { color: var(--red); font-weight: 600; }
+  .bottomnav .badge { position: absolute; top: 0; left: 50%; margin-left: 6px; }
+  .actions {
+    position: fixed; left: 0; right: 0; bottom: calc(58px + env(safe-area-inset-bottom)); z-index: 6;
+    margin: 0; padding: 10px 16px; background: var(--paper); border-top: 1px solid var(--rule);
+  }
+  .hw { font-size: 38px; }
+  .grades { grid-template-columns: repeat(2, 1fr); }
+  .test-word { font-size: 40px; margin: 40px 0; }
+  .ledger { gap: 20px; }
+  .gloss { bottom: 140px; }
+  .no-nav .actions { bottom: 0; padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
+  .no-nav { padding-bottom: 100px; }
 }

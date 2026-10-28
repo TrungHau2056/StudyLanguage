@@ -1,21 +1,85 @@
+@import '@fontsource-variable/source-serif-4/index.css';
+@import '@fontsource-variable/source-serif-4/wght-italic.css';
+@import '@fontsource/be-vietnam-pro/400.css';
+@import '@fontsource/be-vietnam-pro/500.css';
+@import '@fontsource/be-vietnam-pro/600.css';
+@import '@fontsource/be-vietnam-pro/700.css';
+
+/* Pocket Anh–Việt dictionary: ivory bible paper, two-colour print (ink + oxblood). */
 :root {
-  font-family: system-ui, sans-serif;
-  color-scheme: light dark;
-  --bg: #f6f7fb;
-  --card: #fff;
-  --fg: #1d2330;
-  --muted: #6b7280;
-  --accent: #4f46e5;
-  --border: #e5e7eb;
+  --paper: #f4efe4;
+  --paper-2: #ebe4d5; /* tab board, pressed controls */
+  --rule: #d9d0bf;
+  --ink: #1c1a17;
+  --ink-2: #4a453d; /* secondary text, 8.5:1 on paper */
+  --ink-3: #6b6255; /* tertiary text, 5.2:1 on paper */
+  --red: #9b2226; /* the second ink: structure, current state */
+  --red-ink: #fff8ef; /* text on red */
+  --ok: #2f6b3a;
+  --bad: #9b2226;
+  --amber: #8a5a00;
+  --serif: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, serif;
+  --sans: 'Be Vietnam Pro', system-ui, sans-serif;
+  --radius: 12px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: light;
 }
+
+/* Night reading: the same book under a lamp. */
 @media (prefers-color-scheme: dark) {
-  :root { --bg: #111318; --card: #1b1e26; --fg: #e5e7eb; --muted: #9ca3af; --accent: #818cf8; --border: #2d323d; }
+  :root {
+    --paper: #1a1815;
+    --paper-2: #26231e;
+    --rule: #3a352d;
+    --ink: #ece4d4;
+    --ink-2: #c9bfad;
+    --ink-3: #a39886;
+    --red: #e0736a;
+    --red-ink: #1a1815;
+    --ok: #7fbf8a;
+    --bad: #e0736a;
+    --amber: #e0b25a;
+    color-scheme: dark;
+  }
 }
+
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--fg); }
-button, .button, input, select { font: inherit; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--fg); padding: 8px 14px; }
-button, .button { cursor: pointer; }
-button:hover { border-color: var(--accent); }
-a { color: var(--accent); cursor: pointer; }
-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
-td, th { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.5 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; text-wrap: balance; }
+p { text-wrap: pretty; }
+
+button, .button, input, select, textarea {
+  font: inherit;
+  color: var(--ink);
+  border-radius: 10px;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  padding: 10px 16px;
+}
+button, .button { cursor: pointer; font-weight: 600; transition: background-color 0.15s var(--ease-out), color 0.15s var(--ease-out); }
+button:hover:not(:disabled), .button:hover { background: var(--paper-2); }
+button:disabled { opacity: 0.45; cursor: default; }
+input, select, textarea { border-width: 1px; border-color: var(--rule); background: color-mix(in srgb, var(--paper) 60%, #fff); }
+input::placeholder, textarea::placeholder { color: var(--ink-3); }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+input:focus-visible, textarea:focus-visible, select:focus-visible { outline-offset: 0; border-color: var(--red); }
+a { color: var(--red); cursor: pointer; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+::selection { background: var(--red); color: var(--red-ink); }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 10px; border: 3px solid var(--paper); }
+html { scrollbar-color: var(--rule) var(--paper); }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+td, th { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-size: 12px; font-weight: 600; color: var(--ink-3); }
+.icon { width: 18px; height: 18px; flex: none; vertical-align: -3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}

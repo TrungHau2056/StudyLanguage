@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 import { Rating } from 'ts-fsrs';
 import { addCard, db, review, type Settings, type Word } from '../db';
-import { TOPICS, WordHead, WordInfo, useExtra } from '../ui';
+import { Meter, TOPICS, WordHead, WordInfo, useExtra } from '../ui';
 import type { View } from '../App';
 
 /** New words are shown in small batches, each followed straight away by a quiz (in Ôn tập). */
@@ -13,12 +14,12 @@ export default function Learn({ queue, settings, go }: { queue: Word[]; settings
   const extra = useExtra(word);
 
   if (!word || seen >= BATCH) return (
-    <section className="card center">
-      <h2>{word ? `Bạn vừa xem ${seen} từ mới` : 'Đã đủ từ mới hôm nay'}</h2>
-      <p>Giờ hãy <b>kiểm tra ngay</b>: tự nhớ lại vừa xong là cách nhanh nhất để từ “dính” vào đầu.</p>
-      <div className="row">
+    <section className="empty">
+      <h2>{word ? `Bạn vừa xem ${seen} từ mới` : 'Đủ từ mới cho hôm nay'}</h2>
+      <p>Giờ hãy kiểm tra ngay: tự nhớ lại vừa xong là cách nhanh nhất để từ ở lại trong đầu.</p>
+      <div className="actions">
         {word && <button onClick={() => setSeen(0)}>Xem thêm {Math.min(BATCH, queue.length)} từ</button>}
-        <button className="primary" onClick={() => go('review')}>Kiểm tra các từ vừa học →</button>
+        <button className="primary" onClick={() => go('review')}>Kiểm tra từ vừa học <ArrowRight className="icon" /></button>
       </div>
     </section>
   );
@@ -32,18 +33,18 @@ export default function Learn({ queue, settings, go }: { queue: Word[]; settings
     setSeen((n) => n + 1);
   };
 
+  const batch = Math.min(BATCH, seen + queue.length);
   return (
-    <section className="card">
-      <div className="hint">
-        Từ {seen + 1}/{Math.min(BATCH, queue.length)} · {settings.topic === 'all' ? 'theo độ phổ biến' : TOPICS[settings.topic]}
-      </div>
-      <div className="progress"><div style={{ width: `${(100 * seen) / BATCH}%` }} /></div>
+    <section className="entry">
+      <Meter value={seen} total={batch}>
+        Từ {seen + 1}/{batch}{settings.topic !== 'all' && ` · ${TOPICS[settings.topic]}`}
+      </Meter>
       <WordHead word={word} extra={extra} />
       <WordInfo word={word} />
-      <p className="hint">👉 Bấm 🔊 nghe rồi đọc to theo, cả từ lẫn câu ví dụ.</p>
-      <div className="row">
-        <button onClick={() => next(true)}>Mình biết từ này rồi</button>
-        <button className="primary" onClick={() => next(false)}>Đã hiểu, từ tiếp →</button>
+      <p className="hint">Bấm nghe rồi đọc to theo, cả từ lẫn câu ví dụ.</p>
+      <div className="actions">
+        <button onClick={() => next(true)}>Đã biết từ này</button>
+        <button className="primary" onClick={() => next(false)}>Từ tiếp <ArrowRight className="icon" /></button>
       </div>
     </section>
   );

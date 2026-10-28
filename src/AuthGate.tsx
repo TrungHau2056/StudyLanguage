@@ -23,9 +23,9 @@ export default function AuthGate() {
 
   if (!user) return (
     <div className="app">
-      <section className="card login">
-        <h1>📚 Vocab</h1>
-        <p>Học từ vựng tiếng Anh mỗi ngày. Tiến độ được lưu theo tài khoản, học tiếp được trên mọi thiết bị.</p>
+      <section className="login">
+        <h1>Vocab<i style={{ color: 'var(--red)', fontStyle: 'normal' }}>.</i></h1>
+        <p>Mỗi ngày một trang từ điển tiếng Anh. Tiến độ lưu theo tài khoản, học tiếp được trên mọi thiết bị.</p>
         <button className="primary big" onClick={() => signInWithGoogle().catch((e) => setError(String(e)))}>
           <GoogleIcon /> Đăng nhập bằng Google
         </button>

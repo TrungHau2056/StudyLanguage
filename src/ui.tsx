@@ -1,23 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
+import { Volume2 } from 'lucide-react';
 import { getExtra, type Extra, type Word } from './db';
 
 export const TOPICS: Record<string, string> = {
-  people: '👪 Con người & gia đình',
-  body_health: '🩺 Cơ thể & sức khỏe',
-  home: '🏠 Nhà cửa & đời sống',
-  food: '🍜 Ăn uống',
-  work: '💼 Công việc',
-  education: '🎓 Học tập',
-  time_numbers: '⏰ Thời gian & số lượng',
-  travel: '✈️ Du lịch & giao thông',
-  nature: '🌳 Thiên nhiên',
-  feelings: '💭 Cảm xúc & tính cách',
-  communication: '💬 Giao tiếp',
-  society: '🏛️ Xã hội',
-  money_shopping: '💰 Tiền bạc & mua sắm',
-  science_tech: '🔬 Khoa học & công nghệ',
-  arts_leisure: '🎨 Nghệ thuật & giải trí',
-  general: '🧩 Từ thông dụng chung',
+  people: 'Con người & gia đình',
+  body_health: 'Cơ thể & sức khỏe',
+  home: 'Nhà cửa & đời sống',
+  food: 'Ăn uống',
+  work: 'Công việc',
+  education: 'Học tập',
+  time_numbers: 'Thời gian & số lượng',
+  travel: 'Du lịch & giao thông',
+  nature: 'Thiên nhiên',
+  feelings: 'Cảm xúc & tính cách',
+  communication: 'Giao tiếp',
+  society: 'Xã hội',
+  money_shopping: 'Tiền bạc & mua sắm',
+  science_tech: 'Khoa học & công nghệ',
+  arts_leisure: 'Nghệ thuật & giải trí',
+  general: 'Từ thông dụng chung',
 };
 
 export function speak(text: string, rate = 0.9) {
@@ -60,38 +61,74 @@ export function useExtra(word?: Word) {
   return extra;
 }
 
+const POS_ABBR: Record<string, string> = {
+  noun: 'n.', verb: 'v.', adjective: 'adj.', adverb: 'adv.', preposition: 'prep.', pronoun: 'pron.',
+  conjunction: 'conj.', determiner: 'det.', article: 'art.', number: 'num.', interjection: 'interj.',
+};
+export const posAbbr = (pos: string) => POS_ABBR[pos] ?? pos;
+
+export function SpeakButton({ onClick, label = 'Nghe phát âm' }: { onClick: () => void; label?: string }) {
+  return (
+    <button className="icon-btn" onClick={onClick} aria-label={label} title={label}>
+      <Volume2 className="icon" />
+    </button>
+  );
+}
+
+/** Headword line of a dictionary entry: word, pronunciation, part of speech. */
 export function WordHead({ word, extra }: { word: Word; extra?: Extra }) {
   return (
-    <div className="head">
-      <span className="word">{word.word}</span>
-      <button className="icon" onClick={() => playWord(word.word, extra)} title="Nghe">🔊</button>
-      <div className="meta">{extra?.phonetic || word.phonetic} · {word.pos}</div>
+    <div>
+      <div className="hw-line">
+        <span className="hw">{word.word}</span>
+        <SpeakButton onClick={() => playWord(word.word, extra)} />
+      </div>
+      <div className="ipa">{extra?.phonetic || word.phonetic}<span className="pos">{posAbbr(word.pos)}</span></div>
     </div>
   );
 }
 
+/** Body of the entry: sense, definition, example, collocations (headword as ~), word family. */
 export function WordInfo({ word }: { word: Word }) {
   return (
     <>
-      <div className="meaning">{word.meaning}</div>
-      {word.vi.length > 0 && <div className="def">Nghĩa khác: {word.vi.join('; ')}</div>}
-      <div className="def">EN: {word.definition}</div>
-      <div className="example" onClick={() => speak(word.example)}>
-        🔊 {word.example}
-        <div className="def">{word.exampleVi}</div>
+      <div className="sense"><span className="num">1</span>{word.meaning}</div>
+      <div className="def en">{word.definition}</div>
+      {word.vi.length > 0 && <div className="alt">Nghĩa khác: {word.vi.join('; ')}</div>}
+      <div className="ex">
+        <button onClick={() => speak(word.example)} title="Nghe câu ví dụ">{word.example}</button>
+        <div className="ex-vi">{word.exampleVi}</div>
       </div>
       {word.collocations.length > 0 && (
-        <div className="chips">
-          <span className="def">Cụm hay gặp:</span>
-          {word.collocations.map((c) => <span key={c} className="chip" onClick={() => speak(c)}>{c}</span>)}
+        <div className="colls">
+          <span className="lbl">Cụm hay gặp</span>
+          {word.collocations.map((c, i) => (
+            <span key={c}>
+              {i > 0 && <span className="sep">·</span>}
+              <button onClick={() => speak(c)} title="Nghe">{c.replace(wordPattern(word.word), '~')}</button>
+            </span>
+          ))}
         </div>
       )}
       {word.family.length > 0 && (
-        <div className="chips">
-          <span className="def">Họ từ:</span>
-          {word.family.map((f) => <span key={f} className="chip">{f}</span>)}
+        <div className="family">
+          <span className="lbl">Họ từ</span>
+          {word.family.map((f, i) => {
+            const [, w, pos] = f.match(/^(.*?)\s*\((\w+)\)$/) ?? [f, f, ''];
+            return <span key={f}>{i > 0 && <span className="sep">·</span>}{w} {pos && <i>{posAbbr(pos)}</i>}</span>;
+          })}
         </div>
       )}
     </>
+  );
+}
+
+/** Thin progress rule with a count, used at the top of each study screen. */
+export function Meter({ value, total, children }: { value: number; total: number; children: ReactNode }) {
+  return (
+    <div className="meter">
+      <div className="bar"><i style={{ width: `${total ? (100 * value) / total : 0}%` }} /></div>
+      <span>{children}</span>
+    </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { BookA, BookOpen, House, PenLine, RotateCcw, Settings as SettingsIcon, Sparkles, type LucideIcon } from 'lucide-react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { dailyKey, db, loadSettings, saveSettings, startOfToday, type Reading, type Word } from './db';
 import type { Account } from './AuthGate';
@@ -10,7 +11,7 @@ import ReadingView from './views/Reading';
 import WordList from './views/WordList';
 import SettingsView from './views/Settings';
 import Placement from './views/Placement';
-import { StepBar, Welcome } from './views/Routine';
+import { NextPrompt, Rail, Welcome } from './views/Routine';
 import './App.css';
 
 export type View = 'home' | 'learn' | 'review' | 'write' | 'read' | 'words' | 'settings' | 'test' | 'welcome';
@@ -80,35 +81,40 @@ export default function App({ account }: { account?: Account }) {
   const nextStep = steps.find((s) => !s.done);
   const inRoutine = steps.some((s) => s.view === view);
 
-  const tabs: [View, string][] = [
-    ['home', 'Hôm nay'],
-    ['review', `Ôn tập (${due.length})`],
-    ['learn', `Học mới (${nextNew.length})`],
-    ['write', 'Viết'],
-    ['read', 'Đọc'],
-    ['words', 'Từ vựng'],
-    ['settings', 'Cài đặt'],
+  const tabs: { view: View; label: string; icon: LucideIcon; badge?: number; mobile?: boolean }[] = [
+    { view: 'home', label: 'Hôm nay', icon: House, mobile: true },
+    { view: 'review', label: 'Ôn tập', icon: RotateCcw, badge: due.length, mobile: true },
+    { view: 'learn', label: 'Học mới', icon: Sparkles },
+    { view: 'write', label: 'Viết', icon: PenLine },
+    { view: 'read', label: 'Đọc', icon: BookOpen },
+    { view: 'words', label: 'Từ vựng', icon: BookA, mobile: true },
+    { view: 'settings', label: 'Cài đặt', icon: SettingsIcon, mobile: true },
   ];
 
   if (view === 'welcome') return (
-    <div className="app"><Welcome settings={settings} setSettings={setSettings} go={setView} /></div>
+    <div className="app no-nav"><Welcome settings={settings} setSettings={setSettings} go={setView} /></div>
   );
 
   return (
-    <div className="app">
-      <nav>
-        <b>📚 Vocab</b>
+    <div className={`app ${inRoutine ? 'with-rail' : ''}`}>
+      <header className="topbar">
+        <span className="wordmark" onClick={() => setView('home')}>Vocab<i>.</i></span>
+        <nav className="tabs" aria-label="Điều hướng">
+          {tabs.map((t) => (
+            <button key={t.view} className={view === t.view ? 'active' : ''} onClick={() => setView(t.view)}>
+              {t.label}{t.badge ? <span className="badge">{t.badge}</span> : null}
+            </button>
+          ))}
+        </nav>
         {account && (
-          <button className="avatar" title={account.email} onClick={() => setView('settings')}>
+          <button className="avatar" title={account.email} aria-label="Tài khoản" onClick={() => setView('settings')}>
             {account.photo ? <img src={account.photo} alt="" referrerPolicy="no-referrer" /> : account.name[0]}
           </button>
         )}
-        {tabs.map(([v, label]) => (
-          <button key={v} className={view === v ? 'active' : ''} onClick={() => setView(v)}>{label}</button>
-        ))}
-      </nav>
-      {inRoutine && <StepBar steps={steps} view={view} next={nextStep} go={setView} />}
+      </header>
+      {inRoutine && <Rail steps={steps} view={view} go={setView} />}
       <main>
+        {inRoutine && <NextPrompt steps={steps} view={view} next={nextStep} go={setView} />}
         {view === 'home' && <Home words={words} cards={cards} steps={steps} next={nextStep} settings={settings} go={setView} />}
         {view === 'learn' && <Learn queue={nextNew} settings={settings} go={setView} />}
         {view === 'review' && <Review due={due} byId={byId} cards={cards} words={words} />}
@@ -123,6 +129,14 @@ export default function App({ account }: { account?: Account }) {
         Dữ liệu: <a href="https://www.newgeneralservicelist.com/">NGSL</a> (CC BY-SA), từ điển Anh–Việt (Hồ Ngọc Đức),{' '}
         <a href="https://dictionaryapi.dev/">Free Dictionary API</a>; ví dụ, cụm từ, bài đọc do AI tạo. Lịch ôn: FSRS.
       </footer>
+      <nav className="bottomnav" aria-label="Điều hướng">
+        {tabs.filter((t) => t.mobile).map((t) => (
+          <button key={t.view} className={view === t.view || (t.view === 'home' && inRoutine && view !== 'review') ? 'active' : ''} onClick={() => setView(t.view)}>
+            <t.icon className="icon" />{t.label}
+            {t.badge ? <span className="badge">{t.badge}</span> : null}
+          </button>
+        ))}
+      </nav>
     </div>
   );
 }

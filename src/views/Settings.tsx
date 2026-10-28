@@ -19,12 +19,14 @@ export default function SettingsView({ settings, setSettings, go, account }: Pro
   };
   return (
     <section className="settings">
+      <h2>Cài đặt</h2>
       {account && (
-        <div className="callout account">
-          <div><b>{account.name}</b><div className="hint">{account.email} · tiến độ tự đồng bộ lên tài khoản</div></div>
+        <div className="account">
+          <div><b>{account.name}</b><div className="hint">{account.email} · tiến độ tự đồng bộ theo tài khoản</div></div>
           <button onClick={account.signOut}>Đăng xuất</button>
         </div>
       )}
+      <h2>Học từ mới</h2>
       <label>
         Số từ mới mỗi ngày:{' '}
         <input type="number" min={0} max={100} value={settings.newPerDay}
@@ -45,7 +47,7 @@ export default function SettingsView({ settings, setSettings, go, account }: Pro
         dùng khi bạn cần từ cho một tình huống cụ thể.
       </p>
 
-      <h3>Trình độ</h3>
+      <h2>Trình độ</h2>
       <p className="hint">
         {settings.testEstimate === undefined
           ? 'Chưa làm bài kiểm tra.'
@@ -56,7 +58,7 @@ export default function SettingsView({ settings, setSettings, go, account }: Pro
         {settings.knownUpTo > 0 && <button onClick={() => setSettings({ ...settings, knownUpTo: 0 })}>Học lại từ đầu danh sách</button>}
       </div>
 
-      <h3>Sao lưu</h3>
+      <h2>Sao lưu</h2>
       <p className="hint">
         {account ? 'Dữ liệu đã tự lưu theo tài khoản. Bạn vẫn có thể xuất file để giữ một bản dự phòng.' : 'Dữ liệu chỉ lưu trong trình duyệt này. Xuất file để chuyển sang máy khác.'}
       </p>

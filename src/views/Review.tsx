@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Check, Volume2, X } from 'lucide-react';
 import { Rating, type Grade } from 'ts-fsrs';
 import { previewIntervals, review, type StudyCard, type Word } from '../db';
-import { WordHead, WordInfo, playWord, shuffle, useExtra, wordPattern } from '../ui';
+import { Meter, WordHead, WordInfo, playWord, posAbbr, shuffle, useExtra, wordPattern } from '../ui';
 
 type Mode = 'choice' | 'recognize' | 'listen' | 'type';
 
@@ -33,6 +34,7 @@ export default function Review({ due, byId, cards, words }: Props) {
   const extra = useExtra(word);
   const [revealed, setRevealed] = useState(false);
   const [answer, setAnswer] = useState('');
+  const [done, setDone] = useState(0);
   const mode = useMemo(() => (card ? pickMode(card) : 'recognize'), [card]);
   const options = useMemo(() => {
     if (!word) return [];
@@ -51,9 +53,11 @@ export default function Review({ due, byId, cards, words }: Props) {
   if (!card || !word) {
     const soon = cards.filter((c) => c.due > new Date()).sort((a, b) => +a.due - +b.due)[0];
     return (
-      <section className="center">
-        <p>✅ Không còn từ cần ôn lúc này.</p>
-        {soon && <p className="hint">Từ tiếp theo đến hạn lúc {soon.due.toLocaleString('vi-VN')}</p>}
+      <section className="empty">
+        <h2>Không còn từ cần ôn lúc này</h2>
+        {soon
+          ? <p>Từ tiếp theo đến hạn lúc {soon.due.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })} {soon.due.toLocaleDateString('vi-VN')}.</p>
+          : <p>Học vài từ mới, chúng sẽ xuất hiện ở đây để ôn.</p>}
       </section>
     );
   }
@@ -62,13 +66,14 @@ export default function Review({ due, byId, cards, words }: Props) {
   const objective = mode !== 'recognize';
   const correct = mode === 'choice' ? answer === String(word.id) : answer.trim().toLowerCase() === word.word.toLowerCase();
   const submit = (value = answer) => { setAnswer(value); setRevealed(true); };
+  const rate = async (g: Grade) => { await review(card, g); setDone((n) => n + 1); };
 
   return (
-    <section className="card">
-      <div className="hint">Còn {due.length} từ · {MODE_LABEL[mode]}</div>
+    <section className="entry">
+      <Meter value={done} total={done + due.length}>Còn {due.length} · {MODE_LABEL[mode]}</Meter>
 
-      {(mode === 'choice' || mode === 'recognize') && <WordHead word={word} extra={extra} />}
-      {mode === 'recognize' && !revealed && <p className="hint">Nghĩa của từ này là gì? Nghĩ ra rồi mới lật thẻ.</p>}
+      {(mode === 'choice' || mode === 'recognize' || revealed) && <WordHead word={word} extra={extra} />}
+      {mode === 'recognize' && !revealed && <p className="prompt">Nghĩa của từ này là gì? Nghĩ ra rồi mới lật thẻ.</p>}
 
       {mode === 'choice' && (
         <div className="options">
@@ -82,51 +87,56 @@ export default function Review({ due, byId, cards, words }: Props) {
         </div>
       )}
 
-      {mode === 'listen' && (
-        <button className="big-listen" onClick={() => playWord(word.word, extra)}>🔊 Nghe lại</button>
+      {mode === 'listen' && !revealed && (
+        <button className="listen" onClick={() => playWord(word.word, extra)}><Volume2 className="icon" /> Nghe lại</button>
       )}
 
-      {mode === 'type' && (
+      {mode === 'type' && !revealed && (
         <>
-          <div className="meaning">{word.meaning}</div>
-          <div className="def">{word.pos} · {word.definition}</div>
-          <div className="def">“{word.example.replace(wordPattern(word.word), '_____')}”</div>
+          <div className="sense"><span className="num">1</span>{word.meaning}</div>
+          <div className="def en">{word.definition} <span className="pos">{posAbbr(word.pos)}</span></div>
+          <div className="ex">{word.example.replace(wordPattern(word.word), '_____')}</div>
         </>
       )}
 
       {(mode === 'listen' || mode === 'type') && (
-        <form onSubmit={(e) => { e.preventDefault(); submit(); }}>
+        <form id="answer" className="answer" onSubmit={(e) => { e.preventDefault(); submit(); }}>
           <input autoFocus value={answer} disabled={revealed} autoCapitalize="off" autoCorrect="off" spellCheck={false}
-            placeholder={mode === 'listen' ? 'Gõ từ bạn nghe được…' : 'Gõ từ tiếng Anh…'} onChange={(e) => setAnswer(e.target.value)} />
-          {!revealed && <button className="primary full" type="submit">Kiểm tra</button>}
+            aria-label="Câu trả lời" placeholder={mode === 'listen' ? 'Gõ từ bạn nghe được' : 'Gõ từ tiếng Anh'} onChange={(e) => setAnswer(e.target.value)} />
         </form>
       )}
 
-      {revealed && objective && <p className={correct ? 'ok' : 'bad'}>{correct ? '✔ Chính xác' : mode === 'choice' ? '✘ Chưa đúng' : `✘ Bạn gõ: “${answer}”`}</p>}
+      {revealed && objective && (
+        <p className={`verdict ${correct ? 'ok' : 'bad'}`}>
+          {correct ? <><Check className="icon" /> Chính xác</> : <><X className="icon" /> {mode === 'choice' || !answer ? 'Chưa đúng' : `Bạn gõ “${answer}”`}</>}
+        </p>
+      )}
 
       {revealed ? (
         <>
-          {(mode === 'listen' || mode === 'type') && <WordHead word={word} extra={extra} />}
-          <p className="hint ask">
-            {objective && !correct ? 'Không sao, từ này sẽ được hỏi lại sau ít phút.' : 'Bạn nhớ từ này dễ hay khó? Thời gian dưới nút là khi nào hỏi lại.'}
+          <p className="grade-hint">
+            {objective && !correct ? 'Không sao, từ này sẽ được hỏi lại sau ít phút.' : 'Bạn nhớ từ này dễ hay khó? Dòng dưới mỗi nút là khi nào hỏi lại.'}
           </p>
-          <div className="row grades">
+          <div className="grades">
             {GRADES
               // An objectively wrong answer is always "Quên"; a right one can't be.
               .filter(([g]) => !objective || (correct ? g !== Rating.Again : g === Rating.Again))
               .map(([g, label, cls, help]) => (
-                <button key={g} className={cls} onClick={() => review(card, g)}>
-                  {label}<small>{help}</small><small>↻ {intervals[g]}</small>
+                <button key={g} className={cls} onClick={() => rate(g)}>
+                  <b>{label}</b><small>{help}</small><small>sau {intervals[g]}</small>
                 </button>
               ))}
           </div>
           <WordInfo word={word} />
         </>
       ) : (
-        mode === 'recognize' && <button className="primary" onClick={() => setRevealed(true)}>Lật thẻ</button>
-      )}
-      {!revealed && mode !== 'recognize' && mode !== 'choice' && (
-        <a className="hint" onClick={() => submit('')}>Không biết, xem đáp án</a>
+        <div className="actions">
+          {mode === 'recognize' && <button className="primary" onClick={() => setRevealed(true)}>Lật thẻ</button>}
+          {(mode === 'listen' || mode === 'type') && <>
+            <button onClick={() => submit('')}>Không biết</button>
+            <button className="primary" type="submit" form="answer">Kiểm tra</button>
+          </>}
+        </div>
       )}
     </section>
   );

@@ -1,4 +1,5 @@
 import { useLiveQuery } from 'dexie-react-hooks';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import { db, retrievability, type Settings, type StudyCard, type Word } from '../db';
 import type { Step, View } from '../App';
 
@@ -10,8 +11,6 @@ interface Props {
   settings: Settings;
   go: (v: View) => void;
 }
-
-const ICONS: Record<string, string> = { review: '🔁', learn: '✨', write: '✍️', read: '📖' };
 
 export default function Home({ words, cards, steps, next, settings, go }: Props) {
   const streak = useLiveQuery(async () => {
@@ -28,45 +27,41 @@ export default function Home({ words, cards, steps, next, settings, go }: Props)
   const remembered = cards.filter((c) => c.wordId > settings.knownUpTo && retrievability(c, now) >= 0.9).length;
   const estimate = settings.knownUpTo + remembered;
   const doneCount = steps.filter((s) => s.done).length;
+  const date = now.toLocaleDateString('vi-VN', { weekday: 'long', day: 'numeric', month: 'numeric' });
 
   return (
-    <section>
-      <div className="hero card">
-        <div className="hint">Bài học hôm nay · {doneCount}/{steps.length} bước</div>
-        <div className="progress"><div style={{ width: `${(100 * doneCount) / steps.length}%` }} /></div>
-        {next ? (
-          <button className="primary big" onClick={() => go(next.view)}>
-            {doneCount === 0 ? 'Bắt đầu học' : 'Tiếp tục học'} → {next.label}
-          </button>
-        ) : (
-          <p className="center-text">🎉 Xong bài hôm nay! Mai quay lại để ôn nhé.</p>
-        )}
-        <ol className="plan">
-          {steps.map((s) => (
-            <li key={s.view} className={s.done ? 'done' : s === next ? 'current' : ''} onClick={() => go(s.view)}>
-              <span className="icon-lg">{s.done ? '✅' : ICONS[s.view]}</span>
-              <div><b>{s.label}</b><div className="hint">{s.detail}</div></div>
-              <span className="chev">›</span>
-            </li>
-          ))}
-        </ol>
-      </div>
+    <section className="today">
+      <h1>{next ? (doneCount === 0 ? 'Bài hôm nay' : `Còn ${steps.length - doneCount} phần nữa`) : 'Xong bài hôm nay'}</h1>
+      <p className="sub">{date.charAt(0).toUpperCase() + date.slice(1)} · {doneCount}/{steps.length} phần</p>
+      {next ? (
+        <button className="primary big" onClick={() => go(next.view)}>
+          {doneCount === 0 ? 'Bắt đầu học' : 'Tiếp tục học'}: {next.label.toLowerCase()} <ArrowRight className="icon" />
+        </button>
+      ) : (
+        <p>Mai quay lại để ôn nhé. Muốn học thêm thì mở phần Đọc hoặc Từ vựng.</p>
+      )}
 
-      <div className="stats">
-        <Stat n={streak ?? 0} label="Ngày học liên tục 🔥" />
-        <Stat n={estimate} label={`Vốn từ ước tính / ${words.length}`} />
-        <Stat n={cards.length} label="Từ đã học" />
-      </div>
+      <ol className="plan">
+        {steps.map((s, i) => (
+          <li key={s.view} className={s.done ? 'done' : s === next ? 'current' : ''} onClick={() => go(s.view)}>
+            <span className="num">{i + 1}</span>
+            <div><b>{s.label}</b><span className="meta">{s.detail}</span></div>
+            <ChevronRight className="icon chev" />
+          </li>
+        ))}
+      </ol>
+
+      <dl className="ledger">
+        <div><dt>ngày liên tục</dt><dd>{streak ?? 0}</dd></div>
+        <div><dt>vốn từ ước tính / {words.length}</dt><dd>{estimate}</dd></div>
+        <div><dt>từ đã học</dt><dd>{cards.length}</dd></div>
+      </dl>
 
       {settings.testEstimate === undefined && (
-        <div className="callout">
-          Đã biết khá nhiều từ cơ bản? <a onClick={() => go('test')}>Làm bài kiểm tra vốn từ (5 phút)</a> để web bỏ qua những từ bạn đã biết.
-        </div>
+        <p className="aside">
+          Đã biết khá nhiều từ cơ bản? <a onClick={() => go('test')}>Làm bài kiểm tra vốn từ</a> (5 phút) để bỏ qua những từ bạn đã biết.
+        </p>
       )}
     </section>
   );
 }
-
-const Stat = ({ n, label }: { n: number; label: string }) => (
-  <div className="stat"><div className="n">{n}</div><div>{label}</div></div>
-);

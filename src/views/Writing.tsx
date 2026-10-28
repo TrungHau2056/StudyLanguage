@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react';
+import { ArrowRight, Check, Volume2, X } from 'lucide-react';
 import type { StudyCard, Word } from '../db';
-import { WordHead, speak, useExtra, wordPattern } from '../ui';
+import { Meter, WordHead, speak, useExtra, wordPattern } from '../ui';
+
+const Mark = ({ ok }: { ok: boolean }) => (ok ? <Check className="icon" /> : <X className="icon" />);
 
 /** Output practice: write your own sentence with a recently studied word, then compare with a model sentence. */
 export default function Writing({ cards, byId, onWritten }: { cards: StudyCard[]; byId: Map<number, Word>; onWritten: () => void }) {
@@ -17,45 +20,48 @@ export default function Writing({ cards, byId, onWritten }: { cards: StudyCard[]
   const word = pool.length ? pool[index % pool.length] : undefined;
   const extra = useExtra(word);
 
-  if (!word) return <section className="center"><p>Hãy học vài từ trước, rồi quay lại luyện viết.</p></section>;
+  if (!word) return (
+    <section className="empty"><h2>Chưa có từ để viết</h2><p>Học vài từ mới trước, rồi quay lại đây đặt câu.</p></section>
+  );
 
   const usesWord = wordPattern(word.word).test(text);
   const words = text.trim().split(/\s+/).filter(Boolean).length;
   const next = () => { setIndex((i) => i + 1 + Math.floor(Math.random() * 3)); setText(''); setChecked(false); };
 
   return (
-    <section className="card">
-      <div className="hint">Đặt một câu của riêng bạn với từ này · đã viết {done} câu trong buổi này</div>
+    <section className="entry">
+      <Meter value={Math.min(done, 3)} total={3}>Đã viết {done} câu</Meter>
       <WordHead word={word} extra={extra} />
-      <div className="meaning">{word.meaning}</div>
+      <div className="sense"><span className="num">1</span>{word.meaning}</div>
       {word.collocations.length > 0 && (
-        <div className="chips"><span className="def">Gợi ý cụm:</span>{word.collocations.map((c) => <span key={c} className="chip">{c}</span>)}</div>
+        <div className="colls"><span className="lbl">Gợi ý cụm</span>{word.collocations.join(' · ')}</div>
       )}
-      <textarea rows={3} value={text} placeholder={`Viết câu có “${word.word}”, tốt nhất là về chính cuộc sống của bạn…`}
+      <textarea rows={3} value={text} aria-label="Câu của bạn" placeholder={`Viết một câu có “${word.word}”, tốt nhất là về chính cuộc sống của bạn`}
         onChange={(e) => { setText(e.target.value); setChecked(false); }} />
       {!checked ? (
-        <div className="row">
+        <div className="actions">
           <button onClick={next}>Bỏ qua</button>
           <button className="primary" disabled={!text.trim()} onClick={() => {
             setChecked(true);
             setDone((n) => n + 1);
-            if (wordPattern(word.word).test(text)) onWritten(); // only sentences that really use the word count toward the goal
+            if (usesWord) onWritten(); // only sentences that really use the word count toward the goal
           }}>Xong</button>
         </div>
       ) : (
         <>
           <ul className="checklist">
-            <li className={usesWord ? 'ok' : 'bad'}>{usesWord ? '✔' : '✘'} Câu có dùng “{word.word}”</li>
-            <li className={words >= 6 ? 'ok' : 'bad'}>{words >= 6 ? '✔' : '✘'} Câu đủ dài (≥ 6 từ)</li>
+            <li className={usesWord ? 'ok' : 'bad'}><Mark ok={usesWord} /> Câu có dùng “{word.word}”</li>
+            <li className={words >= 6 ? 'ok' : 'bad'}><Mark ok={words >= 6} /> Câu đủ dài (từ 6 từ trở lên)</li>
           </ul>
-          <div className="example" onClick={() => speak(word.example)}>
-            Câu mẫu: 🔊 {word.example}
-            <div className="def">{word.exampleVi}</div>
+          <div className="ex">
+            <span className="lbl">Câu mẫu</span>
+            <button onClick={() => speak(word.example)} title="Nghe">{word.example}</button>
+            <div className="ex-vi">{word.exampleVi}</div>
           </div>
-          <p className="hint">So sánh với câu mẫu: cách dùng từ, giới từ đi kèm, thì của động từ đã giống chưa? Đọc to câu của bạn 2 lần.</p>
-          <div className="row">
-            <button onClick={() => speak(text)}>🔊 Nghe câu của tôi</button>
-            <button className="primary" onClick={next}>Từ tiếp theo →</button>
+          <p className="hint">So với câu mẫu: cách dùng từ, giới từ đi kèm, thì của động từ đã giống chưa? Đọc to câu của bạn 2 lần.</p>
+          <div className="actions">
+            <button onClick={() => speak(text)}><Volume2 className="icon" /> Nghe câu của tôi</button>
+            <button className="primary" onClick={next}>Từ tiếp <ArrowRight className="icon" /></button>
           </div>
         </>
       )}

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { Settings, Word } from '../db';
-import { shuffle } from '../ui';
+import { Meter, shuffle } from '../ui';
 import type { View } from '../App';
 
 /**
@@ -41,14 +41,14 @@ export default function Placement({ words, settings, setSettings, go }: Props) {
   const [checking, setChecking] = useState(false); // step 2 for the current item
 
   if (!started) return (
-    <section className="card">
+    <section>
       <h2>Kiểm tra vốn từ</h2>
       <p>Bạn sẽ thấy {items.length} từ. Chọn <b>Biết</b> nếu bạn biết nghĩa, ngược lại chọn <b>Không biết</b>.</p>
       <p className="hint">
-        Mỗi khi chọn "Biết", bạn phải <b>chọn đúng nghĩa</b> trong 4 đáp án thì từ đó mới được tính. Chọn sai sẽ bị trừ điểm,
-        nên nếu không chắc thì bấm "Không chắc". Trong bài cũng xen một số <b>từ bịa</b> để phát hiện việc đoán mò. Mất khoảng 5 phút.
+        Mỗi khi chọn “Biết”, bạn phải chọn đúng nghĩa trong 4 đáp án thì từ đó mới được tính. Chọn sai sẽ bị trừ điểm,
+        nên nếu không chắc thì bấm “Không chắc”. Trong bài có xen một số từ bịa để phát hiện việc đoán mò. Mất khoảng 5 phút.
       </p>
-      <button className="primary" onClick={() => setStarted(true)}>Bắt đầu</button>
+      <div className="actions"><button className="primary" onClick={() => setStarted(true)}>Bắt đầu</button></div>
     </section>
   );
 
@@ -56,22 +56,21 @@ export default function Placement({ words, settings, setSettings, go }: Props) {
     const item = items[answers.length];
     const answer = (a: Answer) => { setAnswers((xs) => [...xs, a]); setChecking(false); };
     return (
-      <section className="card center">
-        <div className="hint">{answers.length + 1} / {items.length}</div>
-        <div className="progress"><div style={{ width: `${(100 * answers.length) / items.length}%` }} /></div>
-        <div className="word test-word">{item.text}</div>
+      <section>
+        <Meter value={answers.length} total={items.length}>{answers.length + 1}/{items.length}</Meter>
+        <div className="test-word">{item.text}</div>
         {!checking ? (
-          <div className="row grades">
-            <button className="again" onClick={() => answer('no')}>Không biết</button>
-            <button className="good" onClick={() => setChecking(true)}>Biết</button>
+          <div className="yesno">
+            <button onClick={() => answer('no')}>Không biết</button>
+            <button className="primary" onClick={() => setChecking(true)}>Biết</button>
           </div>
         ) : (
           <div className="options">
-            <p className="hint">Nghĩa của từ này là:</p>
+            <p className="prompt">Nghĩa của từ này là:</p>
             {item.options.map((o, i) => (
               <button key={i} onClick={() => answer(item.word && o === item.word.meaning ? 'right' : 'wrong')}>{o}</button>
             ))}
-            <button className="hint" onClick={() => answer('unsure')}>Không chắc</button>
+            <button className="quiet" onClick={() => answer('unsure')}>Không chắc</button>
           </div>
         )}
       </section>
@@ -98,10 +97,10 @@ export default function Placement({ words, settings, setSettings, go }: Props) {
   }
 
   return (
-    <section className="card">
+    <section>
       <h2>Kết quả: khoảng {estimate} / {words.length} từ</h2>
       {falseAlarm > 0.2 && (
-        <p className="bad">⚠ Bạn chọn "Biết" cho {Math.round(falseAlarm * 100)}% từ bịa, có vẻ bạn đang đoán. Kết quả kém tin cậy.</p>
+        <p className="bad">Bạn chọn “Biết” cho {Math.round(falseAlarm * 100)}% từ bịa, có vẻ bạn đang đoán. Kết quả kém tin cậy, nên làm lại.</p>
       )}
       {overclaimed > 0 && <p className="hint">Có {overclaimed} từ bạn chọn "Biết" nhưng chọn sai nghĩa, nên không được tính và còn bị trừ điểm.</p>}
       <table>
@@ -118,7 +117,7 @@ export default function Placement({ words, settings, setSettings, go }: Props) {
           : 'Nên học từ đầu danh sách: ngay cả nhóm từ phổ biến nhất cũng còn từ bạn chưa chắc.'}{' '}
         Đây là ước lượng từ một mẫu nhỏ. Từ nào bị bỏ qua mà bạn chưa biết thì bạn vẫn tự thêm được ở trang Từ vựng.
       </p>
-      <div className="row">
+      <div className="actions">
         <button onClick={() => { setAnswers([]); setChecking(false); setStarted(false); }}>Làm lại</button>
         <button className="primary" onClick={() => { setSettings({ ...settings, knownUpTo, testEstimate: estimate }); go('home'); }}>
           Áp dụng kết quả
