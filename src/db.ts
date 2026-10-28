@@ -119,7 +119,10 @@ export async function selectUser(id: string) {
   if (oldSettings) saveSettings(JSON.parse(oldSettings));
   await pushMany(id, 'cards', oldCards.map((c) => ({ id: String(c.wordId), data: c })));
   await pushMany(id, 'logs', oldLogs.map((l) => ({ id: l.id, data: l })));
-  legacy.close();
+  // Hand the anonymous progress to this account only; another account signing in on this browser must not inherit it.
+  await legacy.delete();
+  localStorage.removeItem('settings');
+  localStorage.removeItem('daily');
 }
 
 const scheduler = fsrs({ enable_fuzz: true });
