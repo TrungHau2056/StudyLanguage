@@ -39,3 +39,11 @@ node scripts/build-words.mjs   # tạo public/words.json và public/readings.jso
 Mỗi lần push lên `main`, GitHub Actions (`.github/workflows/deploy.yml`) tự build và đưa lên GitHub Pages.
 
 Tiến độ học lưu trong IndexedDB của trình duyệt. Dùng **Cài đặt → Xuất/Nhập dữ liệu** để sao lưu hoặc chuyển máy.
+
+## Tài khoản (Firebase)
+
+Đăng nhập bằng Google qua Firebase Authentication. Tiến độ của từng tài khoản lưu trên Firestore và đồng bộ giữa các thiết bị.
+
+- Cấu hình nằm trong biến của GitHub repo (`VITE_FIREBASE_*`, xem `.env.example`). Khi chạy trên máy thì đặt các biến này trong `.env.local`.
+- Quy tắc bảo mật của Firestore nằm trong `firestore.rules`: mỗi người chỉ đọc và ghi được `users/{uid}` của chính mình.
+- Thiếu cấu hình thì web chạy ở chế độ chỉ lưu trong trình duyệt, không có đăng nhập.
