@@ -118,7 +118,7 @@ export default function App({ account }: { account?: Account }) {
 
   const now = new Date();
   const due = cards.filter((c) => c.due <= now).sort((a, b) => +a.due - +b.due);
-  const learnedToday = cards.filter((c) => c.addedAt >= startOfToday()).length;
+  const learnedToday = cards.filter((c) => c.addedAt >= startOfToday() && !c.relearn).length;
   const newLeft = Math.max(settings.newPerDay - learnedToday, 0);
   const studied = new Set(cards.map((c) => c.wordId));
   const knownIds = new Set(known.map((k) => k.wordId));
@@ -156,7 +156,10 @@ export default function App({ account }: { account?: Account }) {
   // "Tiếp tục" goes to the first unfinished step of a track. Newly learned items become due at once,
   // so each track's review step reopens to practise them right away.
   const steps: Step[] = [
-    { track: 'vocab', view: 'review', label: 'Ôn từ', detail: due.length ? `${due.length} từ đến hạn` : 'Không còn từ đến hạn', done: due.length === 0 },
+    // The daily spot-check of "known" words lives in this step too, so it isn't skipped when nothing is due.
+    { track: 'vocab', view: 'review', label: 'Ôn từ',
+      detail: due.length ? `${due.length} từ đến hạn` : spot.length ? `Kiểm tra nhanh ${spot.length} từ đã biết` : 'Không còn từ đến hạn',
+      done: due.length === 0 && spot.length === 0 },
     { track: 'vocab', view: 'learn', label: 'Từ mới', detail: nextNew.length ? `Còn ${nextNew.length} từ` : 'Đủ chỉ tiêu hôm nay', done: nextNew.length === 0 },
     { track: 'vocab', view: 'write', label: 'Viết câu', detail: `${Math.min(fresh.written, WRITE_GOAL)}/${WRITE_GOAL} câu đúng`, done: fresh.written >= WRITE_GOAL },
     { track: 'vocab', view: 'read', label: 'Đọc', detail: fresh.read.length ? 'Đã đọc' : '1 bài đọc ngắn', done: fresh.read.length > 0 },

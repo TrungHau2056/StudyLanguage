@@ -32,6 +32,8 @@ export interface Reading {
 export interface StudyCard extends Card {
   wordId: number;
   addedAt: Date;
+  /** Put back into learning after a failed spot-check / "Học lại"; doesn't count toward today's new words. */
+  relearn?: boolean;
 }
 
 /** Spaced-review card for non-word material: a grammar exercise (g:lesson:i) or a phrase (p:id). */
@@ -176,8 +178,8 @@ const scheduler = fsrs({ enable_fuzz: true });
 // Cloud writes are fire-and-forget: Firestore's offline cache retries them when back online.
 const pushCard = (c: StudyCard) => uid && pushDoc(uid, ['cards', String(c.wordId)], c).catch(console.error);
 
-export async function addCard(wordId: number) {
-  const card = { ...createEmptyCard(new Date()), wordId, addedAt: new Date() };
+export async function addCard(wordId: number, relearn = false) {
+  const card: StudyCard = { ...createEmptyCard(new Date()), wordId, addedAt: new Date(), ...(relearn && { relearn }) };
   await db.cards.put(card);
   pushCard(card);
 }
@@ -201,7 +203,7 @@ export async function markKnown(wordIds: number[], source: Known['source']) {
 export async function relearn(wordId: number) {
   await db.known.delete(wordId);
   if (uid) removeDoc(uid, ['known', String(wordId)]).catch(console.error);
-  await addCard(wordId);
+  await addCard(wordId, true);
 }
 
 /** A spot-check passed: remember when, so the same word isn't checked again soon. */

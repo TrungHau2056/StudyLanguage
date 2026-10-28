@@ -51,6 +51,8 @@ for (const e of JSON.parse(evJson)) {
 const enrich = JSON.parse(await readFile('scripts/data/enrich.json', 'utf8'));
 // AI-classified CEFR level of each NGSL sense, and whether it can be learned in isolation (vs. grammar/abstract words).
 const levels = JSON.parse(await readFile('scripts/data/levels.json', 'utf8'));
+// IPA for words the dictionary has no (complete) transcription for: dictionaryapi.dev, else AI.
+const ipa = JSON.parse(await readFile('scripts/data/ipa.json', 'utf8'));
 const words = [];
 const missing = [];
 for (const [rank, lemma, pos, definition] of parseCsv(ngslCsv).slice(1)) {
@@ -67,7 +69,7 @@ for (const [rank, lemma, pos, definition] of parseCsv(ngslCsv).slice(1)) {
     pos,
     definition,
     // Source has truncated transcriptions like "/w"; keep only complete /.../ ones.
-    phonetic: entries.map((e) => e.phonetic).find((p) => /^\/[^/,]+\/$/.test(p ?? '')) ?? '',
+    phonetic: entries.map((e) => e.phonetic).find((p) => /^\/[^/,]+\/$/.test(p ?? '')) ?? ipa[rank] ?? '',
     meaning: e?.vi ?? meanings[0] ?? '',
     vi: meanings.filter((m) => m !== e?.vi),
     topic: e?.topic ?? 'general',
