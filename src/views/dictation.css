@@ -1,0 +1,12 @@
+.dictation-input {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 1.1rem;
+  padding: 0.6rem;
+  margin-top: 1rem;
+  resize: vertical;
+}
+
+.dictation-words { font-size: 1.15rem; margin: 0 0 0.4rem; }
+.dictation-words .bad { text-decoration: underline; text-decoration-thickness: 2px; color: var(--bad); }

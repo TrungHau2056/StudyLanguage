@@ -88,4 +88,7 @@ const readings = [
   ...JSON.parse(await readFile('scripts/data/readings.json', 'utf8')).map((r) => ({ ...r, level: 'A2–B1' })),
 ];
 await writeFile('public/readings.json', JSON.stringify(readings));
+// AI-written, AI-audited A1–A2 grammar lessons and situation phrases.
+await writeFile('public/grammar.json', JSON.stringify(JSON.parse(await readFile('scripts/data/grammar.json', 'utf8'))));
+await writeFile('public/phrases.json', JSON.stringify(JSON.parse(await readFile('scripts/data/phrases.json', 'utf8'))));
 console.log(`wrote ${words.length} words; missing enrichment: ${missing.join(', ') || 'none'}`);

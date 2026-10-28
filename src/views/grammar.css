@@ -1,0 +1,10 @@
+.q-sentence { font: 20px/1.5 var(--serif); margin: 8px 0 16px; }
+.chips, .built { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.built { min-height: 48px; padding: 8px 0; border-bottom: 1px solid var(--rule, currentColor); align-items: center; }
+.chip { font: 18px var(--serif); padding: 6px 12px; }
+.chip.chosen, .options button.chosen { outline: 2px solid var(--ink); }
+.chip.right { color: var(--ok, green); border-color: currentColor; }
+.chip.wrong { color: var(--red); border-color: currentColor; text-decoration: line-through; }
+.grammar .lbl { display: block; margin-top: 20px; }
+.formulas div { font: 18px/1.6 var(--serif); padding: 4px 0; border-bottom: 1px solid var(--rule, transparent); }
+.mistakes li { margin: 6px 0; }

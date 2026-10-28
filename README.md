@@ -22,6 +22,10 @@ Từ mới mặc định học theo tần suất. Có thể chọn học theo ch
 - Bấm “Đã biết” thì phải chọn đúng nghĩa. Đúng thì từ không bao giờ bị dạy hay ôn lại.
 - Từ “Đã biết” và từ dưới trình độ đã chọn chỉ được hỏi nhanh 3 từ mỗi ngày (kiểm tra ngẫu nhiên). Quên thì từ đó được đưa lại vào phần học.
 - Người mới bắt đầu học theo trình độ, từ cụ thể (đồ vật, hành động) trước, từ ngữ pháp sau. Có thêm trang hướng dẫn cách đọc phiên âm và 39 bài đọc A1.
+
+**Lộ trình (A1–A2 đầy đủ, B1+ hiện chỉ có từ vựng).** Mỗi ngày gồm 6 phần: Ôn tập (từ, ngữ pháp, mẫu câu) → Từ mới → Ngữ pháp (1 bài, 12 câu bài tập) → Mẫu câu (5 câu, có nút nói thử để máy nhận diện giọng) → Viết (kiểm tra ngữ pháp, chính tả bằng LanguageTool) → Đọc hoặc nghe chép chính tả. Trang Lộ trình cho biết tiến độ từng trình độ và có bài kiểm tra lên trình độ (đúng từ 80%).
+
+- `scripts/data/grammar.json`: 26 bài ngữ pháp A1–A2, `scripts/data/phrases.json`: 14 tình huống × 8 câu. Do AI viết và AI soát lại, nên có thể còn sai sót.
 ## Chạy
 
 ```bash

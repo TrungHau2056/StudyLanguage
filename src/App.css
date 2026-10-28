@@ -48,6 +48,17 @@ h3.group { font-size: 16px; margin: 24px 0 6px; color: var(--ink-2); }
 mark.err { background: color-mix(in srgb, var(--bad) 16%, transparent); border-bottom: 2px wavy var(--bad); cursor: default; }
 .passage.marked { font-size: 18px; margin: 12px 0 4px; }
 .issues { margin: 4px 0 0; padding-left: 20px; display: grid; gap: 8px; }
+.roadmap { list-style: none; padding: 0; margin: 16px 0 0; border-top: 1px solid var(--rule); }
+.roadmap li { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.roadmap li.later { color: var(--ink-3); }
+.roadmap li.current .lv { background: var(--red); color: var(--red-ink); }
+.lv-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.lv { font: 700 15px var(--serif); border: 1.5px solid currentColor; border-radius: 8px; padding: 2px 8px; }
+.roadmap li.current .lv { border-color: var(--red); }
+.lv-row { display: grid; grid-template-columns: 80px 1fr auto; gap: 10px; align-items: center; font-size: 14px; margin: 4px 0; }
+.lv-row .bar { height: 4px; background: var(--rule); }
+.lv-row .bar i { display: block; height: 100%; background: var(--red); }
+.lv-row small { color: var(--ink-3); font-variant-numeric: tabular-nums; }
 .bottomnav { display: none; }
 
 main { padding-top: 20px; }
@@ -66,7 +77,7 @@ footer { margin-top: 48px; font-size: 12px; color: var(--ink-3); }
 }
 .rail button:hover:not(:disabled) { background: var(--rule); }
 .rail button.done { color: var(--ink-3); text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness: 2px; }
-.rail button.here { width: 52px; background: var(--red); color: var(--red-ink); text-decoration: none; }
+.rail button.here, .rail button.here:hover:not(:disabled) { width: 52px; background: var(--red); color: var(--red-ink); text-decoration: none; }
 .rail .icon { writing-mode: horizontal-tb; width: 14px; height: 14px; }
 
 .next {
