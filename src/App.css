@@ -1,0 +1,76 @@
+.app { max-width: 760px; margin: 0 auto; padding: 16px; }
+nav { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 20px; }
+nav b { margin-right: auto; font-size: 1.2em; }
+nav .active, .primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+footer { margin-top: 32px; font-size: 12px; color: var(--muted); }
+h2, h3 { margin: 8px 0; }
+.center { text-align: center; padding: 40px 0; }
+.card.center { padding: 24px; }
+.hint { color: var(--muted); font-size: 14px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+.callout { background: var(--card); border: 1px dashed var(--accent); border-radius: 12px; padding: 12px 14px; margin: 12px 0; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.stat { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; font-size: 14px; color: var(--muted); }
+.stat .n { font-size: 28px; font-weight: 700; color: var(--fg); }
+
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+.head .word, .test-word { font-size: 40px; font-weight: 700; }
+.test-word { margin: 24px 0; }
+.head .meta { color: var(--muted); }
+.icon { border: none; font-size: 22px; vertical-align: super; background: none; }
+.meaning { font-size: 20px; font-weight: 600; }
+.def { color: var(--muted); }
+.example { font-style: italic; cursor: pointer; border-left: 3px solid var(--accent); padding-left: 10px; }
+.example .def { font-style: normal; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.chip { border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; font-size: 14px; cursor: pointer; }
+.card input, textarea { width: 100%; font-size: 20px; }
+textarea { font: inherit; font-size: 18px; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--fg); padding: 8px 12px; resize: vertical; }
+.full { width: 100%; margin-top: 8px; }
+.ok { color: #16a34a; font-weight: 600; margin: 0; }
+.bad { color: #dc2626; font-weight: 600; margin: 0; }
+.checklist { list-style: none; padding: 0; margin: 0; }
+
+.options { display: grid; gap: 8px; }
+.options button { text-align: left; min-height: 48px; }
+.options .right { border: 2px solid #16a34a; }
+.options .wrong { border: 2px solid #dc2626; }
+.options button:disabled { color: var(--fg); }
+.big-listen { font-size: 22px; padding: 18px; }
+.grades button { flex: 1; display: flex; flex-direction: column; align-items: center; font-weight: 600; }
+.grades small { font-weight: 400; color: var(--muted); }
+.again { border-color: #dc2626; } .hard { border-color: #d97706; } .good { border-color: #16a34a; } .easy { border-color: #2563eb; }
+
+.progress { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.progress div { height: 100%; background: var(--accent); }
+
+.passage { font-size: 18px; line-height: 1.8; }
+mark { background: color-mix(in srgb, #f59e0b 35%, transparent); color: inherit; border-radius: 4px; padding: 0 2px; cursor: pointer; }
+mark.known { background: color-mix(in srgb, #16a34a 30%, transparent); }
+.list { display: grid; gap: 8px; }
+.list-item { display: flex; justify-content: space-between; gap: 12px; text-align: left; }
+.list-item small { color: var(--muted); white-space: nowrap; }
+
+.settings label { display: block; margin-top: 12px; }
+.settings input[type='number'] { width: 80px; }
+.search { flex: 1; min-width: 180px; }
+button.small { padding: 4px 10px; font-size: 13px; }
+
+/* Phones: sticky horizontally-scrolling tabs, bigger tap targets, 2-column grids. */
+@media (max-width: 640px) {
+  .app { padding: 12px; }
+  nav { flex-wrap: nowrap; overflow-x: auto; margin: -12px -12px 16px; padding: 10px 12px; position: sticky; top: 0; z-index: 1; background: var(--bg); border-bottom: 1px solid var(--border); scrollbar-width: none; }
+  nav b { display: none; }
+  nav button { white-space: nowrap; flex: none; padding: 8px 12px; }
+  .card { padding: 16px; border-radius: 12px; }
+  .head .word, .test-word { font-size: 32px; word-break: break-word; }
+  .meaning { font-size: 18px; }
+  .passage { font-size: 17px; }
+  .card input, textarea { font-size: 18px; } /* ≥16px stops iOS zooming on focus */
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stat .n { font-size: 24px; }
+  .row > button, .row > .button { flex: 1; min-height: 44px; }
+  .grades { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .settings select { width: 100%; margin-top: 4px; }
+  td, th { padding: 6px 4px; }
+}
