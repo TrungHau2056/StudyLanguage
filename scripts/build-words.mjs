@@ -51,7 +51,10 @@ for (const e of JSON.parse(evJson)) {
 const enrich = JSON.parse(await readFile('scripts/data/enrich.json', 'utf8'));
 // AI-classified CEFR level of each NGSL sense, and whether it can be learned in isolation (vs. grammar/abstract words).
 const levels = JSON.parse(await readFile('scripts/data/levels.json', 'utf8'));
-// IPA for words the dictionary has no (complete) transcription for: dictionaryapi.dev, else AI.
+// Open, citable sources take precedence (built by scripts/build-sources.mjs): CEFR-J levels, CMUdict IPA,
+// Tatoeba example sentences checked to use the word in its NGSL sense. AI data only fills the gaps.
+const sources = JSON.parse(await readFile('scripts/data/sources.json', 'utf8'));
+// Fallback IPA for words neither CMUdict nor the dictionary covers: dictionaryapi.dev, else AI.
 const ipa = JSON.parse(await readFile('scripts/data/ipa.json', 'utf8'));
 const words = [];
 const missing = [];
@@ -62,22 +65,24 @@ for (const [rank, lemma, pos, definition] of parseCsv(ngslCsv).slice(1)) {
     .filter((m) => m && !m.startsWith('!') && !m.startsWith('*'))
     .slice(0, 3);
   const e = enrich[rank];
+  const s = sources[rank] ?? {};
   if (!e) missing.push(lemma);
   words.push({
     id: Number(rank),
     word: lemma,
     pos,
     definition,
-    // Source has truncated transcriptions like "/w"; keep only complete /.../ ones.
-    phonetic: entries.map((e) => e.phonetic).find((p) => /^\/[^/,]+\/$/.test(p ?? '')) ?? ipa[rank] ?? '',
+    phonetic: s.ipa ?? entries.map((e) => e.phonetic).find((p) => /^\/[^/,]+\/$/.test(p ?? '')) ?? ipa[rank] ?? '',
     meaning: e?.vi ?? meanings[0] ?? '',
     vi: meanings.filter((m) => m !== e?.vi),
     topic: e?.topic ?? 'general',
-    example: e?.example ?? '',
-    exampleVi: e?.example_vi ?? '',
+    example: s.example ?? e?.example ?? '',
+    exampleVi: s.example ? s.exampleVi : e?.example_vi ?? '',
+    ...(s.tatoeba && { tatoeba: s.tatoeba }),
     collocations: e?.collocations ?? [],
     family: e?.family ?? [],
-    cefr: levels[rank]?.cefr ?? 'B1',
+    cefr: s.cefr ?? levels[rank]?.cefr ?? 'B1',
+    cefrSource: s.cefr ? 'CEFR-J' : 'AI',
     concrete: levels[rank]?.concrete ?? false,
   });
 }

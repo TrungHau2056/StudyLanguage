@@ -232,8 +232,11 @@ export default function App({ account }: { account?: Account }) {
       </main>
       </TipsContext.Provider>
       <footer>
-        Dữ liệu: <a href="https://www.newgeneralservicelist.com/">NGSL</a> (CC BY-SA), từ điển Anh–Việt (Hồ Ngọc Đức),{' '}
-        <a href="https://dictionaryapi.dev/">Free Dictionary API</a>; ví dụ, cụm từ, bài đọc do AI tạo. Lịch ôn: FSRS.
+        Dữ liệu: <a href="https://www.newgeneralservicelist.com/">NGSL</a> (CC BY-SA),{' '}
+        <a href="https://github.com/openlanguageprofiles/olp-en-cefrj">CEFR-J Vocabulary Profile</a> (Tono Lab, TUFS) + Octanove C1/C2 (CC BY-SA),{' '}
+        <a href="http://www.speech.cs.cmu.edu/cgi-bin/cmudict">CMU Pronouncing Dictionary</a>,{' '}
+        <a href="https://tatoeba.org">Tatoeba</a> (CC BY 2.0 FR), từ điển Anh–Việt (Hồ Ngọc Đức),{' '}
+        <a href="https://dictionaryapi.dev/">Free Dictionary API</a>. Nghĩa ngắn, phần còn thiếu, ngữ pháp, bài đọc do AI tạo. Lịch ôn: FSRS.
       </footer>
       <nav className="bottomnav" aria-label="Điều hướng">
         {tabs.filter((t) => t.mobile).map((t) => (

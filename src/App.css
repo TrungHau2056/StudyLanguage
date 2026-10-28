@@ -84,6 +84,9 @@ footer { margin-top: 48px; font-size: 12px; color: var(--ink-3); }
 .track h2 { display: flex; align-items: center; gap: 8px; font-size: 22px; margin: 0 0 2px; }
 .track h2 small { margin-left: auto; font: 500 13px var(--sans); color: var(--ink-3); }
 .track .plan { margin-top: 16px; }
+.oxford { display: inline-flex; align-items: center; gap: 4px; font: 600 13px var(--sans); text-decoration: none; border: 1px solid var(--rule); border-radius: 999px; padding: 4px 10px; }
+.oxford .icon { width: 14px; height: 14px; }
+.ex a.src { display: inline-block; margin-top: 4px; font: 400 12px var(--sans); font-style: normal; color: var(--ink-3); }
 
 .next {
   display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;

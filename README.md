@@ -57,3 +57,14 @@ Tiến độ học lưu trong IndexedDB của trình duyệt. Dùng **Cài đặ
 - Cấu hình nằm trong biến của GitHub repo (`VITE_FIREBASE_*`, xem `.env.example`). Khi chạy trên máy thì đặt các biến này trong `.env.local`.
 - Quy tắc bảo mật của Firestore nằm trong `firestore.rules`: mỗi người chỉ đọc và ghi được `users/{uid}` của chính mình.
 - Thiếu cấu hình thì web chạy ở chế độ chỉ lưu trong trình duyệt, không có đăng nhập.
+
+## Nguồn dữ liệu mở (ưu tiên hơn dữ liệu AI)
+
+`node scripts/build-sources.mjs /tmp/od` tạo `scripts/data/sources.json` từ:
+
+- **CEFR-J Vocabulary Profile 1.5** (Tono Lab, TUFS; miễn phí, cần trích dẫn) + **Octanove C1/C2** (CC BY-SA 4.0): trình độ A1–C1, phủ 2.752/2.801 từ.
+- **CMU Pronouncing Dictionary** (BSD): phiên âm IPA (Anh-Mỹ), phủ toàn bộ 2.801 từ.
+- **Tatoeba** (CC BY 2.0 FR): câu ví dụ thật có bản dịch tiếng Việt, đã lọc đúng nghĩa của từ, phủ 1.641 từ; mỗi câu ghi số câu Tatoeba.
+
+Tải về: `olp-en-cefrj` trên GitHub, `cmudict.dict` (cmusphinx/cmudict), `eng_sentences`/`vie_sentences`/`links` tại downloads.tatoeba.org.
+Phần còn thiếu dùng dữ liệu AI. Mỗi từ có nút “Oxford” mở trang Oxford Learner's Dictionaries (chỉ dẫn link, không chép nội dung).

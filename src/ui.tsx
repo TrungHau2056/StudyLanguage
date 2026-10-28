@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
-import { ChevronDown, Lightbulb, Volume2 } from 'lucide-react';
+import { ChevronDown, ExternalLink, Lightbulb, Volume2 } from 'lucide-react';
 import { getExtra, type Extra, type Word } from './db';
 
 export const TOPICS: Record<string, string> = {
@@ -82,8 +82,12 @@ export function WordHead({ word, extra }: { word: Word; extra?: Extra }) {
       <div className="hw-line">
         <span className="hw">{word.word}</span>
         <SpeakButton onClick={() => playWord(word.word, extra)} />
+        <a className="oxford" target="_blank" rel="noopener noreferrer" title="Xem định nghĩa và nghe phát âm trên Oxford Learner's Dictionaries"
+          href={`https://www.oxfordlearnersdictionaries.com/search/english/?q=${encodeURIComponent(word.word)}`}>
+          Oxford <ExternalLink className="icon" />
+        </a>
       </div>
-      <div className="ipa">{extra?.phonetic || word.phonetic}<span className="pos">{posAbbr(word.pos)}</span></div>
+      <div className="ipa">{word.phonetic || extra?.phonetic}<span className="pos">{posAbbr(word.pos)}</span></div>
     </div>
   );
 }
@@ -102,6 +106,11 @@ export function WordInfo({ word, compact = false }: { word: Word; compact?: bool
       <div className="ex">
         <button onClick={() => speak(word.example)} title="Nghe câu ví dụ">{word.example}</button>
         <div className="ex-vi">{word.exampleVi}</div>
+        {word.tatoeba && (
+          <a className="src" href={`https://tatoeba.org/vi/sentences/show/${word.tatoeba}`} target="_blank" rel="noopener noreferrer">
+            Câu thật từ Tatoeba #{word.tatoeba}
+          </a>
+        )}
       </div>
       {!more && (
         <button className="quiet more" onClick={() => setMore(true)}>

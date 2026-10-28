@@ -15,6 +15,9 @@ export interface Word {
   exampleVi: string;
   collocations: string[];
   family: string[];
+  /** Tatoeba sentence id when the example is a real sentence from Tatoeba (CC BY 2.0 FR). */
+  tatoeba?: number;
+  cefrSource: 'CEFR-J' | 'AI';
   cefr: Level;
   /** Learnable in isolation (objects, actions…); false for grammar/abstract words best learned in context. */
   concrete: boolean;
