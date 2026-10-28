@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { BookA, BookOpen, House, PenLine, RotateCcw, Settings as SettingsIcon, Sparkles, type LucideIcon } from 'lucide-react';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { dailyKey, db, loadSettings, saveSettings, startOfToday, type Reading, type Word } from './db';
+import { LEVELS, dailyKey, db, isSkipped, loadSettings, saveSettings, startOfToday, type Reading, type Word } from './db';
 import type { Account } from './AuthGate';
 import Home from './views/Home';
 import Learn from './views/Learn';
@@ -12,18 +12,27 @@ import WordList from './views/WordList';
 import SettingsView from './views/Settings';
 import Placement from './views/Placement';
 import { NextPrompt, Rail, Welcome } from './views/Routine';
+import Sounds from './views/Sounds';
+import { TipsContext } from './ui';
 import './App.css';
 
-export type View = 'home' | 'learn' | 'review' | 'write' | 'read' | 'words' | 'settings' | 'test' | 'welcome';
+export type View = 'home' | 'learn' | 'review' | 'write' | 'read' | 'words' | 'settings' | 'test' | 'welcome' | 'sounds';
 
 /** Per-day progress for the activities that don't live in the database. */
-export interface Daily { date: string; written: number; read: number[] }
+export interface Daily { date: string; written: number; read: number[]; spotDone?: boolean }
 const today = () => new Date().toDateString();
 /** Progress resets when the day changes (also mid-session, e.g. studying past midnight). */
 const current = (d: Daily): Daily => (d.date === today() ? d : { date: today(), written: 0, read: [] });
 const loadDaily = () => current(JSON.parse(localStorage.getItem(dailyKey()) ?? 'null') ?? { date: '', written: 0, read: [] });
+/** Stable per-day shuffle key, so the spot-check picks the same words all day but different ones tomorrow. */
+const dayHash = (id: number) => {
+  let h = id * 2654435761 + new Date().getDate() * 40503;
+  h = (h ^ (h >>> 13)) * 1274126177;
+  return (h ^ (h >>> 16)) >>> 0;
+};
 
 export const WRITE_GOAL = 3;
+const SPOT_COUNT = 3;
 
 export interface Step { view: View; label: string; detail: string; done: boolean }
 
@@ -57,17 +66,39 @@ export default function App({ account }: { account?: Account }) {
 
   const byId = useMemo(() => new Map(words?.map((w) => [w.id, w])), [words]);
   const cards = useLiveQuery(() => db.cards.toArray(), []);
+  const known = useLiveQuery(() => db.known.toArray(), []);
 
-  if (!words || !cards) return <p className="center">Đang tải…</p>;
+  // Order of new words. Level order: CEFR level, then words learnable on their own before grammar/abstract
+  // ones (those are better met in reading), then frequency. Frequency order: NGSL rank only.
+  const ordered = useMemo(() => {
+    if (!words) return [];
+    if (settings.order === 'frequency') return words;
+    return [...words].sort((a, b) =>
+      LEVELS.indexOf(a.cefr) - LEVELS.indexOf(b.cefr) || Number(b.concrete) - Number(a.concrete) || a.id - b.id);
+  }, [words, settings.order]);
+
+  if (!words || !cards || !known) return <p className="center">Đang tải…</p>;
 
   const now = new Date();
   const due = cards.filter((c) => c.due <= now).sort((a, b) => +a.due - +b.due);
   const learnedToday = cards.filter((c) => c.addedAt >= startOfToday()).length;
   const newLeft = Math.max(settings.newPerDay - learnedToday, 0);
   const studied = new Set(cards.map((c) => c.wordId));
-  const nextNew = words
-    .filter((w) => !studied.has(w.id) && (settings.topic === 'all' ? w.id > settings.knownUpTo : w.topic === settings.topic))
+  const knownIds = new Set(known.map((k) => k.wordId));
+  const nextNew = ordered
+    .filter((w) => !studied.has(w.id) && !knownIds.has(w.id) && !isSkipped(w, settings)
+      && (settings.topic === 'all' || w.topic === settings.topic))
     .slice(0, newLeft);
+
+  // Spot-check: a few words assumed known (marked known a month ago, or skipped by level/test) get a quick
+  // meaning check once a day, so a wrong guess about what you know gets corrected without re-teaching everything.
+  const monthAgo = Date.now() - 30 * 86400000;
+  const spot = current(daily).spotDone ? [] : [
+    ...known.filter((k) => (k.checkedAt ?? k.at).getTime() < monthAgo).map((k) => byId.get(k.wordId)),
+    ...words.filter((w) => isSkipped(w, settings) && !studied.has(w.id) && !knownIds.has(w.id)),
+  ].filter((w): w is Word => !!w)
+    .sort((a, b) => dayHash(a.id) - dayHash(b.id))
+    .slice(0, SPOT_COUNT);
 
   // The daily routine, in order. "Tiếp tục" always goes to the first unfinished step.
   // Learning new words makes them due at once, so step 1 reopens to practise them right away.
@@ -113,18 +144,22 @@ export default function App({ account }: { account?: Account }) {
         )}
       </header>
       {inRoutine && <Rail steps={steps} view={view} go={setView} />}
+      <TipsContext.Provider value={{ seen: settings.tipsSeen ?? [], dismiss: (id) => setSettings((s) => ({ ...s, tipsSeen: [...(s.tipsSeen ?? []), id] })) }}>
       <main>
         {inRoutine && <NextPrompt steps={steps} view={view} next={nextStep} go={setView} />}
-        {view === 'home' && <Home words={words} cards={cards} steps={steps} next={nextStep} settings={settings} go={setView} />}
-        {view === 'learn' && <Learn queue={nextNew} settings={settings} go={setView} />}
-        {view === 'review' && <Review due={due} byId={byId} cards={cards} words={words} />}
+        {view === 'home' && <Home words={words} cards={cards} known={known} steps={steps} next={nextStep} settings={settings} go={setView} />}
+        {view === 'learn' && <Learn queue={nextNew} words={words} settings={settings} go={setView} />}
+        {view === 'review' && <Review due={due} byId={byId} cards={cards} words={words} spot={spot}
+          onSpotDone={() => setDaily((d) => ({ ...current(d), spotDone: true }))} />}
         {view === 'write' && <Writing cards={cards} byId={byId} onWritten={() => setDaily((d) => ({ ...current(d), written: current(d).written + 1 }))} />}
-        {view === 'read' && <ReadingView readings={readings} byId={byId} studied={studied}
+        {view === 'read' && <ReadingView readings={readings} byId={byId} studied={studied} known={knownIds} beginner={settings.startLevel === 'A1'}
           onRead={(id) => setDaily((d) => ({ ...current(d), read: [...new Set([...current(d).read, id])] }))} />}
-        {view === 'words' && <WordList words={words} cards={cards} />}
+        {view === 'words' && <WordList words={words} cards={cards} known={known} settings={settings} />}
         {view === 'settings' && <SettingsView settings={settings} setSettings={setSettings} go={setView} account={account} />}
         {view === 'test' && <Placement words={words} settings={settings} setSettings={setSettings} go={setView} />}
+        {view === 'sounds' && <Sounds go={setView} />}
       </main>
+      </TipsContext.Provider>
       <footer>
         Dữ liệu: <a href="https://www.newgeneralservicelist.com/">NGSL</a> (CC BY-SA), từ điển Anh–Việt (Hồ Ngọc Đức),{' '}
         <a href="https://dictionaryapi.dev/">Free Dictionary API</a>; ví dụ, cụm từ, bài đọc do AI tạo. Lịch ôn: FSRS.

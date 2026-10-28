@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { Check, Volume2, X } from 'lucide-react';
 import { Rating, type Grade } from 'ts-fsrs';
 import { previewIntervals, review, type StudyCard, type Word } from '../db';
-import { Meter, WordHead, WordInfo, playWord, posAbbr, shuffle, useExtra, wordPattern } from '../ui';
+import { Meter, Tip, WordHead, WordInfo, editDistance, meaningOptions, playWord, posAbbr, useExtra, wordPattern } from '../ui';
+import SpotCheck from './SpotCheck';
 
 type Mode = 'choice' | 'recognize' | 'listen' | 'type';
 
@@ -26,9 +27,17 @@ const GRADES: [Grade, string, string, string][] = [
   [Rating.Easy, 'Dễ', 'easy', 'nhớ ngay lập tức'],
 ];
 
-interface Props { due: StudyCard[]; byId: Map<number, Word>; cards: StudyCard[]; words: Word[] }
+interface Props {
+  due: StudyCard[]; byId: Map<number, Word>; cards: StudyCard[]; words: Word[];
+  /** Words assumed known, to verify with one quick question each once the due cards are done. */
+  spot: Word[];
+  onSpotDone: () => void;
+}
 
-export default function Review({ due, byId, cards, words }: Props) {
+/** Typos allowed in a typed answer: none for short words, one from 4 letters, two from 8. */
+const typoBudget = (word: string) => (word.length >= 8 ? 2 : word.length >= 4 ? 1 : 0);
+
+export default function Review({ due, byId, cards, words, spot, onSpotDone }: Props) {
   const card = due[0];
   const word = card && byId.get(card.wordId);
   const extra = useExtra(word);
@@ -36,12 +45,7 @@ export default function Review({ due, byId, cards, words }: Props) {
   const [answer, setAnswer] = useState('');
   const [done, setDone] = useState(0);
   const mode = useMemo(() => (card ? pickMode(card) : 'recognize'), [card]);
-  const options = useMemo(() => {
-    if (!word) return [];
-    // Distractors share the part of speech so the answer can't be guessed from grammar.
-    const pool = words.filter((w) => w.id !== word.id && w.pos === word.pos);
-    return shuffle([word, ...shuffle(pool).slice(0, 3)]);
-  }, [word, words]);
+  const options = useMemo(() => (word ? meaningOptions(word, words) : []), [word, words]);
 
   useEffect(() => { setRevealed(false); setAnswer(''); }, [card]);
   useEffect(() => {
@@ -51,6 +55,7 @@ export default function Review({ due, byId, cards, words }: Props) {
   }, [word, extra, mode, revealed]);
 
   if (!card || !word) {
+    if (spot.length) return <SpotCheck words={spot} all={words} onDone={onSpotDone} />;
     const soon = cards.filter((c) => c.due > new Date()).sort((a, b) => +a.due - +b.due)[0];
     return (
       <section className="empty">
@@ -64,13 +69,21 @@ export default function Review({ due, byId, cards, words }: Props) {
 
   const intervals = previewIntervals(card);
   const objective = mode !== 'recognize';
-  const correct = mode === 'choice' ? answer === String(word.id) : answer.trim().toLowerCase() === word.word.toLowerCase();
+  const typed = answer.trim().toLowerCase();
+  const target = word.word.toLowerCase();
+  // A small typo still counts as remembering the word; the right spelling is shown, and "Dễ" is withheld.
+  const near = mode !== 'choice' && typed !== target && typed.length > 0 && editDistance(typed, target) <= typoBudget(target);
+  const correct = mode === 'choice' ? answer === word.meaning : typed === target || near;
   const submit = (value = answer) => { setAnswer(value); setRevealed(true); };
   const rate = async (g: Grade) => { await review(card, g); setDone((n) => n + 1); };
 
   return (
     <section className="entry">
       <Meter value={done} total={done + due.length}>Còn {due.length} · {MODE_LABEL[mode]}</Meter>
+      <Tip id="review">
+        Đây là phần ôn các từ đã học, đúng lúc bạn sắp quên. Luôn <b>tự nhớ ra trước</b> rồi mới xem đáp án.
+        Sau đó chấm thật lòng: nhớ càng khó thì từ càng quay lại sớm. Gõ sai một chữ vẫn được tính là nhớ.
+      </Tip>
 
       {(mode === 'choice' || mode === 'recognize' || revealed) && <WordHead word={word} extra={extra} />}
       {mode === 'recognize' && !revealed && <p className="prompt">Nghĩa của từ này là gì? Nghĩ ra rồi mới lật thẻ.</p>}
@@ -78,10 +91,10 @@ export default function Review({ due, byId, cards, words }: Props) {
       {mode === 'choice' && (
         <div className="options">
           {options.map((o) => (
-            <button key={o.id} disabled={revealed}
-              className={revealed ? (o.id === word.id ? 'right' : String(o.id) === answer ? 'wrong' : '') : ''}
-              onClick={() => submit(String(o.id))}>
-              {o.meaning}
+            <button key={o} disabled={revealed}
+              className={revealed ? (o === word.meaning ? 'right' : o === answer ? 'wrong' : '') : ''}
+              onClick={() => submit(o)}>
+              {o}
             </button>
           ))}
         </div>
@@ -108,7 +121,9 @@ export default function Review({ due, byId, cards, words }: Props) {
 
       {revealed && objective && (
         <p className={`verdict ${correct ? 'ok' : 'bad'}`}>
-          {correct ? <><Check className="icon" /> Chính xác</> : <><X className="icon" /> {mode === 'choice' || !answer ? 'Chưa đúng' : `Bạn gõ “${answer}”`}</>}
+          {near ? <><Check className="icon" /> Gần đúng, viết đúng là “{word.word}”</>
+            : correct ? <><Check className="icon" /> Chính xác</>
+            : <><X className="icon" /> {mode === 'choice' || !answer ? 'Chưa đúng' : `Bạn gõ “${answer}”`}</>}
         </p>
       )}
 
@@ -121,6 +136,7 @@ export default function Review({ due, byId, cards, words }: Props) {
             {GRADES
               // An objectively wrong answer is always "Quên"; a right one can't be.
               .filter(([g]) => !objective || (correct ? g !== Rating.Again : g === Rating.Again))
+              .filter(([g]) => !near || g !== Rating.Easy)
               .map(([g, label, cls, help]) => (
                 <button key={g} className={cls} onClick={() => rate(g)}>
                   <b>{label}</b><small>{help}</small><small>sau {intervals[g]}</small>

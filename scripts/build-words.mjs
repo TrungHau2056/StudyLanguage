@@ -2,9 +2,10 @@
 // - NGSL 1.01 (CC BY-SA) word list
 // - an English-Vietnamese dictionary (extra meanings, IPA)
 // - scripts/data/enrich.json: AI-generated per-word data (topic, concise meaning, example, collocations, word family)
-// - scripts/data/readings.json: AI-generated short reading passages
+// - scripts/data/levels.json: AI-classified CEFR level + concrete flag per word
+// - scripts/data/readings_a1.json, readings.json: AI-generated A1 and A2–B1 reading passages
 // Usage: node scripts/build-words.mjs
-import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
 
 const NGSL_URL = 'https://raw.githubusercontent.com/koba-ninkigumi/ngsl/master/NGSL-1.01_en_ja.csv';
 const EV_URL = 'https://raw.githubusercontent.com/namduongit/english-vietnamese/main/data/eng-vietnamese.json';
@@ -48,6 +49,8 @@ for (const e of JSON.parse(evJson)) {
 }
 
 const enrich = JSON.parse(await readFile('scripts/data/enrich.json', 'utf8'));
+// AI-classified CEFR level of each NGSL sense, and whether it can be learned in isolation (vs. grammar/abstract words).
+const levels = JSON.parse(await readFile('scripts/data/levels.json', 'utf8'));
 const words = [];
 const missing = [];
 for (const [rank, lemma, pos, definition] of parseCsv(ngslCsv).slice(1)) {
@@ -72,10 +75,17 @@ for (const [rank, lemma, pos, definition] of parseCsv(ngslCsv).slice(1)) {
     exampleVi: e?.example_vi ?? '',
     collocations: e?.collocations ?? [],
     family: e?.family ?? [],
+    cefr: levels[rank]?.cefr ?? 'B1',
+    concrete: levels[rank]?.concrete ?? false,
   });
 }
 
 await mkdir('public', { recursive: true });
 await writeFile('public/words.json', JSON.stringify(words));
-await copyFile('scripts/data/readings.json', 'public/readings.json');
+// A1 passages (ids ≥ 1000) for absolute beginners first, then the A2–B1 frequency-band passages.
+const readings = [
+  ...JSON.parse(await readFile('scripts/data/readings_a1.json', 'utf8')),
+  ...JSON.parse(await readFile('scripts/data/readings.json', 'utf8')).map((r) => ({ ...r, level: 'A2–B1' })),
+];
+await writeFile('public/readings.json', JSON.stringify(readings));
 console.log(`wrote ${words.length} words; missing enrichment: ${missing.join(', ') || 'none'}`);

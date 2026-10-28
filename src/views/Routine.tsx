@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
-import type { Settings } from '../db';
+import type { Level, Settings } from '../db';
 import type { Step, View } from '../App';
 
 /** Today's routine as the book's thumb index: the current step's tab extends, finished ones are struck through. */
@@ -47,10 +47,17 @@ const INTRO: [string, string][] = [
 
 const PACES: [number, string, string][] = [[5, 'Nhẹ nhàng', '~10 phút'], [10, 'Vừa phải', '~20 phút'], [20, 'Tăng tốc', '~35 phút']];
 
-/** First-run screen: explains the routine and sets the daily goal. */
+const STARTS: [Level, string, string][] = [
+  ['A1', 'Mới bắt đầu', 'Học từ những từ dễ, cụ thể nhất'],
+  ['A2', 'Biết cơ bản', 'Bỏ qua từ A1, chỉ hỏi nhanh để kiểm tra'],
+  ['B1', 'Khá trở lên', 'Bỏ qua từ A1–A2, chỉ hỏi nhanh để kiểm tra'],
+];
+
+/** First-run screen: explains the routine, asks the starting level and the daily goal. */
 export function Welcome({ settings, setSettings, go }: { settings: Settings; setSettings: (s: Settings) => void; go: (v: View) => void }) {
   const [perDay, setPerDay] = useState(settings.newPerDay);
-  const finish = (to: View) => { setSettings({ ...settings, newPerDay: perDay, onboarded: true }); go(to); };
+  const [start, setStart] = useState<Level>(settings.startLevel);
+  const finish = (to: View) => { setSettings({ ...settings, newPerDay: perDay, startLevel: start, onboarded: true }); go(to); };
   return (
     <section className="welcome">
       <h1>Mỗi ngày một trang từ điển.</h1>
@@ -60,6 +67,18 @@ export function Welcome({ settings, setSettings, go }: { settings: Settings; set
           <li key={title}><span className="num">{i + 1}</span><div><b>{title}</b><p>{text}</p></div></li>
         ))}
       </ol>
+      <h2>Tiếng Anh của bạn đang ở mức nào?</h2>
+      <div className="choice" role="radiogroup">
+        {STARTS.map(([level, label, note]) => (
+          <button key={level} role="radio" aria-checked={start === level} className={start === level ? 'on' : ''} onClick={() => setStart(level)}>
+            {label}<small>{note}</small>
+          </button>
+        ))}
+      </div>
+      <p className="hint">
+        Từ đã biết sẽ không bị dạy lại. Không chắc thì chọn thấp hơn, hoặc làm bài kiểm tra 5 phút để web tự xếp.
+        {start === 'A1' && <> Mới học tiếng Anh? Đọc trước <a onClick={() => finish('sounds')}>cách đọc phiên âm</a>.</>}
+      </p>
       <h2>Mỗi ngày học bao nhiêu từ mới?</h2>
       <div className="choice" role="radiogroup">
         {PACES.map(([n, label, time]) => (
@@ -70,7 +89,7 @@ export function Welcome({ settings, setSettings, go }: { settings: Settings; set
       </div>
       <p className="hint">Đừng chọn quá nhiều: từ mới hôm nay sẽ thành bài ôn của những ngày sau.</p>
       <div className="actions">
-        <button onClick={() => finish('test')}>Kiểm tra trình độ</button>
+        <button onClick={() => finish('test')}>Làm bài kiểm tra</button>
         <button className="primary" onClick={() => finish('learn')}>Bắt đầu học <ArrowRight className="icon" /></button>
       </div>
     </section>

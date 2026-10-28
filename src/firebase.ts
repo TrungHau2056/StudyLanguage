@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup, signOut, type User } from 'firebase/auth';
 import {
-  Timestamp, collection, doc, getDoc, getDocs, initializeFirestore, persistentLocalCache, setDoc, writeBatch,
+  Timestamp, collection, deleteDoc, doc, getDoc, getDocs, initializeFirestore, persistentLocalCache, setDoc, writeBatch,
 } from 'firebase/firestore';
 
 /** Web config from the Firebase console (not secret). Without it the app runs local-only. */
@@ -44,6 +44,11 @@ const clean = (o: object) => Object.fromEntries(Object.entries(o).filter(([, v])
 export async function pushDoc(uid: string, path: string[], data: object) {
   if (!firestore) return;
   await setDoc(doc(firestore, 'users', uid, ...path), clean(data));
+}
+
+export async function removeDoc(uid: string, path: string[]) {
+  if (!firestore) return;
+  await deleteDoc(doc(firestore, 'users', uid, ...path));
 }
 
 export async function pullCollection<T>(uid: string, name: string): Promise<T[]> {

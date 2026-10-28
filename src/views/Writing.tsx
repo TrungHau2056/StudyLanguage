@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { ArrowRight, Check, Volume2, X } from 'lucide-react';
 import type { StudyCard, Word } from '../db';
-import { Meter, WordHead, speak, useExtra, wordPattern } from '../ui';
+import { Meter, Tip, WordHead, speak, useExtra, wordPattern } from '../ui';
 
 const Mark = ({ ok }: { ok: boolean }) => (ok ? <Check className="icon" /> : <X className="icon" />);
 
@@ -31,6 +31,10 @@ export default function Writing({ cards, byId, onWritten }: { cards: StudyCard[]
   return (
     <section className="entry">
       <Meter value={Math.min(done, 3)} total={3}>Đã viết {done} câu</Meter>
+      <Tip id="write">
+        Dùng được từ thì mới nhớ lâu. Viết một câu ngắn có từ này, tốt nhất là về chính bạn
+        (ví dụ “I eat rice every day”). Sai ngữ pháp cũng không sao, bấm Xong để so với câu mẫu. Mỗi ngày 3 câu.
+      </Tip>
       <WordHead word={word} extra={extra} />
       <div className="sense"><span className="num">1</span>{word.meaning}</div>
       {word.collocations.length > 0 && (

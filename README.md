@@ -16,6 +16,12 @@ Web dựa trên mô hình 4 mảng học từ vựng của Paul Nation: học c�
 
 Từ mới mặc định học theo tần suất. Có thể chọn học theo chủ đề trong phần Cài đặt.
 
+
+**Phân loại từ.** Mỗi từ có trình độ CEFR (A1–C1, do AI phân loại) và một trong các nhóm: Chưa học, Đang học, Đã thuộc (nhớ được trên 3 tuần), Đã biết, Bỏ qua theo trình độ.
+
+- Bấm “Đã biết” thì phải chọn đúng nghĩa. Đúng thì từ không bao giờ bị dạy hay ôn lại.
+- Từ “Đã biết” và từ dưới trình độ đã chọn chỉ được hỏi nhanh 3 từ mỗi ngày (kiểm tra ngẫu nhiên). Quên thì từ đó được đưa lại vào phần học.
+- Người mới bắt đầu học theo trình độ, từ cụ thể (đồ vật, hành động) trước, từ ngữ pháp sau. Có thêm trang hướng dẫn cách đọc phiên âm và 39 bài đọc A1.
 ## Chạy
 
 ```bash

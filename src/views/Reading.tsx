@@ -1,11 +1,16 @@
 import { useState, type ReactNode } from 'react';
 import { ArrowLeft, Check, Languages, Pause, Volume2 } from 'lucide-react';
 import type { Reading, Word } from '../db';
-import { SpeakButton, posAbbr, speak, wordPattern } from '../ui';
+import { SpeakButton, Tip, posAbbr, speak, wordPattern } from '../ui';
 
-interface Props { readings: Reading[]; byId: Map<number, Word>; studied: Set<number>; onRead: (id: number) => void }
+interface Props {
+  readings: Reading[]; byId: Map<number, Word>; studied: Set<number>; known: Set<number>;
+  /** Beginners see the A1 passages first. */
+  beginner: boolean;
+  onRead: (id: number) => void;
+}
 
-export default function ReadingView({ readings, byId, studied, onRead }: Props) {
+export default function ReadingView({ readings, byId, studied, known, beginner, onRead }: Props) {
   const [open, setOpen] = useState<Reading>();
   const [showVi, setShowVi] = useState(false);
   const [tip, setTip] = useState<Word>();
@@ -16,7 +21,7 @@ export default function ReadingView({ readings, byId, studied, onRead }: Props) 
       .map((w) => ({ w, re: new RegExp(`^${wordPattern(w.word).source}$`, 'i') }));
     const paragraph = (text: string): ReactNode[] => text.split(/(\b[\w']+\b)/).map((tok, i) => {
       const w = targets.find((t) => t.re.test(tok))?.w;
-      return w ? <mark key={i} className={studied.has(w.id) ? 'known' : ''} onClick={() => setTip(w)}>{tok}</mark> : tok;
+      return w ? <mark key={i} className={studied.has(w.id) || known.has(w.id) ? 'known' : ''} onClick={() => setTip(w)}>{tok}</mark> : tok;
     });
     const close = () => { setOpen(undefined); setTip(undefined); speechSynthesis.cancel(); };
     return (
@@ -44,21 +49,33 @@ export default function ReadingView({ readings, byId, studied, onRead }: Props) 
     );
   }
 
+  const familiar = (id: number) => studied.has(id) || known.has(id);
+  const groups: [Reading['level'], string][] = beginner
+    ? [['A1', 'Dễ (A1)'], ['A2–B1', 'Trung bình (A2–B1)']]
+    : [['A2–B1', 'Trung bình (A2–B1)'], ['A1', 'Dễ (A1)']];
   return (
     <section>
       <h2>Bài đọc</h2>
-      <p className="hint">Mỗi bài dùng khoảng 20 từ theo thứ tự phổ biến. Bài có nhiều từ bạn đã học được xếp lên trước.</p>
-      <div className="list">
-        {[...readings]
-          .map((r) => ({ r, pct: Math.round((100 * r.wordIds.filter((id) => studied.has(id)).length) / r.wordIds.length) }))
-          .sort((a, b) => b.pct - a.pct || a.r.id - b.r.id)
-          .map(({ r, pct }) => (
-            <button key={r.id} className="list-item" onClick={() => { setOpen(r); setShowVi(false); }}>
-              <span>{r.title}</span>
-              <small>đã học {pct}%</small>
-            </button>
-          ))}
-      </div>
+      <Tip id="read">
+        Đọc giúp bạn gặp lại từ đã học trong câu thật. Mỗi ngày đọc 1 bài: chọn bài có nhiều từ bạn đã học
+        (số % bên phải), đọc, nghe, rồi bấm “Đã đọc xong”.
+      </Tip>
+      {groups.map(([level, label]) => (
+        <div key={level}>
+          <h3 className="group">{label}</h3>
+          <div className="list">
+            {readings.filter((r) => r.level === level)
+              .map((r) => ({ r, pct: Math.round((100 * r.wordIds.filter(familiar).length) / r.wordIds.length) }))
+              .sort((a, b) => b.pct - a.pct || a.r.id - b.r.id)
+              .map(({ r, pct }) => (
+                <button key={r.id} className="list-item" onClick={() => { setOpen(r); setShowVi(false); }}>
+                  <span>{r.title}</span>
+                  <small>đã học {pct}%</small>
+                </button>
+              ))}
+          </div>
+        </div>
+      ))}
     </section>
   );
 }

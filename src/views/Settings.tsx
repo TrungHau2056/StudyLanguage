@@ -1,4 +1,4 @@
-import { exportData, importData, type Settings } from '../db';
+import { LEVELS, exportData, importData, type Level, type Settings } from '../db';
 import type { Account } from '../AuthGate';
 import { TOPICS } from '../ui';
 import type { View } from '../App';
@@ -35,24 +35,36 @@ export default function SettingsView({ settings, setSettings, go, account }: Pro
       <p className="hint">Khuyến nghị 10–20. Mỗi từ mới sẽ sinh thêm lượt ôn trong những ngày sau.</p>
 
       <label>
-        Học từ mới theo:{' '}
+        Thứ tự học:
+        <select value={settings.order} onChange={(e) => setSettings({ ...settings, order: e.target.value as Settings['order'] })}>
+          <option value="level">Theo trình độ, từ dễ hình dung trước (khuyên dùng)</option>
+          <option value="frequency">Theo độ phổ biến</option>
+        </select>
+      </label>
+      <label>
+        Chủ đề:
         <select value={settings.topic} onChange={(e) => setSettings({ ...settings, topic: e.target.value })}>
-          <option value="all">Tần suất, từ phổ biến trước (khuyên dùng)</option>
+          <option value="all">Mọi chủ đề</option>
           {Object.entries(TOPICS).map(([k, label]) => <option key={k} value={k}>{label}</option>)}
         </select>
       </label>
       <p className="hint">
-        Học theo chủ đề giúp gặp từ trong cùng một tình huống. Nhưng nếu học dồn nhiều từ gần nghĩa cùng lúc
-        (như tên các loại quả, các từ chỉ màu) thì rất dễ nhầm lẫn. Vì vậy mặc định học theo tần suất, còn chủ đề
-        dùng khi bạn cần từ cho một tình huống cụ thể.
+        Học theo chủ đề giúp gặp từ trong cùng một tình huống. Nhưng học dồn nhiều từ gần nghĩa cùng lúc
+        (tên các loại quả, các màu) rất dễ nhầm, nên chỉ chọn chủ đề khi bạn cần từ cho một tình huống cụ thể.
       </p>
 
       <h2>Trình độ</h2>
+      <label>
+        Bắt đầu từ trình độ:
+        <select value={settings.startLevel} onChange={(e) => setSettings({ ...settings, startLevel: e.target.value as Level })}>
+          {LEVELS.map((l) => <option key={l} value={l}>{l}{l === 'A1' ? ' (mới bắt đầu)' : ''}</option>)}
+        </select>
+      </label>
       <p className="hint">
-        {settings.testEstimate === undefined
-          ? 'Chưa làm bài kiểm tra.'
-          : `Lần kiểm tra gần nhất: biết khoảng ${settings.testEstimate} từ. Đang bỏ qua ${settings.knownUpTo} từ phổ biến nhất khi học mới.`}
+        Từ dưới trình độ này không bị dạy lại, mỗi ngày chỉ hỏi nhanh vài từ để chắc là bạn nhớ; quên thì từ đó được đưa lại vào phần học.
+        {settings.testEstimate !== undefined && ` Bài kiểm tra gần nhất: biết khoảng ${settings.testEstimate} từ, bỏ qua ${settings.knownUpTo} từ phổ biến nhất.`}
       </p>
+      <p className="hint"><a onClick={() => go('sounds')}>Cách đọc phiên âm</a> cho người mới bắt đầu.</p>
       <div className="row">
         <button onClick={() => go('test')}>Làm bài kiểm tra vốn từ</button>
         {settings.knownUpTo > 0 && <button onClick={() => setSettings({ ...settings, knownUpTo: 0 })}>Học lại từ đầu danh sách</button>}

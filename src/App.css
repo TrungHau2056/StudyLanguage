@@ -20,6 +20,31 @@
 .tabs button.active { color: var(--ink); background: var(--paper-2); font-weight: 600; }
 .badge { font: 600 11px/18px var(--sans); min-width: 18px; padding: 0 5px; border-radius: 9px; background: var(--red); color: var(--red-ink); text-align: center; font-variant-numeric: tabular-nums; }
 
+/* First-time tip */
+.tip { display: flex; gap: 10px; align-items: flex-start; padding: 12px 0 14px; margin-bottom: 16px; border-top: 1px dotted var(--rule); border-bottom: 1px dotted var(--rule); font-size: 14px; color: var(--ink-2); }
+.tip .icon { color: var(--red); margin-top: 2px; }
+.tip div { flex: 1; }
+.tip button { flex: none; }
+.more { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; align-self: flex-start; }
+.sounds .sym, .sym { font: 600 17px var(--serif); color: var(--red); white-space: nowrap; }
+.sounds .w { font: 600 16px var(--serif); }
+.sounds .icon-btn { width: 30px; height: 30px; vertical-align: middle; margin-left: 4px; border-width: 1px; }
+.mistake { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.mistake p { margin: 4px 0 0; color: var(--ink-2); }
+.mistake .row { margin: 8px 0 0; }
+.level { font: 600 11px var(--sans); color: var(--ink-3); border: 1px solid var(--rule); border-radius: 6px; padding: 1px 6px; margin-left: 6px; }
+.status { font-size: 12px; font-weight: 600; white-space: nowrap; }
+.status.known { color: var(--ok); }
+.status.learning { color: var(--amber); }
+.status.mastered { color: var(--ink); }
+.status.skipped { color: var(--ink-3); }
+.row-actions { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.levels td:not(:first-child), .levels th:not(:first-child) { text-align: right; }
+.levels .bar { display: block; height: 3px; background: var(--rule); margin-top: 4px; }
+.levels .bar i { display: block; height: 100%; background: var(--red); }
+
+.today h2.section { font-size: 20px; margin: 36px 0 8px; }
+h3.group { font-size: 16px; margin: 24px 0 6px; color: var(--ink-2); }
 .bottomnav { display: none; }
 
 main { padding-top: 20px; }

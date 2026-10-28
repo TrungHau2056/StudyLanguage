@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import type { Settings, Word } from '../db';
+import { markKnown, type Settings, type Word } from '../db';
 import { Meter, shuffle } from '../ui';
 import type { View } from '../App';
 
@@ -119,7 +119,12 @@ export default function Placement({ words, settings, setSettings, go }: Props) {
       </p>
       <div className="actions">
         <button onClick={() => { setAnswers([]); setChecking(false); setStarted(false); }}>Làm lại</button>
-        <button className="primary" onClick={() => { setSettings({ ...settings, knownUpTo, testEstimate: estimate }); go('home'); }}>
+        <button className="primary" onClick={async () => {
+          // Words whose meaning was picked correctly are proven known: never taught, only spot-checked.
+          await markKnown(items.flatMap((it, i) => (it.word && answers[i] === 'right' ? [it.word.id] : [])), 'test');
+          setSettings({ ...settings, knownUpTo, testEstimate: estimate });
+          go('home');
+        }}>
           Áp dụng kết quả
         </button>
       </div>

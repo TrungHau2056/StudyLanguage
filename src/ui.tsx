@@ -1,5 +1,5 @@
-import { useEffect, useState, type ReactNode } from 'react';
-import { Volume2 } from 'lucide-react';
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import { ChevronDown, Lightbulb, Volume2 } from 'lucide-react';
 import { getExtra, type Extra, type Word } from './db';
 
 export const TOPICS: Record<string, string> = {
@@ -88,18 +88,27 @@ export function WordHead({ word, extra }: { word: Word; extra?: Extra }) {
   );
 }
 
-/** Body of the entry: sense, definition, example, collocations (headword as ~), word family. */
-export function WordInfo({ word }: { word: Word }) {
+/**
+ * Body of the entry: sense, definition, example, collocations (headword as ~), word family.
+ * Compact shows only the meaning and one example (less to take in at first sight); the rest is one tap away.
+ */
+export function WordInfo({ word, compact = false }: { word: Word; compact?: boolean }) {
+  const [more, setMore] = useState(!compact);
   return (
     <>
       <div className="sense"><span className="num">1</span>{word.meaning}</div>
-      <div className="def en">{word.definition}</div>
-      {word.vi.length > 0 && <div className="alt">Nghĩa khác: {word.vi.join('; ')}</div>}
+      {more && <div className="def en">{word.definition}</div>}
+      {more && word.vi.length > 0 && <div className="alt">Nghĩa khác: {word.vi.join('; ')}</div>}
       <div className="ex">
         <button onClick={() => speak(word.example)} title="Nghe câu ví dụ">{word.example}</button>
         <div className="ex-vi">{word.exampleVi}</div>
       </div>
-      {word.collocations.length > 0 && (
+      {!more && (
+        <button className="quiet more" onClick={() => setMore(true)}>
+          Xem thêm: định nghĩa, cụm từ, họ từ <ChevronDown className="icon" />
+        </button>
+      )}
+      {more && word.collocations.length > 0 && (
         <div className="colls">
           <span className="lbl">Cụm hay gặp</span>
           {word.collocations.map((c, i) => (
@@ -110,7 +119,7 @@ export function WordInfo({ word }: { word: Word }) {
           ))}
         </div>
       )}
-      {word.family.length > 0 && (
+      {more && word.family.length > 0 && (
         <div className="family">
           <span className="lbl">Họ từ</span>
           {word.family.map((f, i) => {
@@ -131,4 +140,42 @@ export function Meter({ value, total, children }: { value: number; total: number
       <span>{children}</span>
     </div>
   );
+}
+
+export const TipsContext = createContext<{ seen: string[]; dismiss: (id: string) => void }>({ seen: [], dismiss: () => {} });
+
+/** One-time explanation shown the first time a screen is opened; "Đã hiểu" hides it for good. */
+export function Tip({ id, children }: { id: string; children: ReactNode }) {
+  const { seen, dismiss } = useContext(TipsContext);
+  if (seen.includes(id)) return null;
+  return (
+    <aside className="tip" role="note">
+      <Lightbulb className="icon" />
+      <div>{children}</div>
+      <button className="small" onClick={() => dismiss(id)}>Đã hiểu</button>
+    </aside>
+  );
+}
+
+/** Edit distance, for accepting small typos in typed answers. */
+export function editDistance(a: string, b: string) {
+  const row = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    let prev = row[0];
+    row[0] = i;
+    for (let j = 1; j <= b.length; j++) {
+      const tmp = row[j];
+      row[j] = Math.min(row[j] + 1, row[j - 1] + 1, prev + (a[i - 1] === b[j - 1] ? 0 : 1));
+      prev = tmp;
+    }
+  }
+  return row[b.length];
+}
+
+/** Four meaning options: the answer plus distractors of the same part of speech, topped up from any word. */
+export function meaningOptions(word: Word, words: Word[]): string[] {
+  const others = shuffle(words.filter((w) => w.id !== word.id && w.meaning !== word.meaning));
+  const samePos = others.filter((w) => w.pos === word.pos);
+  const picks = [...samePos, ...others.filter((w) => w.pos !== word.pos)].slice(0, 3);
+  return shuffle([word.meaning, ...picks.map((w) => w.meaning)]);
 }

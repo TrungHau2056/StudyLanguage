@@ -1,6 +1,6 @@
 import Dexie, { type EntityTable } from 'dexie';
 import { createEmptyCard, fsrs, type Card, type Grade } from 'ts-fsrs';
-import { pullCollection, pullProfile, pushDoc, pushMany, pushProfile } from './firebase';
+import { pullCollection, pullProfile, pushDoc, pushMany, pushProfile, removeDoc } from './firebase';
 
 export interface Word {
   id: number; // NGSL frequency rank
@@ -15,6 +15,9 @@ export interface Word {
   exampleVi: string;
   collocations: string[];
   family: string[];
+  cefr: Level;
+  /** Learnable in isolation (objects, actions…); false for grammar/abstract words best learned in context. */
+  concrete: boolean;
 }
 
 export interface Reading {
@@ -23,6 +26,7 @@ export interface Reading {
   text: string;
   vi: string;
   wordIds: number[];
+  level: 'A1' | 'A2–B1';
 }
 
 export interface StudyCard extends Card {
@@ -43,29 +47,54 @@ export interface Extra {
   audio?: string;
 }
 
+export const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1'] as const;
+export type Level = (typeof LEVELS)[number];
+
+/**
+ * A word the learner already knows: never taught or reviewed again, only spot-checked now and then.
+ * self = said "Đã biết" and passed the meaning check; test = proven in the placement test.
+ */
+export interface Known {
+  wordId: number;
+  source: 'self' | 'test';
+  at: Date;
+  checkedAt?: Date;
+}
+
 export interface Settings {
   newPerDay: number;
-  /** 'all' = frequency order (recommended), otherwise a topic key. */
+  /** 'level' = CEFR order, concrete words first (default); 'frequency' = NGSL rank order. */
+  order: 'level' | 'frequency';
+  /** Words below this CEFR level are skipped when choosing new words (still spot-checked). */
+  startLevel: Level;
+  /** 'all' or a topic key to restrict new words to one topic. */
   topic: string;
-  /** Words ranked ≤ this are treated as already known (set by the placement test). */
+  /** Words ranked ≤ this are skipped (set by the placement test; still spot-checked). */
   knownUpTo: number;
   /** Last placement-test estimate of known words, if taken. */
   testEstimate?: number;
   /** Welcome screen finished. */
   onboarded?: boolean;
+  /** First-time tips already dismissed. */
+  tipsSeen?: string[];
 }
 
-const DEFAULT_SETTINGS: Settings = { newPerDay: 10, topic: 'all', knownUpTo: 0 };
+/** True when the learner skipped this word by level or placement result (not taught unless they ask). */
+export const isSkipped = (w: Word, s: Settings) => w.id <= s.knownUpTo || LEVELS.indexOf(w.cefr) < LEVELS.indexOf(s.startLevel);
+
+const DEFAULT_SETTINGS: Settings = { newPerDay: 10, order: 'level', startLevel: 'A1', topic: 'all', knownUpTo: 0 };
 
 type VocabDb = Dexie & {
   cards: EntityTable<StudyCard, 'wordId'>;
   logs: EntityTable<ReviewLog, 'id'>;
   extras: EntityTable<Extra, 'word'>;
+  known: EntityTable<Known, 'wordId'>;
 };
 
 function openDb(name: string, logKey: string): VocabDb {
   const d = new Dexie(name) as VocabDb;
   d.version(1).stores({ cards: 'wordId, due, addedAt', logs: `${logKey}, wordId, reviewedAt`, extras: 'word' });
+  d.version(2).stores({ known: 'wordId' });
   return d;
 }
 
@@ -94,17 +123,20 @@ export function saveSettings(s: Settings) {
 export async function selectUser(id: string) {
   uid = id;
   db = openDb(`vocab-${id}`, 'id');
-  const [cards, logs, profile] = await Promise.all([
+  const [cards, logs, known, profile] = await Promise.all([
     pullCollection<StudyCard>(id, 'cards'),
     pullCollection<ReviewLog>(id, 'logs'),
+    pullCollection<Known>(id, 'known'),
     pullProfile<{ settings?: Settings }>(id),
   ]);
-  if (cards.length || profile?.settings) {
-    await db.transaction('rw', db.cards, db.logs, async () => {
+  if (cards.length || known.length || profile?.settings) {
+    await db.transaction('rw', db.cards, db.logs, db.known, async () => {
       await db.cards.clear();
       await db.logs.clear();
+      await db.known.clear();
       await db.cards.bulkPut(cards);
       await db.logs.bulkPut(logs);
+      await db.known.bulkPut(known);
     });
     if (profile?.settings) localStorage.setItem(settingsKey(), JSON.stringify(profile.settings));
     // Pre-account data on this browser was either migrated already or belongs to this person; never leak it to other accounts.
@@ -136,6 +168,36 @@ export async function addCard(wordId: number) {
   const card = { ...createEmptyCard(new Date()), wordId, addedAt: new Date() };
   await db.cards.put(card);
   pushCard(card);
+}
+
+const pushKnown = (k: Known) => uid && pushDoc(uid, ['known', String(k.wordId)], k).catch(console.error);
+
+/** Move words to "đã biết": they leave the learning queue and reviews for good. */
+export async function markKnown(wordIds: number[], source: Known['source']) {
+  const now = new Date();
+  const items = wordIds.map((wordId): Known => ({ wordId, source, at: now, checkedAt: now }));
+  await db.transaction('rw', db.known, db.cards, async () => {
+    await db.known.bulkPut(items);
+    await db.cards.bulkDelete(wordIds);
+  });
+  if (!uid) return;
+  await pushMany(uid, 'known', items.map((k) => ({ id: String(k.wordId), data: k })));
+  for (const id of wordIds) removeDoc(uid, ['cards', String(id)]).catch(console.error);
+}
+
+/** Put a word (known or skipped) back into learning, starting from scratch. */
+export async function relearn(wordId: number) {
+  await db.known.delete(wordId);
+  if (uid) removeDoc(uid, ['known', String(wordId)]).catch(console.error);
+  await addCard(wordId);
+}
+
+/** A spot-check passed: remember when, so the same word isn't checked again soon. */
+export async function confirmKnown(wordId: number, source: Known['source']) {
+  const prev = await db.known.get(wordId);
+  const k: Known = { wordId, source: prev?.source ?? source, at: prev?.at ?? new Date(), checkedAt: new Date() };
+  await db.known.put(k);
+  pushKnown(k);
 }
 
 export async function review(card: StudyCard, rating: Grade) {
@@ -212,12 +274,13 @@ export async function exportData() {
     version: 1,
     cards: await db.cards.toArray(),
     logs: await db.logs.toArray(),
+    known: await db.known.toArray(),
     settings: localStorage.getItem(settingsKey()),
   });
 }
 
 export async function importData(json: string) {
-  const data: { cards: StudyCard[]; logs: ReviewLog[]; settings?: string | null } = JSON.parse(json);
+  const data: { cards: StudyCard[]; logs: ReviewLog[]; known?: Known[]; settings?: string | null } = JSON.parse(json);
   if (!Array.isArray(data.cards) || !Array.isArray(data.logs)) throw new Error('File không hợp lệ');
   // JSON turns Dates into strings; restore them.
   const cards = data.cards.map((c) => ({
@@ -228,15 +291,19 @@ export async function importData(json: string) {
   }));
   // Synced logs need string ids that can't collide across devices.
   const logs = data.logs.map((l) => ({ ...l, id: uid ? crypto.randomUUID() : l.id, reviewedAt: new Date(l.reviewedAt) }));
-  await db.transaction('rw', db.cards, db.logs, async () => {
+  const known = (data.known ?? []).map((k) => ({ ...k, at: new Date(k.at), checkedAt: k.checkedAt ? new Date(k.checkedAt) : undefined }));
+  await db.transaction('rw', db.cards, db.logs, db.known, async () => {
     await db.cards.clear();
     await db.logs.clear();
+    await db.known.clear();
     await db.cards.bulkPut(cards);
     await db.logs.bulkPut(logs);
+    await db.known.bulkPut(known);
   });
   if (data.settings) saveSettings(JSON.parse(data.settings));
   if (uid) {
     await pushMany(uid, 'cards', cards.map((c) => ({ id: String(c.wordId), data: c })));
     await pushMany(uid, 'logs', logs.map((l) => ({ id: String(l.id), data: l })));
+    await pushMany(uid, 'known', known.map((k) => ({ id: String(k.wordId), data: k })));
   }
 }
