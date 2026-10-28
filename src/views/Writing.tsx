@@ -1,9 +1,23 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type ReactNode } from 'react';
+import { checkGrammar, type Issue } from '../grammarCheck';
 import { ArrowRight, Check, Volume2, X } from 'lucide-react';
 import type { StudyCard, Word } from '../db';
 import { Meter, Tip, WordHead, speak, useExtra, wordPattern } from '../ui';
 
 const Mark = ({ ok }: { ok: boolean }) => (ok ? <Check className="icon" /> : <X className="icon" />);
+
+/** The sentence with each detected mistake marked. */
+function highlight(text: string, issues: Issue[]): ReactNode[] {
+  const out: ReactNode[] = [];
+  let at = 0;
+  for (const [i, it] of [...issues].sort((a, b) => a.offset - b.offset).entries()) {
+    if (it.offset < at) continue; // overlapping matches: keep the first
+    out.push(text.slice(at, it.offset), <mark key={i} className="err">{text.slice(it.offset, it.offset + it.length)}</mark>);
+    at = it.offset + it.length;
+  }
+  out.push(text.slice(at));
+  return out;
+}
 
 /** Output practice: write your own sentence with a recently studied word, then compare with a model sentence. */
 export default function Writing({ cards, byId, onWritten }: { cards: StudyCard[]; byId: Map<number, Word>; onWritten: () => void }) {
@@ -16,6 +30,9 @@ export default function Writing({ cards, byId, onWritten }: { cards: StudyCard[]
   const [index, setIndex] = useState(0);
   const [text, setText] = useState('');
   const [checked, setChecked] = useState(false);
+  const [checking, setChecking] = useState(false);
+  /** Grammar/spelling issues of the checked sentence; null = the checker was unreachable. */
+  const [issues, setIssues] = useState<Issue[] | null>([]);
   const [done, setDone] = useState(0);
   const word = pool.length ? pool[index % pool.length] : undefined;
   const extra = useExtra(word);
@@ -25,15 +42,25 @@ export default function Writing({ cards, byId, onWritten }: { cards: StudyCard[]
   );
 
   const usesWord = wordPattern(word.word).test(text);
-  const words = text.trim().split(/\s+/).filter(Boolean).length;
-  const next = () => { setIndex((i) => i + 1 + Math.floor(Math.random() * 3)); setText(''); setChecked(false); };
+  const next = () => { setIndex((i) => i + 1 + Math.floor(Math.random() * 3)); setText(''); setChecked(false); setIssues([]); };
+  const check = async () => {
+    setChecking(true);
+    const found = await checkGrammar(text.trim());
+    setChecking(false);
+    setIssues(found);
+    setChecked(true);
+    setDone((n) => n + 1);
+    // Counts toward today's goal only when the sentence uses the word and has no detected mistakes.
+    if (usesWord && (found === null || found.length === 0)) onWritten();
+  };
+  const correct = issues !== null && issues.length === 0;
 
   return (
     <section className="entry">
       <Meter value={Math.min(done, 3)} total={3}>Đã viết {done} câu</Meter>
       <Tip id="write">
         Dùng được từ thì mới nhớ lâu. Viết một câu ngắn có từ này, tốt nhất là về chính bạn
-        (ví dụ “I eat rice every day”). Sai ngữ pháp cũng không sao, bấm Xong để so với câu mẫu. Mỗi ngày 3 câu.
+        (ví dụ “I eat rice every day”). Bấm Kiểm tra: web chỉ ra lỗi ngữ pháp, chính tả để bạn sửa, rồi so với câu mẫu. Mỗi ngày 3 câu đúng.
       </Tip>
       <WordHead word={word} extra={extra} />
       <div className="sense"><span className="num">1</span>{word.meaning}</div>
@@ -45,18 +72,31 @@ export default function Writing({ cards, byId, onWritten }: { cards: StudyCard[]
       {!checked ? (
         <div className="actions">
           <button onClick={next}>Bỏ qua</button>
-          <button className="primary" disabled={!text.trim()} onClick={() => {
-            setChecked(true);
-            setDone((n) => n + 1);
-            if (usesWord) onWritten(); // only sentences that really use the word count toward the goal
-          }}>Xong</button>
+          <button className="primary" disabled={!text.trim() || checking} onClick={check}>{checking ? 'Đang kiểm tra…' : 'Kiểm tra'}</button>
         </div>
       ) : (
         <>
           <ul className="checklist">
             <li className={usesWord ? 'ok' : 'bad'}><Mark ok={usesWord} /> Câu có dùng “{word.word}”</li>
-            <li className={words >= 6 ? 'ok' : 'bad'}><Mark ok={words >= 6} /> Câu đủ dài (từ 6 từ trở lên)</li>
+            {issues === null
+              ? <li className="hint">Không kiểm tra được ngữ pháp lúc này (mất mạng?). Hãy tự so với câu mẫu.</li>
+              : <li className={correct ? 'ok' : 'bad'}><Mark ok={correct} /> {correct ? 'Không thấy lỗi ngữ pháp, chính tả' : `Có ${issues.length} lỗi cần sửa`}</li>}
           </ul>
+          {issues && issues.length > 0 && (
+            <>
+              <p className="passage marked">{highlight(text, issues)}</p>
+              <ol className="issues">
+                {issues.map((it, i) => (
+                  <li key={i}>
+                    <b>“{text.slice(it.offset, it.offset + it.length)}”</b>
+                    {it.replacements.length > 0 && <> → <span className="ok">{it.replacements.join(' / ')}</span></>}
+                    <div className="hint">{it.message}</div>
+                  </li>
+                ))}
+              </ol>
+              <p className="hint">Sửa câu trong ô phía trên rồi bấm Kiểm tra lại.</p>
+            </>
+          )}
           <div className="ex">
             <span className="lbl">Câu mẫu</span>
             <button onClick={() => speak(word.example)} title="Nghe">{word.example}</button>
@@ -65,7 +105,9 @@ export default function Writing({ cards, byId, onWritten }: { cards: StudyCard[]
           <p className="hint">So với câu mẫu: cách dùng từ, giới từ đi kèm, thì của động từ đã giống chưa? Đọc to câu của bạn 2 lần.</p>
           <div className="actions">
             <button onClick={() => speak(text)}><Volume2 className="icon" /> Nghe câu của tôi</button>
-            <button className="primary" onClick={next}>Từ tiếp <ArrowRight className="icon" /></button>
+            {issues && issues.length > 0
+              ? <button className="primary" onClick={() => setChecked(false)}>Sửa lại</button>
+              : <button className="primary" onClick={next}>Từ tiếp <ArrowRight className="icon" /></button>}
           </div>
         </>
       )}
